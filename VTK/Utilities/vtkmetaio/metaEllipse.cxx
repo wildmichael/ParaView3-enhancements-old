@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaEllipse.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-12 15:53:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-21 00:24:59 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -24,6 +24,10 @@
 #include <ctype.h>
 #include <string>
 #include <string.h> // for memset
+
+#if defined (__BORLANDC__) && (__BORLANDC__ >= 0x0580)
+#include <mem.h>
+#endif
 
 #if (METAIO_USE_NAMESPACE)
 namespace METAIO_NAMESPACE {
