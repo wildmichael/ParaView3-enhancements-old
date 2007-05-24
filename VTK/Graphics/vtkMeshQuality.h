@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2007-03-07 22:46:36 $ 
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2007-05-24 19:55:17 $ 
+  Version:   $Revision: 1.31 $
 
   Copyright 2003-2006 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -288,9 +288,9 @@ public:
   // The default is VTK_QUALITY_RADIUS_RATIO (identical to Verdict's aspect
   // ratio beta) and valid values also include
   // VTK_QUALITY_ASPECT_RATIO, VTK_QUALITY_ASPECT_FROBENIUS, VTK_QUALITY_EDGE_RATIO,
-  // VTK_QUALITY_COLLAPSE_RATIO, VTK_QUALITY_ASPECT_GAMMA, VTK_QUALITY_VOLUME,
-  // VTK_QUALITY_CONDITION, VTK_QUALITY_JACOBIAN, VTK_QUALITY_SCALED_JACOBIAN,
-  // VTK_QUALITY_SHAPE, VTK_QUALITY_RELATIVE_SIZE_SQUARED,
+  // VTK_QUALITY_COLLAPSE_RATIO, VTK_QUALITY_ASPECT_BETA, VTK_QUALITY_ASPECT_GAMMA, 
+  // VTK_QUALITY_VOLUME, VTK_QUALITY_CONDITION, VTK_QUALITY_JACOBIAN, 
+  // VTK_QUALITY_SCALED_JACOBIAN, VTK_QUALITY_SHAPE, VTK_QUALITY_RELATIVE_SIZE_SQUARED,
   // VTK_QUALITY_SHAPE_AND_SIZE, and VTK_QUALITY_DISTORTION.
   vtkSetMacro(TetQualityMeasure,int);
   vtkGetMacro(TetQualityMeasure,int);
