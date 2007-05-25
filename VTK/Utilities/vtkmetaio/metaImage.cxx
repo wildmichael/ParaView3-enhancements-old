@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-21 00:25:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2007-05-25 19:05:04 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1922,6 +1922,7 @@ M_ReadElements(METAIO_STREAM::ifstream * _fstream, void * _data,
     
     MET_PerformUncompression(compr, m_CompressedDataSize,
                              (unsigned char *)_data, readSize);
+    delete [] compr;
     }
   else // if not compressed
     {
