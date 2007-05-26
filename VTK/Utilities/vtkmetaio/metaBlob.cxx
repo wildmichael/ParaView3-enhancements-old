@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaBlob.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-12 15:53:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-05-26 12:42:52 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -431,63 +431,66 @@ M_Write(void)
 {
 
   if(!MetaObject::M_Write())
-  {
-    METAIO_STREAM::cout << "MetaBlob: M_Read: Error parsing file" << METAIO_STREAM::endl;
+    {
+    METAIO_STREAM::cout << "MetaBlob: M_Read: Error parsing file" 
+                        << METAIO_STREAM::endl;
     return false;
-  }
+    }
 
   /** Then copy all points */
   if(m_BinaryData)
-  {
+    {
     PointListType::const_iterator it = m_PointList.begin();
+    PointListType::const_iterator itEnd = m_PointList.end();
     int elementSize;
     MET_SizeOfType(m_ElementType, &elementSize);
 
     char* data = new char[(m_NDims+4)*m_NPoints*elementSize];
     int i=0;
     int d;
-    while(it != m_PointList.end())
-    {
-      for(d = 0; d < m_NDims; d++)
+    while(it != itEnd)
       {
+      for(d = 0; d < m_NDims; d++)
+        {
         float pntX = (*it)->m_X[d];
         MET_SwapByteIfSystemMSB(&pntX,MET_FLOAT);    
         MET_DoubleToValue((double)pntX,m_ElementType,data,i++);
-      }
+        }
 
       for(d = 0; d < 4; d++)
-      {
+        {
         float c = (*it)->m_Color[d];
         MET_SwapByteIfSystemMSB(&c,MET_FLOAT);    
         MET_DoubleToValue((double)c,m_ElementType,data,i++);
-      }
+        }
       it++;
-    }  
+      }  
     m_WriteStream->write((char *)data,(m_NDims+4)*m_NPoints*elementSize);
     m_WriteStream->write("\n",1);
     delete [] data;
-  }
+    }
   else
-  {
+    {
     PointListType::const_iterator it = m_PointList.begin();
+    PointListType::const_iterator itEnd = m_PointList.end();
   
     int d;
-    while(it != m_PointList.end())
-    {
-      for(d = 0; d < m_NDims; d++)
+    while(it != itEnd)
       {
+      for(d = 0; d < m_NDims; d++)
+        {
         *m_WriteStream << (*it)->m_X[d] << " ";
-      }
+        }
 
       for(d = 0; d < 4; d++)
-      {
+        {
         *m_WriteStream << (*it)->m_Color[d] << " ";
-      }
+        }
 
       *m_WriteStream << METAIO_STREAM::endl;
       it++;
+      }
     }
-  }
 
   return true;
 
