@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-25 19:05:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2007-05-26 18:55:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1050,7 +1050,7 @@ Read(const char *_headerName, bool _readElements, void * _buffer)
                                   METAIO_STREAM::ios::in);
 #endif
 
-  if(!tmpReadStream->is_open())
+  if(!tmpReadStream->rdbuf()->is_open())
     {
     delete tmpReadStream;
     return false;
@@ -1181,7 +1181,7 @@ ReadStream(int _nDims,
           readStreamTemp->open(fName, METAIO_STREAM::ios::binary |
                                       METAIO_STREAM::ios::in);
 #endif
-          if(!readStreamTemp->is_open())
+          if(!readStreamTemp->rdbuf()->is_open())
             {
             METAIO_STREAM::cerr << "MetaImage: Read: cannot open slice" 
                                 << METAIO_STREAM::endl;
@@ -1242,7 +1242,7 @@ ReadStream(int _nDims,
         readStreamTemp->open(fName, METAIO_STREAM::ios::binary 
                                     | METAIO_STREAM::ios::in);
 #endif
-        if(!readStreamTemp->is_open())
+        if(!readStreamTemp->rdbuf()->is_open())
           {
           METAIO_STREAM::cerr << "MetaImage: Read: cannot construct file" 
                               << METAIO_STREAM::endl;
@@ -1279,7 +1279,7 @@ ReadStream(int _nDims,
                                   METAIO_STREAM::ios::in);
 #endif
 
-      if(!readStreamTemp->is_open())
+      if(!readStreamTemp->rdbuf()->is_open())
         {
         METAIO_STREAM::cerr << "MetaImage: Read: Cannot open data file" 
                             << METAIO_STREAM::endl;

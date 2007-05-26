@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaForm.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-21 00:25:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-26 18:55:51 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -625,7 +625,7 @@ Read(const char *_fileName)
                                   METAIO_STREAM::ios::in);
 #endif
 
-  if(!tmpReadStream->is_open())
+  if(!tmpReadStream->rdbuf()->is_open())
     {
     METAIO_STREAM::cout << "MetaForm: Read: Cannot open file" 
                         << METAIO_STREAM::endl;

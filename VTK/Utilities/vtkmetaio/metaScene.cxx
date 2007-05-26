@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaScene.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-12 15:53:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2007-05-26 18:55:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -156,7 +156,7 @@ Read(const char *_headerName)
                                  | METAIO_STREAM::ios::in);
 #endif
   
-  if(!m_ReadStream->is_open())
+  if(!m_ReadStream->rdbuf()->is_open())
   {
     METAIO_STREAM::cout << "MetaScene: Read: Cannot open file" << METAIO_STREAM::endl;
     return false;

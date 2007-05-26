@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-26 12:45:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2007-05-26 18:55:51 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -368,11 +368,13 @@ void MetaOutput::Write()
       }
 
     FieldVector::const_iterator it = m_FieldVector.begin();
-    while(it != m_FieldVector.end())
+    FieldVector::const_iterator itEnd = m_FieldVector.end();
+    while(it != itEnd)
       {
       if(typeid(*(*itStream)) == typeid(MetaFileOutputStream))
         {
-        METAIO_STL::string filename = ((MetaFileOutputStream*)(*itStream))->GetFileName().c_str();
+        METAIO_STL::string filename = ((MetaFileOutputStream*)(*itStream))
+                                      ->GetFileName().c_str();
         (*itStream)->Write(this->GenerateXML(filename.c_str()).c_str());
         }
       else
