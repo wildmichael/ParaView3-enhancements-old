@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-11 22:11:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-05-26 12:45:24 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -14,6 +14,10 @@
      PURPOSE.  See the above copyright notices for more information.
 
 =========================================================================*/
+#ifdef _MSC_VER
+#pragma warning(disable:4702)
+#endif
+
 #if defined(_WIN32) || defined(__CYGWIN__)
 #include <winsock2.h>
 #else

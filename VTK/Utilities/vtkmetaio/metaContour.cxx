@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaContour.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-12 15:53:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-05-26 12:45:24 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -14,11 +14,11 @@
      PURPOSE.  See the above copyright notices for more information.
 
 =========================================================================*/
-#include "metaContour.h"
-
 #ifdef _MSC_VER
 #pragma warning(disable:4702)
 #endif
+
+#include "metaContour.h"
 
 #include <stdio.h>
 #include <ctype.h>
