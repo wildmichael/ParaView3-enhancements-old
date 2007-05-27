@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-26 18:55:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2007-05-27 14:04:13 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -347,7 +347,7 @@ Write(const char *_fileName)
                                   METAIO_STREAM::ios::out);
 #endif
 
-  if(!m_WriteStream->is_open())
+  if(!m_WriteStream->rdbuf()->is_open())
     {
     return false;
     }
@@ -1761,7 +1761,7 @@ bool MetaObject
   m_WriteStream->open(m_FileName, METAIO_STREAM::ios::binary 
                                   | METAIO_STREAM::ios::out 
                                   | METAIO_STREAM::ios::app);
-  if(!m_WriteStream->is_open())
+  if(!m_WriteStream->rdbuf()->is_open())
     {
     delete m_WriteStream;
     m_WriteStream = 0;

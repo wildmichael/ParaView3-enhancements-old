@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-26 18:55:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-05-27 14:04:13 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -872,7 +872,7 @@ Write(const char *_headName, const char *_dataName, bool _writeElements,
                                    METAIO_STREAM::ios::out);
 #endif
 
-  if(!tmpWriteStream->is_open())
+  if(!tmpWriteStream->rdbuf()->is_open())
     {
     if(tmpDataFileName)
       {

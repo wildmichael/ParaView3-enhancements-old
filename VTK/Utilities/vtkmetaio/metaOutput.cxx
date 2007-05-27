@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-26 18:55:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2007-05-27 14:04:13 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -337,7 +337,7 @@ void MetaOutput::Write()
                                       | METAIO_STL::ios::out);
 #endif
 
-    if(fileStream.is_open())
+    if(fileStream.rdbuf()->is_open())
       {
       fileStream << this->GenerateXML(filename.c_str()).c_str();
       fileStream.close();
