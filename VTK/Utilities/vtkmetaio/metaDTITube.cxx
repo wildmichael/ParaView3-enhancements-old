@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaDTITube.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-12 15:53:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2007-05-29 12:13:13 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -16,7 +16,8 @@
 =========================================================================*/
 #ifdef _MSC_VER
 #pragma warning ( disable : 4786 )
-#pragma warning(disable:4702)
+#pragma warning ( disable : 4702 )
+#pragma warning ( disable : 4284 )
 #endif
 
 #include "metaDTITube.h"

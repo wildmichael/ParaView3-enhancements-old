@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaVesselTube.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 21:37:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-29 12:13:13 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -14,6 +14,11 @@
      PURPOSE.  See the above copyright notices for more information.
 
 =========================================================================*/
+#ifdef _MSC_VER
+#pragma warning(disable:4702)
+#pragma warning(disable:4284)
+#endif
+
 #include "metaVesselTube.h"
 
 #include <stdio.h>
