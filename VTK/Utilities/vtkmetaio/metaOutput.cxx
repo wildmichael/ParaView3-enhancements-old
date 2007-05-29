@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-28 17:44:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2007-05-29 14:54:23 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -154,7 +154,14 @@ Open()
   m_FileStream.open(m_FileName.c_str(), METAIO_STREAM::ios::binary 
                                         | METAIO_STREAM::ios::out);
 #endif
-  return m_FileStream.is_open();
+  if( m_FileStream.rdbuf()->is_open() )
+    {
+    return true;
+    }
+  else
+    {
+    return false;
+    }
 }
 
 bool
