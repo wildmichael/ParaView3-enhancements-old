@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-29 14:54:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2007-05-31 13:36:08 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -432,6 +432,7 @@ M_Write(void)
   if(m_BinaryData)
   {
     PointListType::const_iterator it = m_PointList.begin();
+    PointListType::const_iterator itEnd = m_PointList.end();
     int elementSize;
     MET_SizeOfType(m_ElementType, &elementSize);
 
@@ -471,6 +472,7 @@ M_Write(void)
   else
   {
     PointListType::const_iterator it = m_PointList.begin();
+    PointListType::const_iterator itEnd = m_PointList.end();
   
     int d;
     while(it != m_PointList.end())

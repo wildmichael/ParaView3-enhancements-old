@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-29 14:54:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2007-05-31 13:36:08 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -20,7 +20,7 @@
 
 #include "metaOutput.h"
 
-#if defined(_WIN32) || defined(__CYGWIN__)
+#if defined(_WIN32)
 #include <winsock2.h>
 #else
 #include <unistd.h>
@@ -387,7 +387,8 @@ METAIO_STL::string MetaOutput::GenerateXML(const char* filename)
   buffer += "<Inputs>\n";
   const MetaCommand::OptionVector options = m_MetaCommand->GetParsedOptions();
   MetaCommand::OptionVector::const_iterator itInput = options.begin();
-  while(itInput != options.end())
+  MetaCommand::OptionVector::const_iterator itInputEnd = options.end();
+  while(itInput != itInputEnd)
     {
     if((*itInput).name == "GenerateMetaOutput")
       {
@@ -397,7 +398,8 @@ METAIO_STL::string MetaOutput::GenerateXML(const char* filename)
 
     typedef METAIO_STL::vector<MetaCommand::Field> CmdFieldVector;
     CmdFieldVector::const_iterator itField = (*itInput).fields.begin();
-    while(itField != (*itInput).fields.end())
+    CmdFieldVector::const_iterator itFieldEnd = (*itInput).fields.end();
+    while(itField != itFieldEnd)
       {
       if((*itInput).fields.size() == 1)
         {
@@ -444,7 +446,8 @@ METAIO_STL::string MetaOutput::GenerateXML(const char* filename)
   buffer += "<Outputs>\n";
 
   FieldVector::const_iterator itOutput =  m_FieldVector.begin();
-  while(itOutput != m_FieldVector.end())
+  FieldVector::const_iterator itOutputEnd =  m_FieldVector.end();
+  while(itOutput != itOutputEnd)
     {
     buffer += "  <Output name=\""+ (*itOutput).name + "\"";
     buffer += " description=\""+ (*itOutput).description + "\"";
