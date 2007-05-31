@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.cxx,v 1.3 2007-05-10 20:34:07 clarke Exp $  */
-/*  Date : $Date: 2007-05-10 20:34:07 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDsmComm.cxx,v 1.4 2007-05-31 21:06:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-31 21:06:01 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,20 +27,9 @@
 
 
 XdmfDsmComm::XdmfDsmComm() {
-    this->Msg = new XdmfDsmMsg;
 }
 
 XdmfDsmComm::~XdmfDsmComm() {
-}
-
-XdmfInt32
-XdmfDsmComm::SetMsg(XdmfDsmMsg *Msg){
-        this->Msg = Msg;
-    }
-
-XdmfDsmMsg *
-XdmfDsmComm::GetMsg(){
-    return(this->Msg);
 }
 
 XdmfInt32

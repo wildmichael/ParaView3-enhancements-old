@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.h,v 1.2 2007-05-09 15:09:41 clarke Exp $  */
-/*  Date : $Date: 2007-05-09 15:09:41 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDsmComm.h,v 1.3 2007-05-31 21:06:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-31 21:06:01 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,10 +55,6 @@ public:
     XdmfGetValueMacro(TotalSize, XdmfInt32);
     XdmfSetValueMacro(TotalSize, XdmfInt32);
 
-    //! Message
-    XdmfDsmMsg *GetMsg();
-    XdmfInt32   SetMsg(XdmfDsmMsg *Msg);
-
     virtual XdmfInt32   Init();
     virtual XdmfInt32   Send(XdmfDsmMsg *Msg);
     virtual XdmfInt32   Receive(XdmfDsmMsg *Msg);
@@ -71,7 +67,6 @@ public:
 protected:
     XdmfInt32       Id;
     XdmfInt32       TotalSize;
-    XdmfDsmMsg      *Msg;
 };
 
 #endif // __XdmfDsmComm_h

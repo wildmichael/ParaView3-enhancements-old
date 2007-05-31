@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.h,v 1.1 2007-05-08 16:31:53 clarke Exp $  */
-/*  Date : $Date: 2007-05-08 16:31:53 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDsmCommMpi.h,v 1.2 2007-05-31 21:06:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-31 21:06:01 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -47,6 +47,7 @@ public:
     //! Get the MPI Communicator
     XdmfGetValueMacro(Comm, MPI_Comm);
 
+    XdmfInt32   DupComm(MPI_Comm Source);
     XdmfInt32   Init();
     XdmfInt32   Send(XdmfDsmMsg *Msg);
     XdmfInt32   Receive(XdmfDsmMsg *Msg);

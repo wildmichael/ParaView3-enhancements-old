@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.h,v 1.3 2007-05-17 21:00:56 clarke Exp $  */
-/*  Date : $Date: 2007-05-17 21:00:56 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDsmBuffer.h,v 1.4 2007-05-31 21:06:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-31 21:06:01 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -44,6 +44,8 @@ public:
     XdmfInt32   Put(XdmfInt64 Address, XdmfInt64 Length, void *Data);
     XdmfInt32   Get(XdmfInt64 Address, XdmfInt64 Length, void *Data);
 
+    XdmfInt32   Copy(XdmfDsmBuffer *Source);
+    XdmfInt32   ServiceInit();
     XdmfInt32   ServiceOnce(XdmfInt32 *ReturnOpcode=0);
     XdmfInt32   ServiceUntilIdle(XdmfInt32 *ReturnOpcode=0);
     XdmfInt32   ServiceLoop(XdmfInt32 *ReturnOpcode=0);

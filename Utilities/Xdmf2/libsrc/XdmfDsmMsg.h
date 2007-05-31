@@ -2,7 +2,7 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmMsg.h,v 1.2 2007-05-10 20:34:07 clarke Exp $  */
+/*  Id : $Id: XdmfDsmMsg.h,v 1.3 2007-05-31 21:06:01 clarke Exp $  */
 /*  Date : $Date $ */
 /*  Version : $Revision $ */
 /*                                                                 */
@@ -33,6 +33,8 @@
 */
 
 #define XDMF_DSM_DEFAULT_TAG    0x80
+#define XDMF_DSM_COMMAND_TAG    0x81
+#define XDMF_DSM_RESPONSE_TAG   0x82
 
 #define XDMF_DSM_ANY_SOURCE     -1
 
