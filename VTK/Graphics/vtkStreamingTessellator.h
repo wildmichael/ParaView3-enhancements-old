@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamingTessellator.h,v $
   Language:  C++
-  Date:      $Date: 2007-06-01 03:00:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-06-01 16:13:52 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -131,7 +131,9 @@ class VTK_GRAPHICS_EXPORT vtkStreamingTessellator : public vtkObject
     // each call to AdaptivelySample2Facet (also recursive).
     virtual void SetSubdivisionAlgorithm( vtkEdgeSubdivisionCriterion* );
     virtual vtkEdgeSubdivisionCriterion* GetSubdivisionAlgorithm() ;
+    //BTX
     virtual const vtkEdgeSubdivisionCriterion* GetSubdivisionAlgorithm() const;
+    //ETX
 
     // Description:
     // Get/Set the number of parameter-space coordinates associated with each input and output point.

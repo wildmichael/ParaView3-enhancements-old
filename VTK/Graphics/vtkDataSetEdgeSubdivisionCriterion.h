@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetEdgeSubdivisionCriterion.h,v $
   Language:  C++
-  Date:      $Date: 2007-06-01 03:00:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-06-01 16:13:52 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -49,7 +49,9 @@ class VTK_GRAPHICS_EXPORT vtkDataSetEdgeSubdivisionCriterion : public vtkEdgeSub
 
     virtual void SetMesh( vtkDataSet* );
     vtkDataSet* GetMesh();
+    //BTX
     const vtkDataSet* GetMesh() const;
+    //ETX
 
     virtual void SetCellId( vtkIdType cell );
     vtkIdType  GetCellId() const;
@@ -57,7 +59,9 @@ class VTK_GRAPHICS_EXPORT vtkDataSetEdgeSubdivisionCriterion : public vtkEdgeSub
     vtkIdType& GetCellId();
     //ETX
     vtkCell* GetCell();
+    //BTX
     const vtkCell* GetCell() const;
+    //ETX
 
     virtual bool EvaluateEdge( const double* p0, double* midpt, const double* p1, int field_start );
 
