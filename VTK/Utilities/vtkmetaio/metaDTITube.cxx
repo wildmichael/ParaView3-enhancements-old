@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaDTITube.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-29 13:10:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2007-06-01 13:07:52 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -735,7 +735,7 @@ M_Write(void)
   else
     {
     PointListType::const_iterator it = m_PointList.begin();
-    PointListType::const_iterator itEnd = m_PointList.begin();
+    PointListType::const_iterator itEnd = m_PointList.end();
   
     int d;
     while(it != itEnd)
