@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.h,v $
   Language:  C++
-  Date:      $Date: 2007-05-28 17:44:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-06-03 17:38:46 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -29,7 +29,6 @@
 #include "metaCommand.h"
 #include <stdio.h>
 #include <string>
-#include <fstream>
 
 #if (METAIO_USE_NAMESPACE)
 namespace METAIO_NAMESPACE {
