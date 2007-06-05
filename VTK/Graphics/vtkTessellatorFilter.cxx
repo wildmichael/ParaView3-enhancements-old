@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTessellatorFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-06-04 08:35:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-06-05 16:46:33 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -37,7 +37,7 @@
 #include "vtkTessellatorFilter.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkTessellatorFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkTessellatorFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkTessellatorFilter);
 
 // ========================================
@@ -1444,6 +1444,7 @@ int vtkTessellatorFilter::RequestData(
   if ( this->MergePoints )
     {
     this->MergeOutputPoints( tmpOut, output );
+    tmpOut->Delete();
     }
 
   this->Teardown();
