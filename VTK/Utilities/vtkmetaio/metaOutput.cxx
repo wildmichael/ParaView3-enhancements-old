@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-06-08 20:54:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2007-06-08 21:51:09 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -307,7 +307,7 @@ GetHostname()
 
 METAIO_STL::string MetaOutput::GetHostip()
 {
-  #if defined (_WIN32) || !defined(__CYGWIN__)
+  #if defined (_WIN32) && !defined(__CYGWIN__)
     WSADATA    WsaData;
     int err = WSAStartup (0x0101, &WsaData);              // Init Winsock
     if(err!=0)
