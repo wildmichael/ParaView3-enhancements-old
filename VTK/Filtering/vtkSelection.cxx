@@ -29,7 +29,7 @@
 #include <vtkstd/map>
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkSelection, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkSelection, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkSelection);
 
 vtkCxxSetObjectMacro(vtkSelection, SelectionList, vtkAbstractArray);
@@ -349,6 +349,7 @@ void vtkSelection::Union(vtkSelection* s)
   switch (type)
     {
     case GLOBALIDS:
+    case PEDIGREEIDS:
     case VALUES:
     case INDICES:
     case LOCATIONS:
