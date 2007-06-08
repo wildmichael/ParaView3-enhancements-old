@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-31 13:36:08 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2007-06-08 21:47:32 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -26,7 +26,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#if defined(_WIN32)
+#if defined(_WIN32) && !defined(__CYGWIN__)
 #include <winsock2.h>
 #else
 #include <unistd.h>
