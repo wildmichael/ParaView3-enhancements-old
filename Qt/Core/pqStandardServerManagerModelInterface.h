@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqTextDisplay.h,v $
+   Module:    $RCSfile: pqStandardServerManagerModelInterface.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -28,33 +28,32 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-=========================================================================*/
-#ifndef __pqTextDisplay_h
-#define __pqTextDisplay_h
+========================================================================*/
+#ifndef __pqStandardServerManagerModelInterface_h 
+#define __pqStandardServerManagerModelInterface_h
 
-#include "pqConsumerDisplay.h"
+#include "pqCoreExport.h"
+#include "pqServerManagerModelInterface.h"
+#include <QObject>
 
-/// This is a display representation for "TextDisplay" proxy.
-/// This class may soon be removed since there's no particular
-/// need for it. It was created when text source wasn't a
-/// true source.
-class PQCORE_EXPORT pqTextDisplay : public pqConsumerDisplay
+/// This is standard implementation used by ParaView for creating different
+/// pqProxy subclassess for every proxy registered.
+class PQCORE_EXPORT pqStandardServerManagerModelInterface : public QObject,
+                                                            public pqServerManagerModelInterface
 {
   Q_OBJECT
-
-  typedef pqConsumerDisplay Superclass;
+  Q_INTERFACES(pqServerManagerModelInterface)
 public:
-  pqTextDisplay(const QString& group, const QString& name,
-    vtkSMProxy* display, pqServer* server,
-    QObject* parent=0);
-  virtual ~pqTextDisplay();
+  pqStandardServerManagerModelInterface(QObject* parent);
+  virtual ~pqStandardServerManagerModelInterface();
 
-  virtual void setDefaultPropertyValues();
+  /// Creates a pqProxy subclass for the vtkSMProxy given the details for its
+  /// registration with the proxy manager.
+  virtual pqProxy* createPQProxy(const QString& group,
+    const QString& name, vtkSMProxy* proxy, pqServer* server) const;
 
-private:
-  pqTextDisplay(const pqTextDisplay&); // Not implemented.
-  void operator=(const pqTextDisplay&); // Not implemented.
 };
 
 #endif
+
 

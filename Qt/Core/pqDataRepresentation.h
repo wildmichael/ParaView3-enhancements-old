@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqConsumerDisplay.h,v $
+   Module:    $RCSfile: pqDataRepresentation.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,32 +29,31 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef __pqConsumerDisplay_h
-#define __pqConsumerDisplay_h
+#ifndef __pqDataRepresentation_h
+#define __pqDataRepresentation_h
 
-#include "pqDisplay.h"
+#include "pqRepresentation.h"
 
-class pqConsumerDisplayInternal;
+class pqDataRepresentationInternal;
 class pqPipelineSource;
 class pqScalarsToColors;
 
-// pqConsumerDisplay is the superclass for a display for a pqPiplineSource 
+// pqDataRepresentation is the superclass for a display for a pqPipelineSource 
 // i.e. the input for this display proxy is a pqPiplineSource.
 // This class manages the linking between the pqPiplineSource 
-// and pqConsumerDisplay.
-class PQCORE_EXPORT pqConsumerDisplay : public pqDisplay
+// and pqDataRepresentation.
+class PQCORE_EXPORT pqDataRepresentation : public pqRepresentation
 {
   Q_OBJECT
-  typedef pqDisplay Superclass;
+  typedef pqRepresentation Superclass;
 public:
-  pqConsumerDisplay(const QString& group, const QString& name,
+  pqDataRepresentation(const QString& group, const QString& name,
     vtkSMProxy* display, pqServer* server,
     QObject* parent=0);
-  virtual ~pqConsumerDisplay();
+  virtual ~pqDataRepresentation();
 
   // Get the source/filter of which this is a display.
   pqPipelineSource* getInput() const;
-
 
   /// Returns the lookuptable proxy, if any.
   /// Most consumer displays take a lookup table. This method 
@@ -67,7 +66,6 @@ public:
   /// provides access to the Lookup table, if one exists.
   virtual pqScalarsToColors* getLookupTable();
 
-
   /// Sets default values for the underlying proxy. 
   /// This is during the initialization stage of the pqProxy 
   /// for proxies created by the GUI itself i.e.
@@ -76,16 +74,28 @@ public:
   /// The default implementation iterates over all properties
   /// of the proxy and sets them to default values. 
   virtual void setDefaultPropertyValues();
+
 protected slots:
   // called when input property on display changes. We must detect if
   // (and when) the display is connected to a new proxy.
   virtual void onInputChanged();
 
-private:
-  pqConsumerDisplay(const pqConsumerDisplay&); // Not implemented.
-  void operator=(const pqConsumerDisplay&); // Not implemented.
+protected:
+  // Use this method to initialize the pqObject state using the
+  // underlying vtkSMProxy. This needs to be done only once,
+  // after the object has been created. 
+  virtual void initialize() 
+    {
+    this->Superclass::initialize();
+    this->onInputChanged();
+    }
 
-  pqConsumerDisplayInternal* Internal;
+
+private:
+  pqDataRepresentation(const pqDataRepresentation&); // Not implemented.
+  void operator=(const pqDataRepresentation&); // Not implemented.
+
+  pqDataRepresentationInternal* Internal;
 };
 
 #endif

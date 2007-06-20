@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqBarChartDisplay.h,v $
+   Module:    $RCSfile: pqBarChartRepresentation.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,28 +29,28 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef __pqBarChartDisplay_h
-#define __pqBarChartDisplay_h
+#ifndef __pqBarChartRepresentation_h
+#define __pqBarChartRepresentation_h
 
-#include "pqConsumerDisplay.h"
+#include "pqDataRepresentation.h"
 
 class pqScalarsToColors;
 class vtkDataArray;
 class vtkRectilinearGrid;
 class vtkTimeStamp;
 
-/// pqBarChartDisplay is a pqDisplay for "BarChartDisplay" proxy.
+/// pqBarChartRepresentation is a pqDisplay for "BarChartDisplay" proxy.
 /// It adds logic to initialize the default state of the display proxy
 /// as well as managing lookuptable.
-class PQCORE_EXPORT pqBarChartDisplay : public pqConsumerDisplay
+class PQCORE_EXPORT pqBarChartRepresentation : public pqDataRepresentation
 {
   Q_OBJECT
-  typedef pqConsumerDisplay Superclass;
+  typedef pqDataRepresentation Superclass;
 public:
-  pqBarChartDisplay(const QString& group, const QString& name,
+  pqBarChartRepresentation(const QString& group, const QString& name,
     vtkSMProxy* display, pqServer* server,
     QObject* parent=0);
-  virtual ~pqBarChartDisplay();
+  virtual ~pqBarChartRepresentation();
 
   /// Sets default values for the underlying proxy. 
   /// This is during the initialization stage of the pqProxy 
@@ -92,8 +92,8 @@ protected slots:
   void markModified();
 
 private:
-  pqBarChartDisplay(const pqBarChartDisplay&); // Not implemented.
-  void operator=(const pqBarChartDisplay&); // Not implemented.
+  pqBarChartRepresentation(const pqBarChartRepresentation&); // Not implemented.
+  void operator=(const pqBarChartRepresentation&); // Not implemented.
 
   class pqInternals;
   pqInternals* Internal;

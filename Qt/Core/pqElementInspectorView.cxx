@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqElementInspectorViewModule.cxx,v $
+   Module:    $RCSfile: pqElementInspectorView.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,7 +29,7 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ========================================================================*/
-#include "pqElementInspectorViewModule.h"
+#include "pqElementInspectorView.h"
 
 // Server Manager Includes.
 #include "vtkSMProxy.h"
@@ -40,24 +40,23 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "pqPipelineSource.h"
 
 //-----------------------------------------------------------------------------
-pqElementInspectorViewModule::pqElementInspectorViewModule(
+pqElementInspectorView::pqElementInspectorView(
  const QString& group, const QString& name, 
-    vtkSMAbstractViewModuleProxy* viewModule, pqServer* server, 
+    vtkSMViewProxy* viewModule, pqServer* server, 
     QObject* _parent/*=NULL*/):
-   pqGenericViewModule(
-     eiViewType(), group, name, viewModule, server, _parent)
+   pqView(eiViewType(), group, name, viewModule, server, _parent)
 {
 
 }
 
 //-----------------------------------------------------------------------------
-pqElementInspectorViewModule::~pqElementInspectorViewModule()
+pqElementInspectorView::~pqElementInspectorView()
 {
 
 }
 
 //-----------------------------------------------------------------------------
-bool pqElementInspectorViewModule::canDisplaySource(pqPipelineSource* source) const
+bool pqElementInspectorView::canDisplaySource(pqPipelineSource* source) const
 {
   if (source)
     {
