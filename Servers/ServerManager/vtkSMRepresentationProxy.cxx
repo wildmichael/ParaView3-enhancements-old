@@ -19,13 +19,15 @@
 #include "vtkSMProxyProperty.h"
 #include "vtkInformation.h"
 
-vtkCxxRevisionMacro(vtkSMRepresentationProxy, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSMRepresentationProxy, "$Revision: 1.5 $");
 vtkCxxSetObjectMacro(vtkSMRepresentationProxy, ViewInformation, vtkInformation);
 //----------------------------------------------------------------------------
 vtkSMRepresentationProxy::vtkSMRepresentationProxy()
 {
   this->SelectionSupported = false;
   this->ViewInformation = 0;
+  this->ViewUpdateTime = 0;
+  this->ViewUpdateTimeInitialized = false;
 }
 
 //----------------------------------------------------------------------------
