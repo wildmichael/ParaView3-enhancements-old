@@ -38,7 +38,7 @@
 
 #include "verdict.h"
 
-vtkCxxRevisionMacro(vtkMeshQuality,"$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkMeshQuality,"$Revision: 1.50 $");
 vtkStandardNewMacro(vtkMeshQuality);
 
 typedef double (*CellQualityType)( vtkCell*  );
@@ -401,7 +401,7 @@ int vtkMeshQuality::RequestData(
     default:
       vtkWarningMacro( "Bad HexQualityMeasure ("
         << this->GetTetQualityMeasure() << "), using MaxAspectFrobenius instead");
-      HexQuality = HexEdgeRatio;
+      HexQuality = HexMaxAspectFrobenius;
       break;
     }
 
