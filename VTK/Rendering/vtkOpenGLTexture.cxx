@@ -28,7 +28,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 
@@ -41,6 +41,10 @@ vtkOpenGLTexture::vtkOpenGLTexture()
 
 vtkOpenGLTexture::~vtkOpenGLTexture()
 {
+  if (this->RenderWindow)
+    {
+    this->ReleaseGraphicsResources(this->RenderWindow);
+    }
   this->RenderWindow = NULL;
 }
 
