@@ -1394,7 +1394,7 @@ private:
   void operator=(const vtkExodusXMLParser&); // Not implemented
 };
 
-vtkCxxRevisionMacro(vtkExodusXMLParser, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkExodusXMLParser, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkExodusXMLParser);
 
 // This is a cruddy hack... because we need to pass a
@@ -1576,7 +1576,7 @@ void vtkExodusMetadata::Finalize()
 }
 
 
-vtkCxxRevisionMacro(vtkExodusReader, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkExodusReader, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkExodusReader);
 
 #ifdef ARRAY_TYPE_NAMES_IN_CXX_FILE
@@ -2470,13 +2470,8 @@ int vtkExodusReader::RequestInformation(
       if (!XMLfound)
         {
         //try artifact.dta
-#ifdef _WIN32
-        fpt=strrchr(tempName,'\\');
-        if (fpt) strncpy(fpt,"\\artifact.dta\0",14);
-#else
         fpt=strrchr(tempName,'/');
         if (fpt) strncpy(fpt,"/artifact.dta\0",14);
-#endif
         if (vtkExodusReaderFileExist(tempName)) 
           {
           SetXMLFileName(tempName);
