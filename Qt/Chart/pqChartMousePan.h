@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqChartSelectionHelper.cxx,v $
+   Module:    $RCSfile: pqChartMousePan.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,30 +30,48 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-/// \file pqChartSelectionHelper.cxx
-/// \date 11/8/2006
+/// \file pqChartMousePan.h
+/// \date 6/25/2007
 
-#include "pqChartSelectionHelper.h"
-
-#include "pqChartContentsSpace.h"
-#include "pqChartMouseBox.h"
+#ifndef _pqChartMousePan_h
+#define _pqChartMousePan_h
 
 
-pqChartSelectionHelper::pqChartSelectionHelper(QObject *parentObject)
-  : QObject(parentObject)
+#include "QtChartExport.h"
+#include "pqChartMouseFunction.h"
+
+class pqChartContentsSpace;
+class pqChartMousePanInternal;
+class QMouseEvent;
+
+
+/// \class pqChartMousePan
+/// \brief
+///   The pqChartMousePan class pans the contents in response to
+///   mouse events.
+class QTCHART_EXPORT pqChartMousePan : public pqChartMouseFunction
 {
-  this->Mouse = 0;
-  this->Contents = 0;
-}
+public:
+  /// \brief
+  ///   Creates a mouse pan instance.
+  /// \param parent Te parent object.
+  pqChartMousePan(QObject *parent=0);
+  virtual ~pqChartMousePan();
 
-void pqChartSelectionHelper::setContentsSpace(pqChartContentsSpace *contents)
-{
-  this->Contents = contents;
-}
+  /// \name pqChartMouseFunction Methods
+  //@{
+  virtual void setMouseOwner(bool owns);
 
-void pqChartSelectionHelper::setMouseBox(pqChartMouseBox *mouse)
-{
-  this->Mouse = mouse;
-}
+  virtual bool mousePressEvent(QMouseEvent *e, pqChartContentsSpace *contents);
+  virtual bool mouseMoveEvent(QMouseEvent *e, pqChartContentsSpace *contents);
+  virtual bool mouseReleaseEvent(QMouseEvent *e,
+      pqChartContentsSpace *contents);
+  virtual bool mouseDoubleClickEvent(QMouseEvent *e,
+      pqChartContentsSpace *contents);
+  //@}
 
+private:
+  pqChartMousePanInternal *Internal; ///< Stores the last mouse position.
+};
 
+#endif

@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqLineChartWidget.cxx,v $
+   Module:    $RCSfile: pqChartMouseFunction.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,41 +30,27 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-/// \file pqLineChartWidget.cxx
-/// \date 9/27/2005
+/// \file pqChartMouseFunction.cxx
+/// \date 6/21/2007
 
-#include "pqLineChartWidget.h"
+#include "pqChartMouseFunction.h"
 
-#include "pqChartArea.h"
-#include "pqChartAxis.h"
-#include "pqChartWidget.h"
-#include "pqLineChart.h"
-#include <QWidget>
+#include "pqChartContentsSpace.h"
+#include "pqChartMouseBox.h"
+
+#include <QCursor>
+#include <QMouseEvent>
+#include <QRect>
 
 
-pqChartWidget *pqLineChartWidget::createLineChart(QWidget *parent,
-    pqLineChart **layer)
+pqChartMouseFunction::pqChartMouseFunction(QObject *parentObject)
+  : QObject(parentObject)
 {
-  pqChartWidget *chart = new pqChartWidget(parent);
+  this->OwnsMouse = false;
+}
 
-  // Get the chart area and set up the axes.
-  pqChartArea *chartArea = chart->getChartArea();
-  chartArea->createAxis(pqChartAxis::Left);
-  chartArea->createAxis(pqChartAxis::Bottom);
-
-  // Set up the line chart.
-  pqLineChart *lineChart = new pqLineChart(chartArea);
-  lineChart->setAxes(chartArea->getAxis(pqChartAxis::Bottom),
-      chartArea->getAxis(pqChartAxis::Left));
-  chartArea->addLayer(lineChart);
-
-  // Pass back a pointer to the line chart layer.
-  if(layer)
-    {
-    *layer = lineChart;
-    }
-
-  return chart;
+void pqChartMouseFunction::setMouseBox(pqChartMouseBox *)
+{
 }
 
 
