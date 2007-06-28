@@ -220,11 +220,11 @@ private:
 };
 
 vtkStandardNewMacro(vtkClientConnectionUndoSet);
-vtkCxxRevisionMacro(vtkClientConnectionUndoSet, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkClientConnectionUndoSet, "$Revision: 1.9 $");
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkClientConnection);
-vtkCxxRevisionMacro(vtkClientConnection, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkClientConnection, "$Revision: 1.9 $");
 //-----------------------------------------------------------------------------
 vtkClientConnection::vtkClientConnection()
 {
@@ -238,7 +238,7 @@ vtkClientConnection::~vtkClientConnection()
 }
 
 //-----------------------------------------------------------------------------
-int vtkClientConnection::Initialize(int vtkNotUsed(argc), char** vtkNotUsed(argv))
+int vtkClientConnection::Initialize(int vtkNotUsed(argc), char** vtkNotUsed(argv), int *vtkNotUsed(partitionId))
 {
   // Ensure that we are indeed the root node.
   if (vtkMultiProcessController::GetGlobalController()->
