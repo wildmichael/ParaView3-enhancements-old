@@ -30,7 +30,7 @@
 #include "vtkScalarsToColorsPainter.h"
 
 vtkStandardNewMacro(vtkPainterPolyDataMapper);
-vtkCxxRevisionMacro(vtkPainterPolyDataMapper, "$Revision: 1.4 $")
+vtkCxxRevisionMacro(vtkPainterPolyDataMapper, "$Revision: 1.5 $")
 
 //-----------------------------------------------------------------------------
 class vtkPainterPolyDataMapperObserver : public vtkCommand
@@ -228,7 +228,7 @@ double* vtkPainterPolyDataMapper::GetBounds()
   if( !input )
     {
     vtkErrorMacro("No input polydata!!!");
-    return;
+    return NULL;
     }
 
   // first compute the bounds for the input polydata
