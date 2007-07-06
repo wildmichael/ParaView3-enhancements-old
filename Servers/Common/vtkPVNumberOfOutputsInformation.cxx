@@ -21,7 +21,7 @@
 #include "vtkSource.h"
 
 vtkStandardNewMacro(vtkPVNumberOfOutputsInformation);
-vtkCxxRevisionMacro(vtkPVNumberOfOutputsInformation, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPVNumberOfOutputsInformation, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkPVNumberOfOutputsInformation::vtkPVNumberOfOutputsInformation()
@@ -57,7 +57,7 @@ void vtkPVNumberOfOutputsInformation::CopyFromObject(vtkObject* obj)
     vtkDemandDrivenPipeline::SafeDownCast(algorithm->GetExecutive());
   if (pipeline)
     {
-    pipeline->UpdateDataObject();
+    //pipeline->UpdateDataObject();
     }
   vtkSource* source = vtkSource::SafeDownCast(obj);
   if (source)
