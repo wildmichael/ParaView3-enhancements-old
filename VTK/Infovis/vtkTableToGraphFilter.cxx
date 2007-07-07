@@ -33,7 +33,7 @@
 
 #include <vtksys/stl/map>
 
-vtkCxxRevisionMacro(vtkTableToGraphFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkTableToGraphFilter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkTableToGraphFilter);
 
 vtkTableToGraphFilter::vtkTableToGraphFilter()
@@ -187,6 +187,7 @@ int vtkTableToGraphFilter::RequestData(
     output->GetEdgeData()->PassData(edgeTable->GetFieldData());
     }
 
+  // If the optional vertex table has been passed in
   if (vertexTable != NULL)
     {
     // Extract vertex id input array
