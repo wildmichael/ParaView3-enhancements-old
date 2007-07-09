@@ -23,7 +23,7 @@
 #include "vtkAssemblyNode.h"
 #include "vtkInteractorObserver.h"
 
-vtkCxxRevisionMacro(vtkPolyDataPointPlacer, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPolyDataPointPlacer, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPolyDataPointPlacer);
 
 //----------------------------------------------------------------------
@@ -49,7 +49,7 @@ void vtkPolyDataPointPlacer::AddProp(vtkProp *prop)
 }
 
 //----------------------------------------------------------------------
-void vtkPolyDataPointPlacer::RemoveProp(vtkProp *prop)
+void vtkPolyDataPointPlacer::RemoveViewProp(vtkProp *prop)
 {
   this->SurfaceProps->RemoveItem( prop );
   this->PropPicker->DeletePickList( prop );
