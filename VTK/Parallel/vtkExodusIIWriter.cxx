@@ -57,6 +57,7 @@
 #include <netcdf.h>
 #include <exodusII.h>
 #include <time.h>
+#include <ctype.h> // for toupper()
 
 // TODO - check for errors when there are no element or node variables
 
@@ -99,7 +100,7 @@
   x = NULL;      \
 }
 
-vtkCxxRevisionMacro(vtkExodusIIWriter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkExodusIIWriter, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkExodusIIWriter);
 vtkCxxSetObjectMacro(vtkExodusIIWriter, ModelMetadata, vtkModelMetadata);
 
