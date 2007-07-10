@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.h,v 1.2 2007-05-31 21:06:01 clarke Exp $  */
-/*  Date : $Date: 2007-05-31 21:06:01 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDsmCommMpi.h,v 1.3 2007-07-10 22:17:10 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-10 22:17:10 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,7 +26,7 @@
 #define __XdmfDsmCommMpi_h
 
 #include "XdmfDsmComm.h"
-#include "mpi.h"
+#include <mpi.h>
 
 //! Base comm object for Distributed Shared Memory implementation
 /*!
