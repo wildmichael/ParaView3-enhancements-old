@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-07-10 18:06:25 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2007-07-10 20:11:57 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -86,7 +86,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.15 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -386,8 +386,8 @@ vtkXdmfReaderActualGrid* vtkXdmfReaderInternal::GetGrid(int idx)
 //----------------------------------------------------------------------------
 vtkXdmfReader::vtkXdmfReader()
 {
-  this->SetNumberOfInputPorts(0);
-  this->SetNumberOfOutputPorts(0);
+//this->SetNumberOfInputPorts(0);
+//this->SetNumberOfOutputPorts(0);
   
   this->Internals = new vtkXdmfReaderInternal;
   this->Internals->Reader = this;
@@ -633,7 +633,8 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
   
   
   this->UpdateGrids();
-  
+
+/*  
   if(1 !=this->GetNumberOfOutputPorts())
     {
     this->SetNumberOfOutputPorts(1);
@@ -643,6 +644,7 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
     // The only way to do that, is to ask the output vector from the executive.
     newOutputVector=this->GetExecutive()->GetOutputInformation();
     }
+*/
   
   // for each output
   vtkXdmfReaderInternal::MapOfActualGrids::iterator currentGridIterator;
