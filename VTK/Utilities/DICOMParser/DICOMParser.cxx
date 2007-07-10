@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-09-13 14:06:47 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2007-07-10 17:07:34 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -417,8 +417,7 @@ void DICOMParser::ReadNextRecord(doublebyte& group, doublebyte& element, DICOMPa
             break;
           case DICOMParser::VR_FL:
           case DICOMParser::VR_FD:
-            DICOMFile::swap4((uint*) tempdata, (uint*) tempdata, length/sizeof(uint));
-            // dicom_stream::cout << "Float byte swap needed!" << dicom_stream::endl;
+            // No need to byte swap here, since these values were read by sscanf
             break;
           case DICOMParser::VR_SL:
           case DICOMParser::VR_UL:
