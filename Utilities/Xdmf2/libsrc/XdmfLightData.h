@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfLightData.h,v 1.5 2007-01-26 18:06:24 clarke Exp $  */
-/*  Date : $Date: 2007-01-26 18:06:24 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfLightData.h,v 1.6 2007-07-12 17:14:15 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 17:14:15 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,9 +29,9 @@
 
 
 // typedef XdmfPointer XdmfXmlNode;
-class _xmlNode;
+struct _xmlNode;
 typedef _xmlNode *XdmfXmlNode;
-class _xmlDoc;
+struct _xmlDoc;
 typedef _xmlDoc *XdmfXmlDoc;
 
 //! Base object for Light Data (XML)
@@ -63,9 +63,9 @@ public:
     XdmfGetValueMacro(FileName, XdmfConstString);
 
 /*! Set the current WorkingDirectory
-	This alleviates the need to hard code pathnames in the
-	light data. i.e. the heavy and light data can be in 
-	one directory and accessed from another.
+        This alleviates the need to hard code pathnames in the
+        light data. i.e. the heavy and light data can be in 
+        one directory and accessed from another.
 */
     XdmfSetStringMacro(WorkingDirectory);
 //! Get the current WorkingDirectory
