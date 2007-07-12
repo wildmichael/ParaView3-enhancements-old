@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.h,v 1.4 2007-01-23 20:52:53 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 20:52:53 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfValues.h,v 1.5 2007-07-12 16:51:10 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:51:10 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -68,7 +68,7 @@ class XDMF_EXPORT XdmfValues : public XdmfDataItem{
 public :
 
   XdmfValues();
-  ~XdmfValues();
+  virtual ~XdmfValues();
 
   XdmfConstString GetClassName() { return("XdmfValues"); } ;
   //! Set DOM and Element from another XdmfDataItem

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.cxx,v 1.7 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfInformation.cxx,v 1.8 2007-07-12 16:51:10 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:51:10 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,14 +43,14 @@ XdmfInformation::Insert( XdmfElement *Child){
 }
 
 XdmfInt32 XdmfInformation::UpdateInformation(){
-    XdmfConstString Value;
+    XdmfConstString aValue;
 
     XdmfElement::UpdateInformation();
-    Value = this->Get("Name");
-    if(Value) this->SetName(Value);
-    Value = this->Get("Value");
-    if(!Value) Value = this->Get("CDATA");
-    if(Value) this->SetValue(Value);
+    aValue = this->Get("Name");
+    if(aValue) this->SetName(aValue);
+    aValue = this->Get("Value");
+    if(!aValue) aValue = this->Get("CDATA");
+    if(aValue) this->SetValue(aValue);
     return(XDMF_SUCCESS);
 }
 

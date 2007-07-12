@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.6 2007-05-14 15:58:34 clarke Exp $  */
-/*  Date : $Date: 2007-05-14 15:58:34 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.7 2007-07-12 16:51:09 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:51:09 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -74,7 +74,7 @@ XdmfArrayListClass::Instance(){
 
 XdmfArrayListClass::~XdmfArrayListClass()
 {
-    int i=0;
+
 
   if ( this->List )
     {

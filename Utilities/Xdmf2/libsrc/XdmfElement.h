@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.16 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfElement.h,v 1.17 2007-07-12 16:51:10 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:51:10 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -79,7 +79,7 @@ class XDMF_EXPORT XdmfElement : public XdmfLightData {
 
 public:
     XdmfElement();
-    ~XdmfElement();
+    virtual ~XdmfElement();
     virtual XdmfConstString GetClassName() { return("XdmfElement"); } ;
 
     //! Set the DOM to use

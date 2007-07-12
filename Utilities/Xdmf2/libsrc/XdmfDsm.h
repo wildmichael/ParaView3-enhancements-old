@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.h,v 1.5 2007-05-31 21:06:01 clarke Exp $  */
-/*  Date : $Date: 2007-05-31 21:06:01 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDsm.h,v 1.6 2007-07-12 16:51:10 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:51:10 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -49,7 +49,7 @@ class XDMF_EXPORT XdmfDsm : public XdmfObject {
 
 public:
   XdmfDsm();
-  ~XdmfDsm();
+  virtual ~XdmfDsm();
 
   XdmfConstString GetClassName() { return ( "XdmfDsm" ) ; };
 

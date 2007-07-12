@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and ValuesHDF              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.h,v 1.1 2007-01-03 21:43:09 clarke Exp $  */
-/*  Date : $Date: 2007-01-03 21:43:09 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfValuesHDF.h,v 1.2 2007-07-12 16:51:10 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:51:10 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -54,7 +54,7 @@ class XDMF_EXPORT XdmfValuesHDF : public XdmfValues {
 public :
 
   XdmfValuesHDF();
-  ~XdmfValuesHDF();
+  virtual ~XdmfValuesHDF();
 
   XdmfConstString GetClassName() { return("XdmfValuesHDF"); } ;
   //! Read the Array from the External Representation
