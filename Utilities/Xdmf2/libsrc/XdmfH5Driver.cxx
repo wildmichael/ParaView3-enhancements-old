@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfH5Driver.cxx,v 1.3 2007-06-01 15:37:59 clarke Exp $  */
-/*  Date : $Date: 2007-06-01 15:37:59 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfH5Driver.cxx,v 1.4 2007-07-12 19:10:04 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 19:10:04 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -389,7 +389,7 @@ H5FD_dsm_open(const char *name, unsigned flags/*unused*/, hid_t fapl_id,
     H5FD_dsm_t    *file=NULL;
     H5FD_dsm_fapl_t  *fa=NULL;
     XdmfInt32       status;
-    XdmfInt64    addr;
+    //XdmfInt64    addr;
     
     /* Check arguments */
     if (0==maxaddr || HADDR_UNDEF==maxaddr) return NULL;
