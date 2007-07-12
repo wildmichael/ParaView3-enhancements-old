@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.cxx,v 1.6 2007-06-04 17:21:03 clarke Exp $  */
-/*  Date : $Date: 2007-06-04 17:21:03 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDsmBuffer.cxx,v 1.7 2007-07-12 22:43:30 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 22:43:30 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -48,12 +48,13 @@ XdmfDsmBuffer::XdmfDsmBuffer() {
 XdmfDsmBuffer::~XdmfDsmBuffer() {
 }
 
+/*
 XdmfInt32
 XdmfDsmBuffer::Copy(XdmfDsmBuffer *Source){
     if(XdmfDsm::Copy((XdmfDsm *)Source) != XDMF_SUCCESS) return(XDMF_FAIL);
     return(XDMF_SUCCESS);
 }
-
+*/
 
 void *
 XdmfDsmBuffer::ServiceThread(){
