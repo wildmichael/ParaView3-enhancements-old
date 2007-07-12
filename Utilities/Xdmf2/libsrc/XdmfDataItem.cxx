@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.11 2007-07-12 16:51:10 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:51:10 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.12 2007-07-12 20:01:31 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 20:01:31 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -577,10 +577,10 @@ XdmfInt32 XdmfDataItem::Build(){
 }
 
 XdmfInt32
-XdmfDataItem::CheckValues(XdmfInt32 Format){
+XdmfDataItem::CheckValues(XdmfInt32 aFormat){
     if(this->Values){
         // Exists
-        if(this->Values->Format != Format){
+        if(this->Values->Format != aFormat){
             // Wrong Format
             XdmfDebug("CheckValues Changing Format");
             delete this->Values;

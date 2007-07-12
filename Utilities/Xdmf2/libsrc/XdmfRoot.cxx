@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.cxx,v 1.4 2007-07-12 16:59:50 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:59:50 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfRoot.cxx,v 1.5 2007-07-12 20:01:31 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 20:01:31 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -61,7 +61,7 @@ XdmfRoot::Insert( XdmfElement *Child){
 
 XdmfInt32 XdmfRoot::Build(){
     static char VersionBuf[80];
-    ostrstream  Version(VersionBuf,80);
+    ostrstream  aVersion(VersionBuf,80);
 
     if(!this->GetElement()){
         if(this->GetDOM()){
@@ -73,7 +73,7 @@ XdmfInt32 XdmfRoot::Build(){
     }
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     // Version and XInclude
-    Version << this->Version << ends;
-    this->Set("Version", (XdmfConstString)Version.str());
+    aVersion << this->Version << ends;
+    this->Set("Version", (XdmfConstString)aVersion.str());
     return(XDMF_SUCCESS);
 }
