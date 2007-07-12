@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.9 2007-05-10 20:34:46 clarke Exp $  */
-/*  Date : $Date: 2007-05-10 20:34:46 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.10 2007-07-12 16:59:50 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:59:50 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -480,7 +480,7 @@ if(this->TopologyType == XDMF_MIXED){
 }else{
     // NodesPerElement are constant
     XdmfInt64   i, index = 0;
-    XdmfInt32   npe, celltype;
+
     for(i=0;i<this->GetNumberOfElements();i++){
         *offsets++ = index;
         index += this->NodesPerElement;
@@ -557,7 +557,7 @@ return( XDMF_SUCCESS );
 
 XdmfInt32
 XdmfTopology::Update() {
-XdmfConstString Attribute;
+
 XdmfXmlNode     ConnectionElement;
 
 if(XdmfElement::Update() != XDMF_SUCCESS) return(XDMF_FAIL);

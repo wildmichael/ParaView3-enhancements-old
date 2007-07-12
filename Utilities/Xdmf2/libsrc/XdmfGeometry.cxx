@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.8 2007-05-04 15:27:35 clarke Exp $  */
-/*  Date : $Date: 2007-05-04 15:27:35 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.9 2007-07-12 16:59:50 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:59:50 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -272,7 +272,7 @@ return( XDMF_SUCCESS );
 XdmfInt32
 XdmfGeometry::Update() {
 
-XdmfConstString  Attribute;
+
 XdmfInt32  ArrayIndex;
 XdmfInt64  Start[ XDMF_MAX_DIMENSION ];
 XdmfInt64  Stride[ XDMF_MAX_DIMENSION ];

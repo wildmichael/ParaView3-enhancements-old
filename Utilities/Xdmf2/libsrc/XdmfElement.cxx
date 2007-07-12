@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.17 2007-05-04 15:27:35 clarke Exp $  */
-/*  Date : $Date: 2007-05-04 15:27:35 $ */
-/*  Version : $Revision: 1.17 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.18 2007-07-12 16:59:50 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:59:50 $ */
+/*  Version : $Revision: 1.18 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -215,9 +215,9 @@ XdmfElement::Copy(XdmfElement *Source){
 
 XdmfInt32 XdmfElement::UpdateInformation(){
     XdmfConstString Value;
-    XdmfInt32   Status;
+
     XdmfElement *e;
-    XdmfXmlNode ref, Original;
+    XdmfXmlNode ref;
 
     XdmfDebug("XdmfElement::UpdateInformation()");
     if(!this->DOM) {
@@ -356,7 +356,7 @@ XdmfElement::FollowReference(XdmfXmlNode Element){
 
 XdmfXmlNode
 XdmfElement::CheckForReference(XdmfXmlNode Element){
-    XdmfElement *e;
+
     XdmfXmlNode node;
 
     XdmfDebug("XdmfElement::CheckForReference(XdmfXmlNode Element)");
@@ -412,7 +412,7 @@ XdmfConstString XdmfElement::GetElementType(){
 
 XdmfInt32 XdmfElement::Build(){
     XdmfConstString  name;
-    XdmfXmlNode      child;
+
     XdmfInt32        i;
 
     name = this->GetName();

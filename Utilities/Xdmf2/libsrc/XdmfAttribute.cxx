@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.8 2007-05-04 15:27:35 clarke Exp $  */
-/*  Date : $Date: 2007-05-04 15:27:35 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.9 2007-07-12 16:59:50 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-12 16:59:50 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -234,7 +234,7 @@ XdmfInt32  Status;
 XdmfXmlNode  ValuesNode;
 XdmfDataItem ValueReader;
 
-XdmfConstString  Attribute;
+
 
 if(XdmfElement::Update() != XDMF_SUCCESS) return(XDMF_FAIL);
 if( this->AttributeType == XDMF_ATTRIBUTE_TYPE_NONE ){
