@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.21 2007-07-12 16:51:09 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:51:09 $ */
-/*  Version : $Revision: 1.21 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.22 2007-07-13 14:31:56 dave.demarle Exp $  */
+/*  Date : $Date: 2007-07-13 14:31:56 $ */
+/*  Version : $Revision: 1.22 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -127,7 +127,7 @@ XdmfXmlNode child;
 
 // Check All Children
 for(child=Node->xmlChildrenNode; child ; child=child->next){
-    if(child->type = XML_ELEMENT_NODE) {
+    if(child->type == XML_ELEMENT_NODE) {
         // Is this it?
         if(child == ChildToCheck) {
             return(XDMF_SUCCESS);
