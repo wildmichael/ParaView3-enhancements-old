@@ -35,7 +35,7 @@
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkSMSourceProxy);
-vtkCxxRevisionMacro(vtkSMSourceProxy, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkSMSourceProxy, "$Revision: 1.53 $");
 
 struct vtkSMSourceProxyInternals
 {
@@ -95,7 +95,7 @@ void vtkSMSourceProxy::UpdatePipelineInformation()
   this->Superclass::UpdatePipelineInformation();
 
   this->InvokeEvent(vtkCommand::UpdateInformationEvent);
-  this->MarkModified(this);  
+  // this->MarkModified(this);  
 }
 //---------------------------------------------------------------------------
 int vtkSMSourceProxy::ReadXMLAttributes(vtkSMProxyManager* pm, 
