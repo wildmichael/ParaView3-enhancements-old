@@ -1,7 +1,7 @@
 /*=========================================================================
 
-   Program:   ParaView
-   Module:    $RCSfile: pqCoreExport.h,v $
+   Program: ParaView
+   Module:    $RCSfile: QtWidgetsExport.h.in,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,17 +30,20 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqCoreExport_h
-#define _pqCoreExport_h
+#ifndef _QtWidgetsExport_h
+#define _QtWidgetsExport_h
 
-#if defined(WIN32) && defined(PARAVIEW_BUILD_SHARED_LIBS)
-# if defined(pqCore_EXPORTS)
-#   define PQCORE_EXPORT __declspec(dllexport)
+#cmakedefine QTWIDGETS_BUILD_SHARED_LIBS
+
+#if defined(WIN32) && defined(QTWIDGETS_BUILD_SHARED_LIBS)
+# if defined(pqWidgets_EXPORTS)
+#   define QTWIDGETS_EXPORT __declspec(dllexport)
 # else
-#   define PQCORE_EXPORT __declspec(dllimport)
+#   define QTWIDGETS_EXPORT __declspec(dllimport)
 # endif
 #else
-# define PQCORE_EXPORT
+# define QTWIDGETS_EXPORT
 #endif
 
-#endif // !_pqCoreExport_h
+#endif // !_QtWidgetsExport_h
+
