@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-06-08 21:47:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2007-07-23 20:47:13 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -522,7 +522,7 @@ unsigned char * MET_PerformCompression(const unsigned char * source,
     z.avail_out = buffer_size;
     }
     
-  delete output_buffer;
+  delete [] output_buffer;
 
   *compressedDataSize = z.total_out;
 
