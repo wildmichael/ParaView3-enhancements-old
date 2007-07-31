@@ -26,7 +26,7 @@
 #include <vtkstd/list>
 
 vtkStandardNewMacro(vtkSMCameraLink);
-vtkCxxRevisionMacro(vtkSMCameraLink, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSMCameraLink, "$Revision: 1.13 $");
 
 //---------------------------------------------------------------------------
 struct vtkSMCameraLinkInternals
@@ -175,7 +175,7 @@ void vtkSMCameraLink::RemoveLinkedProxy(vtkSMProxy* proxy)
 }
 
 //---------------------------------------------------------------------------
-void vtkSMCameraLink::UpdateProperties(vtkSMProxy* fromProxy, 
+void vtkSMCameraLink::PropertyModified(vtkSMProxy* fromProxy, 
                                        const char* pname)
 {
   if (pname && strcmp(pname, "CenterOfRotation") == 0)
