@@ -104,7 +104,7 @@ public:
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(pqLookmarkStateLoader);
-vtkCxxRevisionMacro(pqLookmarkStateLoader, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(pqLookmarkStateLoader, "$Revision: 1.17 $");
 //-----------------------------------------------------------------------------
 pqLookmarkStateLoader::pqLookmarkStateLoader()
 {
@@ -114,7 +114,6 @@ pqLookmarkStateLoader::pqLookmarkStateLoader()
 //-----------------------------------------------------------------------------
 pqLookmarkStateLoader::~pqLookmarkStateLoader()
 {
-  delete this->Internal->PipelineModel;
   delete this->Internal;
 }
 
