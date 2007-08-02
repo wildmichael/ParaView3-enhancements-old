@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-07-23 13:11:30 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2007-08-02 19:41:14 $
+  Version:   $Revision: 1.19 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -86,7 +86,7 @@
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.19 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -863,7 +863,8 @@ int vtkXdmfReaderInternal::RequestActualGridData(
 #else
         vtkUniformGrid *ds=vtkUniformGrid::New();
 #endif
-        mgd->SetDataSet(level,index,ds);
+        //mgd->SetDataSet(level,index,ds);
+        mgd->SetDataSet(outputGrid,index,ds);
         ds->Delete();
         }
       else if ( 
@@ -871,7 +872,8 @@ int vtkXdmfReaderInternal::RequestActualGridData(
         xdmfGrid->GetTopology()->GetTopologyType() == XDMF_3DRECTMESH )
         {
         vtkRectilinearGrid *ds=vtkRectilinearGrid::New();
-        mgd->SetDataSet(level,index,ds);
+        //mgd->SetDataSet(level,index,ds);
+        mgd->SetDataSet(outputGrid,index,ds);
         ds->Delete();
         }
       else
