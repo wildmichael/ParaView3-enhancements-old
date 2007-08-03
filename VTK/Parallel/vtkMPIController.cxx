@@ -31,7 +31,7 @@ public:
 
   void DisplayText(const char* t)
     {
-      if (this->Controller)
+      if (this->Controller && vtkMPIController::Initialized)
         {
         cout << "Process id: " << this->Controller->GetLocalProcessId()
              << " >> ";
@@ -65,9 +65,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.22 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
