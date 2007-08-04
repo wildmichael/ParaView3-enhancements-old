@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.19 2007-07-12 20:01:31 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 20:01:31 $ */
-/*  Version : $Revision: 1.19 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.20 2007-08-04 00:16:23 dave.demarle Exp $  */
+/*  Date : $Date: 2007-08-04 00:16:23 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -69,11 +69,13 @@ XdmfElement::~XdmfElement() {
             this->SetReferenceObject(this->ReferenceElement, XDMF_ELEMENT_STATE_UNINITIALIZED);
         }
     }
+    this->ReferenceElement = NULL;
     if(this->Element){
         if(this->GetReferenceObject(this->Element) == this){
             this->SetReferenceObject(this->Element, XDMF_ELEMENT_STATE_UNINITIALIZED);
         }
     }
+    this->Element = NULL;
     if(this->ElementName) delete [] this->ElementName;
 }
 
