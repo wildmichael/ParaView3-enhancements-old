@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-07-23 20:47:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2007-08-06 19:20:33 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -236,7 +236,7 @@ bool MET_TypeToString(MET_ValueEnumType _vType, char *_s)
   {
   if(_vType>=0 && _vType<=MET_NUM_VALUE_TYPES)
     {
-    sprintf(_s, MET_ValueTypeName[_vType]);
+    strcpy(_s, MET_ValueTypeName[_vType]);
     return true;
     }
   
