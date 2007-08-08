@@ -3,7 +3,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
 
-/* @(#) $Id: zconf.h,v 1.6 2007-08-08 18:50:47 seanmcbride Exp $ */
+/* @(#) $Id: zconf.h,v 1.7 2007-08-08 20:01:08 seanmcbride Exp $ */
 
 #ifndef ZCONF_H
 #define ZCONF_H
@@ -338,18 +338,16 @@ typedef uLong FAR uLongf;
 
 /* KITWARE_ZLIB_CHANGE - Added to suppress complier warnings */
 #if defined(_MSC_VER)
-#pragma warning ( disable : 4100 ) /* unreferenced variable */
-#pragma warning ( disable : 4127 ) /* cond expr is constant */
-#pragma warning ( disable : 4131 ) /* Old style declaration */
-#pragma warning ( disable : 4244 ) /* conversion loss of data */
-#pragma warning ( disable : 4267 ) /* conversion from 'size_t' to 'int', possible loss of data */
+/*#pragma warning ( disable : 4100 ) unreferenced variable */
+/*#pragma warning ( disable : 4127 ) cond expr is constant */
+/*#pragma warning ( disable : 4131 ) old style declaration */
+/*#pragma warning ( disable : 4244 ) conversion loss of data */
+/*#pragma warning ( disable : 4267 ) conversion from 'size_t' to 'int', possible loss of data */
 #endif
 #if defined(__BORLANDC__)
-/* #pragma warn -8004  "assigned a value that is never used" */
-#pragma warn -8008 /* "Condition is always true" */
-/* #pragma warn -8012  "comparing signed with unsigned" */
-/* #pragma warn -8057  "parameter never used" */
-#pragma warn -8066 /* "Unreachable code" */
+#pragma warn -8004 /* assigned a value that is never used */
+#pragma warn -8008 /* condition is always true */
+#pragma warn -8066 /* unreachable code */
 #endif
 
 #endif /* ZCONF_H */
