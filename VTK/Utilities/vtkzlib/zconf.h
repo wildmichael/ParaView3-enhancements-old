@@ -3,13 +3,16 @@
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
 
-/* @(#) $Id: zconf.h,v 1.4 2007-08-08 14:11:36 seanmcbride Exp $ */
+/* @(#) $Id: zconf.h,v 1.5 2007-08-08 15:57:17 seanmcbride Exp $ */
 
 #ifndef ZCONF_H
 #define ZCONF_H
 
 /* KITWARE_ZLIB_CHANGE - Added to mangle function names */
 #include "vtk_zlib_mangle.h"
+
+/* KITWARE_ZLIB_CHANGE - Added to get the correct definition of ZLIB_DLL */
+#include "vtkzlib/zlibDllConfig.h"
 
 /*
  * If you *really* need a unique prefix for all types and library functions,
