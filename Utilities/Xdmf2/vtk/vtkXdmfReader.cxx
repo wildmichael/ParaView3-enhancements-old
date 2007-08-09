@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-08-08 18:53:41 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2007-08-09 12:11:17 $
+  Version:   $Revision: 1.22 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -86,7 +86,7 @@
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.22 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -2948,6 +2948,7 @@ void vtkXdmfReader::UpdateNonUniformGrid(void *GridNode, char * CollectionName)
       // It's a Uniform Grid
       this->UpdateUniformGrid(gridNode, CollectionName);
       }
+    str.rdbuf()->freeze(0);
     }
   this->GridsModified = 0;
 }
