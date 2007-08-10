@@ -668,7 +668,7 @@ private:
 };
 
 vtkStandardNewMacro(vtkExodusIIXMLParser);
-vtkCxxRevisionMacro(vtkExodusIIXMLParser,"$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkExodusIIXMLParser,"$Revision: 1.25 $");
 
 
 
@@ -1406,7 +1406,7 @@ void vtkExodusIIReaderPrivate::ArrayInfoType::Reset()
 }
 
 // ------------------------------------------------------- PRIVATE CLASS MEMBERS
-vtkCxxRevisionMacro(vtkExodusIIReaderPrivate,"$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkExodusIIReaderPrivate,"$Revision: 1.25 $");
 vtkStandardNewMacro(vtkExodusIIReaderPrivate);
 vtkCxxSetObjectMacro(vtkExodusIIReaderPrivate,CachedConnectivity,vtkUnstructuredGrid);
 vtkCxxSetObjectMacro(vtkExodusIIReaderPrivate,Parser,vtkExodusIIXMLParser);
@@ -2057,7 +2057,7 @@ int vtkExodusIIReaderPrivate::AssembleOutputGlobalArrays( vtkIdType timeStep, vt
     status = 0;
     continue;
     }
-/*
+
   // Select which global variables to send to the output?
   for (
     ai = this->ArrayInfo[ vtkExodusIIReader::GLOBAL ].begin();
@@ -5381,7 +5381,7 @@ vtkDataArray* vtkExodusIIReaderPrivate::FindDisplacementVectors( int timeStep )
 
 // -------------------------------------------------------- PUBLIC CLASS MEMBERS
 
-vtkCxxRevisionMacro(vtkExodusIIReader,"$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkExodusIIReader,"$Revision: 1.25 $");
 vtkStandardNewMacro(vtkExodusIIReader);
 vtkCxxSetObjectMacro(vtkExodusIIReader,Metadata,vtkExodusIIReaderPrivate);
 vtkCxxSetObjectMacro(vtkExodusIIReader,ExodusModel,vtkExodusModel);
