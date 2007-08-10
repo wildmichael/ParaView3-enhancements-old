@@ -12,6 +12,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+/*----------------------------------------------------------------------------
+ Copyright (c) Sandia Corporation
+ See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+----------------------------------------------------------------------------*/
 
 #include "vtkMergeColumns.h"
 
@@ -21,7 +25,7 @@
 #include "vtkStringArray.h"
 #include "vtkTable.h"
 
-vtkCxxRevisionMacro(vtkMergeColumns, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkMergeColumns, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkMergeColumns);
 
 vtkMergeColumns::vtkMergeColumns()

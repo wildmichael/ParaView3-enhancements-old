@@ -12,6 +12,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+/*----------------------------------------------------------------------------
+ Copyright (c) Sandia Corporation
+ See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+----------------------------------------------------------------------------*/
 
 #include "vtkTreeLayoutStrategy.h"
 
@@ -27,7 +31,7 @@
 #include "vtkTree.h"
 #include "vtkTreeDFSIterator.h"
 
-vtkCxxRevisionMacro(vtkTreeLayoutStrategy, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkTreeLayoutStrategy, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkTreeLayoutStrategy);
 
 vtkTreeLayoutStrategy::vtkTreeLayoutStrategy()

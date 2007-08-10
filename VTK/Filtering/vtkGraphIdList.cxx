@@ -12,10 +12,14 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+/*----------------------------------------------------------------------------
+ Copyright (c) Sandia Corporation
+ See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+----------------------------------------------------------------------------*/
 #include "vtkGraphIdList.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGraphIdList, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkGraphIdList, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkGraphIdList);
 
 vtkGraphIdList::vtkGraphIdList()

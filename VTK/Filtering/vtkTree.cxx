@@ -12,6 +12,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+/*----------------------------------------------------------------------------
+ Copyright (c) Sandia Corporation
+ See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+----------------------------------------------------------------------------*/
 #include "vtkTree.h"
 
 #include "vtkObjectFactory.h"
@@ -31,7 +35,7 @@
 // Standard functions
 //
 
-vtkCxxRevisionMacro(vtkTree, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkTree, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkTree);
 
 //----------------------------------------------------------------------------

@@ -12,6 +12,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+/*----------------------------------------------------------------------------
+ Copyright (c) Sandia Corporation
+ See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+----------------------------------------------------------------------------*/
 
 #include "vtkAbstractGraphAlgorithm.h"
 
@@ -26,7 +30,7 @@
 #include "vtkTree.h"
 #include "vtkGraph.h"
 
-vtkCxxRevisionMacro(vtkAbstractGraphAlgorithm, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkAbstractGraphAlgorithm, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkAbstractGraphAlgorithm);
 
 //----------------------------------------------------------------------------
