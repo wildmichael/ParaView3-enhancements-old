@@ -123,6 +123,7 @@ my %default =
             "../../Parallel",
             "../../Patented",
             "../../Rendering",
+            "../../Views",
             "../../VolumeRendering"],
    relativeto => "",
    temp => "doc_header2doxygen.tmp",
@@ -269,13 +270,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2006-10-11 15:23:51 $
+        # Date:      $Date: 2007-08-14 13:46:35 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.14 $
+        # Version:   $Revision: 1.15 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
