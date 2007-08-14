@@ -3,7 +3,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
 
-/* @(#) $Id: zconf.h,v 1.9 2007-08-10 14:29:58 seanmcbride Exp $ */
+/* @(#) $Id: zconf.h,v 1.10 2007-08-14 14:06:24 seanmcbride Exp $ */
 
 #ifndef ZCONF_H
 #define ZCONF_H
@@ -338,11 +338,9 @@ typedef uLong FAR uLongf;
 
 /* KITWARE_ZLIB_CHANGE - Added to suppress complier warnings */
 #if defined(_MSC_VER)
-/*#pragma warning ( disable : 4100 ) unreferenced variable */
 #pragma warning ( disable : 4127 ) /* cond expr is constant */
 #pragma warning ( disable : 4131 ) /* old style declaration */
 #pragma warning ( disable : 4244 ) /* conversion loss of data */
-/*#pragma warning ( disable : 4267 ) conversion from 'size_t' to 'int', possible loss of data */
 #endif
 #if defined(__BORLANDC__)
 #pragma warn -8004 /* assigned a value that is never used */
