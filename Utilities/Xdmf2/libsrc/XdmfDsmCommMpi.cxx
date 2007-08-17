@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.5 2007-06-01 15:37:58 clarke Exp $  */
-/*  Date : $Date: 2007-06-01 15:37:58 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.6 2007-08-17 14:43:47 alex Exp $  */
+/*  Date : $Date: 2007-08-17 14:43:47 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -98,8 +98,6 @@ XdmfDsmCommMpi::Receive(XdmfDsmMsg *Msg){
 XdmfInt32
 XdmfDsmCommMpi::Send(XdmfDsmMsg *Msg){
     XdmfInt32   status;
-    MPI_Status  SendRecvStatus;
-
 
     if(XdmfDsmComm::Send(Msg) != XDMF_SUCCESS) return(XDMF_FAIL);
     XdmfDebug("::::: (" << this->Id << ") Sending " << Msg->Length << " bytes to " << Msg->Dest << " Tag = " << Msg->Tag);
@@ -107,7 +105,6 @@ XdmfDsmCommMpi::Send(XdmfDsmMsg *Msg){
     // status = MPI_Ssend(Msg->Data, Msg->Length, MPI_UNSIGNED_CHAR, Msg->Dest, Msg->Tag, this->Comm);
     if(status != MPI_SUCCESS){
         XdmfErrorMessage("Id = " << this->Id << " MPI_Send failed to send " << Msg->Length << " Bytes to " << Msg->Dest);
-        XdmfErrorMessage("MPI Error Code = " << SendRecvStatus.MPI_ERROR);
         return(XDMF_FAIL);
     }
     XdmfDebug("::::: (" << this->Id << ") Sent " << Msg->Length << " bytes to " << Msg->Dest);
