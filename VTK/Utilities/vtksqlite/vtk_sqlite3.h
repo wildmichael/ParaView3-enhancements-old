@@ -30,7 +30,7 @@
 ** the version number) and changes its name to "sqlite3.h" as
 ** part of the build process.
 **
-** @(#) $Id: vtk_sqlite3.h,v 1.2 2007-08-16 20:29:33 atwilso Exp $
+** @(#) $Id: vtk_sqlite3.h,v 1.3 2007-08-23 13:02:21 jeff Exp $
 */
 #ifndef _VTK_SQLITE3_H_
 #define _VTK_SQLITE3_H_
@@ -2458,6 +2458,7 @@ struct vtk_sqlite3_module {
 ** cost of approximately log(N).
 */
 struct vtk_sqlite3_index_info {
+  
   /* Inputs */
   const int nConstraint;     /* Number of entries in aConstraint */
   const struct vtk_sqlite3_index_constraint {
@@ -2482,6 +2483,10 @@ struct vtk_sqlite3_index_info {
   int needToFreeIdxStr;      /* Free idxStr using vtk_sqlite3_free() if true */
   int orderByConsumed;       /* True if output is already ordered */
   double estimatedCost;      /* Estimated cost of using this index */
+  
+  // Remove compiler warnings
+  vtk_sqlite3_index_info(const vtk_sqlite3_index_info &); // Not implemented.
+  void operator=(const vtk_sqlite3_index_info &); // Not implemented.
 };
 #define VTK_SQLITE_INDEX_CONSTRAINT_EQ    2
 #define VTK_SQLITE_INDEX_CONSTRAINT_GT    4
