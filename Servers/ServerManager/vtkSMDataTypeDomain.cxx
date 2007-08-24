@@ -28,7 +28,7 @@
 
 
 vtkStandardNewMacro(vtkSMDataTypeDomain);
-vtkCxxRevisionMacro(vtkSMDataTypeDomain, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkSMDataTypeDomain, "$Revision: 1.14 $");
 
 struct vtkSMDataTypeDomainInternals
 {
@@ -128,11 +128,6 @@ int vtkSMDataTypeDomain::IsInDomain(vtkSMSourceProxy* proxy,
 
   vtkProcessModule* pm = vtkProcessModule::GetProcessModule();
   if (!pm)
-    {
-    return 0;
-    }
-
-  if (info->GetNumberOfPoints() == 0)
     {
     return 0;
     }
