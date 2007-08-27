@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.16 2007-08-27 20:54:06 dcthomp Exp $ */
+/* $Id: posixio.c,v 1.17 2007-08-27 22:03:52 dcthomp Exp $ */
 
 #include "ncconfig.h"
 #include <assert.h>
@@ -18,10 +18,14 @@
 #include <fcntl.h>
 #include <string.h>
 #ifdef _MSC_VER /* Microsoft Compilers */
-#include <io.h>
-#pragma warn -8065 /* "Call to function 'XXX' with no prototype" */
-#else
-#include <unistd.h>
+#  include <io.h>
+#  pragma warn -8065 /* "Call to function 'XXX' with no prototype" */
+#endif
+#ifdef __BORLANDC__
+#  include <io.h>
+#endif
+#ifdef HAVE_UNISTD_H
+#  include <unistd.h>
 #endif
 
 #ifndef SEEK_SET
