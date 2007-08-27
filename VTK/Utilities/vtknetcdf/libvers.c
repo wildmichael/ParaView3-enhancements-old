@@ -2,9 +2,9 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: libvers.c,v 1.2 2006-11-29 18:09:26 dcthomp Exp $ */
+/* $Id: libvers.c,v 1.3 2007-08-27 20:54:06 dcthomp Exp $ */
 
-#include  "ncconfig.h"
+#include "ncconfig.h"
 #include "netcdf.h"
 
 /*
@@ -25,13 +25,3 @@ nc_inq_libvers(void)
 }
 
 #endif /* USE_NETCDF4*/
-
-#if MAKE_PROGRAM /* TEST JIG */
-#include <stdio.h>
-
-main()
-{
-  (void) printf("Version: %s\n", nc_inq_libvers());
-  return 0;
-}
-#endif
