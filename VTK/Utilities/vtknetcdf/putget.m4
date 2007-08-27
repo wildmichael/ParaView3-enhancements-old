@@ -12,7 +12,7 @@ dnl
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.m4,v 1.3 2007-08-27 22:10:41 dcthomp Exp $ */
+/* $Id: putget.m4,v 1.4 2007-08-27 22:29:34 dcthomp Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -160,12 +160,12 @@ fill_NC_var(NC *ncp, const NC_var *varp, size_t varsize, size_t recno)
   const size_t step = varp->xsz;
   const size_t nelems = sizeof(xfillp)/step;
   const size_t xsz = varp->xsz * nelems;
-  NC_attr **attrpp = NULL;
+  NC_attr **attrpp;
   off_t offset;
   size_t remaining = varsize;
 
   void *xp;
-  int status = NC_NOERR;
+  int status;
 
   /*
    * Set up fill value
