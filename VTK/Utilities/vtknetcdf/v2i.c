@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: v2i.c,v 1.7 2007-08-27 20:54:06 dcthomp Exp $ */
+/* $Id: v2i.c,v 1.8 2007-08-27 22:10:41 dcthomp Exp $ */
 
 #include "ncconfig.h"
 #include <stdlib.h>
@@ -341,7 +341,7 @@ nc_get_rec(
 /*
  * Error code
  */
-#if !DLL_NETCDF /* define when library is not a DLL */
+#ifndef DLL_NETCDF /* define when library is not a DLL */
 int ncerr = NC_NOERR ;
 
 

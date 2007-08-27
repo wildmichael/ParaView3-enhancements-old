@@ -12,7 +12,7 @@ dnl
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.m4,v 1.2 2007-08-27 20:54:06 dcthomp Exp $ */
+/* $Id: putget.m4,v 1.3 2007-08-27 22:10:41 dcthomp Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -589,9 +589,9 @@ static int
 NCedgeck(const NC *ncp, const NC_var *varp,
    const size_t *start, const size_t *edges)
 {
-  (void)ncp;
   const size_t *const end = start + varp->ndims;
   const size_t *shp = varp->shape;
+  (void)ncp;
 
   if(varp->ndims == 0)
     return NC_NOERR;  /* 'scalar' variable */
