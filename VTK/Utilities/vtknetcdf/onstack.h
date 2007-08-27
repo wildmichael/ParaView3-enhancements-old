@@ -2,7 +2,7 @@
  *  Copyright 1997, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: onstack.h,v 1.3 2007-08-27 20:54:06 dcthomp Exp $ */
+/* $Id: onstack.h,v 1.4 2007-08-27 23:08:49 dcthomp Exp $ */
 
 #ifndef _ONSTACK_H_
 #define _ONSTACK_H_
@@ -46,7 +46,7 @@
 
 # define FREE_ONSTACK(name)
 
-#elif defined(_CRAYC) && !defined(__crayx1) && !__cplusplus && __STDC__ > 1
+#elif defined(_CRAYC) && !__cplusplus && __STDC__ > 1
 /*
  * Cray C allows sizing of arrays with non-constant values.
  */

@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: rnd.h,v 1.3 2007-08-27 20:54:06 dcthomp Exp $ */
+/* $Id: rnd.h,v 1.4 2007-08-27 23:08:49 dcthomp Exp $ */
 #ifndef _RNDUP
 
 /* useful for aligning memory */
