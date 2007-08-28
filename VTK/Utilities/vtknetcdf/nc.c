@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.c,v 1.11 2007-08-28 11:11:13 dcthomp Exp $ */
+/* $Id: nc.c,v 1.12 2007-08-28 11:53:14 dcthomp Exp $ */
 
 #include "nc.h"
 #include "rnd.h"
@@ -13,6 +13,11 @@
 #if defined(LOCKNUMREC) /* && _CRAYMPP */
 #  include <mpp/shmem.h>
 #  include <intrinsics.h>
+#endif
+
+#ifdef __BORLANDC__
+#  pragma warn -8004 /* "assigned a value that is never used" */
+#  pragma warn -8065 /* "Call to function 'XXX' with no prototype" */
 #endif
 
 /* list of open netcdf's */

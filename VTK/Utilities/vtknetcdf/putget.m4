@@ -12,7 +12,7 @@ dnl
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.m4,v 1.4 2007-08-27 22:29:34 dcthomp Exp $ */
+/* $Id: putget.m4,v 1.5 2007-08-28 11:53:14 dcthomp Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -26,6 +26,11 @@ dnl
 #  ifdef LN_TEST
 #    include <stdio.h>
 #  endif
+#endif
+
+#ifdef __BORLANDC__
+#  pragma warn -8004 /* "assigned a value that is never used" */
+#  pragma warn -8065 /* "Call to function 'XXX' with no prototype" */
 #endif
 
 #undef MIN  /* system may define MIN somewhere and complain */
