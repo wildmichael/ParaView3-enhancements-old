@@ -30,7 +30,7 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
  * WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* "$Id: netcdf.h,v 1.10 2007-08-28 16:12:54 dcthomp Exp $" */
+/* "$Id: netcdf.h,v 1.11 2007-08-28 16:23:39 david.cole Exp $" */
 
 #ifndef _NETCDF_
 #define _NETCDF_
@@ -225,16 +225,16 @@ typedef enum {
 #   define MSC_EXTRA __declspec(dllimport)
 #  endif
 #  include <io.h>
-#  if !defined(__BORLANDC__) && !defined(__GNUC__)
+#  if defined(_MSC_VER) && _MSC_VER>=1300
 #    define NC_LSEEK _lseeki64
 #    define off_t __int64
 #    define NC_STAT __stat64
 #    define NC_FSTAT _fstat64
-#  else /* ! __BORLANDC__ && ! __GNUC__ */
+#  else /* defined(_MSC_VER) && _MSC_VER>=1300 */
 #    define NC_LSEEK lseek
 #    define NC_STAT stat
 #    define NC_FSTAT fstat
-#  endif /* ! __BORLANDC__ && ! __GNUC__ */
+#  endif /* defined(_MSC_VER) && _MSC_VER>=1300 */
 #else
 #  define MSC_EXTRA
 #  define NC_LSEEK lseek
