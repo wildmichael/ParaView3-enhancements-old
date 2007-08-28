@@ -30,7 +30,7 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
  * WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* "$Id: netcdf.h,v 1.12 2007-08-28 17:51:55 dcthomp Exp $" */
+/* "$Id: netcdf.h,v 1.13 2007-08-28 18:04:35 berk Exp $" */
 
 #ifndef _NETCDF_
 #define _NETCDF_
@@ -220,7 +220,7 @@ typedef enum {
 /* Declaration modifiers for DLL support (MSC et al) */
 
 #if defined(DLL_NETCDF) /* define when library is a DLL */
-#  if defined(NC_DLL_EXPORT) /* define when building the library */
+#  if defined(vtkNetCDF_EXPORTS) /* define when building the library */
 #   define MSC_EXTRA __declspec(dllexport)
 #  else
 #   define MSC_EXTRA __declspec(dllimport)
