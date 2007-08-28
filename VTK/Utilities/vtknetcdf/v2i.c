@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: v2i.c,v 1.11 2007-08-28 11:11:13 dcthomp Exp $ */
+/* $Id: v2i.c,v 1.12 2007-08-28 16:12:54 dcthomp Exp $ */
 
 #include "ncconfig.h"
 #include <stdlib.h>
@@ -341,7 +341,6 @@ nc_get_rec(
 /*
  * Error code
  */
-#ifndef DLL_NETCDF /* define when library is not a DLL */
 int ncerr = NC_NOERR ;
 
 
@@ -350,7 +349,6 @@ int ncerr = NC_NOERR ;
  * They call exit() when NC_FATAL bit is on.
  */
 int ncopts = (NC_FATAL | NC_VERBOSE) ;
-#endif
 
 /* End globals */
 
