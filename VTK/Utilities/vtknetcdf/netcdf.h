@@ -30,7 +30,7 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
  * WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* "$Id: netcdf.h,v 1.8 2007-08-28 11:11:13 dcthomp Exp $" */
+/* "$Id: netcdf.h,v 1.9 2007-08-28 15:39:01 dcthomp Exp $" */
 
 #ifndef _NETCDF_
 #define _NETCDF_
@@ -247,8 +247,8 @@ typedef enum {
 /* When netCDF is built as a DLL, this will export ncerr and
  * ncopts. When it is used as a DLL, it will import them. */
 #if defined(DLL_NETCDF) 
-MSC_EXTRA int ncerr;
-MSC_EXTRA int ncopts;
+EXTERNL int ncerr;
+EXTERNL int ncopts;
 #endif
 
 EXTERNL const char *
