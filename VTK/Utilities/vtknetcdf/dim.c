@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: dim.c,v 1.6 2007-08-27 23:08:49 dcthomp Exp $ */
+/* $Id: dim.c,v 1.7 2007-08-28 11:11:13 dcthomp Exp $ */
 
 #include "nc.h"
 #include <stdlib.h>
@@ -99,7 +99,7 @@ find_NC_Udim(const NC_dimarray *ncap, NC_dim **dimpp)
   {
     /*EMPTY*/
   }
-  if(dimid >= (int)ncap->nelems)
+  if((size_t)dimid >= ncap->nelems)
     return(-1); /* not found */
   /* else, normal return */
   if(dimpp != NULL)

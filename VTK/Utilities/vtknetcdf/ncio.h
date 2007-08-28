@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: ncio.h,v 1.5 2007-08-27 23:08:49 dcthomp Exp $ */
+/* $Id: ncio.h,v 1.6 2007-08-28 11:11:13 dcthomp Exp $ */
 
 #ifndef _NCIO_H_
 #define _NCIO_H_

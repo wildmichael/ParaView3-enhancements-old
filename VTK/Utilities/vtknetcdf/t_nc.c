@@ -2,7 +2,7 @@
  *  Copyright 1988 University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: t_nc.c,v 1.4 2007-08-27 23:08:49 dcthomp Exp $ */
+/* $Id: t_nc.c,v 1.5 2007-08-28 11:11:13 dcthomp Exp $ */
 
 /*
  *   Program to create a cdf, exercise all cdf functions.
@@ -27,7 +27,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-#include "netcdf.h"
 
 #ifdef USE_NETCDF4
 #include <netcdf3.h>
