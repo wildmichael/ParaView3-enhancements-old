@@ -30,12 +30,13 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
  * WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* "$Id: netcdf.h,v 1.11 2007-08-28 16:23:39 david.cole Exp $" */
+/* "$Id: netcdf.h,v 1.12 2007-08-28 17:51:55 dcthomp Exp $" */
 
 #ifndef _NETCDF_
 #define _NETCDF_
 
 #include "vtk_netcdf_mangle.h"
+#include "ncconfig.h" /* for DLL_NETCDF */
 
 #include <stddef.h> /* size_t, ptrdiff_t */
 #include <errno.h>  /* netcdf functions sometimes return system errors */
@@ -242,7 +243,7 @@ typedef enum {
 #  define NC_FSTAT fstat
 #endif  /* defined(DLL_NETCDF) */
 
-# define EXTERNL extern MSC_EXTRA
+# define EXTERNL MSC_EXTRA extern
 
 /* When netCDF is built as a DLL, this will export ncerr and
  * ncopts. When it is used as a DLL, it will import them. */
