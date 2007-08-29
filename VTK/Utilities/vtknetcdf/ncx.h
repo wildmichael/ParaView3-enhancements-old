@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* "$Id: ncx.h,v 1.12 2007-08-29 00:39:01 dcthomp Exp $" */
+/* "$Id: ncx.h,v 1.13 2007-08-29 00:47:13 dcthomp Exp $" */
 
 #ifndef _NCX_H_
 #define _NCX_H_
@@ -36,6 +36,15 @@
 #elif defined(_SX) && defined(_FLOAT2)  /* NEC SUPER-UX in CRAY mode */
 #define CRAYFLOAT 1 /* CRAY Floating point */
 #endif
+
+
+#if defined(DLL_NETCDF) /* define when library is a DLL */
+#  include <io.h>
+#  if !defined(__BORLANDC__) && !defined(__GNUC__)
+#  define lseek _lseeki64
+#  define off_t __int64
+#  endif /* ! __BORLANDC__ && ! __GNUC__ */
+#endif  /* defined(DLL_NETCDF) */
 
 /*
  * The integer return code for the conversion routines
