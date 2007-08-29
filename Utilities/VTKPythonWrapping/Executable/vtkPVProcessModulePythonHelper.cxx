@@ -24,7 +24,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkPVProcessModulePythonHelper, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPVProcessModulePythonHelper, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkPVProcessModulePythonHelper);
 
 //----------------------------------------------------------------------------
@@ -123,7 +123,7 @@ void vtkPVProcessModulePythonHelper::SendCleanupPendingProgress()
 }
 
 //----------------------------------------------------------------------------
-void vtkPVProcessModulePythonHelper::SetLocalProgress(const char* filter, int val)
+void vtkPVProcessModulePythonHelper::SetLocalProgress(const char*, int)
 {
 }
 
