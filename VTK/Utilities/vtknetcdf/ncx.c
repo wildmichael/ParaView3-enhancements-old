@@ -21,7 +21,7 @@
  *  they handle IEEE subnormals properly, and their "n" versions
  *  operate speedily on arrays.
  */
-/* $Id: ncx.c,v 1.8 2007-08-29 18:06:52 dcthomp Exp $ */
+/* $Id: ncx.c,v 1.9 2007-08-30 08:27:31 dcthomp Exp $ */
 
 /*
  * An external data representation interface.
@@ -1807,7 +1807,9 @@ ncx_put_size_t(void **xpp, const size_t *ulp)
 {
   /* similar to put_ix_int() */
   uchar *cp = (uchar *) *xpp;
+#if SIZEOF_SIZE_T != X_SIZEOF_INT
   assert(*ulp <= X_SIZE_MAX);
+#endif
 
   *cp++ = (uchar)((*ulp) >> 24);
   *cp++ = (uchar)(((*ulp) & 0x00ff0000) >> 16);
