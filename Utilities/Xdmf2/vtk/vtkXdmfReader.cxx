@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-08-30 17:57:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2007-08-30 18:55:35 $
+  Version:   $Revision: 1.26 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -84,7 +84,7 @@
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.26 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -1483,7 +1483,7 @@ int vtkXdmfReaderInternal::RequestSingleGridData(
 int vtkXdmfReaderInternal::RequestActualGridInformation(
   vtkXdmfReaderActualGrid* currentActualGrid,
   int outputGrid,
-  int numberOfGrids,
+  int vtkNotUsed(numberOfGrids),
   vtkInformationVector* outputVector)
 {
   // Handle single grid
@@ -2645,7 +2645,7 @@ void vtkXdmfReader::UpdateUniformGrid(void *GridNode, char * CollectionName)
   vtkDebugMacro( << "Reading Light Data for " << gridName );
   XdmfConstString levelName = this->DOM->Get((XdmfXmlNode) GridNode, "Level" );
 
-  vtkXdmfReaderGrid* grid = this->Internals->GetXdmfGrid(gridName, CollectionName,levelName); //leaks the collection this creates
+  vtkXdmfReaderGrid* grid = this->Internals->GetXdmfGrid(gridName, CollectionName,levelName);
   if ( !grid )
     {
     // Error happened
