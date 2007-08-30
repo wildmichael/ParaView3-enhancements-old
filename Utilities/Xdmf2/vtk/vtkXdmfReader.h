@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2007-08-29 14:03:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2007-08-30 17:27:03 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 // .NAME vtkXdmfReader - read eXtensible Data Model and Format files
 // .SECTION Description
 // vtkXdmfReader is a source object that reads XDMF data.
-// The output of this reader is a vtkMultiGroupDataSet with on group for
+// The output of this reader is a vtkMultiGroupDataSet with one group for
 // every enabled grid in the domain.
 // The superclass of this class, vtkDataReader, provides many methods for
 // controlling the reading of the data file, see vtkDataReader for more
