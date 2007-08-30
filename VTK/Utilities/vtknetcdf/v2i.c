@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: v2i.c,v 1.12 2007-08-28 16:12:54 dcthomp Exp $ */
+/* $Id: v2i.c,v 1.13 2007-08-30 07:05:57 dcthomp Exp $ */
 
 #include "ncconfig.h"
 #include <stdlib.h>
@@ -32,6 +32,7 @@
  */
 
 # include "onstack.h"
+# include "nc.h"
 
 static size_t
 nvdims(int ncid, int varid)
