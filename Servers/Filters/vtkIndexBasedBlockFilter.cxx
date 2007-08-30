@@ -32,7 +32,7 @@
 #include "vtkTable.h"
 
 vtkStandardNewMacro(vtkIndexBasedBlockFilter);
-vtkCxxRevisionMacro(vtkIndexBasedBlockFilter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkIndexBasedBlockFilter, "$Revision: 1.7 $");
 vtkCxxSetObjectMacro(vtkIndexBasedBlockFilter, Controller, vtkMultiProcessController);
 //----------------------------------------------------------------------------
 vtkIndexBasedBlockFilter::vtkIndexBasedBlockFilter()
@@ -130,7 +130,7 @@ int vtkIndexBasedBlockFilter::RequestData(vtkInformation*,
         if (!points)
           {
           points = vtkDoubleArray::New();
-          points->SetName("Points");
+          points->SetName("Point Coordinates");
           points->SetNumberOfComponents(3);
           points->SetNumberOfTuples(outFD->GetNumberOfTuples());
           }
