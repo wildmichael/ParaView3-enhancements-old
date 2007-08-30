@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkTessellatorFilter.h,v $
 Language:  C++
-Date:      $Date: 2007-06-04 08:35:13 $
-Version:   $Revision: 1.2 $
+Date:      $Date: 2007-08-30 22:51:07 $
+Version:   $Revision: 1.3 $
 
 Copyright 2003 Sandia Corporation.
 Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -79,9 +79,18 @@ public:
 
   virtual unsigned long GetMTime();
 
+  // Description:
+  // Set the dimension of the output tessellation.
+  // Cells in dimensions higher than the given value will have
+  // their boundaries of dimension \a OutputDimension tessellated.
+  // For example, if \a OutputDimension is 2, a hexahedron's
+  // quadrilateral faces would be tessellated rather than its
+  // interior.
   vtkSetClampMacro(OutputDimension,int,1,3);
   vtkGetMacro(OutputDimension,int);
+  //BTX
   int GetOutputDimension() const;
+  //ETX
 
   // Description:
   // These are convenience routines for setting properties maintained by the
