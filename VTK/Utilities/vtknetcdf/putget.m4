@@ -12,7 +12,7 @@ dnl
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.m4,v 1.5 2007-08-28 11:53:14 dcthomp Exp $ */
+/* $Id: putget.m4,v 1.6 2007-08-31 00:43:44 dcthomp Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -1506,7 +1506,11 @@ NCGETVARA(double, double)
 /* C++ consts default to internal linkage and must be initialized */
 const size_t coord_zero[NC_MAX_VAR_DIMS] = {0};
 #else
+#  if defined(_MSC_VER) && _MSC_VER >= 1300
+static const size_t coord_zero[NC_MAX_VAR_DIMS] = { 0 };
+#  else
 static const size_t coord_zero[NC_MAX_VAR_DIMS];
+#  endif
 #endif
 
 dnl
