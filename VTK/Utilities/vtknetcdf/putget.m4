@@ -12,7 +12,7 @@ dnl
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.m4,v 1.6 2007-08-31 00:43:44 dcthomp Exp $ */
+/* $Id: putget.m4,v 1.7 2007-08-31 06:16:20 dcthomp Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -32,6 +32,10 @@ dnl
 #  pragma warn -8004 /* "assigned a value that is never used" */
 #  pragma warn -8065 /* "Call to function 'XXX' with no prototype" */
 #endif
+
+#if defined(_MSC_VER) && (_MSC_VER >= 1400)
+#  pragma warning ( disable : 4130 ) /* logical operation on address of string constant */
+#endif /* defined(_MSC_VER) && (_MSC_VER >= 1400) */
 
 #undef MIN  /* system may define MIN somewhere and complain */
 #define MIN(mm,nn) (((mm) < (nn)) ? (mm) : (nn))

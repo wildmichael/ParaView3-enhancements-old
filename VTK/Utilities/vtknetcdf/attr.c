@@ -3,7 +3,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: attr.c,v 1.6 2007-08-28 11:11:13 dcthomp Exp $ */
+/* $Id: attr.c,v 1.7 2007-08-31 06:16:20 dcthomp Exp $ */
 
 #include "nc.h"
 #include <stdlib.h>
@@ -13,6 +13,9 @@
 #include "fbits.h"
 #include "rnd.h"
 
+#if defined(_MSC_VER) && (_MSC_VER >= 1400)
+#  pragma warning ( disable : 4130 ) /* logical operation on address of string constant */
+#endif /* defined(_MSC_VER) && (_MSC_VER >= 1400) */
 
 /*
  * Free attr

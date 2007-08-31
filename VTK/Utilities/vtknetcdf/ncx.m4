@@ -26,7 +26,7 @@ dnl
  *  they handle IEEE subnormals properly, and their "n" versions
  *  operate speedily on arrays.
  */
-/* $Id: ncx.m4,v 1.5 2007-08-31 00:43:44 dcthomp Exp $ */
+/* $Id: ncx.m4,v 1.6 2007-08-31 06:16:20 dcthomp Exp $ */
 
 /*
  * An external data representation interface.
@@ -565,7 +565,7 @@ ncx_get_int_schar(const void *xp, schar *ip)
 {
   ix_int xx;
   get_ix_int(xp, &xx);
-  *ip = xx;
+  *ip = (schar)xx;
   if(xx > SCHAR_MAX || xx < SCHAR_MIN)
     return NC_ERANGE;
   return ENOERR;
