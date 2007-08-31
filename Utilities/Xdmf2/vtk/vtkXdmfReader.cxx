@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-08-30 18:55:35 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2007-08-31 18:34:49 $
+  Version:   $Revision: 1.27 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -84,7 +84,7 @@
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.27 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -212,6 +212,7 @@ public:
   vtkXdmfReaderActualGrid() : Enabled(0), Grid(0), Collection(0) {}
   ~vtkXdmfReaderActualGrid() 
   {
+  /*
   if (this->Collection)
     {
     vtkXdmfReaderGridCollection::SetOfGrids::iterator it = this->Collection->Grids.begin();
@@ -225,7 +226,9 @@ public:
       it++;
       }
     };
+  */
   }
+
   int Enabled;
   vtkXdmfReaderGrid* Grid;
   vtkXdmfReaderGridCollection* Collection;
