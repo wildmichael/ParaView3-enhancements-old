@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.c,v 1.14 2007-08-31 22:45:50 dcthomp Exp $ */
+/* $Id: nc.c,v 1.15 2007-09-01 06:51:44 dcthomp Exp $ */
 
 #include "nc.h"
 #include "rnd.h"
@@ -20,7 +20,7 @@
 #  pragma warn -8065 /* "Call to function 'XXX' with no prototype" */
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER == 1310)
+#if defined(_MSC_VER) && (_MSC_VER >= 1310)
 #  pragma warning ( disable : 4127 ) /* conditional expression is constant */
 #  pragma warning ( disable : 4130 ) /* logical operation on address of string constant */
 #endif /* MSVC 7.1 */
