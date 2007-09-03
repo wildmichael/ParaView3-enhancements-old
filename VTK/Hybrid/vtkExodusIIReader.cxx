@@ -705,7 +705,7 @@ private:
 };
 
 vtkStandardNewMacro(vtkExodusIIXMLParser);
-vtkCxxRevisionMacro(vtkExodusIIXMLParser,"$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkExodusIIXMLParser,"$Revision: 1.37 $");
 
 
 
@@ -1655,7 +1655,7 @@ void vtkExodusIIReaderPrivate::ArrayInfoType::Reset()
 }
 
 // ------------------------------------------------------- PRIVATE CLASS MEMBERS
-vtkCxxRevisionMacro(vtkExodusIIReaderPrivate,"$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkExodusIIReaderPrivate,"$Revision: 1.37 $");
 vtkStandardNewMacro(vtkExodusIIReaderPrivate);
 vtkCxxSetObjectMacro(vtkExodusIIReaderPrivate,
                      CachedConnectivity,
@@ -4894,7 +4894,7 @@ int vtkExodusIIReaderPrivate::RequestInformation()
         // Check to see if there is metadata that defines what part, material, 
         //  and assembly(ies) this block belongs to. 
 
-        if(this->Parser && this->Parser->GetPartDescription(ids[i])!="")
+        if(this->Parser && this->Parser->GetPartDescription(binfo.Id)!="")
           {
           // First construct the names for the block, part, assembly, and 
           //  material using the parsed XML metadata.
@@ -5815,7 +5815,7 @@ vtkDataArray* vtkExodusIIReaderPrivate::FindDisplacementVectors( int timeStep )
 
 // -------------------------------------------------------- PUBLIC CLASS MEMBERS
 
-vtkCxxRevisionMacro(vtkExodusIIReader,"$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkExodusIIReader,"$Revision: 1.37 $");
 vtkStandardNewMacro(vtkExodusIIReader);
 vtkCxxSetObjectMacro(vtkExodusIIReader,Metadata,vtkExodusIIReaderPrivate);
 vtkCxxSetObjectMacro(vtkExodusIIReader,ExodusModel,vtkExodusModel);
