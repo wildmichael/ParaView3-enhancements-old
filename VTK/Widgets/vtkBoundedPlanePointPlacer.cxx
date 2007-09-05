@@ -22,9 +22,11 @@
 #include "vtkInteractorObserver.h"
 #include "vtkLine.h"
 #include "vtkCamera.h"
+
+#include <vtkstd/algorithm>
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkBoundedPlanePointPlacer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkBoundedPlanePointPlacer, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkBoundedPlanePointPlacer);
 
 vtkCxxSetObjectMacro(vtkBoundedPlanePointPlacer, ObliquePlane, vtkPlane);
