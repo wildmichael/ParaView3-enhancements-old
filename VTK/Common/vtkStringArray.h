@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.h,v $
   Language:  C++
-  Date:      $Date: 2006-02-07 20:50:18 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2007-09-05 13:41:55 $
+  Version:   $Revision: 1.7 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -43,6 +43,8 @@
 
 #include "vtkAbstractArray.h"
 #include "vtkStdString.h" // needed for vtkStdString definition
+
+class vtkStringArrayLookup;
 
 class VTK_COMMON_EXPORT vtkStringArray : public vtkAbstractArray
 {
@@ -151,7 +153,7 @@ public:
   // you use the method SetNumberOfValues() before inserting data.
 //BTX
   void SetValue(vtkIdType id, vtkStdString value)
-    { this->Array[id] = value; }
+    { this->Array[id] = value; this->DataChanged(); }
 //ETX
   void SetValue(vtkIdType id, const char *value);
 
@@ -244,6 +246,33 @@ public:
   // for the data can be computed by GetDataSize() * GetDataTypeSize().
   // The size computation includes the string termination character for each string.
   virtual unsigned long GetDataSize();
+  
+  //BTX
+  // Description:
+  // Return the indices where a specific value appears.
+  virtual vtkIdType LookupValue(vtkVariant value);
+  virtual void LookupValue(vtkVariant value, vtkIdList* ids);
+  vtkIdType LookupValue(vtkStdString value);
+  void LookupValue(vtkStdString value, vtkIdList* ids);
+  //ETX
+  vtkIdType LookupValue(const char* value);
+  void LookupValue(const char* value, vtkIdList* ids);
+  
+  // Description:
+  // Tell the array explicitly that the data has changed.
+  // This is only necessary to call when you modify the array contents
+  // without using the array's API (i.e. you retrieve a pointer to the
+  // data and modify the array contents).  You need to call this so that
+  // the fast lookup will know to rebuild itself.  Otherwise, the lookup
+  // functions will give incorrect results.
+  virtual void DataChanged();
+  
+  // Description:
+  // Delete the associated fast lookup data structure on this array,
+  // if it exists.  The lookup will be rebuilt on the next call to a lookup
+  // function.
+  virtual void ClearLookup();
+  
 protected:
   vtkStringArray(vtkIdType numComp=1);
   ~vtkStringArray();
@@ -256,6 +285,11 @@ protected:
 private:
   vtkStringArray(const vtkStringArray&);  // Not implemented.
   void operator=(const vtkStringArray&);  // Not implemented.
+  
+  //BTX
+  vtkStringArrayLookup* Lookup;
+  void UpdateLookup();
+  //ETX
 };
 
 
