@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: init.c,v 1.4 2005-12-16 19:02:08 kmorel Exp $ */
+/* $Id: init.c,v 1.5 2007-09-06 23:15:49 kmorel Exp $ */
 
 #include "test-util.h"
 #include "test_codes.h"
@@ -130,7 +130,7 @@ void initialize_test(int *argcp, char ***argvp, IceTCommunicator comm)
     rank = (*comm->Comm_rank)(comm);
     num_proc = (*comm->Comm_size)(comm);
 
-    strcpy(display, "DISPLAY=localhost:0");
+    display[0] = '\0';
 
   /* Parse my arguments. */
     for (arg = 1; arg < argc; arg++) {
@@ -179,7 +179,9 @@ void initialize_test(int *argcp, char ***argvp, IceTCommunicator comm)
     }
 
   /* Create a renderable window. */
-    putenv(strdup(display));
+    if (display[0] != '\0') {
+        putenv(strdup(display));
+    }
     wincreat(0, 0, width, height, (char *)"ICE-T test");
     glEnable(GL_DEPTH_TEST);
     glViewport(0, 0, width, height);
