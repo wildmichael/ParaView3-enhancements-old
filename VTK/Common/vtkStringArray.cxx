@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-09-05 13:41:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2007-09-06 17:00:43 $
+  Version:   $Revision: 1.10 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -67,7 +67,7 @@ public:
   bool Rebuild;
 };
 
-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkStringArray);
 
 //----------------------------------------------------------------------------
@@ -681,8 +681,9 @@ vtkIdType vtkStringArray::LookupValue(vtkStdString value)
   int numComps = this->GetNumberOfComponents();
   vtkIdType numTuples = this->GetNumberOfTuples();
   vtkStdString* ptr = this->Lookup->SortedArray->GetPointer(0);
-  vtkStdString* found = vtkstd::lower_bound(ptr, ptr + numComps*numTuples, value);
-  if (*found == value)
+  vtkStdString* ptrEnd = ptr + numComps*numTuples;
+  vtkStdString* found = vtkstd::lower_bound(ptr, ptrEnd, value);
+  if (found != ptrEnd && *found == value)
     {
     return this->Lookup->IndexArray->GetId(static_cast<vtkIdType>(found - ptr));
     }
