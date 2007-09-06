@@ -4,7 +4,7 @@
 /*=========================================================================
 
   Program:   ParaView
-  Module:    $RCSfile: vtkSMPluginInit.cxx.in,v $
+  Module:    $RCSfile: vtkPVPluginInit.cxx.in,v $
 
   Copyright (c) Kitware, Inc.
   All rights reserved.
