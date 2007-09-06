@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqApplicationSettingsWidget.h,v $
+   Module:    $RCSfile: pqApplicationOptions.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -28,36 +28,39 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-========================================================================*/
-#ifndef __pqApplicationSettingsWidget_h 
-#define __pqApplicationSettingsWidget_h
+=========================================================================*/
 
-#include <QWidget>
+#ifndef _pqApplicationOptions_h
+#define _pqApplicationOptions_h
+
 #include "pqComponentsExport.h"
+#include "pqOptionsContainer.h"
 
-/// pqApplicationSettingsWidget is the widget used in the pqSettingsDialog to
-/// show application settings.
-class PQCOMPONENTS_EXPORT pqApplicationSettingsWidget : public QWidget
+/// options container for pages of render view options
+class PQCOMPONENTS_EXPORT pqApplicationOptions : public pqOptionsContainer
 {
   Q_OBJECT
-  typedef QWidget Superclass;
-public:
-  pqApplicationSettingsWidget(QWidget* parent=0);
-  virtual ~pqApplicationSettingsWidget();
 
-public slots:
-  /// Called to accept all user changes.
-  void accept();
+public:
+  pqApplicationOptions(QWidget *parent=0);
+  virtual ~pqApplicationOptions();
+
+  // set the current page
+  virtual void setPage(const QString &page);
+  // return a list of strings for pages we have
+  virtual QStringList getPageList();
+
+  // apply the changes
+  virtual void applyChanges();
+  // reset the changes
+  virtual void resetChanges();
+
+  // tell pqOptionsDialog that we want an apply button
+  virtual bool isApplyUsed() const { return true; }
 
 private:
-  pqApplicationSettingsWidget(const pqApplicationSettingsWidget&); // Not implemented.
-  void operator=(const pqApplicationSettingsWidget&); // Not implemented.
-
   class pqInternal;
   pqInternal* Internal;
-
 };
 
 #endif
-
-
