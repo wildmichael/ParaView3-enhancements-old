@@ -35,15 +35,15 @@
 #include "vtkGraph.h"
 #include "vtkVariantArray.h"
 
-vtkCxxRevisionMacro(vtkTreeFieldAggregator, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkTreeFieldAggregator, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkTreeFieldAggregator);
 
 vtkTreeFieldAggregator::vtkTreeFieldAggregator():MinValue(0.0)
 {
   this->MinValue = 0;
   this->Field = 0;
-  this->SetLeafVertexUnitSize(true);
-  this->SetLogScale(false);
+  this->LeafVertexUnitSize = true;
+  this->LogScale = false;
 }
 
 vtkTreeFieldAggregator::~vtkTreeFieldAggregator()
