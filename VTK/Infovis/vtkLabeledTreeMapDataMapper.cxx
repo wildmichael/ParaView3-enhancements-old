@@ -36,7 +36,7 @@
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 
-vtkCxxRevisionMacro(vtkLabeledTreeMapDataMapper, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkLabeledTreeMapDataMapper, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkLabeledTreeMapDataMapper);
 
 vtkLabeledTreeMapDataMapper::vtkLabeledTreeMapDataMapper()
@@ -115,7 +115,7 @@ vtkLabeledTreeMapDataMapper::~vtkLabeledTreeMapDataMapper()
     delete [] this->TextMappers;
     this->TextMappers = NULL;
     }
-  
+  this->SetRectanglesFieldName(NULL);
 }
 
 //----------------------------------------------------------------------------
