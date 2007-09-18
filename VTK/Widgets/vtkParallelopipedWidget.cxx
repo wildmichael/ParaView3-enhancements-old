@@ -32,7 +32,7 @@
 #include "vtkWidgetSet.h"
 #include "vtkGarbageCollector.h"
 
-vtkCxxRevisionMacro(vtkParallelopipedWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkParallelopipedWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkParallelopipedWidget);
 
 //----------------------------------------------------------------------
@@ -87,6 +87,7 @@ vtkParallelopipedWidget::~vtkParallelopipedWidget()
     {
     this->HandleWidgets[i]->Delete();
     }
+  delete [] this->HandleWidgets;
 }
 
 //----------------------------------------------------------------------
