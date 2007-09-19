@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: dim.c,v 1.9 2007-09-01 06:51:44 dcthomp Exp $ */
+/* $Id: dim.c,v 1.10 2007-09-19 07:59:45 dcthomp Exp $ */
 
 #include "nc.h"
 #include <stdlib.h>
@@ -11,7 +11,7 @@
 #include "ncx.h"
 #include "fbits.h"
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1310)
+#if defined(_MSC_VER) && (_MSC_VER >= 1300)
 #  pragma warning ( disable : 4127 ) /* conditional expression is constant */
 #endif /* MSVC 7.1 */
 
