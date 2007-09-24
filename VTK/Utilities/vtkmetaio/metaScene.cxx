@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaScene.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-27 14:04:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2007-09-24 14:27:35 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -18,10 +18,6 @@
 #pragma warning ( disable : 4786 )
 #pragma warning ( disable : 4702 )
 #endif
-
-#include <stdio.h>
-#include <ctype.h>
-#include <string>
 
 #include "metaUtils.h"
 #include "metaObject.h"
@@ -43,6 +39,10 @@
 #include "metaArrow.h"
 #include "metaTransform.h"
 #include "metaTubeGraph.h"
+
+#include <stdio.h>
+#include <ctype.h>
+#include <string>
 
 #if (METAIO_USE_NAMESPACE)
 namespace METAIO_NAMESPACE {
