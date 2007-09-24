@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeShadeHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-09-21 19:23:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2007-09-24 20:23:02 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeShadeHelper with default values
@@ -225,9 +225,9 @@ void vtkFixedPointCompositeShadeHelperGenerateImageFourDependentNN( T *data,
     tmp[3] = scalarOpacityTable[0][val[3]];
     if ( tmp[3] )
       {
-      tmp[0] = (val[0]*tmp[3]+0x7fff)>>(8);
-      tmp[1] = (val[1]*tmp[3]+0x7fff)>>(8);
-      tmp[2] = (val[2]*tmp[3]+0x7fff)>>(8);
+      tmp[0] = (val[0]*tmp[3]+0x7f)>>(8);
+      tmp[1] = (val[1]*tmp[3]+0x7f)>>(8);
+      tmp[2] = (val[2]*tmp[3]+0x7f)>>(8);
       
       unsigned short normal   = *dirPtr;    
       VTKKWRCHelper_LookupShading( diffuseShadingTable[0], specularShadingTable[0], normal, tmp );
@@ -595,9 +595,9 @@ void vtkFixedPointCompositeShadeHelperGenerateImageFourDependentTrilin( T *data,
       needToSampleDirection = 0;
       }
     
-    tmp[0] = (val[0]*tmp[3]+0x7fff)>>8;
-    tmp[1] = (val[1]*tmp[3]+0x7fff)>>8;
-    tmp[2] = (val[2]*tmp[3]+0x7fff)>>8;
+    tmp[0] = (val[0]*tmp[3]+0x7f)>>8;
+    tmp[1] = (val[1]*tmp[3]+0x7f)>>8;
+    tmp[2] = (val[2]*tmp[3]+0x7f)>>8;
     
     VTKKWRCHelper_InterpolateShading( diffuseShadingTable[0], specularShadingTable[0], tmp ); 
     VTKKWRCHelper_CompositeColorAndCheckEarlyTermination( color, tmp, remainingOpacity );

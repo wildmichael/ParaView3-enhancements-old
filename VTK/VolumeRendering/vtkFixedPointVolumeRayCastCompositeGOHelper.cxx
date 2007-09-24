@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeGOHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-09-21 19:23:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2007-09-24 20:23:02 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeGOHelper, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeGOHelper, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeGOHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeGOHelper with default values
@@ -235,9 +235,9 @@ void vtkFixedPointCompositeGOHelperGenerateImageFourDependentNN( T *data,
       continue;
       }
     
-    tmp[0] = (val[0]*tmp[3]+0x7fff)>>(8);
-    tmp[1] = (val[1]*tmp[3]+0x7fff)>>(8);
-    tmp[2] = (val[2]*tmp[3]+0x7fff)>>(8);
+    tmp[0] = (val[0]*tmp[3]+0x7f)>>(8);
+    tmp[1] = (val[1]*tmp[3]+0x7f)>>(8);
+    tmp[2] = (val[2]*tmp[3]+0x7f)>>(8);
     
     VTKKWRCHelper_CompositeColorAndCheckEarlyTermination( color, tmp, remainingOpacity );
     }
@@ -648,9 +648,9 @@ void vtkFixedPointCompositeGOHelperGenerateImageFourDependentTrilin( T *data,
       continue;
       }
     
-    tmp[0] = (val[0]*tmp[3]+0x7fff)>>8;
-    tmp[1] = (val[1]*tmp[3]+0x7fff)>>8;
-    tmp[2] = (val[2]*tmp[3]+0x7fff)>>8;
+    tmp[0] = (val[0]*tmp[3]+0x7f)>>8;
+    tmp[1] = (val[1]*tmp[3]+0x7f)>>8;
+    tmp[2] = (val[2]*tmp[3]+0x7f)>>8;
     
     VTKKWRCHelper_CompositeColorAndCheckEarlyTermination( color, tmp, remainingOpacity );    
     }
