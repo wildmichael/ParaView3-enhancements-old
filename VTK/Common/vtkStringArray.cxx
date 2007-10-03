@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-09-13 13:16:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2007-10-03 21:09:31 $
+  Version:   $Revision: 1.12 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -67,7 +67,7 @@ public:
   bool Rebuild;
 };
 
-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkStringArray);
 
 //-----------------------------------------------------------------------------
@@ -256,7 +256,8 @@ void vtkStringArray::InterpolateTuple(vtkIdType i, vtkIdList *ptIndices,
     {
     if (weights[k] > max_weight)
       {
-      nearest = k;
+      nearest = ptIndices->GetId(k);
+      max_weight = weights[k];
       }
     }
 
