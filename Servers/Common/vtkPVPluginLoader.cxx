@@ -20,7 +20,7 @@
 #include "vtkDynamicLoader.h"
 
 vtkStandardNewMacro(vtkPVPluginLoader);
-vtkCxxRevisionMacro(vtkPVPluginLoader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVPluginLoader, "$Revision: 1.2 $");
 
 #ifdef _WIN32
 // __cdecl gives an unmangled name
@@ -49,6 +49,8 @@ vtkPVPluginLoader::~vtkPVPluginLoader()
     {
     delete [] this->ServerManagerXML;
     }
+
+  this->SetFileName(0);
 }
 
 //-----------------------------------------------------------------------------
