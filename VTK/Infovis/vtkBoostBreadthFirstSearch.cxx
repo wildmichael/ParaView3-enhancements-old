@@ -41,7 +41,7 @@
 
 using namespace boost;
 
-vtkCxxRevisionMacro(vtkBoostBreadthFirstSearch, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkBoostBreadthFirstSearch, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkBoostBreadthFirstSearch);
 
 
@@ -134,6 +134,12 @@ void vtkBoostBreadthFirstSearch::SetOriginVertex(
   this->SetInputArrayName(arrayName);
   this->OriginValue = value;
   this->Modified();
+}
+
+void vtkBoostBreadthFirstSearch::SetOriginVertexString(
+  char* arrayName, char* value)
+{
+  this->SetOriginVertex(arrayName, value);
 }
 
 vtkIdType vtkBoostBreadthFirstSearch::GetVertexIndex(
