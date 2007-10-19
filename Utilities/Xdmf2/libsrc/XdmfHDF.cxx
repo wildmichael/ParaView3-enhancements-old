@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.4 2007-07-10 17:55:41 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-10 17:55:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.5 2007-10-19 18:36:06 dave.demarle Exp $  */
+/*  Date : $Date: 2007-10-19 18:36:06 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,12 +25,6 @@
 #ifndef XDMF_NO_MPI
 #include "XdmfDsmBuffer.h"
 #include "XdmfH5Driver.h"
-#endif
-
-#ifdef HAVE_NDGM
-extern "C" {
-#include "H5FDndgm.h"
-}
 #endif
 
 #ifdef WIN32
@@ -600,7 +594,6 @@ if( DataSetName != NULL ) {
   *firstcolon = '\0';
   firstcolon++;
   if ( ( STRCASECMP( NewName, "FILE" ) == 0 ) ||
-    ( STRCASECMP( NewName, "NDGM" ) == 0 ) ||
     ( STRCASECMP( NewName, "GASS" ) == 0 ) ||
     ( STRCASECMP( NewName, "CORE" ) == 0 ) ||
     ( STRCASECMP( NewName, "DUMMY" ) == 0 ) ) {
@@ -680,20 +673,8 @@ XdmfDebug("Using Domain " << this->Domain );
       return( XDMF_FAIL );  
 #endif
     } else if( STRCASECMP( this->Domain, "NDGM" ) == 0 ) {
-#ifdef HAVE_NDGM
-      XdmfDebug("Using NDGM Interface");  
-      H5FD_ndgm_init();
-      this->AccessPlist = H5Pcreate( H5P_FILE_ACCESS );
-      XdmfDebug("Using NdgmHost " << this->GetNdgmHost() );
-      if( strlen( this->GetNdgmHost() ) < 2 ) {
-        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, NULL);
-      } else {
-        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, (char*)this->GetNdgmHost());
-      }
-#else
       XdmfErrorMessage("NDGM Interface is unavailable");
       return( XDMF_FAIL );  
-#endif
     } else if( STRCASECMP( this->Domain, "GASS" ) == 0 ) {
     } else {
 // Check for Parallel HDF5 ... MPI must already be initialized
@@ -756,20 +737,8 @@ if( this->File < 0 ){
       return( XDMF_FAIL );
 #endif
     } else if( STRCASECMP( this->Domain, "NDGM" ) == 0 ) {
-      XdmfDebug("Using NDGM Interface");  
-#ifdef HAVE_NDGM
-      H5FD_ndgm_init();
-      this->AccessPlist = H5Pcreate( H5P_FILE_ACCESS );
-      XdmfDebug("Using NdgmHost " << this->GetNdgmHost() );
-      if( strlen( this->GetNdgmHost() ) < 2 ) {
-        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, NULL);
-      } else {
-        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, (char*)this->GetNdgmHost() );
-      }
-#else
       XdmfErrorMessage("NDGM interface is unavailable");
       return( XDMF_FAIL );
-#endif
     } else if( STRCASECMP( this->Domain, "FILE" ) == 0 ) {
     }
     this->File = H5Fcreate(this->FileName,
