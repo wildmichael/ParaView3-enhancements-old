@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-06-08 21:51:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2007-10-22 06:37:56 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -259,13 +259,15 @@ void MetaOutput::
 SetMetaCommand(MetaCommand* metaCommand)
 {
   m_MetaCommand = metaCommand;
-  m_MetaCommand->SetOption("GenerateMetaOutput","generateMetaOutput",
-                           false,"Generate MetaOutput");
-  m_MetaCommand->SetOption("GenerateXMLMetaOutput","oxml",
+  m_MetaCommand->SetOption("GenerateMetaOutput","",false,"Generate MetaOutput");
+  m_MetaCommand->SetOptionLongTag("GenerateMetaOutput","generateMetaOutput");
+  m_MetaCommand->SetOption("GenerateXMLMetaOutput","",
                            false,"Generate XML MetaOutput to the console");
-  m_MetaCommand->SetOption("GenerateXMLFile","ofxml",
+  m_MetaCommand->SetOptionLongTag("GenerateXMLMetaOutput","oxml");
+  m_MetaCommand->SetOption("GenerateXMLFile","",
             false,"Generate XML MetaOutput to a file",MetaCommand::STRING,"",
             MetaCommand::DATA_OUT);
+  m_MetaCommand->SetOptionLongTag("GenerateXMLFile","ofxml");
 }
 
 /** Get the username */
