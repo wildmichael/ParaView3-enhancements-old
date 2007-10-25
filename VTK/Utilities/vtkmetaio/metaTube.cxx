@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaTube.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-31 13:36:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2007-10-25 19:01:05 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.

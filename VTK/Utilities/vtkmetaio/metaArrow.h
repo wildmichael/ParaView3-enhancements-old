@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaArrow.h,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-10-25 19:01:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.

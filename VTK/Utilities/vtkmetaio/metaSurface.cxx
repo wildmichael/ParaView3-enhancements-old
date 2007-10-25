@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-31 15:15:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2007-10-25 19:01:05 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
