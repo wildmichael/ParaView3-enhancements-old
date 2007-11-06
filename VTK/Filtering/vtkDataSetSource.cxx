@@ -18,7 +18,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkDataSetSource, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkDataSetSource, "$Revision: 1.18 $");
 
 vtkDataSetSource::vtkDataSetSource()
 {
@@ -35,7 +35,7 @@ vtkDataSet *vtkDataSetSource::GetOutput()
     return NULL;
     }
   
-  return (vtkDataSet *)(this->Outputs[0]);
+  return static_cast<vtkDataSet *>(this->Outputs[0]);
 }
 
 //----------------------------------------------------------------------------
