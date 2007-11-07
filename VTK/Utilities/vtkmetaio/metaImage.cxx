@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-10-26 04:54:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2007-11-07 14:06:28 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -20,6 +20,7 @@
 #include <ctype.h>
 #include <string>
 #include <string.h> // for memcpy
+#include <stdlib.h> // atoi
 #include <math.h>
 
 #if defined (__BORLANDC__) && (__BORLANDC__ >= 0x0580)
