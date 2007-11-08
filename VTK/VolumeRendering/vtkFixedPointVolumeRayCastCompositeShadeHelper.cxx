@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeShadeHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-09-24 20:23:02 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2007-11-08 16:51:06 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeShadeHelper with default values
@@ -704,10 +704,11 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentTrilin( T *data,
 }
 
 
-void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID,
-                                                 int threadCount,
-                                                 vtkVolume *vol,
-                                                 vtkFixedPointVolumeRayCastMapper *mapper )
+void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage(
+  int threadID,
+  int threadCount,
+  vtkVolume *vol,
+  vtkFixedPointVolumeRayCastMapper *mapper )
 {
   void *data     = mapper->GetCurrentScalars()->GetVoidPointer(0);
   int scalarType = mapper->GetCurrentScalars()->GetDataType();
@@ -719,13 +720,14 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
     if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 1 )
       {
       // Scale == 1.0 and shift == 0.0 - simple case (faster)
-      if ( mapper->GetTableScale()[0] == 1.0 && mapper->GetTableShift()[0] == 0.0 )
+      if ( mapper->GetTableScale()[0] == 1.0 &&
+           mapper->GetTableShift()[0] == 0.0 )
         {
         switch ( scalarType )
           {
           vtkTemplateMacro( 
             vtkFixedPointCompositeShadeHelperGenerateImageOneSimpleNN(
-              (VTK_TT *)(data),
+              static_cast<VTK_TT *>(data),
               threadID, threadCount, mapper, vol) );
           }
         }
@@ -735,7 +737,7 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
           {
           vtkTemplateMacro( 
             vtkFixedPointCompositeShadeHelperGenerateImageOneNN(
-              (VTK_TT *)(data),
+              static_cast<VTK_TT *>(data),
               threadID, threadCount, mapper, vol) );
           }
         }
@@ -747,33 +749,35 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
         {
         vtkTemplateMacro( 
           vtkFixedPointCompositeShadeHelperGenerateImageIndependentNN(
-            (VTK_TT *)(data),
+            static_cast<VTK_TT *>(data),
             threadID, threadCount, mapper, vol) );
         }
       }
     // Dependent (color) components
     else
       {
-      // Two components - the first specifies color (through a lookup table) and
-      // the second specified opacity (through a lookup table)
+      // Two components - the first specifies color (through a lookup table)
+      // and the second specified opacity (through a lookup table)
       if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 2 )
         {
         switch ( scalarType )
           {
           vtkTemplateMacro( 
             vtkFixedPointCompositeShadeHelperGenerateImageTwoDependentNN(
-              (VTK_TT *)(data),
+              static_cast<VTK_TT *>(data),
               threadID, threadCount, mapper, vol) );
           }
         }
       // Four components - they must be unsigned char, the first three directly
-      // specify color and the fourth specifies opacity (through a lookup table)
+      // specify color and the fourth specifies opacity (through a lookup
+      // table)
       else
         {
         if ( scalarType == VTK_UNSIGNED_CHAR )
           {
           vtkFixedPointCompositeShadeHelperGenerateImageFourDependentNN( 
-            static_cast<unsigned char *>(data), threadID, threadCount, mapper, vol );
+            static_cast<unsigned char *>(data), threadID, threadCount, mapper,
+            vol );
           }
         else
           {
@@ -789,13 +793,14 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
     if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 1 )
       {
       // Scale == 1.0 and shift == 0.0 - simple case (faster)
-      if ( mapper->GetTableScale()[0] == 1.0 && mapper->GetTableShift()[0] == 0.0 )
+      if ( mapper->GetTableScale()[0] == 1.0 &&
+           mapper->GetTableShift()[0] == 0.0 )
         {
         switch ( scalarType )
           {
           vtkTemplateMacro( 
             vtkFixedPointCompositeShadeHelperGenerateImageOneSimpleTrilin(
-              (VTK_TT *)(data),
+              static_cast<VTK_TT *>(data),
               threadID, threadCount, mapper, vol) );
           }
         }
@@ -806,7 +811,7 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
           {
           vtkTemplateMacro( 
             vtkFixedPointCompositeShadeHelperGenerateImageOneTrilin(
-              (VTK_TT *)(data),
+              static_cast<VTK_TT *>(data),
               threadID, threadCount, mapper, vol) );
           }
         }
@@ -818,33 +823,35 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
         {
         vtkTemplateMacro( 
           vtkFixedPointCompositeShadeHelperGenerateImageIndependentTrilin(
-            (VTK_TT *)(data),
+            static_cast<VTK_TT *>(data),
             threadID, threadCount, mapper, vol) );
         }
       }
     // Dependent components
     else
       {
-      // Two components - the first specifies color (through a lookup table) and
-      // the second specified opacity (through a lookup table)
+      // Two components - the first specifies color (through a lookup table)
+      // and the second specified opacity (through a lookup table)
       if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 2 )
         {
         switch ( scalarType )
           {
           vtkTemplateMacro( 
             vtkFixedPointCompositeShadeHelperGenerateImageTwoDependentTrilin(
-              (VTK_TT *)(data),
+              static_cast<VTK_TT *>(data),
               threadID, threadCount, mapper, vol) );
           }
         }
       // Four components - they must be unsigned char, the first three directly
-      // specify color and the fourth specifies opacity (through a lookup table)
+      // specify color and the fourth specifies opacity (through a lookup
+      // table)
       else
         {
         if ( scalarType == VTK_UNSIGNED_CHAR )
           {
           vtkFixedPointCompositeShadeHelperGenerateImageFourDependentTrilin( 
-            static_cast<unsigned char *>(data), threadID, threadCount, mapper, vol );
+            static_cast<unsigned char *>(data), threadID, threadCount, mapper,
+            vol );
           }
         else
           {
