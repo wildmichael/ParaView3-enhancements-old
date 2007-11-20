@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: split.c,v 1.8 2004-08-30 23:04:26 kmorel Exp $ */
+/* $Id: split.c,v 1.9 2007-11-20 18:04:31 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -83,7 +83,7 @@ static IceTImage splitStrategy(void)
         icetRaiseDebug("Not rendering any images.  Quit early.");
         if (tile_displayed >= 0) {
             icetResizeBuffer(icetFullImageSize(max_pixels));
-            fullImage =        icetReserveBufferMem(icetFullImageSize(max_pixels));
+            fullImage = icetReserveBufferMem(icetFullImageSize(max_pixels));
             icetInitializeImage(fullImage, max_pixels);
             icetClearImage(fullImage);
         } else {
