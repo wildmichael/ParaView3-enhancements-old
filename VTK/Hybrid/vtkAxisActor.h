@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor.h,v $
   Language:  C++
-  Date:      $Date: 2007-11-20 18:27:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-11-21 18:05:05 $
+  Version:   $Revision: 1.2 $
   Thanks:    Kathleen Bonnell, B Division, Lawrence Livermore Nat'l Laboratory
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class vtkVectorText;
 class VTK_HYBRID_EXPORT vtkAxisActor : public vtkActor
 {
 public:
-  vtkTypeMacro(vtkAxisActor,vtkActor);
+  vtkTypeRevisionMacro(vtkAxisActor,vtkActor);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -301,9 +301,8 @@ protected:
   double  Bounds[6];
   
 private:
-  vtkAxisActor(const vtkAxisActor&);
-  void operator=(const vtkAxisActor&);
-
+  vtkAxisActor(const vtkAxisActor&); // Not implemented
+  void operator=(const vtkAxisActor&); // Not implemented
 
   void TransformBounds(vtkViewport *, double bnds[6]);
 

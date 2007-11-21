@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor.h,v $
   Language:  C++
-  Date:      $Date: 2007-11-20 18:27:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-11-21 18:05:05 $
+  Version:   $Revision: 1.2 $
   Thanks:    Kathleen Bonnell, B Division, Lawrence Livermore Nat'l Laboratory 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ class vtkCamera;
 class VTK_HYBRID_EXPORT vtkCubeAxesActor : public vtkActor
 {
 public:
-  vtkTypeMacro(vtkCubeAxesActor,vtkActor);
+  vtkTypeRevisionMacro(vtkCubeAxesActor,vtkActor);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -307,8 +307,8 @@ protected:
   int RenderSomething;
   
 private:
-  vtkCubeAxesActor(const vtkCubeAxesActor&);
-  void operator=(const vtkCubeAxesActor&);
+  vtkCubeAxesActor(const vtkCubeAxesActor&); // Not implemented
+  void operator=(const vtkCubeAxesActor&); // Not implemented
 
   vtkSetStringMacro(ActualXLabel);
   vtkSetStringMacro(ActualYLabel);
