@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.h,v $
   Language:  C++
-  Date:      $Date: 2007-10-25 19:01:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2007-11-23 20:26:24 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -97,7 +97,7 @@ class METAIO_EXPORT MetaOutput
     struct Field{
       METAIO_STL::string  name;
       METAIO_STL::string  description;
-      METAIO_STL::string  value;
+      METAIO_STL::vector<METAIO_STL::string>  value;
       TypeEnumType type;
       METAIO_STL::string  rangeMin;
       METAIO_STL::string  rangeMax;
@@ -105,7 +105,8 @@ class METAIO_EXPORT MetaOutput
   
     typedef METAIO_STL::vector<Field>              FieldVector;
     typedef METAIO_STL::vector<MetaOutputStream*>  StreamVector;
-    
+    typedef METAIO_STL::list< METAIO_STL::string > ListType;
+
     MetaOutput();
     ~MetaOutput();
   
@@ -131,6 +132,10 @@ class METAIO_EXPORT MetaOutput
                      METAIO_STL::string rangeMin = "",
                      METAIO_STL::string rangeMax = ""
                      );
+
+    bool AddListField(METAIO_STL::string name,
+                      METAIO_STL::string description,
+                      ListType list);
 
     /** Set the metaCommand for parsing */
     void SetMetaCommand(MetaCommand* metaCommand);
