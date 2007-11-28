@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-10-25 19:01:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2007-11-28 18:01:22 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -47,7 +47,7 @@ MetaCommand()
 }
 
 
-/** Extract the date from the $Date: 2007-10-25 19:01:05 $ cvs command */
+/** Extract the date from a CVS Date keyword/value pair.  */
 METAIO_STL::string MetaCommand::
 ExtractDateFromCVS(METAIO_STL::string date)
 {
@@ -70,7 +70,7 @@ SetDateFromCVS(METAIO_STL::string cvsDate)
   this->SetDate( this->ExtractDateFromCVS( cvsDate ).c_str() );
 }
 
-/** Extract the version from the $Revision: 1.15 $ cvs command */
+/** Extract the version from a CVS Revision keyword/value pair.  */
 METAIO_STL::string MetaCommand::
 ExtractVersionFromCVS(METAIO_STL::string version)
 {
