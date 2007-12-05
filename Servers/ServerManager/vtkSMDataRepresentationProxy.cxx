@@ -53,7 +53,7 @@ protected:
 };
 
 
-vtkCxxRevisionMacro(vtkSMDataRepresentationProxy, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkSMDataRepresentationProxy, "$Revision: 1.9 $");
 vtkCxxSetObjectMacro(vtkSMDataRepresentationProxy, InputProxy, vtkSMSourceProxy);
 //----------------------------------------------------------------------------
 vtkSMDataRepresentationProxy::vtkSMDataRepresentationProxy()
@@ -159,8 +159,8 @@ bool vtkSMDataRepresentationProxy::EndCreateVTKObjects()
     return;
     }
 
-  input->CreateParts();
-  int numParts = input->GetNumberOfParts();
+  input->CreateOutputPorts();
+  int numParts = input->GetNumberOfOutputPorts();
 
   if (numParts == 0)
     {

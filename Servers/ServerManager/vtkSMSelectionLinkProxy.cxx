@@ -22,7 +22,6 @@
 #include "vtkSelection.h"
 #include "vtkSelectionLink.h"
 #include "vtkSMClientDeliveryStrategyProxy.h"
-#include "vtkSMPart.h"
 #include "vtkSMProxyManager.h"
 #include "vtkSMSelectionHelper.h"
 
@@ -55,7 +54,7 @@ protected:
 };
 
 vtkStandardNewMacro(vtkSMSelectionLinkProxy);
-vtkCxxRevisionMacro(vtkSMSelectionLinkProxy, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSMSelectionLinkProxy, "$Revision: 1.3 $");
 //---------------------------------------------------------------------------
 vtkSMSelectionLinkProxy::vtkSMSelectionLinkProxy()
 {

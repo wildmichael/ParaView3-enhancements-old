@@ -25,7 +25,7 @@
 #include "vtkSMSourceProxy.h"
 
 vtkStandardNewMacro(vtkSMFieldDataDomain);
-vtkCxxRevisionMacro(vtkSMFieldDataDomain, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSMFieldDataDomain, "$Revision: 1.7 $");
 
 //---------------------------------------------------------------------------
 vtkSMFieldDataDomain::vtkSMFieldDataDomain()
@@ -61,7 +61,7 @@ void vtkSMFieldDataDomain::Update(vtkSMSourceProxy* sp,
                                   int outputport)
 {
   // Make sure the outputs are created.
-  sp->CreateParts();
+  sp->CreateOutputPorts();
   vtkPVDataInformation* info = sp->GetDataInformation(outputport);
 
   if (!info)
