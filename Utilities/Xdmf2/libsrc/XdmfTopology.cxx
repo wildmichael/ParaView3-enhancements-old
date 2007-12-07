@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.10 2007-07-12 16:59:50 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:59:50 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.11 2007-12-07 19:16:18 clarke Exp $  */
+/*  Date : $Date: 2007-12-07 19:16:18 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -569,7 +569,7 @@ if( this->TopologyType == XDMF_NOTOPOLOGY ){
   }
 if( this->GetClass() == XDMF_UNSTRUCTURED ){
   // Read Connection
-  ConnectionElement = this->DOM->FindElement( NULL, 0, this->Element );
+  ConnectionElement = this->DOM->FindElement( "DataItem", 0, this->Element );
   if( ConnectionElement ){
       XdmfDataItem  Connections;
   
@@ -593,6 +593,7 @@ if( this->GetClass() == XDMF_UNSTRUCTURED ){
       }
   } else {
     // Default Connectivity
+    XdmfDebug("Using Default Connectivity");
     XdmfInt64  Length;
     if( !this->Connectivity ){
       this->Connectivity = new XdmfArray;
@@ -602,6 +603,7 @@ if( this->GetClass() == XDMF_UNSTRUCTURED ){
     Length = this->GetShapeDesc()->GetNumberOfElements() * this->NodesPerElement;
     this->Connectivity->SetNumberOfElements( Length );
     this->Connectivity->Generate( 0 , Length - 1 );
+    XdmfDebug("Default Connectivity Set");
   }
   if( this->OrderIsDefault == 0 ){
     XdmfInt64  i,j;
