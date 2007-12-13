@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.11 2007-12-07 19:16:18 clarke Exp $  */
-/*  Date : $Date: 2007-12-07 19:16:18 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.12 2007-12-13 14:43:49 clarke Exp $  */
+/*  Date : $Date: 2007-12-13 14:43:49 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -569,7 +569,7 @@ if( this->TopologyType == XDMF_NOTOPOLOGY ){
   }
 if( this->GetClass() == XDMF_UNSTRUCTURED ){
   // Read Connection
-  ConnectionElement = this->DOM->FindElement( "DataItem", 0, this->Element );
+  ConnectionElement = this->DOM->FindDataElement(0, this->Element );
   if( ConnectionElement ){
       XdmfDataItem  Connections;
   
