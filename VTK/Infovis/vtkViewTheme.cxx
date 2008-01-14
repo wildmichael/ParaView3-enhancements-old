@@ -21,7 +21,7 @@
 
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkViewTheme, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkViewTheme, "$Revision: 1.1 $");
 vtkStandardNewMacro(vtkViewTheme);
 
 vtkViewTheme::vtkViewTheme()
