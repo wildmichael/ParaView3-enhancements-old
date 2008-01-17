@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.6 2007-04-24 14:21:49 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 14:21:49 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfObject.h,v 1.7 2008-01-17 17:27:08 clarke Exp $  */
+/*  Date : $Date: 2008-01-17 17:27:08 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -496,6 +496,7 @@ XDMF_EXPORT void SetGlobalDebug( XdmfInt32 DebugLevel );
 XDMF_EXPORT XdmfString GetUnique( XdmfConstString Pattern = NULL );
 extern XDMF_EXPORT XdmfString XdmfObjectToHandle( XdmfObject *Source );
 extern XDMF_EXPORT XdmfObject *HandleToXdmfObject( XdmfConstString Source );
+extern XDMF_EXPORT XdmfPointer VoidPointerHandleToXdmfPointer(XdmfConstString Source);
 
 #ifndef SWIG
 extern XDMF_EXPORT istrstream& XDMF_READ_STREAM64(istrstream& istr, XDMF_64_INT& i);
