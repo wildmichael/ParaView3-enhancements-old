@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.cxx,v 1.8 2007-07-12 16:51:10 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:51:10 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfInformation.cxx,v 1.9 2008-01-18 18:38:49 clarke Exp $  */
+/*  Date : $Date: 2008-01-18 18:38:49 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -45,7 +45,7 @@ XdmfInformation::Insert( XdmfElement *Child){
 XdmfInt32 XdmfInformation::UpdateInformation(){
     XdmfConstString aValue;
 
-    XdmfElement::UpdateInformation();
+    if(XdmfElement::UpdateInformation() != XDMF_SUCCESS) return(XDMF_FAIL);
     aValue = this->Get("Name");
     if(aValue) this->SetName(aValue);
     aValue = this->Get("Value");
