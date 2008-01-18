@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.13 2008-01-18 18:38:49 clarke Exp $  */
-/*  Date : $Date: 2008-01-18 18:38:49 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.14 2008-01-18 18:39:44 clarke Exp $  */
+/*  Date : $Date: 2008-01-18 18:39:44 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -531,9 +531,6 @@ XdmfInt32 XdmfDataItem::Build(){
     XdmfDataDesc *aDataDesc = this->DataDesc;
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     if(this->Array) aDataDesc = this->Array;
-    XdmfDebug("aDataDesc = " << aDataDesc);
-    XdmfDebug("aDataDesc Dimensions = " << aDataDesc->GetShapeAsString());
-    XdmfDebug("aDataDesc NumberType = " << XdmfTypeToClassString(aDataDesc->GetNumberType()));
     this->Set("Dimensions", aDataDesc->GetShapeAsString());
     this->Set("NumberType", XdmfTypeToClassString(aDataDesc->GetNumberType()));
     switch (aDataDesc->GetElementSize()) {
