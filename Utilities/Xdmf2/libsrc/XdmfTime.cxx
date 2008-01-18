@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTime.cxx,v 1.1 2008-01-18 18:38:49 clarke Exp $  */
-/*  Date : $Date: 2008-01-18 18:38:49 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfTime.cxx,v 1.2 2008-01-18 21:10:02 clarke Exp $  */
+/*  Date : $Date: 2008-01-18 21:10:02 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -74,10 +74,12 @@ XdmfInt32 XdmfTime::UpdateInformation(){
         // Default
         this->TimeType = XDMF_TIME_SINGLE;
     }
+    // Type == Function ?
     attribute = this->Get("Function");
     if(attribute){
         this->TimeType = XDMF_TIME_FUNCTION;
         this->SetFunction(attribute);
+        return(XDMF_SUCCESS);
     }
     attribute = this->Get("Value");
     if(attribute){

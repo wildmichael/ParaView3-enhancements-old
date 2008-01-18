@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTime.h,v 1.1 2008-01-18 18:38:49 clarke Exp $  */
-/*  Date : $Date: 2008-01-18 18:38:49 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfTime.h,v 1.2 2008-01-18 21:10:02 clarke Exp $  */
+/*  Date : $Date: 2008-01-18 21:10:02 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,12 +25,10 @@
 #ifndef __XdmfTime_h
 #define __XdmfTime_h
 
-#include "XdmfElement.h"
-
-
+//! Define time for Grid
 /*! XdmfTime represents a Time specification.
 Time is a child of the <Grid> element :
-
+\verbatim
 <Time TypeType="Single* | Uniform | HyperSlab | Function" 
     NumberOfIterations="1* | N"
     Value="(no default)">
@@ -41,7 +39,10 @@ Time is a child of the <Grid> element :
         Uniform - a Time Series
         HyperSlab - Start Stride Count
         Function - XdmfFloat64 *Function(GridIndex)
+\endverbatim
 */
+
+#include "XdmfElement.h"
 
 class XdmfDataItem;
 class XdmfArray;

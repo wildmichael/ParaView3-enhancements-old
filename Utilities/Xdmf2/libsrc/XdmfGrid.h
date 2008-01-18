@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.8 2007-04-26 14:14:05 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 14:14:05 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.9 2008-01-18 21:10:02 clarke Exp $  */
+/*  Date : $Date: 2008-01-18 21:10:02 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -106,8 +106,6 @@ class XdmfAttribute;
     XML Attribute : Name = Any String
     XML Attribute : GridType = Uniform* | Collection | Tree | Subset
     XML Attribute : Section = DataItem* | All  (Only Meaningful if GridType="Subset")
-
-\endverbatim
 
 \endverbatim
 

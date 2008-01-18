@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDomain.h,v 1.1 2007-06-21 13:56:44 clarke Exp $  */
-/*  Date : $Date: 2007-06-21 13:56:44 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDomain.h,v 1.2 2008-01-18 21:10:02 clarke Exp $  */
+/*  Date : $Date: 2008-01-18 21:10:02 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -30,11 +30,13 @@
 
 /*! XdmfDomain represents the Domain Element in
 Xdmf. In XML it is the Element :
+\verbatim
 <Domain Name="DomainName">
 The Xdmf element may have Information and DataItem Elements as children
 
     XML Element : Domain
     XML Attribute : Name = Any String
+\endverbatim
 */
 
 class XDMF_EXPORT XdmfDomain : public XdmfElement {
