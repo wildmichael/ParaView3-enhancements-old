@@ -20,7 +20,7 @@
 #include <vtksys/SystemTools.hxx>
 
 vtkStandardNewMacro(vtkSMNetworkImageSourceProxy);
-vtkCxxRevisionMacro(vtkSMNetworkImageSourceProxy, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSMNetworkImageSourceProxy, "$Revision: 1.4 $");
 //----------------------------------------------------------------------------
 vtkSMNetworkImageSourceProxy::vtkSMNetworkImageSourceProxy()
 {
@@ -84,7 +84,6 @@ void vtkSMNetworkImageSourceProxy::UpdateImage()
 {
   if (!this->FileName)
     {
-    vtkErrorMacro("FileName must be set.");
     return;
     }
 
