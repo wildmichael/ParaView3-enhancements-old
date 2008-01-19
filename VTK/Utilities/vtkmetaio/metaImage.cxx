@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-11-28 19:10:03 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2008-01-19 21:02:04 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2795,7 +2795,7 @@ M_ReadElementsROI(METAIO_STREAM::ifstream * _fstream, void * _data,
         currentIndex[movingDirection]+=subSamplingFactor;;
 
         // Check if we are still in the region
-        for(i=1;i<=m_NDims;i++)
+        for(i=1;i<m_NDims;i++)
           {
           if(currentIndex[i]>_indexMax[i])
             {
@@ -2929,7 +2929,7 @@ M_ReadElementsROI(METAIO_STREAM::ifstream * _fstream, void * _data,
       currentIndex[movingDirection]+=subSamplingFactor;
 
       // Check if we are still in the region
-      for(i=1;i<=m_NDims;i++)
+      for(i=1;i<m_NDims;i++)
         {
         if(currentIndex[i]>_indexMax[i])
           {
