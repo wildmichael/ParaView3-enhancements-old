@@ -28,7 +28,7 @@
 #include "vtkVariant.h"
 #include "vtkVariantArray.h"
 
-vtkCxxRevisionMacro(vtkThresholdTable, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkThresholdTable, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkThresholdTable);
 
 vtkThresholdTable::vtkThresholdTable() : MinValue(0), MaxValue(VTK_INT_MAX)
@@ -94,7 +94,6 @@ void vtkThresholdTableThresholdRows(iterT* it, vtkTable* input, vtkTable* output
       {
       vtkVariantArray* row = input->GetRow(i);
       output->InsertNextRow(row);
-      row->Delete();
       }
     }
 }
