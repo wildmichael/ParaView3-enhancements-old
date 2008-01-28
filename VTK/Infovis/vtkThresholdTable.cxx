@@ -28,10 +28,10 @@
 #include "vtkVariant.h"
 #include "vtkVariantArray.h"
 
-vtkCxxRevisionMacro(vtkThresholdTable, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkThresholdTable, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkThresholdTable);
 
-vtkThresholdTable::vtkThresholdTable() : MinValue(0), MaxValue(VTK_INT_MAX)
+vtkThresholdTable::vtkThresholdTable() : MinValue(0), MaxValue(VTK_INT_MAX), Mode(0)
 {
 }
 
