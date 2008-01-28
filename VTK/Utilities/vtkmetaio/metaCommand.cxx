@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-11-28 18:01:22 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2008-01-28 04:12:04 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1149,7 +1149,7 @@ ListOptionsSimplified()
     while(it != m_OptionVector.end())
       {
       if( (count == 1 && ( (*it).tag.size() > 0 || (*it).longtag.size() > 0 ))
-         || (count == 2 && ( (*it).tag.size() == 0 || (*it).longtag.size() == 0 )) )
+         || (count == 2 && ( (*it).tag.size() == 0 && (*it).longtag.size() == 0 )) )
         {
         if(!(*it).required)
           {
