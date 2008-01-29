@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.20 2007-08-04 00:16:23 dave.demarle Exp $  */
-/*  Date : $Date: 2007-08-04 00:16:23 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.21 2008-01-29 20:31:32 clarke Exp $  */
+/*  Date : $Date: 2008-01-29 20:31:32 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -148,7 +148,7 @@ XdmfElement::GetCurrentXdmfElement(XdmfXmlNode anElement){
     return(PrivateData->GetCurrentXdmfElement());
 }
 
-XdmfInt32 XdmfElement::SetElement(XdmfXmlNode anElement){
+XdmfInt32 XdmfElement::SetElement(XdmfXmlNode anElement, XdmfInt32 AssociateElement){
     if(!anElement) {
         XdmfErrorMessage("Element is NULL");
         return(XDMF_FAIL);
@@ -156,7 +156,7 @@ XdmfInt32 XdmfElement::SetElement(XdmfXmlNode anElement){
     // Clear the ReferenceObject underlying node. This will also create PrivateData if necessary
     XdmfDebug("Clearing ReferenceObject of XML node");
     this->SetReferenceObject(anElement, XDMF_EMPTY_REFERENCE);
-    this->SetCurrentXdmfElement(anElement, this);
+    if(AssociateElement) this->SetCurrentXdmfElement(anElement, this);
     this->Element = anElement;
     return(XDMF_SUCCESS);
 }
@@ -430,6 +430,7 @@ XdmfInt32 XdmfElement::Build(){
                 childnode = this->DOM->GetChild(i, myelement);
                 childelement = (XdmfElement *)this->GetCurrentXdmfElement(childnode);
                 if(childelement){
+                    // cout << "Child Element Type of " << childelement << " = " << childelement->GetElementType() << endl;
                     childelement->Build();
                 }
             }

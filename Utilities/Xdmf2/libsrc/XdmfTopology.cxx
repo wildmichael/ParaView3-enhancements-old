@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.12 2007-12-13 14:43:49 clarke Exp $  */
-/*  Date : $Date: 2007-12-13 14:43:49 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.13 2008-01-29 20:31:32 clarke Exp $  */
+/*  Date : $Date: 2008-01-29 20:31:32 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -573,10 +573,11 @@ if( this->GetClass() == XDMF_UNSTRUCTURED ){
   if( ConnectionElement ){
       XdmfDataItem  Connections;
   
+    // cout << "Connection DataItem = " << &Connections << endl;
     XdmfDebug("Reading Connections from DataItem");
     if(Connections.SetDOM(this->DOM) == XDMF_FAIL) return(XDMF_FAIL);
     if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
-    if(Connections.SetElement(ConnectionElement) == XDMF_FAIL) return(XDMF_FAIL);
+    if(Connections.SetElement(ConnectionElement, 0) == XDMF_FAIL) return(XDMF_FAIL);
     if(Connections.UpdateInformation() == XDMF_FAIL) return(XDMF_FAIL);
     if(Connections.Update() == XDMF_FAIL) return(XDMF_FAIL);
     // Steal the Array so it doesn't get deleted in the destructor of the DataItem
