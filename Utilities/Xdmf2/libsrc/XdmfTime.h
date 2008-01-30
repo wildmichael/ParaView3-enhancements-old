@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTime.h,v 1.3 2008-01-29 20:31:32 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 20:31:32 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfTime.h,v 1.4 2008-01-30 15:21:45 clarke Exp $  */
+/*  Date : $Date: 2008-01-30 15:21:45 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -100,6 +100,8 @@ public:
     XdmfSetStringMacro(Function);
     //! Set Time From Parent Information
     XdmfInt32 SetTimeFromParent(XdmfTime *ParentTime, XdmfInt64 Index);
+    //! Fills in the sets of times that a particular grid is valid.
+    XdmfInt32 Evaluate(XdmfGrid *Grid, XdmfArray *ArrayToFill = NULL, XdmfInt32 Append = 0);
 protected:
     XdmfInt32    TimeType;
     XdmfFloat64  Value;
