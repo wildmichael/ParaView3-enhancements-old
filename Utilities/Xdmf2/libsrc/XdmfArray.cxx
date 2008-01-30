@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.7 2007-07-12 16:51:09 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:51:09 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.8 2008-01-30 15:31:59 clarke Exp $  */
+/*  Date : $Date: 2008-01-30 15:31:59 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -207,6 +207,7 @@ Tag << "_" << XDMF_64BIT_CAST GlobalTimeCntr << "_XdmfArray" << ends;
 XdmfArray::XdmfArray() {
   XdmfDebug("XdmfArray Constructor");
   this->DataPointer = NULL;
+  this->HeavyDataSetName = NULL;
   this->DataIsMine = 1;
   this->AddArrayToList();
  }

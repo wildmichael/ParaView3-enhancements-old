@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.6 2008-01-29 14:52:09 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 14:52:09 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.7 2008-01-30 15:31:59 clarke Exp $  */
+/*  Date : $Date: 2008-01-30 15:31:59 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -118,7 +118,11 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
 
     if(!aHeavyDataSetName) aHeavyDataSetName = this->GetHeavyDataSetName();
     if(!aHeavyDataSetName){
-        aHeavyDataSetName = this->GetUniqueName("Xdmf.h5:/Data");
+        if(anArray->GetHeavyDataSetName()){
+            aHeavyDataSetName = (XdmfConstString)anArray->GetHeavyDataSetName();
+        }else{
+            aHeavyDataSetName = this->GetUniqueName("Xdmf.h5:/Data");
+        }
     }
     XdmfDebug("Writing Values to " << aHeavyDataSetName);
     if(!this->DataDesc ){
