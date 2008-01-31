@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.6 2007-04-26 15:08:14 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 15:08:14 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.7 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -123,7 +123,8 @@ public:
   XdmfInt32 Update();
 //! Build XML (output)
   XdmfInt32 Build();
-
+//! Release Big Data
+ XdmfInt32 Release();
 protected:
 
   XdmfInt32  AttributeType;

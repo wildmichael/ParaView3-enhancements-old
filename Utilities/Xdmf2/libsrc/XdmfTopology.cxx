@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.13 2008-01-29 20:31:32 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 20:31:32 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.14 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -57,6 +57,15 @@ XdmfTopology::~XdmfTopology() {
   if(this->CellOffsets) delete this->CellOffsets;
   delete this->Shape;
   }
+
+XdmfInt32
+XdmfTopology::Release(){
+    if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
+    if(this->CellOffsets) delete this->CellOffsets;
+    this->Connectivity = NULL;
+    this->CellOffsets = NULL;
+    return(XDMF_SUCCESS);
+}
 
 XdmfInt32
 XdmfTopology::Build(){
@@ -583,6 +592,7 @@ if( this->GetClass() == XDMF_UNSTRUCTURED ){
     // Steal the Array so it doesn't get deleted in the destructor of the DataItem
     this->Connectivity = Connections.GetArray();
     Connections.SetArrayIsMine(0);
+    this->ConnectivityIsMine = 1;
 
     if( this->BaseOffset ) {
       XdmfDebug("Adjusting due to BaseOffset");

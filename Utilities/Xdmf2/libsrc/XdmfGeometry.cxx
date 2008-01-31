@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.10 2008-01-29 20:31:32 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 20:31:32 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.11 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -51,6 +51,30 @@ XdmfGeometry::~XdmfGeometry() {
   if( this->PointsAreMine && this->Points )  delete this->Points;
   }
 
+XdmfInt32
+XdmfGeometry::Release()
+{
+  XdmfDataItem *di = NULL;
+  XdmfXmlNode node;
+  XdmfInt32 Index = 0;
+  XdmfXmlNode Node;
+
+  if( this->PointsAreMine && this->Points ){
+      delete this->Points;
+      this->Points = NULL;
+  }
+  // this->NumberOfPoints = 0;
+  Node = this->GetElement();
+  node = this->DOM->FindDataElement(Index++, Node);
+  while(node) {
+      di = (XdmfDataItem *)this->GetCurrentXdmfElement(node);
+      if(di){
+          di->Release();
+          }
+      node = this->DOM->FindDataElement(Index++, Node);
+  }
+  return(XDMF_SUCCESS);
+}
 // Returns an existing DataItem or build a new one
 XdmfDataItem *
 XdmfGeometry::GetDataItem(XdmfInt32 Index, XdmfXmlNode Node){
@@ -455,6 +479,9 @@ if( ( this->GeometryType == XDMF_GEOMETRY_X_Y_Z ) ||
       }
   }
 }
-if( points ) this->SetPoints( points );
+if( points ){
+    this->SetPoints( points );
+    this->PointsAreMine = 1;
+}
 return( XDMF_SUCCESS );
 }

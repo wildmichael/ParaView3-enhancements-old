@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.8 2007-04-26 15:08:14 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 15:08:14 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.9 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -292,6 +292,8 @@ public:
   XdmfInt32 Update( void );
 //! Intiailize the Topology but do not access the Heavy Data
   XdmfInt32 UpdateInformation(void);
+  //! Release Big Data
+  XdmfInt32 Release();
 #ifndef DOXYGEN_SKIP 
   // XdmfInt32 SetBaseConnectivity( XdmfPointer Grid );
 #endif

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.19 2008-01-31 17:58:08 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 17:58:08 $ */
-/*  Version : $Revision: 1.19 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.20 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -74,6 +74,17 @@ XdmfGrid::~XdmfGrid() {
   free(this->Attribute);
   }
 
+XdmfInt32
+XdmfGrid::Release(){
+  XdmfInt32  Index;
+  if( this->GeometryIsMine && this->Geometry ) this->Geometry->Release();
+  if( this->TopologyIsMine && this->Topology ) this->Topology->Release();
+  for ( Index = 0; Index < this->NumberOfAttributes; Index ++ )
+    {
+    this->Attribute[Index]->Release();
+    }
+   return(XDMF_SUCCESS);
+}
 XdmfInt32
 XdmfGrid::InsertTopology(){
     if(!this->Topology->GetElement()){

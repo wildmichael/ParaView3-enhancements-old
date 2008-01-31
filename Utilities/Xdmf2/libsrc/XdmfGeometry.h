@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.6 2007-05-04 15:27:35 clarke Exp $  */
-/*  Date : $Date: 2007-05-04 15:27:35 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.7 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -109,6 +109,8 @@ XDMF_GEOMETRY_ORIGIN_DXDYDZ : Xorigin, Yorigin, Zorigin, Dx, Dy, Dz
 
   XdmfInt32 SetPoints( XdmfArray *Points );
   XdmfArray *GetPoints(XdmfInt32 Create=1);
+
+  XdmfInt32 Release();
 
 #ifndef SWIG
   XdmfInt32 SetOrigin( XdmfFloat64 *Origin );

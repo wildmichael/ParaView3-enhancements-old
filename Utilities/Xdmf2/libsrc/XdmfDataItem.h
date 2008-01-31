@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.10 2007-07-12 16:51:10 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 16:51:10 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.11 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -196,6 +196,8 @@ public:
     XdmfSetStringMacro(Function);
     //! Get the Function String
     XdmfGetStringMacro(Function);
+    //! Release Large Data
+    XdmfInt32   Release();
 
 protected:
     XdmfInt32       Format;

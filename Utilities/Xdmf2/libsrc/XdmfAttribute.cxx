@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.10 2007-07-12 20:01:31 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 20:01:31 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.11 2008-01-31 21:58:55 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 21:58:55 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,6 +43,12 @@ XdmfAttribute::~XdmfAttribute() {
   delete this->ShapeDesc;
   }
 
+XdmfInt32
+XdmfAttribute::Release(){
+  if( this->ValuesAreMine && this->Values )  delete this->Values;
+  this->Values = NULL;
+  return(XDMF_SUCCESS);
+}
 
 XdmfInt32
 XdmfAttribute::Insert( XdmfElement *Child){
