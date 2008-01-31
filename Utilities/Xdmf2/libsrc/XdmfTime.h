@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTime.h,v 1.5 2008-01-31 14:37:39 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 14:37:39 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfTime.h,v 1.6 2008-01-31 17:26:24 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 17:26:24 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -103,12 +103,17 @@ public:
     //! Fills in the sets of times that a particular grid is valid.
     XdmfInt32 Evaluate(XdmfGrid *Grid, XdmfArray *ArrayToFill = NULL, XdmfInt32 Descend = 0, XdmfInt32 Append = 0);
     //! Is Time Valid at Specified Value
-    XdmfInt32 IsValid(XdmfTime *TimeSpec, XdmfFloat64 Range = 0.0);
+    XdmfInt32 IsValid(XdmfTime *TimeSpec);
     //! Is Time within Range
     XdmfInt32 IsValid(XdmfFloat64 TimeMin, XdmfFloat64 TimeMax);
+    //! Set the Epsilon used for Floating Point comparison (1e-7)
+    XdmfSetValueMacro(Epsilon, XdmfFloat64);
+    //! Get the Epsilon used for Floating Point comparison (1e-7)
+    XdmfGetValueMacro(Epsilon, XdmfFloat64);
 protected:
     XdmfInt32    TimeType;
     XdmfFloat64  Value;
+    XdmfFloat64  Epsilon;
     XdmfArray    *Array;
     XdmfDataItem *DataItem;
     XdmfString   Function;

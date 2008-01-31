@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.11 2008-01-31 14:37:39 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 14:37:39 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.12 2008-01-31 17:26:24 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 17:26:24 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -270,7 +270,7 @@ public:
  XdmfInt32 FindGridsInTimeRange(XdmfFloat64 TimeMin, XdmfFloat64 TimeMax, XdmfArray *ArrayToFill);
 
  //! Return indexes of first level children that are valid at a time
- XdmfInt32 FindGridsAtTime(XdmfTime *Time, XdmfArray *ArrayToFill, XdmfFloat64 Range = 0.0, XdmfInt32 Append=0);
+ XdmfInt32 FindGridsAtTime(XdmfTime *Time, XdmfArray *ArrayToFill, XdmfFloat64 Epsilon = 0.0, XdmfInt32 Append=0);
 
 protected:
 

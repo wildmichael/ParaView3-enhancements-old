@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.1 2006-12-15 21:55:21 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 21:55:21 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.2 2008-01-31 17:26:24 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 17:26:24 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -364,9 +364,10 @@ XdmfInt64
 XdmfDataDesc::GetNumberOfElements( void ) {
 hsize_t    i, Dimensions[ XDMF_MAX_DIMENSION ];
 XdmfInt64  Nelements = 0;
-XdmfInt32  rank = H5Sget_simple_extent_ndims(this->DataSpace );
+XdmfInt32  rank;
 
-this->Rank = rank;
+if(this->DataSpace == H5I_BADID) return(0);
+this->Rank = rank = H5Sget_simple_extent_ndims(this->DataSpace );
 H5Sget_simple_extent_dims( this->DataSpace, Dimensions, NULL );
 if(rank) {
   Nelements = this->Dimension[0] = Dimensions[0];
