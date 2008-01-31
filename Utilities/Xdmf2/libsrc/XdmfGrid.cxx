@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.18 2008-01-31 17:51:09 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 17:51:09 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.19 2008-01-31 17:58:08 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 17:58:08 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -601,7 +601,7 @@ return(XDMF_SUCCESS);
 
 XdmfInt32
 XdmfGrid::FindGridsInTimeRange(XdmfFloat64 TimeMin, XdmfFloat64 TimeMax, XdmfArray *ArrayToFill){
-    XdmfInt64   i, n, index = 0, nchild;
+    XdmfInt64   i, index = 0, nchild;
 
     nchild = this->GetNumberOfChildren();
     if(!nchild) return(XDMF_FALSE);
