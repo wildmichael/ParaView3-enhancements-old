@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.10 2008-01-29 20:31:32 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 20:31:32 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.11 2008-01-31 14:37:39 clarke Exp $  */
+/*  Date : $Date: 2008-01-31 14:37:39 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,6 +31,7 @@
 class XdmfGeometry;
 class XdmfTopology;
 class XdmfAttribute;
+class XdmfArray;
 class XdmfTime;
 
 #define XDMF_GRID_UNIFORM       0x00000 // Type xor XDMF_GRID_MASK = XdmfTopology Type
@@ -264,6 +265,12 @@ public:
 
  //! Get one of the child Grids from a Collection or Tree
   XdmfGrid  *GetChild(XdmfInt32 Index);
+
+ //! Return indexes of first level children that are valid at a time
+ XdmfInt32 FindGridsInTimeRange(XdmfFloat64 TimeMin, XdmfFloat64 TimeMax, XdmfArray *ArrayToFill);
+
+ //! Return indexes of first level children that are valid at a time
+ XdmfInt32 FindGridsAtTime(XdmfTime *Time, XdmfArray *ArrayToFill, XdmfFloat64 Range = 0.0, XdmfInt32 Append=0);
 
 protected:
 
