@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.11 2008-01-31 21:58:55 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 21:58:55 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.12 2008-02-08 15:25:42 clarke Exp $  */
+/*  Date : $Date: 2008-02-08 15:25:42 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -66,13 +66,8 @@ XdmfGeometry::Release()
   // this->NumberOfPoints = 0;
   Node = this->GetElement();
   node = this->DOM->FindDataElement(Index++, Node);
-  while(node) {
-      di = (XdmfDataItem *)this->GetCurrentXdmfElement(node);
-      if(di){
-          di->Release();
-          }
-      node = this->DOM->FindDataElement(Index++, Node);
-  }
+  // No Need to Release DataItems() since Data has been read 
+  // and Stored in Internal Points
   return(XDMF_SUCCESS);
 }
 // Returns an existing DataItem or build a new one

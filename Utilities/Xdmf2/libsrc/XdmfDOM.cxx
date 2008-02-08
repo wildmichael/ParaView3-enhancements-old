@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.22 2007-07-13 14:31:56 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-13 14:31:56 $ */
-/*  Version : $Revision: 1.22 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.23 2008-02-08 15:25:42 clarke Exp $  */
+/*  Date : $Date: 2008-02-08 15:25:42 $ */
+/*  Version : $Revision: 1.23 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -73,11 +73,13 @@ XdmfDOM::XdmfDOM(){
 }
 
 XdmfDOM::~XdmfDOM(){
+   XdmfDebug("Destroying DOM");
   if( ( this->Output != &cout ) && ( this->Output != &cerr ) ) {
     ofstream *OldOutput = ( ofstream *)this->Output;
     OldOutput->close();
   }
   if( this->Input != &cin ) {
+     XdmfDebug("Deleting Input");
     ifstream *OldInput = ( ifstream *)this->Input;
     OldInput->close();
     delete this->Input;
