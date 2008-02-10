@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaBlob.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-10-25 19:01:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2008-02-10 23:42:03 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -303,7 +303,7 @@ M_Read(void)
   MET_StringToWordArray(m_PointDim, &pntDim, &pntVal); 
  
     
-  int j;
+  unsigned int j;
   for(j = 0; j < pntDim; j++) 
   {
     if(!strcmp(pntVal[j], "x") || !strcmp(pntVal[j], "X"))
@@ -322,7 +322,7 @@ M_Read(void)
 
   for(i=0;i<pntDim;i++)
     {
-      delete [] pntVal[i];
+    delete [] pntVal[i];
     }
  
   delete [] pntVal;

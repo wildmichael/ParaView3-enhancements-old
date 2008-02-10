@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-10-25 19:01:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2008-02-10 23:42:03 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -332,7 +332,7 @@ M_Read(void)
     int i=0;
     int d;
     unsigned int k;
-    for(int j=0; j<m_NPoints; j++) 
+    for(unsigned int j=0; j<m_NPoints; j++) 
     {
       LinePnt* pnt = new LinePnt(m_NDims);
       
