@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaTubeGraph.h,v $
   Language:  C++
-  Date:      $Date: 2008-02-08 20:52:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2008-02-11 14:32:03 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -147,7 +147,7 @@ class METAIO_EXPORT MetaTubeGraph : public MetaObject
 
     int m_Root;         // "Root = "            0
 
-    size_t m_NPoints;      // "NPoints = "         0
+    int m_NPoints;      // "NPoints = "         0
 
     char m_PointDim[255]; // "PointDim = "       "x y z r"
 

@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaMesh.h,v $
   Language:  C++
-  Date:      $Date: 2008-02-08 20:52:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2008-02-11 14:32:03 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -282,7 +282,7 @@ class METAIO_EXPORT MetaMesh : public MetaObject
 
     bool  M_Write(void);
 
-    size_t m_NPoints;   
+    int m_NPoints;   
     int m_NCells; 
     int m_NCellLinks;
     int m_NPointData;
