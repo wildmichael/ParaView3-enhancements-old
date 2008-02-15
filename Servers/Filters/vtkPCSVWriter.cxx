@@ -18,7 +18,6 @@
 #include "vtkCharArray.h"
 #include "vtkInformation.h"
 #include "vtkInformationVector.h"
-#include "vtkMultiGroupDataSet.h"
 #include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
@@ -29,7 +28,7 @@
 #include "vtkStreamingDemandDrivenPipeline.h"
 
 vtkStandardNewMacro(vtkPCSVWriter);
-vtkCxxRevisionMacro(vtkPCSVWriter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPCSVWriter, "$Revision: 1.4 $");
 
 vtkCxxSetObjectMacro(vtkPCSVWriter, Controller, vtkMultiProcessController);
 
