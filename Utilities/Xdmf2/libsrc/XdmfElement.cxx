@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.21 2008-01-29 20:31:32 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 20:31:32 $ */
-/*  Version : $Revision: 1.21 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.22 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.22 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -61,6 +61,7 @@ XdmfElement::XdmfElement() {
     this->ReferenceElement = NULL;
     this->State = XDMF_ELEMENT_STATE_UNINITIALIZED;
     this->CopyReferenceData = 1;
+    this->DsmBuffer = NULL;
 }
 
 XdmfElement::~XdmfElement() {

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.14 2008-01-31 21:58:55 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 21:58:55 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.15 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -585,6 +585,7 @@ if( this->GetClass() == XDMF_UNSTRUCTURED ){
     // cout << "Connection DataItem = " << &Connections << endl;
     XdmfDebug("Reading Connections from DataItem");
     if(Connections.SetDOM(this->DOM) == XDMF_FAIL) return(XDMF_FAIL);
+    Connections.SetDsmBuffer(this->DsmBuffer);
     if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
     if(Connections.SetElement(ConnectionElement, 0) == XDMF_FAIL) return(XDMF_FAIL);
     if(Connections.UpdateInformation() == XDMF_FAIL) return(XDMF_FAIL);

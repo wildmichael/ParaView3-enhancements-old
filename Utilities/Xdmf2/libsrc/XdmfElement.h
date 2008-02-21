@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.18 2008-01-29 20:31:32 clarke Exp $  */
-/*  Date : $Date: 2008-01-29 20:31:32 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfElement.h,v 1.19 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,6 +32,9 @@
 #define XDMF_ELEMENT_STATE_HEAVY_READ    2
 
 class XdmfDOM;
+#ifndef XDMF_NO_MPI
+class XdmfDsmBuffer;
+#endif
 
 //! Basic XML Based Element
 /*!
@@ -163,7 +166,12 @@ public:
 
     //! Follow a Refernce Chain one step, if it exists
     XdmfXmlNode FollowReference(XdmfXmlNode Element);
-
+#ifndef XDMF_NO_MPI
+    //! Get DSM Buffer
+    XdmfGetValueMacro(DsmBuffer, XdmfDsmBuffer *);
+    //! Set DSM Buffer
+    XdmfSetValueMacro(DsmBuffer, XdmfDsmBuffer *);
+#endif
 
 protected:
     void        SetReferenceObject(XdmfXmlNode Element, void *p);
@@ -182,5 +190,8 @@ protected:
     XdmfInt32   IsReference;
     // Copy, don't copy data out of reference element. Default is to copy.
     XdmfInt32   CopyReferenceData;
+#ifndef XDMF_NO_MPI
+        XdmfDsmBuffer *DsmBuffer;
+#endif
 };
 #endif // __XdmfElement_h

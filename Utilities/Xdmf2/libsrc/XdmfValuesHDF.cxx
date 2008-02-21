@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.7 2008-01-30 15:31:59 clarke Exp $  */
-/*  Date : $Date: 2008-01-30 15:31:59 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.8 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -53,6 +53,8 @@ XdmfValuesHDF::Read(XdmfArray *anArray){
         return(NULL);
     }
     XDMF_WORD_TRIM(DataSetName);
+    //! Possible Read from DSM. Make sure we're connected.
+    if(!this->DsmBuffer) this->SetDsmBuffer(anArray->GetDsmBuffer());
     XdmfDebug("Opening HDF5 Data for Reading : " << DataSetName);
     // Allocate Array if Necessary
     if(!RetArray){
@@ -66,6 +68,7 @@ XdmfValuesHDF::Read(XdmfArray *anArray){
         RetArray->CopySelection(this->DataDesc);
         RetArray->Allocate();
     }
+    H5.SetDsmBuffer(this->DsmBuffer);
     if( H5.Open( DataSetName, "r" ) == XDMF_FAIL ) {
         XdmfErrorMessage("Can't Open Dataset " << DataSetName);
         if(!anArray) delete RetArray;
@@ -124,6 +127,8 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
             aHeavyDataSetName = this->GetUniqueName("Xdmf.h5:/Data");
         }
     }
+    // Possible Write to DSM. Make sure we're connected
+    if(!this->DsmBuffer) this->SetDsmBuffer(anArray->GetDsmBuffer());
     XdmfDebug("Writing Values to " << aHeavyDataSetName);
     if(!this->DataDesc ){
         XdmfErrorMessage("DataDesc has not been set");
@@ -139,6 +144,7 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
     H5.CopyType(this->DataDesc);
     H5.CopyShape(this->DataDesc);
     H5.CopySelection(this->DataDesc);
+    H5.SetDsmBuffer(this->DsmBuffer);
     if(H5.Open(hds, "rw") == XDMF_FAIL){
         XdmfErrorMessage("Error Opening " << hds << " for Writing");
         delete [] hds ;

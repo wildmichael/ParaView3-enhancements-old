@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.15 2008-01-31 21:58:55 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 21:58:55 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.16 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -115,6 +115,7 @@ XdmfDataItem::Copy(XdmfElement *Source){
     // this->SetDOM(ds->GetDOM());
     this->SetFormat(ds->GetFormat());
     this->SetHeavyDataSetName(ds->GetHeavyDataSetName());
+    this->SetDsmBuffer(ds->GetDsmBuffer());
     this->DataDesc->CopyType(ds->GetDataDesc());
     this->DataDesc->CopyShape(ds->GetDataDesc());
     this->DataDesc->CopySelection(ds->GetDataDesc());
@@ -463,11 +464,14 @@ XdmfInt32 XdmfDataItem::Update(){
     switch (this->Format) {
         case XDMF_FORMAT_HDF :
             this->Values->SetDebug(this->GetDebug());
+            // this->SetDsmBuffer(this->Values->GetDsmBuffer());
+            // cout << "Setting Values Dsm to " << this->DsmBuffer << endl;
+            this->Values->SetDsmBuffer(this->DsmBuffer);
             if(!((XdmfValuesHDF *)this->Values)->Read(this->Array)){
                 XdmfErrorMessage("Reading Values Failed");
                 return(XDMF_FAIL);
             }
-            this->SetHeavyDataSetName(Values->GetHeavyDataSetName());
+            this->SetHeavyDataSetName(this->Values->GetHeavyDataSetName());
             break;
         case XDMF_FORMAT_XML :
             this->Values->SetDebug(this->GetDebug());
@@ -564,6 +568,7 @@ XdmfInt32 XdmfDataItem::Build(){
         case XDMF_FORMAT_HDF :
             XdmfDebug("Writing Values in HDF Format");
             Values->SetHeavyDataSetName(this->GetHeavyDataSetName());
+            Values->SetDsmBuffer(this->GetDsmBuffer());
             if(((XdmfValuesHDF *)Values)->Write(this->Array) != XDMF_SUCCESS){
                 XdmfErrorMessage("Writing Values Failed");
                 return(XDMF_FAIL);

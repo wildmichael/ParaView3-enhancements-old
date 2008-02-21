@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.h,v 1.1 2006-12-15 21:55:21 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 21:55:21 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDataDesc.h,v 1.2 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,6 +31,11 @@
 #define XDMF_SELECTALL    0
 #define XDMF_HYPERSLAB    1
 #define XDMF_COORDINATES  2
+
+#ifndef XDMF_NO_MPI
+class XdmfDsmBuffer;
+#endif
+
 
 //! Number Type and Shape
 /*!
@@ -189,6 +194,18 @@ public :
   XdmfConstString  GetMemberTypeAsString( XdmfInt64 Index );
 //! Get the member offset
   XdmfInt64  GetMemberOffset( XdmfInt64 Index );
+//! Set the name of the Heavy Data Set when written (if applicable)
+  XdmfSetStringMacro(HeavyDataSetName);
+//! Get the name of the Heavy Data Set when written (if applicable)
+  XdmfGetStringMacro(HeavyDataSetName);
+#ifndef XDMF_NO_MPI
+//! Get DSM Buffer
+  XdmfGetValueMacro(DsmBuffer, XdmfDsmBuffer *);
+//! Set DSM Buffer
+  XdmfSetValueMacro(DsmBuffer, XdmfDsmBuffer *);
+#endif
+
+
 
 
 //! Internal Method to Copy From Exiting Type and Space
@@ -218,6 +235,10 @@ protected:
 
   void SetShapeString(XdmfConstString shape);
   XdmfString ShapeString;
+  XdmfString   HeavyDataSetName;
+#ifndef XDMF_NO_MPI
+  XdmfDsmBuffer *DsmBuffer;
+#endif
 };
 
 #endif // __XdmfDataDesc_h

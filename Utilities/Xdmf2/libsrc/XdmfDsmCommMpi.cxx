@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.6 2007-08-17 14:43:47 alex Exp $  */
-/*  Date : $Date: 2007-08-17 14:43:47 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.7 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -54,11 +54,12 @@ XdmfDsmCommMpi::Init(){
 
 XdmfInt32
 XdmfDsmCommMpi::Check(XdmfDsmMsg *Msg){
-    int         nid, flag;
+    int         nid, flag=0;
     MPI_Status  Status;
 
     if(XdmfDsmComm::Check(Msg) != XDMF_SUCCESS) return(XDMF_FAIL);
-    MPI_Iprobe(MPI_ANY_SOURCE, Msg->Tag, this->Comm, &flag, &Status);
+     MPI_Iprobe(MPI_ANY_SOURCE, Msg->Tag, this->Comm, &flag, &Status);
+     // cout << "MPI_Iprobe " << Msg->Tag << ", " << this->Comm << endl;
     if(flag){
         nid = Status.MPI_SOURCE;
         Msg->SetSource(nid);

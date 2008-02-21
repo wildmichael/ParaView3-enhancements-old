@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.20 2008-01-31 21:58:55 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 21:58:55 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.21 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -214,6 +214,7 @@ XdmfGrid::AssignAttribute( XdmfAttribute *attribute ){
 XdmfInt32 Status = 0;
 
 if( attribute ){
+  if(!attribute->GetDsmBuffer()) attribute->SetDsmBuffer(this->DsmBuffer);
   attribute->Update();
   // Status = attribute->SetBaseAttribute( this, this->BaseGrid );
   this->AssignedAttribute = attribute;
@@ -480,6 +481,7 @@ if((this->GridType & XDMF_GRID_MASK) != XDMF_GRID_UNIFORM){
     XdmfInt32   i;
     // SubSet, Tree or Collection
     for(i=0; i < this->NumberOfChildren ; i++){
+        if(!this->Children[i]->GetDsmBuffer()) this->Children[i]->SetDsmBuffer(this->DsmBuffer);
         if(this->Children[i]->Update() == XDMF_FAIL){
             XdmfErrorMessage("Error in Update() of Child Grid " << i);
             return(XDMF_FAIL);
@@ -550,10 +552,12 @@ if((this->GridType & XDMF_GRID_MASK) != XDMF_GRID_UNIFORM){
     }
     return(XDMF_SUCCESS);
 }
+if(!this->Topology->GetDsmBuffer()) this->Topology->SetDsmBuffer(this->DsmBuffer);
 if(this->Topology->Update() == XDMF_FAIL){
     XdmfErrorMessage("Error in Update() of Topology");
     return(XDMF_FAIL);
 }
+if(!this->Geometry->GetDsmBuffer()) this->Geometry->SetDsmBuffer(this->DsmBuffer);
 if(this->Geometry->Update() == XDMF_FAIL){
     XdmfErrorMessage("Error in Update() of Geometry");
     return(XDMF_FAIL);

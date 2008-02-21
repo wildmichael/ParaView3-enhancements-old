@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.h,v 1.2 2008-01-30 15:31:59 clarke Exp $  */
-/*  Date : $Date: 2008-01-30 15:31:59 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfArray.h,v 1.3 2008-02-21 16:55:28 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 16:55:28 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -375,10 +375,6 @@ public:
   XdmfString GetDataPointerAsCharPointer( void ) {
     return( (XdmfString)this->GetDataPointer() );
     };
-//! Set the name of the Heavy Data Set when written (if applicable)
-    XdmfSetStringMacro(HeavyDataSetName);
-//! Get the name of the Heavy Data Set when written (if applicable)
-    XdmfGetStringMacro(HeavyDataSetName);
 
 //! Copy Data From One Array to Another
 //  XdmfPointer MemCopy( XdmfLength StartOffset,
@@ -413,7 +409,6 @@ public:
 //    };
 
 protected:
-  XdmfString   HeavyDataSetName;
   XdmfPointer  DataPointer;
   XdmfBoolean  DataIsMine;
   char    TagName[XDMF_ARRAY_TAG_LENGTH];
