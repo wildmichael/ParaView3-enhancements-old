@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.12 2008-02-21 16:55:28 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 16:55:28 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.13 2008-02-21 21:10:22 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 21:10:22 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -254,7 +254,9 @@ if( this->AttributeType == XDMF_ATTRIBUTE_TYPE_NONE ){
 ValuesNode = this->DOM->FindDataElement( 0, Element );
 if( ValuesNode ){
   ValueReader.SetDOM( this->DOM );
+#ifndef XDMF_NO_MPI
   ValueReader.SetDsmBuffer(this->DsmBuffer);
+#endif
   if( this->ValuesAreMine && this->Values ){
     delete this->Values;
     this->Values = NULL;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.13 2008-02-21 16:55:28 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 16:55:28 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.14 2008-02-21 21:10:22 clarke Exp $  */
+/*  Date : $Date: 2008-02-21 21:10:22 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -321,7 +321,9 @@ if( ( this->GeometryType == XDMF_GEOMETRY_X_Y_Z ) ||
     if(PointsItem.SetDOM( this->DOM ) == XDMF_FAIL) return(XDMF_FAIL);
     if(PointsItem.SetElement(PointsElement, 0) == XDMF_FAIL) return(XDMF_FAIL);
     if(PointsItem.UpdateInformation() == XDMF_FAIL) return(XDMF_FAIL);
+#ifndef XDMF_NO_MPI
     PointsItem.SetDsmBuffer(this->DsmBuffer);
+#endif
     if(PointsItem.Update() == XDMF_FAIL) return(XDMF_FAIL);
     TmpArray = PointsItem.GetArray();
     if( TmpArray ){
@@ -390,7 +392,9 @@ if( ( this->GeometryType == XDMF_GEOMETRY_X_Y_Z ) ||
   if( this->GeometryType == XDMF_GEOMETRY_ORIGIN_DXDYDZ ) {
       XdmfDataItem PointsItem;
       PointsItem.SetDOM(this->DOM);
+#ifndef XDMF_NO_MPI
       PointsItem.SetDsmBuffer(this->DsmBuffer);
+#endif
       XdmfDebug("Reading Origin and Dx, Dy, Dz" );
       PointsElement = this->DOM->FindDataElement(0, this->Element );
       if( PointsElement ){
