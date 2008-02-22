@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.h,v 1.8 2007-07-12 22:43:30 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 22:43:30 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfDsmBuffer.h,v 1.9 2008-02-22 17:11:34 clarke Exp $  */
+/*  Date : $Date: 2008-02-22 17:11:34 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,6 +26,8 @@
 #define __XdmfDsmBuffer_h
 
 #include "XdmfDsm.h"
+
+#define XDMF_DSM_MAX_LOCKS 32
 
 //! Helper for pthread_create()
 extern "C" {
@@ -52,7 +54,12 @@ public:
     XdmfInt32   Put(XdmfInt64 Address, XdmfInt64 Length, void *Data);
     XdmfInt32   Get(XdmfInt64 Address, XdmfInt64 Length, void *Data);
 
-    //virtual XdmfInt32   Copy(XdmfDsmBuffer *Source);
+    XdmfInt32   Aquire(XdmfInt64 Index);
+    XdmfInt32   Release(XdmfInt64 Index);
+
+    /*
+    XdmfInt32   Copy(XdmfDsmBuffer *Source);
+    */
     XdmfInt32   ServiceInit();
     XdmfInt32   ServiceOnce(XdmfInt32 *ReturnOpcode=0);
     XdmfInt32   ServiceUntilIdle(XdmfInt32 *ReturnOpcode=0);

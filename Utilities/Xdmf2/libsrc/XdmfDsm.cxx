@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.cxx,v 1.7 2007-07-12 22:43:30 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 22:43:30 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDsm.cxx,v 1.8 2008-02-22 17:11:34 clarke Exp $  */
+/*  Date : $Date: 2008-02-22 17:11:34 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -41,6 +41,7 @@ XdmfDsm::XdmfDsm() {
     this->DsmType = XDMF_DSM_TYPE_UNIFORM;
     this->Storage = new XdmfArray;
     this->StorageIsMine = 1;
+    this->Locks = 0;
     // For Alignment
     this->Storage->SetNumberType(XDMF_INT64_TYPE);
     this->SetLength(XDMF_DSM_DEFAULT_LENGTH);
@@ -67,6 +68,7 @@ XdmfDsm::Copy(XdmfDsm *Source){
     this->Comm = Source->Comm;
     this->StartServerId = Source->StartServerId;
     this->EndServerId = Source->EndServerId;
+    this->Locks = Source->Locks;
     // Alway make a new Message so there os no contention
     this->Msg = new XdmfDsmMsg;
     return(XDMF_SUCCESS);

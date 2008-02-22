@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.23 2008-02-21 22:20:25 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 22:20:25 $ */
-/*  Version : $Revision: 1.23 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.24 2008-02-22 17:11:34 clarke Exp $  */
+/*  Date : $Date: 2008-02-22 17:11:34 $ */
+/*  Version : $Revision: 1.24 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -61,22 +61,25 @@ XdmfElement::XdmfElement() {
     this->ReferenceElement = NULL;
     this->State = XDMF_ELEMENT_STATE_UNINITIALIZED;
     this->CopyReferenceData = 1;
+    this->RootWhenParsed = 0;
 #ifndef XDMF_NO_MPI
     this->DsmBuffer = NULL;
 #endif
 }
 
 XdmfElement::~XdmfElement() {
-    if(this->ReferenceElement){
-        if(this->GetReferenceObject(this->ReferenceElement) == this){
-            this->SetReferenceObject(this->ReferenceElement, XDMF_ELEMENT_STATE_UNINITIALIZED);
-        }
-    }
-    this->ReferenceElement = NULL;
-    if(this->Element){
-        if(this->GetReferenceObject(this->Element) == this){
-            this->SetReferenceObject(this->Element, XDMF_ELEMENT_STATE_UNINITIALIZED);
-        }
+    if(this->DOM && (this->DOM->GetTree() == this->RootWhenParsed)){
+        if(this->ReferenceElement){
+         if(this->GetReferenceObject(this->ReferenceElement) == this){
+             this->SetReferenceObject(this->ReferenceElement, XDMF_ELEMENT_STATE_UNINITIALIZED);
+         }
+     }
+     this->ReferenceElement = NULL;
+     if(this->Element){
+         if(this->GetReferenceObject(this->Element) == this){
+             this->SetReferenceObject(this->Element, XDMF_ELEMENT_STATE_UNINITIALIZED);
+         }
+     }
     }
     this->Element = NULL;
     if(this->ElementName) delete [] this->ElementName;
@@ -161,6 +164,9 @@ XdmfInt32 XdmfElement::SetElement(XdmfXmlNode anElement, XdmfInt32 AssociateElem
     this->SetReferenceObject(anElement, XDMF_EMPTY_REFERENCE);
     if(AssociateElement) this->SetCurrentXdmfElement(anElement, this);
     this->Element = anElement;
+    if(this->DOM){
+        this->RootWhenParsed = this->DOM->GetTree();
+    }
     return(XDMF_SUCCESS);
 }
 

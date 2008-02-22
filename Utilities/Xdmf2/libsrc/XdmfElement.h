@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.19 2008-02-21 16:55:28 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 16:55:28 $ */
-/*  Version : $Revision: 1.19 $ */
+/*  Id : $Id: XdmfElement.h,v 1.20 2008-02-22 17:11:34 clarke Exp $  */
+/*  Date : $Date: 2008-02-22 17:11:34 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -193,5 +193,6 @@ protected:
 #ifndef XDMF_NO_MPI
         XdmfDsmBuffer *DsmBuffer;
 #endif
+    XdmfXmlNode RootWhenParsed;
 };
 #endif // __XdmfElement_h
