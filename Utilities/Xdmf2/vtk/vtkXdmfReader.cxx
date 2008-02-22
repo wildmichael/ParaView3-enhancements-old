@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-02-22 17:13:59 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2008-02-22 20:25:47 $
+  Version:   $Revision: 1.33 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -85,7 +85,7 @@
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.33 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -1441,7 +1441,8 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
 
   // Reading from File or String
   if(this->GetReadFromInputString()){
-    cout << "vtkXdmfReader Reading from String" << endl;
+    char InputTxt[this->InputStringLength + 1];
+
     if ( !this->DOM ){
         this->DOM = new XdmfDOM();
     }
@@ -1449,7 +1450,9 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
         this->Internals->DataItem = new XdmfDataItem();
         this->Internals->DataItem->SetDOM(this->DOM);
     }
-    this->DOM->Parse(this->GetInputString());
+    memcpy(InputTxt, this->GetInputString(), this->InputStringLength);
+    InputTxt[this->InputStringLength] = 0;
+    this->DOM->Parse(InputTxt);
     this->GridsModified = 1;
   }else{
     // Parse the file...
@@ -1858,7 +1861,9 @@ int vtkXdmfReaderInternal::RequestGridData(
   
   vtkDebugWithObjectMacro(this->Reader, 
                           "Reading Heavy Data for " << xdmfGrid->GetName());
+#ifndef XDMF_NO_MPI
   xdmfGrid->SetDsmBuffer(this->DsmBuffer);
+#endif
   xdmfGrid->Update();
   
   // True for all 3d datasets except unstructured grids
@@ -2600,7 +2605,9 @@ int vtkXdmfReaderInternal::RequestGridData(
       vtkDebugWithObjectMacro(this->Reader, 
                               "Topology class: " 
                               << xdmfGrid->GetTopology()->GetClassAsString());
+#ifndef XDMF_NO_MPI
      this->DataItem->SetDsmBuffer(this->DsmBuffer);
+#endif
       if(xdmfGrid->GetTopology()->GetClass() != XDMF_UNSTRUCTURED)
         {
         XdmfDataDesc* ds = grid->DataDescription;
