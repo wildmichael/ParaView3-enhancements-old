@@ -28,7 +28,7 @@
 
 // Needed when we don't use the vtkStandardNewMacro.
 vtkInstantiatorNewMacro(vtkPainterDeviceAdapter);
-vtkCxxRevisionMacro(vtkPainterDeviceAdapter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPainterDeviceAdapter, "$Revision: 1.4 $");
 
 //-----------------------------------------------------------------------------
 vtkPainterDeviceAdapter::vtkPainterDeviceAdapter()
@@ -44,7 +44,7 @@ vtkPainterDeviceAdapter::~vtkPainterDeviceAdapter()
 vtkPainterDeviceAdapter* vtkPainterDeviceAdapter::New()
 {
   vtkObject* ret = vtkGraphicsFactory::CreateInstance("vtkPainterDeviceAdapter");
-  return (vtkPainterDeviceAdapter*)ret;
+  return static_cast<vtkPainterDeviceAdapter *>(ret);
 }
 
 //-----------------------------------------------------------------------------

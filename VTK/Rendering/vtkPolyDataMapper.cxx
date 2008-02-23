@@ -22,7 +22,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkPainterPolyDataMapper.h"
 
-vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.45 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -34,9 +34,8 @@ vtkPolyDataMapper *vtkPolyDataMapper::New()
 {
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkGraphicsFactory::CreateInstance("vtkPolyDataMapper");
-  return (vtkPolyDataMapper*)ret;
+  return static_cast<vtkPolyDataMapper *>(ret);
 }
-
 
 //----------------------------------------------------------------------------
 vtkPolyDataMapper::vtkPolyDataMapper()
