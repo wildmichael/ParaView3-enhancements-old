@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkDijkstraGraphGeodesicPath.cxx,v $
   Language:  C++
-  Date:    $Date: 2007-04-24 00:19:14 $
-  Version:   $Revision: 1.5 $
+  Date:    $Date: 2008-02-23 12:06:08 $
+  Version:   $Revision: 1.6 $
   
   Made by Rasmus Paulsen
   email:  rrp(at)imm.dtu.dk
@@ -28,7 +28,7 @@
 #include "vtkPointData.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkDijkstraGraphGeodesicPath);
 
 //----------------------------------------------------------------------------
@@ -188,11 +188,12 @@ double vtkDijkstraGraphGeodesicPath::CalculateEdgeCost(
   if (this->UseScalarWeights)
     {
     // Note this edge cost is not symmetric!
-    vtkFloatArray *scalars = (vtkFloatArray*)pd->GetPointData()->GetScalars();
+    vtkFloatArray *scalars =
+      static_cast<vtkFloatArray*>(pd->GetPointData()->GetScalars());
     //    float s1 = scalars->GetValue(u);
-    float s2 = scalars->GetValue(v);
+    double s2 = static_cast<double>(scalars->GetValue(v));
     
-    double wt = ((double)(s2))*((double)(s2));
+    double wt = s2*s2;
     if (wt != 0.0)
       {
       w  /= wt;
