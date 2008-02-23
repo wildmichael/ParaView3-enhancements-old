@@ -27,7 +27,7 @@
 #include "vtkRenderer.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkInteractorStyleTerrain);
 
 //----------------------------------------------------------------------------
@@ -202,7 +202,7 @@ void vtkInteractorStyleTerrain::Rotate()
   
   if (rwi->GetShiftKey()) 
     {
-    if (fabs(dx) >= fabs(dy))
+    if(abs(dx) >= abs(dy))
       {
       e = 0.0;
       }
