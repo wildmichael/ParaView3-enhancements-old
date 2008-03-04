@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-03-04 13:57:34 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2008-03-04 13:58:04 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2268,7 +2268,6 @@ bool MetaCommand::LoadArgumentsFromXML(const char* filename,
       
       if(child->content)
         {
-        //std::cout << cur->name << " : " << child->content << std::endl;
         this->SetOptionValue((const char*)cur->name,
                              (const char*)cur->name,
                              (const char*)child->content,
