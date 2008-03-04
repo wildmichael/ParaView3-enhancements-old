@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-03-04 13:57:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2008-03-04 13:57:54 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1799,7 +1799,7 @@ bool MetaImage::WriteROI(int * _indexMin, int * _indexMax,
     // Find the start of the data
     METAIO_STREAM::ifstream * readStream = new METAIO_STREAM::ifstream;
     readStream->open(m_FileName, METAIO_STREAM::ios::binary |
-                                 METAIO_STREAM::ios::app);
+                                 METAIO_STREAM::ios::in);
     if(!MetaObject::ReadStream(m_NDims, readStream))
       {
       METAIO_STREAM::cerr << "MetaImage: Read: Cannot parse file"
