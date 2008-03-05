@@ -23,7 +23,7 @@
 #include "vtkInformationVector.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
-vtkCxxRevisionMacro(vtkImageAlgorithm, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkImageAlgorithm, "$Revision: 1.30 $");
 
 //----------------------------------------------------------------------------
 vtkImageAlgorithm::vtkImageAlgorithm()
@@ -300,6 +300,14 @@ void vtkImageAlgorithm::CopyAttributeData(vtkImageData *input,
           {
           output->GetPointData()->CopyStructuredData(input->GetPointData(),
                                                      inExt, outExt);
+          }
+        }
+      else
+        {
+        if (inArray)
+          {
+          vtkDataArray* tmp = output->GetPointData()->GetScalars();
+          tmp->SetName(inArray->GetName());
           }
         }
 
