@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIconGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2008-03-07 07:38:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2008-03-07 15:49:09 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -58,7 +58,7 @@ private:
   void IconConvertIndex(int id, int & j, int & k);
 };
 
-void vtkIconGlyphFilter::IconConvertIndex(int id, int & j, int & k)
+inline void vtkIconGlyphFilter::IconConvertIndex(int id, int & j, int & k)
 {
   int dimX = this->IconSheetSize[0]/this->IconSize[0];
   int dimY = this->IconSheetSize[1]/this->IconSize[1];
