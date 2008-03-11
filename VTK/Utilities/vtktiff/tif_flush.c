@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_flush.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_flush.c,v 1.2 2008-03-11 13:38:54 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -33,14 +33,14 @@ int
 TIFFFlush(TIFF* tif)
 {
 
-        if (tif->tif_mode != O_RDONLY) {
-                if (!TIFFFlushData(tif))
-                        return (0);
-                if ((tif->tif_flags & TIFF_DIRTYDIRECT) &&
-                    !TIFFWriteDirectory(tif))
-                        return (0);
-        }
-        return (1);
+  if (tif->tif_mode != O_RDONLY) {
+    if (!TIFFFlushData(tif))
+      return (0);
+    if ((tif->tif_flags & TIFF_DIRTYDIRECT) &&
+        !TIFFWriteDirectory(tif))
+      return (0);
+  }
+  return (1);
 }
 
 /*
@@ -55,13 +55,13 @@ TIFFFlush(TIFF* tif)
 int
 TIFFFlushData(TIFF* tif)
 {
-        if ((tif->tif_flags & TIFF_BEENWRITING) == 0)
-                return (0);
-        if (tif->tif_flags & TIFF_POSTENCODE) {
-                tif->tif_flags &= ~TIFF_POSTENCODE;
-                if (!(*tif->tif_postencode)(tif))
-                        return (0);
-        }
-        return (TIFFFlushData1(tif));
+  if ((tif->tif_flags & TIFF_BEENWRITING) == 0)
+    return (0);
+  if (tif->tif_flags & TIFF_POSTENCODE) {
+    tif->tif_flags &= ~TIFF_POSTENCODE;
+    if (!(*tif->tif_postencode)(tif))
+      return (0);
+  }
+  return (TIFFFlushData1(tif));
 }
 

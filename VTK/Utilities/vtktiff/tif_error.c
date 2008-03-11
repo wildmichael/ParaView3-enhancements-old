@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_error.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_error.c,v 1.2 2008-03-11 13:38:38 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -29,21 +29,45 @@
  */
 #include "tiffiop.h"
 
+TIFFErrorHandlerExt _TIFFerrorHandlerExt = NULL;
+
 TIFFErrorHandler
-TEXPORT TIFFSetErrorHandler(TIFFErrorHandler handler)
+TIFFSetErrorHandler(TIFFErrorHandler handler)
 {
-        TIFFErrorHandler prev = _TIFFerrorHandler;
-        _TIFFerrorHandler = handler;
-        return (prev);
+  TIFFErrorHandler prev = _TIFFerrorHandler;
+  _TIFFerrorHandler = handler;
+  return (prev);
+}
+
+TIFFErrorHandlerExt
+TIFFSetErrorHandlerExt(TIFFErrorHandlerExt handler)
+{
+  TIFFErrorHandlerExt prev = _TIFFerrorHandlerExt;
+  _TIFFerrorHandlerExt = handler;
+  return (prev);
 }
 
 void
 TIFFError(const char* module, const char* fmt, ...)
 {
-        if (_TIFFerrorHandler) {
-                va_list ap;
-                va_start(ap, fmt);
-                (*_TIFFerrorHandler)(module, fmt, ap);
-                va_end(ap);
-        }
+  va_list ap;
+  va_start(ap, fmt);
+  if (_TIFFerrorHandler)
+    (*_TIFFerrorHandler)(module, fmt, ap);
+  if (_TIFFerrorHandlerExt)
+    (*_TIFFerrorHandlerExt)(0, module, fmt, ap);
+  va_end(ap);
 }
+
+void
+TIFFErrorExt(thandle_t fd, const char* module, const char* fmt, ...)
+{
+  va_list ap;
+  va_start(ap, fmt);
+  if (_TIFFerrorHandler)
+    (*_TIFFerrorHandler)(module, fmt, ap);
+  if (_TIFFerrorHandlerExt)
+    (*_TIFFerrorHandlerExt)(fd, module, fmt, ap);
+  va_end(ap);
+}
+

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_version.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_version.c,v 1.2 2008-03-11 13:40:33 andinet Exp $ */
 /*
  * Copyright (c) 1992-1997 Sam Leffler
  * Copyright (c) 1992-1997 Silicon Graphics, Inc.
@@ -29,5 +29,5 @@ static const char TIFFVersion[] = TIFFLIB_VERSION_STR;
 const char*
 TIFFGetVersion(void)
 {
-        return (TIFFVersion);
+  return (TIFFVersion);
 }

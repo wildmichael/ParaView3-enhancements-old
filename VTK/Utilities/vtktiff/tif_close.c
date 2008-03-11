@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_close.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Id: tif_close.c,v 1.2 2008-03-11 13:37:59 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -29,22 +29,91 @@
  */
 #include "tiffiop.h"
 
+/************************************************************************/
+/*                            TIFFCleanup()                             */
+/************************************************************************/
+
+/**
+ * Auxiliary function to free the TIFF structure. Given structure will be
+ * completetly freed, so you should save opened file handle and pointer
+ * to the close procedure in external variables before calling
+ * _TIFFCleanup(), if you will need these ones to close the file.
+ * 
+ * @param tif A TIFF pointer.
+ */
+
 void
-TEXPORT TIFFClose(TIFF* tif)
+TIFFCleanup(TIFF* tif)
 {
-        if (tif->tif_mode != O_RDONLY)
-                /*
-                 * Flush buffered data and directory (if dirty).
-                 */
-                TIFFFlush(tif);
-        (*tif->tif_cleanup)(tif);
-        TIFFFreeDirectory(tif);
-        if (tif->tif_rawdata && (tif->tif_flags&TIFF_MYBUFFER))
-                _TIFFfree(tif->tif_rawdata);
-        if (isMapped(tif))
-                TIFFUnmapFileContents(tif, tif->tif_base, tif->tif_size);
-        (void) TIFFCloseFile(tif);
-        if (tif->tif_fieldinfo)
-                _TIFFfree(tif->tif_fieldinfo);
-        _TIFFfree(tif);
+  if (tif->tif_mode != O_RDONLY)
+      /*
+       * Flush buffered data and directory (if dirty).
+       */
+      TIFFFlush(tif);
+  (*tif->tif_cleanup)(tif);
+  TIFFFreeDirectory(tif);
+
+  if (tif->tif_dirlist)
+      _TIFFfree(tif->tif_dirlist);
+      
+  /* Clean up client info links */
+  while( tif->tif_clientinfo )
+  {
+      TIFFClientInfoLink *link = tif->tif_clientinfo;
+
+      tif->tif_clientinfo = link->next;
+      _TIFFfree( link->name );
+      _TIFFfree( link );
+  }
+
+  if (tif->tif_rawdata && (tif->tif_flags&TIFF_MYBUFFER))
+      _TIFFfree(tif->tif_rawdata);
+  if (isMapped(tif))
+      TIFFUnmapFileContents(tif, tif->tif_base, tif->tif_size);
+
+  /* Clean up custom fields */
+  if (tif->tif_nfields > 0) 
+  {
+      size_t  i;
+
+      for (i = 0; i < tif->tif_nfields; i++) 
+      {
+    TIFFFieldInfo *fld = tif->tif_fieldinfo[i];
+    if (fld->field_bit == FIELD_CUSTOM && 
+        strncmp("Tag ", fld->field_name, 4) == 0) 
+    {
+        _TIFFfree(fld->field_name);
+        _TIFFfree(fld);
+    }
+      }   
+    
+      _TIFFfree(tif->tif_fieldinfo);
+  }
+
+  _TIFFfree(tif);
 }
+
+/************************************************************************/
+/*                            TIFFClose()                               */
+/************************************************************************/
+
+/**
+ * Close a previously opened TIFF file.
+ *
+ * TIFFClose closes a file that was previously opened with TIFFOpen().
+ * Any buffered data are flushed to the file, including the contents of
+ * the current directory (if modified); and all resources are reclaimed.
+ * 
+ * @param tif A TIFF pointer.
+ */
+
+void
+TIFFClose(TIFF* tif)
+{
+  TIFFCloseProc closeproc = tif->tif_closeproc;
+  thandle_t fd = tif->tif_clientdata;
+
+  TIFFCleanup(tif);
+  (void) (*closeproc)(fd);
+}
+
