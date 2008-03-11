@@ -1,4 +1,4 @@
-/* $Id: tiffio.h,v 1.7 2008-03-11 19:37:30 andinet Exp $ */
+/* $Id: tiffio.h,v 1.8 2008-03-11 19:57:05 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -344,9 +344,9 @@ extern  int TIFFFlush(TIFF*);
 extern  int TIFFFlushData(TIFF*);
 TEXTERN  int TEXPORT TIFFGetField(TIFF*, ttag_t, ...);
 extern  int TIFFVGetField(TIFF*, ttag_t, va_list);
-extern  int TIFFGetFieldDefaulted(TIFF*, ttag_t, ...);
+TEXTERN  int TEXPORT TIFFGetFieldDefaulted(TIFF*, ttag_t, ...);
 extern  int TIFFVGetFieldDefaulted(TIFF*, ttag_t, va_list);
-extern  int TIFFReadDirectory(TIFF*);
+TEXTERN  int TEXPORT TIFFReadDirectory(TIFF*);
 extern  int TIFFReadCustomDirectory(TIFF*, toff_t, const TIFFFieldInfo[],
                                     size_t);
 extern  int TIFFReadEXIFDirectory(TIFF*, toff_t);
@@ -358,7 +358,7 @@ extern  tsize_t TIFFVStripSize(TIFF*, uint32);
 extern  tsize_t TIFFTileRowSize(TIFF*);
 TEXTERN tsize_t TEXPORT TIFFTileSize(TIFF*);
 extern  tsize_t TIFFVTileSize(TIFF*, uint32);
-extern  uint32 TIFFDefaultStripSize(TIFF*, uint32);
+TEXTERN  uint32 TEXPORT TIFFDefaultStripSize(TIFF*, uint32);
 TEXTERN  void TEXPORT TIFFDefaultTileSize(TIFF*, uint32*, uint32*);
 extern  int TIFFFileno(TIFF*);
 extern  int TIFFSetFileno(TIFF*, int);
@@ -391,7 +391,7 @@ extern  int TIFFWriteCheck(TIFF*, int, const char *);
 extern  void TIFFFreeDirectory(TIFF*);
 extern  int TIFFCreateDirectory(TIFF*);
 extern  int TIFFLastDirectory(TIFF*);
-extern  int TIFFSetDirectory(TIFF*, tdir_t);
+TEXTERN  int TEXPORT TIFFSetDirectory(TIFF*, tdir_t);
 extern  int TIFFSetSubDirectory(TIFF*, uint32);
 extern  int TIFFUnlinkDirectory(TIFF*, tdir_t);
 TEXTERN  int TEXPORT TIFFSetField(TIFF*, ttag_t, ...);

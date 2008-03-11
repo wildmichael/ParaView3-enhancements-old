@@ -1,4 +1,4 @@
-/* $Id: tif_tile.c,v 1.4 2008-03-11 19:37:30 andinet Exp $ */
+/* $Id: tif_tile.c,v 1.5 2008-03-11 19:57:05 andinet Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -142,6 +142,7 @@ TIFFCheckTile(TIFF* tif, uint32 x, uint32 y, uint32 z, tsample_t s)
  * Compute how many tiles are in an image.
  */
 ttile_t
+TEXPORT
 TIFFNumberOfTiles(TIFF* tif)
 {
         TIFFDirectory *td = &tif->tif_dir;
