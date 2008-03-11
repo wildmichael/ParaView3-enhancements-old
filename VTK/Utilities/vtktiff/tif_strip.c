@@ -1,4 +1,4 @@
-/* $Id: tif_strip.c,v 1.2 2008-03-11 13:40:10 andinet Exp $ */
+/* $Id: tif_strip.c,v 1.3 2008-03-11 19:37:30 andinet Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -195,6 +195,7 @@ TIFFStripSize(TIFF* tif)
  * to certain heuristics.
  */
 uint32
+TEXPORT
 TIFFDefaultStripSize(TIFF* tif, uint32 request)
 {
         return (*tif->tif_defstripsize)(tif, request);
@@ -224,6 +225,7 @@ _TIFFDefaultStripSize(TIFF* tif, uint32 s)
  * stored as separate planes.
  */
 tsize_t
+TEXPORT
 TIFFScanlineSize(TIFF* tif)
 {
         TIFFDirectory *td = &tif->tif_dir;

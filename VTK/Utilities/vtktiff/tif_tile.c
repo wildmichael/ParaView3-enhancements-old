@@ -1,4 +1,4 @@
-/* $Id: tif_tile.c,v 1.3 2008-03-11 13:40:22 andinet Exp $ */
+/* $Id: tif_tile.c,v 1.4 2008-03-11 19:37:30 andinet Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -238,6 +238,7 @@ TIFFVTileSize(TIFF* tif, uint32 nrows)
  * Compute the # bytes in a row-aligned tile.
  */
 tsize_t
+TEXPORT
 TIFFTileSize(TIFF* tif)
 {
         return (TIFFVTileSize(tif, tif->tif_dir.td_tilelength));

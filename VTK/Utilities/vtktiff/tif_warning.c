@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_warning.c,v 1.2 2008-03-11 13:40:36 andinet Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_warning.c,v 1.3 2008-03-11 19:37:30 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -32,6 +32,7 @@
 TIFFErrorHandlerExt _TIFFwarningHandlerExt = NULL;
 
 TIFFErrorHandler
+TEXPORT
 TIFFSetWarningHandler(TIFFErrorHandler handler)
 {
   TIFFErrorHandler prev = _TIFFwarningHandler;

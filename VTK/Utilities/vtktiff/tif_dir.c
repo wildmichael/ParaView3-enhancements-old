@@ -1,4 +1,4 @@
-/* $Id: tif_dir.c,v 1.2 2008-03-11 13:38:06 andinet Exp $ */
+/* $Id: tif_dir.c,v 1.3 2008-03-11 19:37:23 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -922,7 +922,7 @@ _TIFFVGetField(TIFF* tif, ttag_t tag, va_list ap)
  * internal directory structure.
  */
 int
-TIFFGetField(TIFF* tif, ttag_t tag, ...)
+TEXPORT TIFFGetField(TIFF* tif, ttag_t tag, ...)
 {
         int status;
         va_list ap;

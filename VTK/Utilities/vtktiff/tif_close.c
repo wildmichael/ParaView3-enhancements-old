@@ -1,4 +1,4 @@
-/* $Id: tif_close.c,v 1.2 2008-03-11 13:37:59 andinet Exp $ */
+/* $Id: tif_close.c,v 1.3 2008-03-11 19:37:20 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -108,7 +108,7 @@ TIFFCleanup(TIFF* tif)
  */
 
 void
-TIFFClose(TIFF* tif)
+TEXPORT TIFFClose(TIFF* tif)
 {
   TIFFCloseProc closeproc = tif->tif_closeproc;
   thandle_t fd = tif->tif_clientdata;

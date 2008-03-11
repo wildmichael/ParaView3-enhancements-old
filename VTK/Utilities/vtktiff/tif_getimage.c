@@ -1,4 +1,4 @@
-/* $Id: tif_getimage.c,v 1.2 2008-03-11 13:39:09 andinet Exp $ */
+/* $Id: tif_getimage.c,v 1.3 2008-03-11 19:37:28 andinet Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -484,6 +484,7 @@ TIFFReadRGBAImageOriented(TIFF* tif,
  * origin for raster by default.
  */
 int
+TEXPORT
 TIFFReadRGBAImage(TIFF* tif,
                   uint32 rwidth, uint32 rheight, uint32* raster, int stop)
 {

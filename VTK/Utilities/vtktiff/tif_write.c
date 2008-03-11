@@ -1,4 +1,4 @@
-/* $Id: tif_write.c,v 1.2 2008-03-11 13:40:42 andinet Exp $ */
+/* $Id: tif_write.c,v 1.3 2008-03-11 19:37:30 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -46,6 +46,7 @@ static  int TIFFGrowStrips(TIFF*, int, const char*);
 static  int TIFFAppendToStrip(TIFF*, tstrip_t, tidata_t, tsize_t);
 
 int
+TEXPORT
 TIFFWriteScanline(TIFF* tif, tdata_t buf, uint32 row, tsample_t sample)
 {
         static const char module[] = "TIFFWriteScanline";

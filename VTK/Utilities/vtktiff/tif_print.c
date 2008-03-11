@@ -1,4 +1,4 @@
-/* $Id: tif_print.c,v 1.2 2008-03-11 13:39:59 andinet Exp $ */
+/* $Id: tif_print.c,v 1.3 2008-03-11 19:37:29 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -192,6 +192,7 @@ _TIFFPrettyPrintField(TIFF* tif, FILE* fd, ttag_t tag,
  * to the specified stdio file stream.
  */
 void
+TEXPORT
 TIFFPrintDirectory(TIFF* tif, FILE* fd, long flags)
 {
         TIFFDirectory *td = &tif->tif_dir;

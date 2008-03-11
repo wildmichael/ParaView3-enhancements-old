@@ -1,4 +1,4 @@
-/* $Id: tif_open.c,v 1.3 2008-03-11 13:39:42 andinet Exp $ */
+/* $Id: tif_open.c,v 1.4 2008-03-11 19:37:29 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -138,6 +138,7 @@ _TIFFgetMode(const char* mode, const char* module)
 }
 
 TIFF*
+TEXPORT
 TIFFClientOpen(
         const char* name, const char* mode,
         thandle_t clientdata,
@@ -540,6 +541,7 @@ TIFFSetMode(TIFF* tif, int mode)
  * tiles; zero if organized as strips.
  */
 int
+TEXPORT
 TIFFIsTiled(TIFF* tif)
 {
         return (isTiled(tif));

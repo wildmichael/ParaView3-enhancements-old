@@ -1,4 +1,4 @@
-/* $Id: tif_read.c,v 1.3 2008-03-11 13:40:04 andinet Exp $ */
+/* $Id: tif_read.c,v 1.4 2008-03-11 19:37:29 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -91,6 +91,7 @@ TIFFSeek(TIFF* tif, uint32 row, tsample_t sample)
 }
 
 int
+TEXPORT
 TIFFReadScanline(TIFF* tif, tdata_t buf, uint32 row, tsample_t sample)
 {
         int e;
@@ -327,6 +328,7 @@ TIFFFillStrip(TIFF* tif, tstrip_t strip)
  * tile is selected by the (x,y,z,s) coordinates.
  */
 tsize_t
+TEXPORT
 TIFFReadTile(TIFF* tif,
     tdata_t buf, uint32 x, uint32 y, uint32 z, tsample_t s)
 {
