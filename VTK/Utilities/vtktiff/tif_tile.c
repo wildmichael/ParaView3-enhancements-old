@@ -1,4 +1,4 @@
-/* $Id: tif_tile.c,v 1.5 2008-03-11 19:57:05 andinet Exp $ */
+/* $Id: tif_tile.c,v 1.6 2008-03-11 20:46:37 andinet Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -252,6 +252,7 @@ TIFFTileSize(TIFF* tif)
  * to certain heuristics.
  */
 void
+TEXPORT
 TIFFDefaultTileSize(TIFF* tif, uint32* tw, uint32* th)
 {
         (*tif->tif_deftilesize)(tif, tw, th);

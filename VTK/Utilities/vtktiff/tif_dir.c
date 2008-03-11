@@ -1,4 +1,4 @@
-/* $Id: tif_dir.c,v 1.3 2008-03-11 19:37:23 andinet Exp $ */
+/* $Id: tif_dir.c,v 1.4 2008-03-11 20:46:37 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -1146,6 +1146,7 @@ TIFFAdvanceDirectory(TIFF* tif, uint32* nextdir, toff_t* off)
  * Count the number of directories in a file.
  */
 tdir_t
+TEXPORT
 TIFFNumberOfDirectories(TIFF* tif)
 {
     toff_t nextdir = tif->tif_header.tiff_diroff;
@@ -1161,6 +1162,7 @@ TIFFNumberOfDirectories(TIFF* tif)
  * NB: Directories are numbered starting at 0.
  */
 int
+TEXPORT
 TIFFSetDirectory(TIFF* tif, tdir_t dirn)
 {
         toff_t nextdir;

@@ -1,4 +1,4 @@
-/* $Id: tif_dirread.c,v 1.2 2008-03-11 13:38:20 andinet Exp $ */
+/* $Id: tif_dirread.c,v 1.3 2008-03-11 20:46:37 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -67,6 +67,7 @@ static  void ChopUpSingleUncompressedStrip(TIFF*);
  * We read directories sequentially.
  */
 int
+TEXPORT
 TIFFReadDirectory(TIFF* tif)
 {
         static const char module[] = "TIFFReadDirectory";

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_error.c,v 1.3 2008-03-11 19:37:26 andinet Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_error.c,v 1.4 2008-03-11 20:46:37 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -32,6 +32,7 @@
 TIFFErrorHandlerExt _TIFFerrorHandlerExt = NULL;
 
 TIFFErrorHandler
+TEXPORT
 TEXPORT TIFFSetErrorHandler(TIFFErrorHandler handler)
 {
   TIFFErrorHandler prev = _TIFFerrorHandler;
@@ -40,6 +41,7 @@ TEXPORT TIFFSetErrorHandler(TIFFErrorHandler handler)
 }
 
 TIFFErrorHandlerExt
+TEXPORT
 TIFFSetErrorHandlerExt(TIFFErrorHandlerExt handler)
 {
   TIFFErrorHandlerExt prev = _TIFFerrorHandlerExt;
