@@ -1,4 +1,4 @@
-/* $Id: tif_win32.c,v 1.3 2008-03-11 19:37:30 andinet Exp $ */
+/* $Id: tif_win32.c,v 1.4 2008-03-12 15:58:04 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -28,6 +28,11 @@
  * TIFF Library Win32-specific Routines.  Adapted from tif_unix.c 4/5/95 by
  * Scott Wagner (wagner@itek.com), Itek Graphix, Rochester, NY USA
  */
+
+#if defined ( _MSC_VER )
+#pragma warning ( disable : 4115 )
+#endif
+
 #include "tiffiop.h"
 
 static tsize_t
