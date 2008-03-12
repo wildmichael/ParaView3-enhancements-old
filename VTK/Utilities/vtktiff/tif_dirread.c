@@ -1,4 +1,4 @@
-/* $Id: tif_dirread.c,v 1.4 2008-03-12 14:57:33 andinet Exp $ */
+/* $Id: tif_dirread.c,v 1.5 2008-03-12 15:35:28 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -1100,7 +1100,7 @@ TIFFFetchByteArray(TIFF* tif, TIFFDirEntry* dir, uint16* v)
                     case 4: v[3] = (signed char)dir->tdir_offset & 0xff;
                     case 3: v[2] = (signed char)(dir->tdir_offset >> 8) & 0xff;
                     case 2: v[1] = (signed char)(dir->tdir_offset >> 16) & 0xff;
-                    case 1: v[0] = dir->tdir_offset >> 24;
+                    case 1: v[0] = (signed char) dir->tdir_offset >> 24;
                 }
             else
                 switch (dir->tdir_count) {
