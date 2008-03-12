@@ -57,7 +57,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkPVUpdateSuppressor);
 vtkCxxSetObjectMacro(vtkPVUpdateSuppressor, CacheSizeKeeper, vtkCacheSizeKeeper);
 //----------------------------------------------------------------------------
@@ -323,7 +323,7 @@ int vtkPVUpdateSuppressor::RequestDataObject(
         vtkDataObject* newOutput = input->NewInstance();
         newOutput->SetPipelineInformation(outInfo);
         newOutput->Delete();
-        this->GetOutputPortInformation(0)->Set(
+        this->GetOutputPortInformation(i)->Set(
           vtkDataObject::DATA_EXTENT_TYPE(), newOutput->GetExtentType());
         }
       }
