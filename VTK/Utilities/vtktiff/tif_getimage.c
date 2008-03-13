@@ -1,4 +1,4 @@
-/* $Id: tif_getimage.c,v 1.4 2008-03-11 21:05:21 andinet Exp $ */
+/* $Id: tif_getimage.c,v 1.5 2008-03-13 13:44:51 andinet Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -32,6 +32,9 @@
 #include "tiffiop.h"
 #include <stdio.h>
 
+#ifdef _MSC_VER
+#pragma warning ( disable : 4550 )
+#endif
 static  int gtTileContig(TIFFRGBAImage*, uint32*, uint32, uint32);
 static  int gtTileSeparate(TIFFRGBAImage*, uint32*, uint32, uint32);
 static  int gtStripContig(TIFFRGBAImage*, uint32*, uint32, uint32);
