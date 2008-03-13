@@ -1,4 +1,4 @@
-/* $Id: tif_dir.c,v 1.4 2008-03-11 20:46:37 andinet Exp $ */
+/* $Id: tif_dir.c,v 1.5 2008-03-13 15:47:54 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -191,7 +191,6 @@ _TIFFVSetField(TIFF* tif, ttag_t tag, va_list ap)
                 if (v != FILLORDER_LSB2MSB && v != FILLORDER_MSB2LSB)
                         goto badvalue;
                 td->td_fillorder = (uint16) v;
-                break;
                 break;
         case TIFFTAG_ORIENTATION:
                 v = va_arg(ap, uint32);

@@ -1,4 +1,4 @@
-/* $Id: tif_jpeg.c,v 1.2 2008-03-11 13:39:11 andinet Exp $ */
+/* $Id: tif_jpeg.c,v 1.3 2008-03-13 15:47:54 andinet Exp $ */
 
 /*
  * Copyright (c) 1994-1997 Sam Leffler
@@ -49,6 +49,10 @@ int TIFFFillTile(TIFF*, ttile_t);
 
 #ifdef FAR
 #undef FAR
+#endif
+
+#if defined(__BORLANDC__)
+#pragma warn -8066 // Disable "unreachable code" warning.
 #endif
 
 /*
@@ -1573,7 +1577,7 @@ JPEGVSetField(TIFF* tif, ttag_t tag, va_list ap)
                     } else {
                         if (td->td_ycbcrsubsampling[0] != 1 ||
                             td->td_ycbcrsubsampling[1] != 1)
-                            ; /* XXX what about up-sampling? */
+                            (void)tif; /* XXX what about up-sampling? */
                     }
                 }
                 /*
