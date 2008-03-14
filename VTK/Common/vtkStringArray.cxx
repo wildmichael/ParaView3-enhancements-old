@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-01-17 05:33:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2008-03-14 21:47:04 $
+  Version:   $Revision: 1.14 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -67,7 +67,7 @@ public:
   bool Rebuild;
 };
 
-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkStringArray);
 
 //-----------------------------------------------------------------------------

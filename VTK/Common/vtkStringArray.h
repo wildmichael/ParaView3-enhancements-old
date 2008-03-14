@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.h,v $
   Language:  C++
-  Date:      $Date: 2007-09-05 13:41:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2008-03-14 21:47:04 $
+  Version:   $Revision: 1.8 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
