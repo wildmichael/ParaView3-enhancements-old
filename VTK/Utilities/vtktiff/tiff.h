@@ -1,5 +1,5 @@
 #include "vtk_tiff_mangle.h"
-/* $Id: tiff.h,v 1.2 2008-03-11 13:40:50 andinet Exp $ */
+/* $Id: tiff.h,v 1.3 2008-03-17 19:41:48 andinet Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -63,7 +63,7 @@
  *
  * See http://bugzilla.remotesensing.org/show_bug.cgi?id=39
  */
-#if defined(_H_INTTYPES) && defined(_ALL_SOURCE) && defined(USING_VISUALAGE)
+#if defined(_H_INTTYPES) && defined(_ALL_SOURCE) 
 
 #define _TIFF_DATA_TYPEDEFS_
 typedef unsigned char uint8;
