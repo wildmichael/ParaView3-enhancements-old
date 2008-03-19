@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-02-08 20:52:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2008-03-19 20:40:13 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -31,6 +31,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #endif
+
+#include <string.h>
 
 #include <typeinfo>
 

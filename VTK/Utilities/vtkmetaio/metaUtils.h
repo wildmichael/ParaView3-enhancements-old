@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.h,v $
   Language:  C++
-  Date:      $Date: 2008-02-11 14:32:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2008-03-19 20:40:13 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -53,6 +53,7 @@
 #include <vector>
 #include <string>
 #include <typeinfo>
+#include <string.h>
 
 #if (METAIO_USE_NAMESPACE)
 namespace METAIO_NAMESPACE {

@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-02-10 23:42:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2008-03-19 20:40:13 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -34,6 +34,7 @@
 #endif
 
 #include <stdlib.h>
+#include <string.h>
 #include <string>
 
 #if defined (__BORLANDC__) && (__BORLANDC__ >= 0x0580)
