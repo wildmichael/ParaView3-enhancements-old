@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-07-10 17:07:34 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2008-03-19 20:22:17 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -39,6 +39,7 @@
 #include <sys/types.h>
 #endif
 
+#include <string.h>
 #include <string>
 
 // Define DEBUG_DICOM to get debug messages sent to dicom_stream::cerr
