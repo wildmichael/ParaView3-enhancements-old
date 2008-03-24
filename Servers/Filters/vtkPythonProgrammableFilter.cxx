@@ -26,10 +26,11 @@
 #include "vtkProcessModule.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
+#include <vtkstd/algorithm>
 #include <vtkstd/map>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkPythonProgrammableFilter, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkPythonProgrammableFilter, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkPythonProgrammableFilter);
 
 //----------------------------------------------------------------------------
