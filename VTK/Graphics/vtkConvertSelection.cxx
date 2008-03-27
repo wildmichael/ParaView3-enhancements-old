@@ -50,7 +50,7 @@
 
 vtkCxxSetObjectMacro(vtkConvertSelection, ArrayNames, vtkStringArray);
 
-vtkCxxRevisionMacro(vtkConvertSelection, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkConvertSelection, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkConvertSelection);
 //----------------------------------------------------------------------------
 vtkConvertSelection::vtkConvertSelection()
@@ -779,6 +779,12 @@ int vtkConvertSelection::RequestData(
     }
   
   return this->Convert(input, data, output);
+}
+
+//----------------------------------------------------------------------------
+void vtkConvertSelection::SetDataObjectConnection(vtkAlgorithmOutput* in)
+{
+  this->SetInputConnection(1, in);
 }
 
 //----------------------------------------------------------------------------
