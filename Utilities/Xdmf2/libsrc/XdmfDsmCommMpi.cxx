@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.7 2008-02-21 16:55:28 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 16:55:28 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.8 2008-04-04 19:30:21 clarke Exp $  */
+/*  Date : $Date: 2008-04-04 19:30:21 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -87,6 +87,12 @@ XdmfDsmCommMpi::Receive(XdmfDsmMsg *Msg){
     }
     status = MPI_Get_count(&SendRecvStatus, MPI_UNSIGNED_CHAR, &MessageLength);
     XdmfDebug("::::: (" << this->Id << ") Received " << MessageLength << " bytes from " << SendRecvStatus.MPI_SOURCE);
+    /*
+    if(this->Id == 0){
+        cout << "::::: (" << this->Id << ") Received " << MessageLength << " bytes from " << SendRecvStatus.MPI_SOURCE << endl;
+        cout << "::::: (" << this->Id << ") Expected Length = " << Msg->Length << endl;
+    }
+    */
     Msg->SetSource(SendRecvStatus.MPI_SOURCE);
     Msg->SetLength(MessageLength);
     if(status != MPI_SUCCESS){
@@ -102,6 +108,11 @@ XdmfDsmCommMpi::Send(XdmfDsmMsg *Msg){
 
     if(XdmfDsmComm::Send(Msg) != XDMF_SUCCESS) return(XDMF_FAIL);
     XdmfDebug("::::: (" << this->Id << ") Sending " << Msg->Length << " bytes to " << Msg->Dest << " Tag = " << Msg->Tag);
+    /*
+    if(this->Id == 1){
+        cout << "::::: (" << this->Id << ") Sending " << Msg->Length << " bytes to " << Msg->Dest << " Tag = " << Msg->Tag << endl; 
+    }
+    */
     status = MPI_Send(Msg->Data, Msg->Length, MPI_UNSIGNED_CHAR, Msg->Dest, Msg->Tag, this->Comm);
     // status = MPI_Ssend(Msg->Data, Msg->Length, MPI_UNSIGNED_CHAR, Msg->Dest, Msg->Tag, this->Comm);
     if(status != MPI_SUCCESS){

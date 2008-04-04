@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.h,v 1.7 2008-02-22 17:11:34 clarke Exp $  */
-/*  Date : $Date: 2008-02-22 17:11:34 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDsm.h,v 1.8 2008-04-04 19:30:21 clarke Exp $  */
+/*  Date : $Date: 2008-04-04 19:30:21 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -126,6 +126,7 @@ protected:
     XdmfArray   *Storage;
     XdmfDsmComm *Comm;
     XdmfDsmMsg  *Msg;
+    XdmfByte    *DataPointer;
 };
 
 #endif // __XdmfDsm_h
