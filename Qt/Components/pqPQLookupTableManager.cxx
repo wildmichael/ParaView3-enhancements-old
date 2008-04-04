@@ -3,13 +3,13 @@
    Program: ParaView
    Module:    $RCSfile: pqPQLookupTableManager.cxx,v $
 
-   Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
+   Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
 
    ParaView is a free software; you can redistribute it and/or modify it
-   under the terms of the ParaView license version 1.1.
+   under the terms of the ParaView license version 1.2.
 
-   See License_v1.1.txt for the full ParaView license.
+   See License_v1.2.txt for the full ParaView license.
    A copy of this license can be obtained by contacting
    Kitware Inc.
    28 Corporate Drive
@@ -138,7 +138,7 @@ protected:
     }
 };
 vtkStandardNewMacro(pqSimpleStateLoader);
-vtkCxxRevisionMacro(pqSimpleStateLoader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(pqSimpleStateLoader, "$Revision: 1.13 $");
 
 //-----------------------------------------------------------------------------
 pqPQLookupTableManager::pqPQLookupTableManager(QObject* _p)
