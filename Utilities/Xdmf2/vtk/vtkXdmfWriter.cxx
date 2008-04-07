@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-08-08 15:27:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2008-04-07 14:25:28 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -110,7 +110,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -1491,4 +1491,3 @@ void vtkXdmfWriterInternal::DetermineCellTypes(vtkPointSet * t, vtkXdmfWriterInt
     }
   cell->Delete();
 }
-
