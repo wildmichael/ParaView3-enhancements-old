@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-04-07 14:25:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2008-04-08 17:44:29 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -110,7 +110,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -1428,7 +1428,8 @@ void vtkXdmfWriter::Indent(ostream& os)
 }
 
 //----------------------------------------------------------------------------
-const char* vtkXdmfWriter::GenerateHDF5ArrayName(const char* gridName, const char* array)
+const char* vtkXdmfWriter::GenerateHDF5ArrayName(const char* gridName, 
+                                                 const char* array)
 {
   if ( !this->HeavyDataSetNameString )
     {
