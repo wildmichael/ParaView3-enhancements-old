@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.h,v $
   Language:  C++
-  Date:      $Date: 2008-04-09 17:42:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2008-04-09 20:12:24 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -64,8 +64,8 @@ extern int META_DEBUG;
 // Types used for storing the compression table
 typedef struct MET_CompressionOffset
   {
-  unsigned long uncompressedOffset;
-  unsigned long compressedOffset;
+  METAIO_STL::streamsize uncompressedOffset;
+  METAIO_STL::streamsize compressedOffset;
   } MET_CompressionOffsetType;
 
 typedef METAIO_STL::vector<MET_CompressionOffsetType>
@@ -76,7 +76,7 @@ typedef struct MET_CompressionTable
   MET_CompressionOffsetListType offsetList;
   z_stream* compressedStream;
   char*     buffer;
-  unsigned long bufferSize;
+  METAIO_STL::streamsize bufferSize;
   } MET_CompressionTableType;
 
 /////////////////////////////////////////////////////////
