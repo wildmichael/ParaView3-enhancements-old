@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.11 2008-01-31 21:58:55 clarke Exp $  */
-/*  Date : $Date: 2008-01-31 21:58:55 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.12 2008-04-09 07:52:02 biddisco Exp $  */
+/*  Date : $Date: 2008-04-09 07:52:02 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -215,8 +215,8 @@ protected:
     XdmfInt32       UpdateInformationUniform();
     XdmfInt32       UpdateInformationCollection();
     XdmfInt32       UpdateInformationTree();
-    XdmfInt32       UpdateInformationFunction(); // HpyerSlab, Coordinates or Function
-    XdmfInt32       UpdateFunction(); // HpyerSlab, Coordinates or Function
+    XdmfInt32       UpdateInformationFunction(); // HyperSlab, Coordinates or Function
+    XdmfInt32       UpdateFunction(); // HyperSlab, Coordinates or Function
 };
 
 #endif // __XdmfDataItem_h
