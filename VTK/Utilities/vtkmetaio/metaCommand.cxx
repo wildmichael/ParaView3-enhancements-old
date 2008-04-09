@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-03-19 20:40:13 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2008-04-09 01:42:28 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
