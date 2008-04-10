@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-04-09 14:01:02 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2008-04-10 12:16:17 $
+  Version:   $Revision: 1.38 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.38 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -1528,7 +1528,7 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
       {
       directory = vtksys::SystemTools::GetCurrentWorkingDirectory() + "/";
       }
-    directory = vtksys::SystemTools::ConvertToOutputPath(directory.c_str());
+//    directory = vtksys::SystemTools::ConvertToOutputPath(directory.c_str());
     this->DOM->SetWorkingDirectory(directory.c_str());
 
     // this->DOM->GlobalDebugOn();
@@ -1558,8 +1558,7 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
   if (!this->UpdateDomains())
     {
     return 1;
-    }
-  this->UpdateRootGrid();
+    }                    this->UpdateRootGrid();
   vtkDebugMacro("My output is a "
                 << vtkDataObjectTypes::GetClassNameFromTypeId(
                   this->OutputVTKType) );
@@ -1576,8 +1575,8 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
     output->Delete();
     }
 
-  this->GetPointDataArraySelection()->RemoveAllArrays();
-  this->GetCellDataArraySelection()->RemoveAllArrays();  
+//  this->GetPointDataArraySelection()->RemoveAllArrays();
+//  this->GetCellDataArraySelection()->RemoveAllArrays();  
   return 1;
 }
 
@@ -2734,7 +2733,10 @@ int vtkXdmfReaderInternal::RequestGridData(
         vtkDebugWithObjectMacro(this->Reader,
                                 "Preparing to Read :" 
                                 << xdmfDOM->Get(dataNode, "CData"));
-        this->DataItem->Update();
+        if (this->DataItem->Update()==XDMF_FAIL) 
+        {
+          vtkGenericWarningMacro(<<"Reading of HDF5 dataset failed");
+        }
         values = this->DataItem->GetArray();
         }
       else 
