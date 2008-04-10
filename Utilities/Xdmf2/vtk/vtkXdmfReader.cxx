@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-04-10 12:16:17 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2008-04-10 12:35:38 $
+  Version:   $Revision: 1.39 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.39 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -401,8 +401,8 @@ vtkXdmfReader::vtkXdmfReader()
   this->OutputTemporal = 0;
   this->TimeStep       = 0;
   this->ActualTimeStep = 0;
-  this->TimeStepRange[0] = 0.0;
-  this->TimeStepRange[1] = 0.0;
+  this->TimeStepRange[0] = 0;
+  this->TimeStepRange[1] = 0;
 }
 
 //----------------------------------------------------------------------------
@@ -2505,7 +2505,7 @@ int vtkXdmfReaderInternal::RequestGridData(
 //                   origin[2], origin[1], origin[0]);
 
     }
-//    vGrid->SetOrigin(origin[2], origin[1], origin[0]);
+    vGrid->SetOrigin(origin[2], origin[1], origin[0]);
 //    vGrid->SetDimensions(Dimensions[2], Dimensions[1], Dimensions[0]);
     stride[2] = readerStride[0];
     stride[1] = readerStride[1];
