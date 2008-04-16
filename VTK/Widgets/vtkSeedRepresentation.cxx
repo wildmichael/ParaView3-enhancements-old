@@ -26,12 +26,12 @@
 #include "vtkTextProperty.h"
 #include <vtkstd/list>
 
-vtkCxxRevisionMacro(vtkSeedRepresentation, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSeedRepresentation, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkSeedRepresentation);
 
 vtkCxxSetObjectMacro(vtkSeedRepresentation,HandleRepresentation,vtkHandleRepresentation);
 
-// The vtkHandleList is a PIMPLed vector<T>.
+// The vtkHandleList is a PIMPLed list<T>.
 class vtkHandleList : public vtkstd::list<vtkHandleRepresentation*> {};
 typedef vtkstd::list<vtkHandleRepresentation*>::iterator vtkHandleListIterator;
 
