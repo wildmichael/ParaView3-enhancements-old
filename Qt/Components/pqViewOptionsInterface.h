@@ -1,9 +1,7 @@
-// Generated file.  Do not edit.
-
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqActionGroupImplementation.cxx.in,v $
+   Module:    $RCSfile: pqViewOptionsInterface.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -32,29 +30,35 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "@ARG_CLASS_NAME@Implementation.h"
-#include "@ARG_CLASS_NAME@.h"
+#ifndef _pqViewOptionsInterface_h
+#define _pqViewOptionsInterface_h
 
-@ARG_CLASS_NAME@Implementation::@ARG_CLASS_NAME@Implementation(QObject* p)
-  : QObject(p)
+#include <QtPlugin>
+class pqActiveViewOptions;
+class pqOptionsContainer;
+
+/// interface class for plugins that create view options pages
+class pqViewOptionsInterface
 {
-  this->ActionGroup = new @ARG_CLASS_NAME@(this);
-}
+public:
+  /// destructor
+  virtual ~pqViewOptionsInterface() {}
 
-@ARG_CLASS_NAME@Implementation::~@ARG_CLASS_NAME@Implementation()
-{
-}
+  /// returns a list of view types that this interface provides options for  
+  virtual QStringList viewTypes() const = 0;
 
-QString @ARG_CLASS_NAME@Implementation::groupName()
-{
-  return "@ARG_GROUP_NAME@";
-}
+  /// return an options object for the active view.
+  /// this is used when there are options that are specific to an instance of a
+  /// view
+  virtual pqActiveViewOptions* createActiveViewOptions(const QString& type, QObject* parent) = 0;
+  
+  /// return an options object for global view options
+  /// this is used when there are options that apply to all instance of a view
+  virtual pqOptionsContainer* createGlobalViewOptions(const QString& type, QWidget* parent) = 0;
 
+};
 
-QActionGroup* @ARG_CLASS_NAME@Implementation::actionGroup()
-{
-  return this->ActionGroup;
-}
+Q_DECLARE_INTERFACE(pqViewOptionsInterface, "com.kitware/paraview/viewoptions")
 
-
+#endif
 
