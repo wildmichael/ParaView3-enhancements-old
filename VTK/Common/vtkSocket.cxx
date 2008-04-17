@@ -47,7 +47,7 @@
 #define vtkCloseSocketMacro(sock) (close(sock))
 #endif
 
-vtkCxxRevisionMacro(vtkSocket, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSocket, "$Revision: 1.1 $");
 //-----------------------------------------------------------------------------
 vtkSocket::vtkSocket()
 {
