@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-04-14 16:54:09 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2008-04-18 12:43:31 $
+  Version:   $Revision: 1.41 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.41 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -292,7 +292,7 @@ vtkXdmfReaderGrid*
 //  vtkXdmfReaderGrid* grid = parent->GetChild(gridName);
 //  if ( !grid )
 //    {
-    vtkXdmfReaderGrid* grid = grid = new vtkXdmfReaderGrid; 
+    vtkXdmfReaderGrid* grid = new vtkXdmfReaderGrid; 
     grid->Name = gridName;
     parent->Children.push_back(grid);
 //    }
