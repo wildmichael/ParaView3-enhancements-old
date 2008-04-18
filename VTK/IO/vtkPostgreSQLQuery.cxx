@@ -34,7 +34,7 @@
 #define COMMIT_TRANSACTION "COMMIT"
 #define ROLLBACK_TRANSACTION "ROLLBACK"
 
-vtkCxxRevisionMacro(vtkPostgreSQLQuery, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPostgreSQLQuery, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPostgreSQLQuery);
 
 class vtkPostgreSQLQueryPrivate : public vtkObject
@@ -325,7 +325,7 @@ public:
 };
 
 vtkStandardNewMacro(vtkPostgreSQLQueryPrivate);
-vtkCxxRevisionMacro(vtkPostgreSQLQueryPrivate, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPostgreSQLQueryPrivate, "$Revision: 1.8 $");
 
 // ----------------------------------------------------------------------
 vtkPostgreSQLQuery::vtkPostgreSQLQuery() 
@@ -486,14 +486,21 @@ vtkStdString vtkPostgreSQLQuery::EscapeString( vtkStdString s, bool addSurroundi
     }
 
   vtkPostgreSQLDatabase* db = static_cast<vtkPostgreSQLDatabase*>( this->Database );
-  if ( db->Connection->Work )
+  if ( db->Connection )
     {
-    retval.append( db->Connection->Work->esc( s ) );
+    if ( db->Connection->Work )
+      {
+      retval.append( db->Connection->Work->esc( s ) );
+      }
+    else 
+      {
+      pqxx::transaction<> ework( db->Connection->Connection, "EscapeWork" );
+      retval.append( ework.esc( s ) );
+      }
     }
-  else 
+  else
     {
-    pqxx::transaction<> ework( db->Connection->Connection, "EscapeWork" );
-    retval.append( ework.esc( s ) );
+    this->Superclass::EscapeString( s, false );
     }
 
   if ( addSurroundingQuotes )
