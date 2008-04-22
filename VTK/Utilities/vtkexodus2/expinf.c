@@ -53,7 +53,7 @@
 *
 * revision history - 
 *
-*  $Id: expinf.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expinf.c,v 1.3 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -165,7 +165,7 @@ int ex_put_info (int   exoid,
        start[1] = 0;
 
        count[0] = 1;
-       count[1] = strlen(info[i]) + 1;
+       count[1] = (long)strlen(info[i]) + 1;
 
        if (ncvarput (exoid, varid, start, count, (void*) info[i]) == -1)
        {

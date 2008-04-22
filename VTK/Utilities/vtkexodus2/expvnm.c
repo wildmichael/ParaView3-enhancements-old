@@ -56,7 +56,7 @@
 *
 * revision history - 
 *
-*  $Id: expvnm.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expvnm.c,v 1.3 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -161,7 +161,7 @@ int ex_put_var_name (int   exoid,
    start[1] = 0;
 
    count[0] = 1;
-   count[1] = strlen(var_name) + 1;
+   count[1] = (long)strlen(var_name) + 1;
 
    if (ncvarput (exoid, varid, start, count, (void*)var_name) == -1)
    {

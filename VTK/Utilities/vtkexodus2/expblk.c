@@ -53,7 +53,7 @@
 * revision history - 
 *   20061001 - David Thompson - Adapted from ex_put_elem_block
 *
-*  $Id: expblk.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
+*  $Id: expblk.c,v 1.3 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -436,7 +436,8 @@ int ex_put_block( int         exoid,
 
 /* store element type as attribute of connectivity variable */
 
-   if ((ncattput (exoid, connid, ATT_NAME_ELB, NC_CHAR, strlen(entry_descrip)+1, 
+   if ((ncattput (exoid, connid, ATT_NAME_ELB, NC_CHAR,
+             (int)strlen(entry_descrip)+1,
              (void*) entry_descrip)) == -1)
    {
      exerrval = ncerr;

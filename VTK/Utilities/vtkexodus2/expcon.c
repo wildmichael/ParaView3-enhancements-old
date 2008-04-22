@@ -53,7 +53,7 @@
 *
 * revision history - 
 *
-*  $Id: expcon.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expcon.c,v 1.3 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -114,7 +114,7 @@ int ex_put_coord_names (int   exoid,
      start[1] = 0;
 
      count[0] = 1;
-     count[1] = strlen(coord_names[i]) + 1;
+     count[1] = (long)strlen(coord_names[i]) + 1;
 
      if (ncvarput (exoid, varid, start, count, (void*) coord_names[i]) == -1)
      {

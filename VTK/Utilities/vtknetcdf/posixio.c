@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.21 2007-08-28 11:11:13 dcthomp Exp $ */
+/* $Id: posixio.c,v 1.22 2008-04-22 21:14:54 david.cole Exp $ */
 
 #include "ncconfig.h"
 #include <assert.h>
@@ -141,7 +141,7 @@ blksize(int fd)
 static int
 fgrow(const int fd, const off_t len)
 {
-  struct stat sb;
+  struct NC_STAT_STRUCT sb;
   if (NC_FSTAT(fd, &sb) < 0)
     return errno;
   if (len < sb.st_size)
@@ -172,7 +172,7 @@ fgrow(const int fd, const off_t len)
 static int
 fgrow2(const int fd, const off_t len)
 {
-  struct stat sb;
+  struct NC_STAT_STRUCT sb;
   if (NC_FSTAT(fd, &sb) < 0)
     return errno;
   if (len <= sb.st_size)

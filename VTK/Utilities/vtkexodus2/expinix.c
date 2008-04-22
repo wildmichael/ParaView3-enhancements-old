@@ -46,7 +46,7 @@
 * revision history - 
 *          David Thompson  - Added edge/face blocks/sets
 *
-*  $Id: expinix.c,v 1.3 2006-12-05 00:12:03 dcthomp Exp $
+*  $Id: expinix.c,v 1.4 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -97,7 +97,7 @@ int ex_put_init_ext (int   exoid,
   /* define some attributes... */
 
   if (ncattput (exoid, NC_GLOBAL, (const char*) ATT_TITLE, 
-                NC_CHAR, strlen(model->title)+1, (void *)model->title) == -1)
+                NC_CHAR, (int)strlen(model->title)+1, (void *)model->title) == -1)
     {
       exerrval = ncerr;
       sprintf(errmsg,

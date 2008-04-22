@@ -54,7 +54,7 @@
 *
 * revision history - 
 *
-*  $Id: exppa.c,v 1.3 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exppa.c,v 1.4 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -258,7 +258,7 @@ int ex_put_prop_array (int   exoid,
 /*   store property name as attribute of property array variable */
 
      if ((ncattput (exoid, propid, ATT_PROP_NAME, NC_CHAR,
-                    strlen(prop_name)+1, prop_name)) == -1)
+                    (int)strlen(prop_name)+1, prop_name)) == -1)
      {
        exerrval = ncerr;
        sprintf(errmsg,

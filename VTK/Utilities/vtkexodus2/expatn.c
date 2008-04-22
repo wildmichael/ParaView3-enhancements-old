@@ -48,7 +48,7 @@
 *
 * revision history - 
 *
-*  $Id: expatn.c,v 1.3 2006-12-05 00:12:03 dcthomp Exp $
+*  $Id: expatn.c,v 1.4 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -172,7 +172,7 @@ int ex_put_attr_names(int   exoid,
     start[1] = 0;
 
     count[0] = 1;
-    count[1] = strlen(names[i])+1;
+    count[1] = (long)strlen(names[i])+1;
 
     if (ncvarput (exoid, varid, start, count, (void*) names[i]) == -1) {
       exerrval = ncerr;

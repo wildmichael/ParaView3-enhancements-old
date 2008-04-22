@@ -54,7 +54,7 @@
 *
 * revision history - 
 *
-*  $Id: expqa.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expqa.c,v 1.3 2008-04-22 21:14:53 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -178,7 +178,7 @@ int ex_put_qa (int   exoid,
 
          count[0] = 1;
          count[1] = 1;
-         count[2] = strlen(qa_record[i][j]) + 1;
+         count[2] = (long)strlen(qa_record[i][j]) + 1;
 
          if (ncvarput (exoid, varid, start, count,
                        (void*) qa_record[i][j]) == -1)
