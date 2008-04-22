@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-04-18 12:43:31 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2008-04-22 07:05:54 $
+  Version:   $Revision: 1.42 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.42 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -1111,6 +1111,10 @@ void vtkXdmfReader::DisableAllGrids()
   vtkDebugMacro("Disable all grids");
   vtkstd::vector<vtkXdmfReaderGrid *>::iterator it;
   int changed=0;
+  if (!this->Internals->Data) 
+    {
+    return;
+    }
   for ( it = this->Internals->Data->Children.begin();
         it != this->Internals->Data->Children.end();
         ++ it )
