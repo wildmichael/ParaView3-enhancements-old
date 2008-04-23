@@ -33,7 +33,7 @@
 #include <ctype.h>
 
 
-vtkCxxRevisionMacro(vtkExodusModel, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkExodusModel, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkExodusModel);
 
 vtkExodusModel::vtkExodusModel()
@@ -1262,7 +1262,7 @@ void vtkExodusModel::RemoveBeginningAndTrailingSpaces(char **names, int len)
       continue;
       }
 
-    int newlen = cend - cbegin + 1;
+    size_t newlen = cend - cbegin + 1;
 
     if (newlen < nmlen)
       {
