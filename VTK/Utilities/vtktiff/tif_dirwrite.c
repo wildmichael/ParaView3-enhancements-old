@@ -1,4 +1,4 @@
-/* $Id: tif_dirwrite.c,v 1.2 2008-03-11 13:38:22 andinet Exp $ */
+/* $Id: tif_dirwrite.c,v 1.3 2008-04-23 14:53:46 david.cole Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -1003,6 +1003,12 @@ TIFFWriteAnyArray(TIFF* tif,
                 _TIFFfree(w);
         return (status);
 }
+
+#if defined ( _MSC_VER )
+#if defined ( _WIN64 )
+#pragma warning ( disable : 4334 )
+#endif
+#endif
 
 static int
 TIFFWriteTransferFunction(TIFF* tif, TIFFDirEntry* dir)
