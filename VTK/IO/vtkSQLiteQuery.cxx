@@ -35,7 +35,7 @@
 #define COMMIT_TRANSACTION "COMMIT"
 #define ROLLBACK_TRANSACTION "ROLLBACK"
 
-vtkCxxRevisionMacro(vtkSQLiteQuery, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSQLiteQuery, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkSQLiteQuery);
 
 // ----------------------------------------------------------------------
@@ -118,7 +118,7 @@ bool vtkSQLiteQuery::Execute()
 
   int prepareStatus = vtk_sqlite3_prepare_v2(db, 
                                              this->Query,
-                                             strlen(this->Query),
+                                             static_cast<int>(strlen(this->Query)),
                                              &this->Statement,
                                              &unused_statement);
 
