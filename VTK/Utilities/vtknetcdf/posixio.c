@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.22 2008-04-22 21:14:54 david.cole Exp $ */
+/* $Id: posixio.c,v 1.23 2008-04-25 21:21:19 david.cole Exp $ */
 
 #include "ncconfig.h"
 #include <assert.h>
@@ -20,6 +20,13 @@
 
 #ifdef _MSC_VER /* Microsoft Compilers */
 #  include <io.h>
+
+/* Take the following warning disable out when NetCDF is updated */
+/* to support 64-bit versions of "read" and "write" used below */
+/* in "px_pgin" and "px_pgout" */
+#  ifdef _WIN64
+#    pragma warning ( disable : 4267 )
+#  endif
 #endif
 
 #ifdef __BORLANDC__
