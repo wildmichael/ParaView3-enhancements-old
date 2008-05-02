@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: Xdmf.h,v 1.2 2007-05-10 20:34:07 clarke Exp $  */
-/*  Date : $Date: 2007-05-10 20:34:07 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: Xdmf.h,v 1.3 2008-05-02 15:21:07 clarke Exp $  */
+/*  Date : $Date: 2008-05-02 15:21:07 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -41,6 +41,7 @@
 #include "XdmfExpression.h"
 #include "XdmfGeometry.h"
 #include "XdmfGrid.h"
+#include "XdmfTime.h"
 #include "XdmfHDF.h"
 #include "XdmfHeavyData.h"
 #include "XdmfInformation.h"
