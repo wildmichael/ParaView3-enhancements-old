@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.16 2008-02-21 22:20:25 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 22:20:25 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.17 2008-05-02 14:58:15 clarke Exp $  */
+/*  Date : $Date: 2008-05-02 14:58:15 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -77,6 +77,12 @@ XdmfTopology::Build(){
     if( this->OrderIsDefault == 0 ){
         this->Set("Order", this->GetOrderAsString());
     } 
+    if( this->BaseOffset != 0 ){
+        char Offset[80];
+        ostrstream OffsetStream(Offset, 80);
+        OffsetStream << this->BaseOffset << ends;
+        this->Set("BaseOffset", Offset);
+    }
     if(this->Connectivity){
         XdmfDataItem    *di = NULL;
         XdmfXmlNode     node;
