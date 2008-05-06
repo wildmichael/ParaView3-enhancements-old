@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2008-04-09 07:52:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2008-05-06 14:49:08 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -236,7 +236,7 @@ protected:
 
   int  UpdateDomains();
   void UpdateRootGrid();
-  void UpdateGrids(vtkXdmfReaderGrid *parent, void *GridNode);
+  void UpdateGrids(vtkXdmfReaderGrid *parent, void *ParentNode);
   void FindTimeValues();
 
   // Array selection helpers /////////////////////////////////////////////////
