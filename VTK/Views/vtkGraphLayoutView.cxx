@@ -65,7 +65,7 @@
 
 #include <ctype.h> // for tolower()
 
-vtkCxxRevisionMacro(vtkGraphLayoutView, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkGraphLayoutView, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkGraphLayoutView);
 //----------------------------------------------------------------------------
 vtkGraphLayoutView::vtkGraphLayoutView()
@@ -340,7 +340,7 @@ void vtkGraphLayoutView::SetArcEdges(bool b)
 //----------------------------------------------------------------------------
 bool vtkGraphLayoutView::GetArcEdges()
 {
-  this->GraphMapper->GetArcEdges();
+  return this->GraphMapper->GetArcEdges();
 }
 
 //----------------------------------------------------------------------------
