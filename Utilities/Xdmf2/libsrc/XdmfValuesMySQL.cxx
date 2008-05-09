@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesMySQL.cxx,v 1.1 2008-05-08 17:49:36 clarke Exp $  */
-/*  Date : $Date: 2008-05-08 17:49:36 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfValuesMySQL.cxx,v 1.2 2008-05-09 16:39:41 clarke Exp $  */
+/*  Date : $Date: 2008-05-09 16:39:41 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,7 +55,6 @@ XdmfValuesMySQL::Read(XdmfArray *anArray){
     MYSQL_ROW       Row;
 
 
-    this->SetDebug(1);
     if(!this->DataDesc){
         XdmfErrorMessage("DataDesc has not been set");
         return(NULL);
