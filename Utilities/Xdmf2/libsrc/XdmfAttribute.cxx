@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.13 2008-02-21 21:10:22 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 21:10:22 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.14 2008-05-16 15:09:50 clarke Exp $  */
+/*  Date : $Date: 2008-05-16 15:09:50 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -228,6 +228,19 @@ if( Attribute ){
 Attribute = this->Get( "Dimensions" );
 if( Attribute ){
   this->ShapeDesc->SetShapeFromString( Attribute );
+}else{
+    XdmfXmlNode  ValuesNode;
+    ValuesNode = this->DOM->FindDataElement( 0, Element );
+    if(!ValuesNode){
+        XdmfErrorMessage("Dimensions of Attribute not set in XML and no DataItem found");
+    }
+    Attribute = this->DOM->Get( ValuesNode, "Dimensions" );
+    if(!Attribute){
+        XdmfErrorMessage("Dimensions of Attribute not set in XML or DataItem");
+        return(XDMF_FAIL);
+    }else{
+        this->ShapeDesc->SetShapeFromString( Attribute );
+    }
 }
 if(!this->Name) this->SetName(GetUnique("Attribute_"));
 return( XDMF_SUCCESS );

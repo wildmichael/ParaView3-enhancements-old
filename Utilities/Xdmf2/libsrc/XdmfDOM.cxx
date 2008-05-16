@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.23 2008-02-08 15:25:42 clarke Exp $  */
-/*  Date : $Date: 2008-02-08 15:25:42 $ */
-/*  Version : $Revision: 1.23 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.24 2008-05-16 15:09:50 clarke Exp $  */
+/*  Date : $Date: 2008-05-16 15:09:50 $ */
+/*  Version : $Revision: 1.24 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -657,6 +657,14 @@ if(!Node) {
     Node = this->Tree;
 }
 if(!Node) return(0);
+/*
+cout << "For " << Attribute << " DOM Returning ";
+if((XdmfConstString)xmlGetProp(Node, (xmlChar *)Attribute)) {
+    cout << (XdmfConstString)xmlGetProp(Node, (xmlChar *)Attribute) << endl;
+    } else{
+        cout << " NULL " << endl;
+    }
+    */
 return((XdmfConstString)xmlGetProp(Node, (xmlChar *)Attribute));
 }
 
