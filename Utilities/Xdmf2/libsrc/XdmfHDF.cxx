@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.7 2008-04-07 08:24:53 biddisco Exp $  */
-/*  Date : $Date: 2008-04-07 08:24:53 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.8 2008-05-19 21:02:36 clarke Exp $  */
+/*  Date : $Date: 2008-05-19 21:02:36 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -672,8 +672,8 @@ XdmfDebug("Using Domain " << this->Domain );
       this->AccessPlist = H5Pcreate( H5P_FILE_ACCESS );
 //      H5Pset_fapl_core( this->AccessPlist, 1000000, 1 );
       H5Pset_fapl_core( this->AccessPlist, 1000000, 0 );
-#ifndef XDMF_NO_MPI
     } else if( STRCASECMP( this->Domain, "DSM" ) == 0 ) {
+#ifndef XDMF_NO_MPI
         XdmfDebug("Using DSM Interface");  
         if(!this->DsmBuffer){
             XdmfErrorMessage("Cannot Open a DSM HDF5 File Until DsmBuffer has been set");
