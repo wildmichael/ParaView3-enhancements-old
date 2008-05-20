@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-05-08 22:12:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2008-05-20 10:51:13 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2122,7 +2122,7 @@ bool MetaImage::WriteROI(int * _indexMin, int * _indexMax,
           memset(zerobytes, 0, padding);
           MetaImage::M_WriteElementData(m_WriteStream, zerobytes, padding/elementNumberOfBytes);
           delete [] zerobytes;      
-          currentPos += padding;
+          currentPos += (unsigned long)(padding);
           } 
         
         // Write the line
