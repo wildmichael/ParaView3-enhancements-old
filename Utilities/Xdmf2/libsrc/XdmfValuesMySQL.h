@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesMySQL.h,v 1.1 2008-05-08 17:49:36 clarke Exp $  */
-/*  Date : $Date: 2008-05-08 17:49:36 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfValuesMySQL.h,v 1.2 2008-05-23 15:25:21 clarke Exp $  */
+/*  Date : $Date: 2008-05-23 15:25:21 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,9 +31,8 @@
 //!  Parent Class for handeling I/O of actual data for an XdmfDataItem
 /*!
 This is the class for access of values from a MySQL Database. By default, the
-ValuesXML are in XML and handled XdmfValuesXML. Otherwise they're 
-handled by XdmfValuesXMLXXX (where XXX is the format). In this format (SQL)
-the CDATA of the DataItem is an SQL Query into a MySQL Database
+In this format (SQL) the CDATA of the DataItem is an SQL Query into a MySQL Database.
+
 
 A MySQL XdmfDataItem Node Looks like :
 
@@ -51,7 +50,15 @@ A MySQL XdmfDataItem Node Looks like :
 </DataItem>
 \endverbatim
 
-This DataItem 
+Putting "<" in the CDATA, it may cause an error in the XML parser. 
+Here's an example of using "<" in the CDATA :
+
+\verbatim
+<![CDATA[SELECT X FROM Locations WHERE Time < 0.21]]>
+\endverbatim
+
+That is you have ti start the CDATA with "<![CDATA[" and end
+it with "]]>".
 */
 
 
