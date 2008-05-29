@@ -27,7 +27,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkTable.h"
 
-vtkCxxRevisionMacro(vtkStatisticsAlgorithm, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkStatisticsAlgorithm, "$Revision: 1.3 $");
 
 // ----------------------------------------------------------------------
 vtkStatisticsAlgorithm::vtkStatisticsAlgorithm()
@@ -108,4 +108,10 @@ int vtkStatisticsAlgorithm::FillInputPortInformation( int port, vtkInformation* 
     return 1;
     }
   return 0;
+}
+
+//---------------------------------------------------------------------------
+void vtkStatisticsAlgorithm::SetInputStatistics(vtkAlgorithmOutput* in)
+{
+  this->SetInputConnection( 1, in );
 }
