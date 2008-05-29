@@ -34,7 +34,7 @@
 #include <vtksys/RegularExpression.hxx>
 
 vtkStandardNewMacro(vtkPExtractHistogram);
-vtkCxxRevisionMacro(vtkPExtractHistogram, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPExtractHistogram, "$Revision: 1.7 $");
 vtkCxxSetObjectMacro(vtkPExtractHistogram, Controller, vtkMultiProcessController);
 //-----------------------------------------------------------------------------
 vtkPExtractHistogram::vtkPExtractHistogram()
@@ -62,7 +62,7 @@ bool vtkPExtractHistogram::InitializeBinExtents(
       bin_extents, min, max);
     }
 #ifndef VTK_USE_MPI
-  return this->Superclass::InitializeBinExtents(inputVector, bin_extents);
+  return this->Superclass::InitializeBinExtents( inputVector, bin_extents, min, max );
 
 #else
   int num_processes = this->Controller->GetNumberOfProcesses();
