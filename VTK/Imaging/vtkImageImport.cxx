@@ -27,7 +27,7 @@
 #include <ctype.h>
 #include <vtkstd/exception>
 
-vtkCxxRevisionMacro(vtkImageImport, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkImageImport, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkImageImport);
 
 
@@ -85,7 +85,8 @@ vtkImageImport::vtkImageImport()
   this->SetExecutive(exec);
   exec->Delete();
 
-  this->SetScalarArrayName("ImageFile");
+  this->ScalarArrayName=0;
+  this->SetScalarArrayName("");
 }
 
 //----------------------------------------------------------------------------
