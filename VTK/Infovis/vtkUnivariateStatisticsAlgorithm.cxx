@@ -25,7 +25,7 @@
 
 #include <vtkstd/set>
 
-vtkCxxRevisionMacro(vtkUnivariateStatisticsAlgorithm, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkUnivariateStatisticsAlgorithm, "$Revision: 1.5 $");
 
 // ----------------------------------------------------------------------
 vtkUnivariateStatisticsAlgorithm::vtkUnivariateStatisticsAlgorithm()
@@ -91,7 +91,7 @@ void vtkUnivariateStatisticsAlgorithm::RemoveColumnRange( vtkIdType idxColBegin,
 // ----------------------------------------------------------------------
 void vtkUnivariateStatisticsAlgorithm::SetColumnSelection( vtkIdType nCol )
 {
-  if ( ! this->Internals->ColumnSelectionUsage )
+  if ( this->Internals->ColumnSelectionUsage )
     {
     return;
     }
