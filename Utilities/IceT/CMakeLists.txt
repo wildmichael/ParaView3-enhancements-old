@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.21 2007-07-31 19:27:12 alex Exp $
+# $Id: CMakeLists.txt,v 1.22 2008-06-08 22:42:20 berk Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -8,8 +8,11 @@
 ## of authorship are reproduced on all copies.
 #
 
-CMAKE_MINIMUM_REQUIRED(VERSION 1.6)
 PROJECT(ICET C)
+CMAKE_MINIMUM_REQUIRED(VERSION 1.6)
+IF(COMMAND cmake_policy)
+  CMAKE_POLICY(SET CMP0003 NEW)
+ENDIF(COMMAND cmake_policy)
 
 # Set the current ICE-T version.
 SET(ICET_MAJOR_VERSION 0)
