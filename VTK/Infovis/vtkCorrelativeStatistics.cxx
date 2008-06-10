@@ -46,7 +46,7 @@ public:
   vtkStdString BufferedX;
   vtkStdString BufferedY;
   bool MustEffect;
-  vtkCorrelativeStatistics::EffectBufferActionType Action;
+  vtkStatisticsAlgorithm::EffectBufferActionType Action;
 };
 
 vtkCorrelativeStatisticsPrivate::vtkCorrelativeStatisticsPrivate()
@@ -90,7 +90,7 @@ void vtkCorrelativeStatisticsPrivate::EffectColumnBuffer()
 }
 // = End Private Implementation =========================================
 
-vtkCxxRevisionMacro(vtkCorrelativeStatistics, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkCorrelativeStatistics, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkCorrelativeStatistics);
 
 // ----------------------------------------------------------------------
