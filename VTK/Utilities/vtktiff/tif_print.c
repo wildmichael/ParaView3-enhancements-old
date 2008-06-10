@@ -1,4 +1,4 @@
-/* $Id: tif_print.c,v 1.3 2008-03-11 19:37:29 andinet Exp $ */
+/* $Id: tif_print.c,v 1.4 2008-06-10 15:23:28 fbertel Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -503,12 +503,12 @@ TIFFPrintDirectory(TIFF* tif, FILE* fd, long flags)
         ** Custom tag support.
         */
         {
-            int  i;
+            int  i2;
             short count;
 
             count = (short) TIFFGetTagListCount(tif);
-            for(i = 0; i < count; i++) {
-                ttag_t  tag = TIFFGetTagListEntry(tif, i);
+            for(i2 = 0; i2 < count; i2++) {
+                ttag_t  tag = TIFFGetTagListEntry(tif, i2);
                 const TIFFFieldInfo *fip;
                 uint16 value_count;
                 int mem_alloc = 0;
