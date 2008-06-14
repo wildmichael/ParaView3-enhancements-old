@@ -77,7 +77,7 @@
 ** the version number) and changes its name to "vtk_sqlite3.h" as
 ** part of the build process.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef _VTK_SQLITE3_H_
 #define _VTK_SQLITE3_H_
@@ -1785,7 +1785,7 @@ int vtk_sqlite3_value_bytes16(vtk_sqlite3_value*);
 double vtk_sqlite3_value_double(vtk_sqlite3_value*);
 int vtk_sqlite3_value_int(vtk_sqlite3_value*);
 vtk_sqlite_int64 vtk_sqlite3_value_int64(vtk_sqlite3_value*);
-const unsigned char *vtk_sqlite3_value_text(vtk_sqlite3_value*);
+unsigned char *vtk_sqlite3_value_text(vtk_sqlite3_value*);
 const void *vtk_sqlite3_value_text16(vtk_sqlite3_value*);
 const void *vtk_sqlite3_value_text16le(vtk_sqlite3_value*);
 const void *vtk_sqlite3_value_text16be(vtk_sqlite3_value*);
@@ -2733,7 +2733,7 @@ int vtk_sqlite3_blob_read(vtk_sqlite3_blob *, void *z, int n, int iOffset);
 ** [VTK_SQLITE_ERROR | SQLite error code] or an
 ** [VTK_SQLITE_IOERR_READ | extended error code] is returned.
 */
-int vtk_sqlite3_blob_write(vtk_sqlite3_blob *, const void *z, int n, int iOffset);
+int vtk_sqlite3_blob_write(vtk_sqlite3_blob *, void *z, int n, int iOffset);
 
 /*
 ** Undo the hack that converts floating point types to integer for
@@ -2768,7 +2768,7 @@ int vtk_sqlite3_blob_write(vtk_sqlite3_blob *, const void *z, int n, int iOffset
 ** vtk_sqlite3RegisterDateTimeFunctions() found at the bottom of the file.
 ** All other code has file scope.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 **
 ** SQLite processes all times and dates as Julian Day numbers.  The
 ** dates and times are stored as the number of days since noon
@@ -2812,7 +2812,7 @@ int vtk_sqlite3_blob_write(vtk_sqlite3_blob *, const void *z, int n, int iOffset
 *************************************************************************
 ** Internal interface definitions for SQLite.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef _VTK_SQLITEINT_H_
 #define _VTK_SQLITEINT_H_
@@ -2832,7 +2832,7 @@ int vtk_sqlite3_blob_write(vtk_sqlite3_blob *, const void *z, int n, int iOffset
 ** 
 ** This file defines various limits of what SQLite can process.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -3035,7 +3035,7 @@ int vtk_sqlite3_blob_write(vtk_sqlite3_blob *, const void *z, int n, int iOffset
 ** This is the header file for the generic hash-table implemenation
 ** used in SQLite.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef _VTK_SQLITE_HASH_H_
 #define _VTK_SQLITE_HASH_H_
@@ -3467,7 +3467,7 @@ struct BusyHandler {
 ** or VDBE.  The VDBE implements an abstract machine that runs a
 ** simple program to access and modify the underlying database.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef _VTK_SQLITE_VDBE_H_
 #define _VTK_SQLITE_VDBE_H_
@@ -3783,7 +3783,7 @@ VTK_SQLITE_PRIVATE   void vtk_sqlite3VdbeComment(Vdbe*, const char*, ...);
 ** subsystem.  See comments in the source code for a detailed description
 ** of what each interface routine does.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef _BTREE_H_
 #define _BTREE_H_
@@ -3937,7 +3937,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3BtreePageDump(Btree*, int, int recursive);
 ** subsystem.  The page cache subsystem reads and writes a file a page
 ** at a time and provides a journal for rollback.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 #ifndef _PAGER_H_
@@ -5295,7 +5295,7 @@ struct Index {
 ** and Token.n when Token.z==0.
 */
 struct Token {
-  const unsigned char *z; /* Text of the token.  Not NULL-terminated! */
+  unsigned char *z; /* Text of the token.  Not NULL-terminated! */
   unsigned dyn  : 1;      /* True for malloced memory, false for static */
   unsigned n    : 31;     /* Number of characters in this token */
 };
@@ -6208,7 +6208,7 @@ VTK_SQLITE_PRIVATE   void vtk_sqlite3AuthContextPop(AuthContext*);
 #endif
 VTK_SQLITE_PRIVATE void vtk_sqlite3Attach(Parse*, Expr*, Expr*, Expr*);
 VTK_SQLITE_PRIVATE void vtk_sqlite3Detach(Parse*, Expr*);
-VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeFactory(const vtk_sqlite3 *db, const char *zFilename,
+VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeFactory(vtk_sqlite3 *db, const char *zFilename,
                        int omitJournal, int nCache, Btree **ppBtree);
 VTK_SQLITE_PRIVATE int vtk_sqlite3FixInit(DbFixer*, Parse*, int, const char*, const Token*);
 VTK_SQLITE_PRIVATE int vtk_sqlite3FixSrcList(DbFixer*, SrcList*);
@@ -7500,7 +7500,7 @@ struct vtk_sqlite3OsVtbl *vtk_sqlite3_os_switch(void){
 ** Memory allocation functions used throughout vtk_sqlite.
 **
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -9223,7 +9223,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3DebugPrintf(const char *zFormat, ...){
 ** Random numbers are used by some of the database backends in order
 ** to generate random integer keys for tables or random filenames.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 
@@ -9321,7 +9321,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3Randomness(int N, void *pBuf){
 ** This file contains routines used to translate between UTF-8, 
 ** UTF-16, UTF-16BE, and UTF-16LE.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 **
 ** Notes on UTF-8:
 **
@@ -10301,7 +10301,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3UtfSelfTest(){
 ** This file contains functions for allocating memory, comparing
 ** strings, and stuff like that.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 
@@ -11041,7 +11041,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3ReleaseThreadData(){
 ** This is the implementation of generic hash-tables
 ** used in SQLite.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /* Turn bulk memory into a hash table object by initializing the
@@ -17953,7 +17953,7 @@ VTK_SQLITE_PRIVATE ThreadData *vtk_sqlite3WinThreadSpecificData(int allocateFlag
 ** file simultaneously, or one process from reading the database while
 ** another is writing.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef VTK_SQLITE_OMIT_DISKIO
 
@@ -20794,7 +20794,7 @@ static int pagerSharedLock(Pager *pPager){
         */
         rc = VTK_SQLITE_BUSY;
         if( vtk_sqlite3OsFileExists(pPager->zJournal) ){
-          int ro;
+          int ro=1;
           assert( !pPager->tempFile );
           rc = vtk_sqlite3OsOpenReadWrite(pPager->zJournal, &pPager->jfd, &ro);
           assert( rc!=VTK_SQLITE_OK || pPager->jfd );
@@ -22412,7 +22412,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3PagerRefdump(Pager *pPager){
 **    May you share freely, never taking more than you give.
 **
 *************************************************************************
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 **
 ** This file implements a external (disk-based) database using BTrees.
 ** See the header comment on "btreeInt.h" for additional information.
@@ -22431,7 +22431,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3PagerRefdump(Pager *pPager){
 **    May you share freely, never taking more than you give.
 **
 *************************************************************************
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 **
 ** This file implements a external (disk-based) database using BTrees.
 ** For a detailed discussion of BTrees, refer to
@@ -25527,6 +25527,10 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeKeySize(BtCursor *pCur, i64 *pSize){
       *pSize = pCur->info.nKey;
     }
   }
+  else
+    {
+      *pSize = 0 ; // just to avoid some warning
+    }
   return rc;
 }
 
@@ -25549,6 +25553,10 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeDataSize(BtCursor *pCur, u32 *pSize){
       *pSize = pCur->info.nData;
     }
   }
+  else
+    {
+      *pSize = 0; // to avoid compiler warning.
+    }
   return rc;
 }
 
@@ -26119,7 +26127,11 @@ static int moveToRightmost(BtCursor *pCur){
 VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeFirst(BtCursor *pCur, int *pRes){
   int rc;
   rc = moveToRoot(pCur);
-  if( rc ) return rc;
+  if( rc )
+    {
+      *pRes=1; // not relevant, just to avoid compiler warning.
+      return rc;
+    }
   if( pCur->eState==CURSOR_INVALID ){
     assert( pCur->pPage->nCell==0 );
     *pRes = 1;
@@ -26138,7 +26150,11 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeFirst(BtCursor *pCur, int *pRes){
 VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeLast(BtCursor *pCur, int *pRes){
   int rc;
   rc = moveToRoot(pCur);
-  if( rc ) return rc;
+  if( rc )
+    {
+      *pRes=1;
+      return rc;
+    }
   if( CURSOR_INVALID==pCur->eState ){
     assert( pCur->pPage->nCell==0 );
     *pRes = 1;
@@ -32748,8 +32764,8 @@ int vtk_sqlite3_value_int(vtk_sqlite3_value *pVal){
 vtk_sqlite_int64 vtk_sqlite3_value_int64(vtk_sqlite3_value *pVal){
   return vtk_sqlite3VdbeIntValue((Mem*)pVal);
 }
-const unsigned char *vtk_sqlite3_value_text(vtk_sqlite3_value *pVal){
-  return (const unsigned char *)vtk_sqlite3ValueText(pVal, VTK_SQLITE_UTF8);
+unsigned char *vtk_sqlite3_value_text(vtk_sqlite3_value *pVal){
+  return (unsigned char *)vtk_sqlite3ValueText(pVal, VTK_SQLITE_UTF8);
 }
 #ifndef VTK_SQLITE_OMIT_UTF16
 const void *vtk_sqlite3_value_text16(vtk_sqlite3_value* pVal){
@@ -33653,7 +33669,7 @@ vtk_sqlite3 *vtk_sqlite3_db_handle(vtk_sqlite3_stmt *pStmt){
 ** in this file for details.  If in doubt, do not deviate from existing
 ** commenting and indentation practices when changing or adding code.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -37282,6 +37298,7 @@ case OP_Rowid: {
     v = keyToInt(pC->iKey);
   }else if( pC->nullRow || pC->pCursor==0 ){
     pTos->flags = MEM_Null;
+    v = 0; // just to stop warning
     break;
   }else{
     assert( pC->pCursor!=0 );
@@ -38845,7 +38862,7 @@ abort_due_to_interrupt:
 **
 ** This file contains code used to implement incremental BLOB I/O.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 
@@ -39126,7 +39143,7 @@ int vtk_sqlite3_blob_read(vtk_sqlite3_blob *pBlob, void *z, int n, int iOffset){
 /*
 ** Write data to a blob handle.
 */
-int vtk_sqlite3_blob_write(vtk_sqlite3_blob *pBlob, const void *z, int n, int iOffset){
+int vtk_sqlite3_blob_write(vtk_sqlite3_blob *pBlob, void *z, int n, int iOffset){
   return blobReadWrite(pBlob, (void *)z, n, iOffset, vtk_sqlite3BtreePutData);
 }
 
@@ -39156,7 +39173,7 @@ int vtk_sqlite3_blob_bytes(vtk_sqlite3_blob *pBlob){
 ** This file contains routines used for analyzing expressions and
 ** for generating VDBE code that evaluates expressions in SQLite.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -41738,7 +41755,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3ExprAnalyzeAggList(NameContext *pNC, ExprList 
 ** This file contains C code routines that used to generate VDBE code
 ** that implements the ALTER TABLE command.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -41766,12 +41783,12 @@ static void renameTableFunc(
   int argc,
   vtk_sqlite3_value **argv
 ){
-  unsigned char const *zSql = vtk_sqlite3_value_text(argv[0]);
+  unsigned char *zSql = vtk_sqlite3_value_text(argv[0]);
   unsigned char const *zTableName = vtk_sqlite3_value_text(argv[1]);
 
   int token;
   Token tname;
-  unsigned char const *zCsr = zSql;
+  unsigned char *zCsr = zSql;
   int len = 0;
   char *zRet;
 
@@ -41820,13 +41837,13 @@ static void renameTriggerFunc(
   int argc,
   vtk_sqlite3_value **argv
 ){
-  unsigned char const *zSql = vtk_sqlite3_value_text(argv[0]);
+  unsigned char *zSql = vtk_sqlite3_value_text(argv[0]);
   unsigned char const *zTableName = vtk_sqlite3_value_text(argv[1]);
 
   int token;
   Token tname;
   int dist = 3;
-  unsigned char const *zCsr = zSql;
+  unsigned char *zCsr = zSql;
   int len = 0;
   char *zRet;
 
@@ -42349,7 +42366,7 @@ exit_begin_add_column:
 *************************************************************************
 ** This file contains code associated with the ANALYZE command.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef VTK_SQLITE_OMIT_ANALYZE
 
@@ -42762,7 +42779,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3AnalysisLoad(vtk_sqlite3 *db, int iDb){
 *************************************************************************
 ** This file contains code used to implement the ATTACH and DETACH commands.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 #ifndef VTK_SQLITE_OMIT_ATTACH
@@ -43285,7 +43302,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3FixTriggerStep(
 ** systems that do not need this facility may omit it by recompiling
 ** the library with -DVTK_SQLITE_OMIT_AUTHORIZATION=1
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -43528,7 +43545,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3AuthContextPop(AuthContext *pContext){
 **     COMMIT
 **     ROLLBACK
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -45093,7 +45110,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3CreateView(
 ){
   Table *p;
   int n;
-  const unsigned char *z;
+  unsigned char *z;
   Token sEnd;
   DbFixer sFix;
   Token *pName;
@@ -45142,7 +45159,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3CreateView(
   }
   sEnd.n = 0;
   n = sEnd.z - pBegin->z;
-  z = (const unsigned char*)pBegin->z;
+  z = (unsigned char*)pBegin->z;
   while( n>0 && (z[n-1]==';' || isspace(z[n-1])) ){ n--; }
   sEnd.z = &z[n-1];
   sEnd.n = 1;
@@ -46881,7 +46898,7 @@ VTK_SQLITE_PRIVATE KeyInfo *vtk_sqlite3IndexKeyinfo(Parse *pParse, Index *pIdx){
 ** This file contains functions used to access the internal hash tables
 ** of user defined functions and collation sequences.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 
@@ -47260,7 +47277,7 @@ VTK_SQLITE_PRIVATE Schema *vtk_sqlite3SchemaGet(Btree *pBt){
 ** separating it out, the code will be automatically omitted from
 ** static links that do not use it.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef VTK_SQLITE_OMIT_COMPLETE
 
@@ -47521,7 +47538,7 @@ VTK_SQLITE_API int vtk_sqlite3_complete16(const void *zSql){
 ** This file contains C code routines that are called by the parser
 ** in order to generate code for DELETE FROM statements.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -47623,6 +47640,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3DeleteFrom(
 #endif
 
   sContext.pParse = 0;
+  sContext.zAuthContext = NULL;
   if( pParse->nErr || vtk_sqlite3MallocFailed() ){
     goto delete_from_cleanup;
   }
@@ -47995,7 +48013,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3GenerateIndexKey(
 ** vtk_sqliteRegisterBuildinFunctions() found at the bottom of the file.
 ** All other code has file scope.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 /* #include <math.h> */
 
@@ -49497,7 +49515,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3IsLikeFunction(vtk_sqlite3 *db, Expr *pExpr, i
 ** This file contains C code routines that are called by the parser
 ** to handle INSERT statements in SQLite.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -51105,7 +51123,7 @@ static int xferOptimization(
 ** other files are for internal use by SQLite and should not be
 ** accessed by users of the library.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 
@@ -51257,7 +51275,7 @@ exec_out:
 ** as extensions by SQLite should #include this file instead of 
 ** vtk_sqlite3.h.
 **
-** @(#) $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** @(#) $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef _VTK_SQLITE3EXT_H_
 #define _VTK_SQLITE3EXT_H_
@@ -51974,7 +51992,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3AutoLoadExtensions(vtk_sqlite3 *db){
 *************************************************************************
 ** This file contains code used to implement the PRAGMA command.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /* Ignore this whole file if pragmas are disabled
@@ -53154,7 +53172,7 @@ pragma_out:
 ** interface, and routines that contribute to loading the database schema
 ** from disk.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -53851,7 +53869,7 @@ int vtk_sqlite3_prepare16_v2(
 ** This file contains C code routines that are called by the parser
 ** to handle SELECT statements in SQLite.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 
@@ -58388,7 +58406,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3CodeRowTrigger(
 ** This file contains C code routines that are called by the parser
 ** to handle UPDATE statements.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 #ifndef VTK_SQLITE_OMIT_VIRTUALTABLE
@@ -58490,6 +58508,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3Update(
   int oldIdx      = -1;  /* index of trigger "old" temp table       */
 
   sContext.pParse = 0;
+  sContext.zAuthContext = NULL;
   if( pParse->nErr || vtk_sqlite3MallocFailed() ){
     goto update_cleanup;
   }
@@ -59019,7 +59038,7 @@ static void updateVirtualTable(
 ** Most of the code in this file may be omitted by defining the
 ** VTK_SQLITE_OMIT_VACUUM macro.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 #if !defined(VTK_SQLITE_OMIT_VACUUM) && !defined(VTK_SQLITE_OMIT_ATTACH)
@@ -59278,7 +59297,7 @@ end_of_vacuum:
 *************************************************************************
 ** This file contains code used to help implement virtual tables.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 #ifndef VTK_SQLITE_OMIT_VIRTUALTABLE
 
@@ -60066,7 +60085,7 @@ VTK_SQLITE_PRIVATE FuncDef *vtk_sqlite3VtabOverloadFunction(
 ** so is applicable.  Because this module is responsible for selecting
 ** indices, you might also think of this module as the "query optimizer".
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -65930,7 +65949,7 @@ VTK_SQLITE_PRIVATE void vtk_sqlite3Parser(
 ** individual tokens and sends those tokens one-by-one over to the
 ** parser for analysis.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -65983,7 +66002,7 @@ const unsigned char ebcdicToAscii[] = {
 **
 ** The code in this file has been automatically generated by
 **
-**     $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtksqlite/vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+**     $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtksqlite/vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 **
 ** The code in this file implements a function that determines whether
 ** or not a given identifier is really an SQL keyword.  The same thing
@@ -66559,7 +66578,7 @@ abort_parse:
 ** other files are for internal use by SQLite and should not be
 ** accessed by users of the library.
 **
-** $Id: vtk_sqlite3.c,v 1.18 2008-06-10 15:23:24 fbertel Exp $
+** $Id: vtk_sqlite3.c,v 1.19 2008-06-14 20:44:29 fbertel Exp $
 */
 
 /*
@@ -67252,7 +67271,7 @@ void *vtk_sqlite3_rollback_hook(
 **           3               any             memory
 */
 VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeFactory(
-  const vtk_sqlite3 *db,        /* Main database when opening aux otherwise 0 */
+  vtk_sqlite3 *db,        /* Main database when opening aux otherwise 0 */
   const char *zFilename,    /* Name of the file containing the BTree database */
   int omitJournal,          /* if TRUE then do not journal this file */
   int nCache,               /* How many pages in the page cache */
@@ -67287,7 +67306,7 @@ VTK_SQLITE_PRIVATE int vtk_sqlite3BtreeFactory(
 
   rc = vtk_sqlite3BtreeOpen(zFilename, (vtk_sqlite3 *)db, ppBtree, btree_flags);
   if( rc==VTK_SQLITE_OK ){
-    vtk_sqlite3BtreeSetBusyHandler(*ppBtree, (void*)&db->busyHandler);
+    vtk_sqlite3BtreeSetBusyHandler(*ppBtree, (void *)&db->busyHandler);
     vtk_sqlite3BtreeSetCacheSize(*ppBtree, nCache);
   }
   return rc;
