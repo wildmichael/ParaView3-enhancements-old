@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeGOShadeHelper.h,v $
   Language:  C++
-  Date:      $Date: 2005-05-04 14:13:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2008-06-16 08:27:56 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
