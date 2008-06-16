@@ -113,6 +113,7 @@ my %default =
             "../../Filtering",
             "../../GenericFiltering",
             "../../GenericFiltering/Testing/Cxx",
+            "../../Geovis",
             "../../Graphics",
             "../../GUISupport/MFC",
             "../../GUISupport/Qt",
@@ -270,13 +271,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2007-08-14 13:46:35 $
+        # Date:      $Date: 2008-06-16 06:59:09 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.15 $
+        # Version:   $Revision: 1.16 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
