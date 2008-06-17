@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-03-19 20:22:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2008-06-17 15:54:33 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -637,7 +637,7 @@ void DICOMParser::AddDICOMTagCallbackToAllTags(DICOMCallback* cb)
   DICOMParserMap::iterator miter;
   for (miter = Implementation->Map.begin();
        miter != Implementation->Map.end();
-       miter++);
+       miter++)
   {
   dicom_stl::vector<DICOMCallback*>* callbacks = (*miter).second.second;
   callbacks->push_back(cb);
