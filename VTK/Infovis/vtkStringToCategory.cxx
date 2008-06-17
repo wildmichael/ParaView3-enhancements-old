@@ -36,12 +36,12 @@
 
 #include <vtksys/stl/set>
 
-vtkCxxRevisionMacro(vtkStringToCategory, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkStringToCategory, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkStringToCategory);
 
 vtkStringToCategory::vtkStringToCategory()
 {
-  this->SetInputArrayToProcess(0, 0, 0, vtkDataObject::FIELD_ASSOCIATION_POINTS, "value");
+  this->SetInputArrayToProcess(0, 0, 0, vtkDataObject::FIELD_ASSOCIATION_POINTS, "label");
   this->CategoryArrayName = 0;
   this->SetCategoryArrayName("category");
 }
