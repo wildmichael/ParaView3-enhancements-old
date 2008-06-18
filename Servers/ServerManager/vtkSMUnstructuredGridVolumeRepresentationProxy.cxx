@@ -37,7 +37,7 @@
 #include "vtkSMStringVectorProperty.h"
 
 vtkStandardNewMacro(vtkSMUnstructuredGridVolumeRepresentationProxy);
-vtkCxxRevisionMacro(vtkSMUnstructuredGridVolumeRepresentationProxy, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkSMUnstructuredGridVolumeRepresentationProxy, "$Revision: 1.16 $");
 //----------------------------------------------------------------------------
 vtkSMUnstructuredGridVolumeRepresentationProxy::vtkSMUnstructuredGridVolumeRepresentationProxy()
 {
@@ -702,6 +702,7 @@ void vtkSMUnstructuredGridVolumeRepresentationProxy::PrintSelf(ostream& os, vtkI
   os << indent << "SupportsBunykMapper: " << this->SupportsBunykMapper << endl;
   os << indent << "SupportsZSweepMapper: " << this->SupportsZSweepMapper << endl;
   os << indent << "RenderViewExtensionsTested: " << this->RenderViewExtensionsTested << endl;
+  os << indent << "SelectedMapperIndex: " << this->SelectedMapperIndex << endl;
 }
 
 
