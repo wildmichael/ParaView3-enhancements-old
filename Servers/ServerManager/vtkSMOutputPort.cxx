@@ -26,7 +26,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkSMOutputPort);
-vtkCxxRevisionMacro(vtkSMOutputPort, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSMOutputPort, "$Revision: 1.7 $");
 
 
 //----------------------------------------------------------------------------
@@ -219,7 +219,7 @@ void vtkSMOutputPort::InvalidateDataInformation()
 
 //----------------------------------------------------------------------------
 // vtkPVPart used to update before gathering this information ...
-void vtkSMOutputPort::GatherDataInformation(int doUpdate)
+void vtkSMOutputPort::GatherDataInformation(int vtkNotUsed(doUpdate))
 {
   if (this->GetID().IsNull())
     {
