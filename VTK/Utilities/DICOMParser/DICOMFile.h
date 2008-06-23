@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.h,v $
   Language:  C++
-  Date:      $Date: 2006-10-09 14:06:03 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2008-06-23 19:37:19 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -221,9 +221,9 @@ class DICOM_EXPORT DICOMFile
   static uint swap4(uint v)
     {
     return uint((v << 24) 
-      | (v << 8) & 0x00ff0000
-      | (v >> 8) & 0x0000ff00
-      | (v >> 24));
+                | ((v << 8) & 0x00ff0000)
+                | ((v >> 8) & 0x0000ff00)
+                | ((v >> 24)));
     }
 
  const char* GetPlatformEndian() {return this->PlatformEndian;}
