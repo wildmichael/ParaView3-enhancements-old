@@ -34,8 +34,10 @@
 
 #include <libpq-fe.h>
 
+#include <assert.h>
+
 vtkStandardNewMacro(vtkPostgreSQLDatabase);
-vtkCxxRevisionMacro(vtkPostgreSQLDatabase, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkPostgreSQLDatabase, "$Revision: 1.33 $");
 
 // ----------------------------------------------------------------------
 vtkPostgreSQLDatabase::vtkPostgreSQLDatabase()
