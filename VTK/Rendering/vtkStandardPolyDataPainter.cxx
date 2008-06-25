@@ -63,7 +63,7 @@ public:
 };
 
 //-----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkStandardPolyDataPainter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkStandardPolyDataPainter, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkStandardPolyDataPainter);
 //-----------------------------------------------------------------------------
 static inline int vtkStandardPolyDataPainterGetTotalCells(vtkPolyData* pd,
@@ -166,7 +166,10 @@ void vtkStandardPolyDataPainter::UpdateGenericAttributesCache(
         // This caches the attribute index.
         // This is essential since we don't want to call GetAttributeLocation in
         // glBegin()/glEnd().
-        shaderDevice->SendAttribute(vertexAttributeName, 0, 0, 0, 0);
+        if(shaderDevice)
+          {
+          shaderDevice->SendAttribute(vertexAttributeName, 0, 0, 0, 0);
+          }
         }
       }
     }
