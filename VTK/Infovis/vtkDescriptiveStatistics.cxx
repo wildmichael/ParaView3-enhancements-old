@@ -36,7 +36,7 @@
 #include <vtkstd/set>
 #include <vtksys/ios/sstream>
 
-vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkDescriptiveStatistics);
 
 // ----------------------------------------------------------------------
@@ -334,7 +334,7 @@ public:
 };
 
 // ----------------------------------------------------------------------
-void vtkDescriptiveStatistics::ExecuteEvince( vtkTable* dataset,
+void vtkDescriptiveStatistics::ExecuteAssess( vtkTable* dataset,
                                               vtkTable* params,
                                               vtkTable* output)
 {
