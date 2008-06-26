@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.4 2008-02-21 22:20:24 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 22:20:24 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.5 2008-06-26 19:00:46 fbertel Exp $  */
+/*  Date : $Date: 2008-06-26 19:00:46 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,6 +23,8 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfDataDesc.h"
+
+#include <stdlib.h>
 
 XdmfDataDesc::XdmfDataDesc() {
   H5dont_atexit();

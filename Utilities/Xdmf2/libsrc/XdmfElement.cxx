@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.25 2008-03-04 16:28:09 clarke Exp $  */
-/*  Date : $Date: 2008-03-04 16:28:09 $ */
-/*  Version : $Revision: 1.25 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.26 2008-06-26 19:00:46 fbertel Exp $  */
+/*  Date : $Date: 2008-06-26 19:00:46 $ */
+/*  Version : $Revision: 1.26 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,6 +25,7 @@
 #include "XdmfElement.h"
 #include "XdmfDOM.h"
 #include <libxml/tree.h>
+#include <string.h>
 
 #define XDMF_EMPTY_REFERENCE   0x00
 #define XDMF_ERROR_REFERENCE    -1

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.cxx,v 1.3 2008-01-17 17:27:08 clarke Exp $  */
-/*  Date : $Date: 2008-01-17 17:27:08 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfObject.cxx,v 1.4 2008-06-26 19:00:46 fbertel Exp $  */
+/*  Date : $Date: 2008-06-26 19:00:46 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,6 +23,7 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfObject.h"
+#include <string.h>
 
 static XdmfInt32 GlobalDebugFlag = 0;
 static XdmfInt64 NameCntr = 0;

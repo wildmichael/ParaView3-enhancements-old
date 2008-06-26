@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.cxx,v 1.5 2007-07-12 20:01:31 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 20:01:31 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfRoot.cxx,v 1.6 2008-06-26 19:00:46 fbertel Exp $  */
+/*  Date : $Date: 2008-06-26 19:00:46 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,6 +24,7 @@
 /*******************************************************************/
 #include "XdmfRoot.h"
 #include "XdmfDOM.h"
+#include <stdlib.h>
 
 XdmfRoot::XdmfRoot() {
     this->SetElementName("Xdmf");

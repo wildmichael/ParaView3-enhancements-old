@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfLightData.h,v 1.6 2007-07-12 17:14:15 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 17:14:15 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfLightData.h,v 1.7 2008-06-26 19:00:46 fbertel Exp $  */
+/*  Date : $Date: 2008-06-26 19:00:46 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,6 +27,7 @@
 
 #include "XdmfObject.h"
 
+#include <string.h> // strcmp, strlen, strcpy
 
 // typedef XdmfPointer XdmfXmlNode;
 struct _xmlNode;
