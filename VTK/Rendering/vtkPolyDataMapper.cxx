@@ -22,7 +22,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkPainterPolyDataMapper.h"
 
-vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.48 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -197,7 +197,7 @@ void vtkPolyDataMapper::MapDataArrayToVertexAttribute(
 }
 
 void vtkPolyDataMapper::MapDataArrayToMultiTextureAttribute(
-    VTKTextureUnit vtkNotUsed(unit),
+    int vtkNotUsed(unit),
     const char* vtkNotUsed(dataArrayName), 
     int vtkNotUsed(fieldAssociation), 
     int vtkNotUsed(componentno)
