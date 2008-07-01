@@ -26,7 +26,7 @@
 //----------------------------------------------------------------------------
 // class vtkMutableDirectedGraph
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkMutableDirectedGraph, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkMutableDirectedGraph, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkMutableDirectedGraph);
 //----------------------------------------------------------------------------
 vtkMutableDirectedGraph::vtkMutableDirectedGraph()
@@ -40,6 +40,11 @@ vtkMutableDirectedGraph::~vtkMutableDirectedGraph()
   this->GraphEdge->Delete();
 }
 
+//----------------------------------------------------------------------------
+vtkIdType vtkMutableDirectedGraph::AddVertex()
+{
+  return this->AddVertex(0);
+}
 //----------------------------------------------------------------------------
 vtkIdType vtkMutableDirectedGraph::AddVertex(vtkVariantArray *propertyArr)
 {
