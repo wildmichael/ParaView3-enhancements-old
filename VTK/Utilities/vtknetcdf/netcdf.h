@@ -30,7 +30,7 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
  * WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* "$Id: netcdf.h,v 1.17 2007-08-29 18:06:52 dcthomp Exp $" */
+/* "$Id: netcdf.h,v 1.18 2008-07-03 14:34:15 fbertel Exp $" */
 
 #ifndef _NETCDF_
 #define _NETCDF_
@@ -263,7 +263,7 @@ EXTERNL const char *
 nc_inq_libvers(void);
 
 EXTERNL const char *
-nc_strerror(int ncerr);
+nc_strerror(int ncerr_arg);
 
 EXTERNL int
 nc__create(const char *path, int cmode, size_t initialsz,
