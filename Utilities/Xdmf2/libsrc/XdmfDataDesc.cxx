@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.5 2008-06-26 19:00:46 fbertel Exp $  */
-/*  Date : $Date: 2008-06-26 19:00:46 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.6 2008-07-04 13:25:54 biddisco Exp $  */
+/*  Date : $Date: 2008-07-04 13:25:54 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -349,10 +349,17 @@ for( i = 0 ; i < Length ; i++ ){
   HCoordinates[i] = Coordinates[i];
   }
 #if (H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&((H5_VERS_MINOR>6)||((H5_VERS_MINOR==6)&&(H5_VERS_RELEASE>=4))))
+# if (H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&((H5_VERS_MINOR>6)||((H5_VERS_MINOR==6)&&(H5_VERS_RELEASE>=7))))
+status = H5Sselect_elements( this->DataSpace,
+        H5S_SELECT_SET,
+         NElements,
+         ( const hsize_t *)HCoordinates);
+# else
 status = H5Sselect_elements( this->DataSpace,
         H5S_SELECT_SET,
          NElements,
          ( const hsize_t **)HCoordinates);
+# endif
 #else
 status = H5Sselect_elements( this->DataSpace,
         H5S_SELECT_SET,
