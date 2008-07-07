@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkDijkstraGraphGeodesicPath.cxx,v $
   Language:  C++
-  Date:    $Date: 2008-02-23 12:06:08 $
-  Version:   $Revision: 1.6 $
+  Date:    $Date: 2008-07-07 22:43:09 $
+  Version:   $Revision: 1.7 $
   
   Made by Rasmus Paulsen
   email:  rrp(at)imm.dtu.dk
@@ -28,7 +28,7 @@
 #include "vtkPointData.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkDijkstraGraphGeodesicPath);
 
 //----------------------------------------------------------------------------
@@ -104,7 +104,7 @@ int vtkDijkstraGraphGeodesicPath::RequestData(
 
   vtkPolyData *output = vtkPolyData::SafeDownCast(
     outInfo->Get(vtkDataObject::DATA_OBJECT()));
-  if (!input)
+  if (!output)
     {
     return 0;
     }
@@ -116,6 +116,11 @@ int vtkDijkstraGraphGeodesicPath::RequestData(
   else
     {
     this->Reset();
+    }
+
+  if (this->NumberOfVertices == 0)
+    {
+    return 0;
     }
     
   this->ShortestPath(this->StartVertex, this->EndVertex);
