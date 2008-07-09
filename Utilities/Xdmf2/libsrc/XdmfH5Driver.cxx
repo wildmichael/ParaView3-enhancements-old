@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfH5Driver.cxx,v 1.4 2007-07-12 19:10:04 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-12 19:10:04 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfH5Driver.cxx,v 1.5 2008-07-09 18:43:47 berk Exp $  */
+/*  Date : $Date: 2008-07-09 18:43:47 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,6 +34,8 @@
 #include "XdmfDsmComm.h"
 #include "assert.h"
 #include "hdf5.h"
+
+#include <stdlib.h>
 
 #define HDF_IO_DEBUG 1
 #undef HDF_IO_DEBUG
