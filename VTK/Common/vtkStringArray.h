@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.h,v $
   Language:  C++
-  Date:      $Date: 2008-03-14 21:47:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2008-07-17 13:22:30 $
+  Version:   $Revision: 1.9 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -178,6 +178,10 @@ public:
   // Insert data at a specified position in the array.
 //BTX
   void InsertValue(vtkIdType id, vtkStdString f);
+
+  // Description:
+  // Insert a value into the array from a variant.
+  void InsertVariantValue(vtkIdType idx, vtkVariant value);
 //ETX
   void InsertValue(vtkIdType id, const char *val);
 
@@ -266,6 +270,12 @@ public:
   // the fast lookup will know to rebuild itself.  Otherwise, the lookup
   // functions will give incorrect results.
   virtual void DataChanged();
+
+  // Description:
+  // Tell the array explicitly that a single data element has
+  // changed. Like DataChanged(), then is only necessary when you
+  // modify the array contents without using the array's API. 
+  virtual void DataElementChanged(vtkIdType id);
   
   // Description:
   // Delete the associated fast lookup data structure on this array,
