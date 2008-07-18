@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor.h,v $
   Language:  C++
-  Date:      $Date: 2007-11-21 18:05:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2008-07-18 00:11:04 $
+  Version:   $Revision: 1.3 $
   Thanks:    Kathleen Bonnell, B Division, Lawrence Livermore Nat'l Laboratory
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,11 +115,12 @@ public:
   vtkGetVectorMacro(Range,double,2);
 
   // Description:
+  // Set or get the bounds for this Actor as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
   void   SetBounds(double bounds[6]);
   double *GetBounds(void);
   void   GetBounds(double bounds[6]);
 
-  // Description:116
+  // Description:
   // Set/Get the format with which to print the labels on the axis.
   vtkSetStringMacro(LabelFormat);
   vtkGetStringMacro(LabelFormat);
