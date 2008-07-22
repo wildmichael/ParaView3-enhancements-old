@@ -50,7 +50,7 @@ protected:
     
 };
 
-vtkCxxRevisionMacro(vtkTextRepresentation, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkTextRepresentation, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkTextRepresentation);
 
 //-------------------------------------------------------------------------
@@ -255,8 +255,9 @@ void vtkTextRepresentation::ExecuteTextActorModifiedEvent(vtkObject* object,
 //----------------------------------------------------------------------------
 void vtkTextRepresentation::CheckTextBoundary()
 {
-  if(this->TextActor->GetTextScaleMode() != vtkTextActor::TEXT_SCALE_MODE_PROP)
-  {
+  if(this->GetRenderer() &&
+     this->TextActor->GetTextScaleMode() != vtkTextActor::TEXT_SCALE_MODE_PROP)
+    {
     vtkFreeTypeUtilities* ftu = vtkFreeTypeUtilities::GetInstance();
     if (!ftu)
       {
