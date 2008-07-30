@@ -80,9 +80,7 @@ using vtkstd::string;
 // other 
 #include "vtkCTHFragmentUtils.hxx"
 
-#undef vtkCTHFragmentConnectDEBUG
-
-vtkCxxRevisionMacro(vtkCTHFragmentConnect, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkCTHFragmentConnect, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkCTHFragmentConnect);
 
 // NOTE:
