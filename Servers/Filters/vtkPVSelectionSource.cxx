@@ -158,7 +158,7 @@ public:
 
 
 vtkStandardNewMacro(vtkPVSelectionSource);
-vtkCxxRevisionMacro(vtkPVSelectionSource, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPVSelectionSource, "$Revision: 1.9 $");
 //----------------------------------------------------------------------------
 vtkPVSelectionSource::vtkPVSelectionSource()
 {
@@ -174,6 +174,7 @@ vtkPVSelectionSource::vtkPVSelectionSource()
     {
     this->Frustum[cc] = 0;
     }
+  this->FieldType = vtkSelection::CELL;
 }
 
 //----------------------------------------------------------------------------
