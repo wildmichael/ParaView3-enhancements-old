@@ -28,7 +28,7 @@ Module:    $RCSfile: vtkPrismFilter.cxx,v $
 #include "vtkCompositeDataIterator.h"
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPrismFilter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPrismFilter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPrismFilter);
 
 class vtkPrismFilter::MyInternal
@@ -278,8 +278,10 @@ int vtkPrismFilter::RequestGeometryData(
                                         vtkInformationVector *outputVector)
 {
 
-  if(this->GetXAxisVarName()=="none")
+  if( strcmp(this->GetXAxisVarName(), "none") == 0)
+    {
     return 1;
+    }
 
 
 
