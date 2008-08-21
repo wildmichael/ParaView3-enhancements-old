@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-08-20 13:42:11 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2008-08-21 20:44:08 $
+  Version:   $Revision: 1.51 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.51 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -1903,7 +1903,7 @@ void vtkXdmfReader::FindAllTimeValues(vtkXdmfReaderGrid *ptr)
     if(time && (time->GetTimeType() == XDMF_TIME_UNSET)){
     }
     if(time && (time->GetTimeType() != XDMF_TIME_UNSET)){
-        ptr->isTemporal = 1;
+        if(!ptr->isCollection) ptr->isTemporal = 1;
         this->OutputTemporal = 1;
         ptr->Time = time->GetValue();
         this->Internals->TimeValues.push_back(ptr->Time);
