@@ -35,7 +35,7 @@
 
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.24 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataWriter::vtkXMLUnstructuredDataWriter()
@@ -652,7 +652,10 @@ vtkXMLUnstructuredDataWriter::WriteCellsAppendedData(vtkCellArray* cells,
                                                      int timestep,
                                                      OffsetsManagerGroup *cellsManager)
 {
-  this->ConvertCells(cells);
+  if (cells)
+    {
+    this->ConvertCells(cells);
+    }
   
   // Split progress by cell connectivity, offset, and type arrays.
   float progressRange[2] = {0,0};
