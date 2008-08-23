@@ -25,7 +25,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkDijkstraImageGeodesicPath, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkDijkstraImageGeodesicPath, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkDijkstraImageGeodesicPath);
 
 //----------------------------------------------------------------------------
@@ -45,6 +45,10 @@ vtkDijkstraImageGeodesicPath::~vtkDijkstraImageGeodesicPath()
 //----------------------------------------------------------------------------
 void vtkDijkstraImageGeodesicPath::SetCostImage( vtkImageData *image )
 {
+  if ( !image ) 
+    {
+    return;
+    }
   bool dimension2D = false;
   image->UpdateInformation();
   int* dimensions = image->GetDimensions();
