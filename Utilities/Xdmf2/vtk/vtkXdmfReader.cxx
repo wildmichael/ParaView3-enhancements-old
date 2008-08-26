@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-08-21 20:44:08 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2008-08-26 08:02:15 $
+  Version:   $Revision: 1.52 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.52 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -2069,7 +2069,7 @@ int vtkXdmfReaderInternal::RequestGridData(
                               "Wrong vtk output structure expected composite");
       return 0;
       }
-    int outputGrid = 0;
+    unsigned int outputGrid = 0;
     int nChildren = grid->Children.size();
     for ( it = grid->Children.begin();
           it != grid->Children.end();
