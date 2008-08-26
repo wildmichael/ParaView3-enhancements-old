@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkDijkstraImageContourLineInterpolator,"$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkDijkstraImageContourLineInterpolator,"$Revision: 1.2 $");
 vtkStandardNewMacro(vtkDijkstraImageContourLineInterpolator);
 
 //----------------------------------------------------------------------
@@ -129,5 +129,7 @@ int vtkDijkstraImageContourLineInterpolator::InterpolateLine(
 void vtkDijkstraImageContourLineInterpolator::PrintSelf(
                               ostream& os, vtkIndent indent)
 {
-  this->Superclass::PrintSelf(os,indent);  
+  this->Superclass::PrintSelf(os,indent);
+  os << indent << "DijkstraImageGeodesicPath: " << this->DijkstraImageGeodesicPath << endl;
+  os << indent << "CostImage: " << this->GetCostImage() << endl;
 }
