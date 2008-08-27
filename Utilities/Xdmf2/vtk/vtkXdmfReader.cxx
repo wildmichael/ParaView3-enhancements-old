@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-08-26 08:02:15 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2008-08-27 16:20:20 $
+  Version:   $Revision: 1.53 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.53 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -274,7 +274,7 @@ public:
   // For converting arrays from XDMF to VTK format
   vtkXdmfDataArray *ArrayConverter;
 
-  int UpdatePiece;
+  unsigned int UpdatePiece;
   unsigned int UpdateNumPieces;
 
 };
