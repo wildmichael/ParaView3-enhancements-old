@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SimpleView3.h,v $
   Language:  C++
-  Date:      $Date: 2008-08-28 13:07:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2008-08-28 13:56:11 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -53,7 +53,7 @@ public:
 
     // Constructor/Destructor
     SimpleView(QWidget* parent = 0);
-    ~SimpleView();
+    ~SimpleView() {};
 
 public slots:
 
