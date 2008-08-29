@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.10 2008-05-08 17:48:44 clarke Exp $  */
-/*  Date : $Date: 2008-05-08 17:48:44 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.11 2008-08-29 15:08:58 clarke Exp $  */
+/*  Date : $Date: 2008-08-29 15:08:58 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -89,8 +89,12 @@ XdmfValuesHDF::Read(XdmfArray *anArray){
                 // Select the HyperSlab from HDF5
                 Rank = this->DataDesc->GetHyperSlab( Start, Stride, Count );
                 H5.SelectHyperSlab( Start, Stride, Count );
-                RetArray->SetShape(Rank, Count);
-                RetArray->SelectAll();
+                if(RetArray->GetSelectionSize() < H5.GetSelectionSize()){
+                    XdmfErrorMessage("Return Array No Large Enough to Hold Selected Data");
+                    RetArray->SetShapeFromSelection(&H5);
+                }
+                // RetArray->SetShape(Rank, Count);
+                // RetArray->SelectAll();
             } else {
                 XdmfInt64  NumberOfCoordinates;
                 XdmfInt64  *Coordinates;
@@ -104,7 +108,7 @@ XdmfValuesHDF::Read(XdmfArray *anArray){
                 delete Coordinates;
                 }
             }
-
+        XdmfDebug("Reading " << H5.GetSelectionSize() << " into Array of " << RetArray->GetSelectionSize() );
         if( H5.Read(RetArray) == NULL ){
             XdmfErrorMessage("Can't Read Dataset " << DataSetName);
             if(!anArray) delete RetArray;

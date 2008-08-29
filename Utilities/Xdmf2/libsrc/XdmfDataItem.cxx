@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.20 2008-05-23 13:28:06 clarke Exp $  */
-/*  Date : $Date: 2008-05-23 13:28:06 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.21 2008-08-29 15:08:58 clarke Exp $  */
+/*  Date : $Date: 2008-08-29 15:08:58 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -476,13 +476,15 @@ XdmfInt32 XdmfDataItem::Update(){
         return(this->UpdateFunction());
     }
     if(this->Array->CopyType(this->DataDesc) != XDMF_SUCCESS) return(XDMF_FAIL);
-    if(this->Array->CopyShape(this->DataDesc) != XDMF_SUCCESS) return(XDMF_FAIL);
+    // if(this->Array->CopyShape(this->DataDesc) != XDMF_SUCCESS) return(XDMF_FAIL);
     // if(this->Array->CopySelection(this->DataDesc) != XDMF_SUCCESS) return(XDMF_FAIL);
     if(this->CheckValues(this->Format) != XDMF_SUCCESS){
         XdmfErrorMessage("Error Accessing Internal XdmfValues");
         return(XDMF_FAIL);
     }
     if(this->Values->GetDataDesc()->CopySelection(this->DataDesc) != XDMF_SUCCESS) return(XDMF_FAIL);
+    XdmfDebug("Resize Array");
+    if(this->Array->SetShapeFromSelection(this->DataDesc) != XDMF_SUCCESS) return(XDMF_FAIL);
     switch (this->Format) {
         case XDMF_FORMAT_HDF :
             this->Values->SetDebug(this->GetDebug());
@@ -491,6 +493,7 @@ XdmfInt32 XdmfDataItem::Update(){
 #ifndef XDMF_NO_MPI
             this->Values->SetDsmBuffer(this->DsmBuffer);
 #endif
+            XdmfDebug("Reading Data");
             if(!((XdmfValuesHDF *)this->Values)->Read(this->Array)){
                 XdmfErrorMessage("Reading Values Failed");
                 return(XDMF_FAIL);
