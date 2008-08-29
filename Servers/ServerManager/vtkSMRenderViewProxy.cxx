@@ -89,7 +89,7 @@ inline bool SetIntVectorProperty(vtkSMProxy* proxy, const char* pname,
 }
 
 //-----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkSMRenderViewProxy, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkSMRenderViewProxy, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkSMRenderViewProxy);
 
 vtkInformationKeyMacro(vtkSMRenderViewProxy, LOD_RESOLUTION, Integer);
@@ -1865,8 +1865,7 @@ vtkSMRepresentationProxy* vtkSMRenderViewProxy::CreateDefaultRepresentation(
 }
 
 //-----------------------------------------------------------------------------
-const char* vtkSMRenderViewProxy::GetSuggestedRenderViewType(
-  vtkIdType connectionID)
+const char* vtkSMRenderViewProxy::GetSuggestedViewType(vtkIdType connectionID)
 {
   vtkProcessModule* pm = vtkProcessModule::GetProcessModule();
 
