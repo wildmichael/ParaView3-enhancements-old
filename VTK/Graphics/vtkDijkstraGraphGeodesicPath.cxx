@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkDijkstraGraphGeodesicPath.cxx,v $
   Language:  C++
-  Date:    $Date: 2008-08-28 19:04:30 $
-  Version:   $Revision: 1.11 $
+  Date:    $Date: 2008-08-29 19:53:03 $
+  Version:   $Revision: 1.12 $
   
   Made by Rasmus Paulsen
   email:  rrp(at)imm.dtu.dk
@@ -28,7 +28,7 @@
 #include "vtkPolyData.h"
 
 
-vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkDijkstraGraphGeodesicPath);
 vtkCxxSetObjectMacro(vtkDijkstraGraphGeodesicPath,RepelVertices,vtkPoints);
 
@@ -103,20 +103,17 @@ int vtkDijkstraGraphGeodesicPath::RequestData(
 //----------------------------------------------------------------------------
 void vtkDijkstraGraphGeodesicPath::Initialize( vtkDataSet *inData )
 {
-  if( this->NumberOfVertices != inData->GetNumberOfPoints() )
-    {
-    this->NumberOfVertices = inData->GetNumberOfPoints();
+  this->NumberOfVertices = inData->GetNumberOfPoints();
 
-    this->Internals->CumulativeWeights.resize( this->NumberOfVertices );
-    this->Internals->Predecessors.resize( this->NumberOfVertices );
-    this->Internals->OpenVertices.resize( this->NumberOfVertices );
-    this->Internals->ClosedVertices.resize( this->NumberOfVertices );
-    this->Internals->Adjacency.resize( this->NumberOfVertices );
-    this->Internals->BlockedVertices.resize( this->NumberOfVertices );
+  this->Internals->CumulativeWeights.resize( this->NumberOfVertices );
+  this->Internals->Predecessors.resize( this->NumberOfVertices );
+  this->Internals->OpenVertices.resize( this->NumberOfVertices );
+  this->Internals->ClosedVertices.resize( this->NumberOfVertices );
+  this->Internals->Adjacency.resize( this->NumberOfVertices );
+  this->Internals->BlockedVertices.resize( this->NumberOfVertices );
 
-    // The heap has elements from 1 to n
-    this->Internals->InitializeHeap( this->NumberOfVertices );
-    }
+  // The heap has elements from 1 to n
+  this->Internals->InitializeHeap( this->NumberOfVertices );
 
   this->Reset();
   this->BuildAdjacency( inData );
