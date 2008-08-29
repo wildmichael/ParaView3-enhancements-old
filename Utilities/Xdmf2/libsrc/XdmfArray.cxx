@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.9 2008-08-29 15:08:58 clarke Exp $  */
-/*  Date : $Date: 2008-08-29 15:08:58 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.10 2008-08-29 19:49:34 clarke Exp $  */
+/*  Date : $Date: 2008-08-29 19:49:34 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -342,7 +342,7 @@ XdmfInt32 XdmfArray::ReformFromSelection( XdmfDataDesc *DataDesc) {
         this->SelectAll();
     } else {
         XdmfInt64  NumberOfCoordinates;
-        XdmfInt64  *Coordinates;
+        // XdmfInt64  *Coordinates;
 
 
         // Select Parametric Coordinates from HDF5
@@ -350,7 +350,7 @@ XdmfInt32 XdmfArray::ReformFromSelection( XdmfDataDesc *DataDesc) {
         NumberOfCoordinates = DataDesc->GetSelectionSize();
         XdmfDataDesc::SetNumberOfElements(NumberOfCoordinates);
         this->SelectAll();
-        delete Coordinates;
+        // delete Coordinates;
         }
 return( XDMF_SUCCESS );
 }
