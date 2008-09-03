@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.10 2008-08-29 19:49:34 clarke Exp $  */
-/*  Date : $Date: 2008-08-29 19:49:34 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.11 2008-09-03 17:28:25 dave.demarle Exp $  */
+/*  Date : $Date: 2008-09-03 17:28:25 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -330,15 +330,15 @@ XdmfInt32 XdmfArray::ReformFromSelection( XdmfDataDesc *DataDesc) {
         return(this->Reform(DataDesc));
     }
     if( DataDesc->GetSelectionType() == XDMF_HYPERSLAB ){
-        XdmfInt32  Rank;
-        XdmfInt64  Start[ XDMF_MAX_DIMENSION ];
-        XdmfInt64  Stride[ XDMF_MAX_DIMENSION ];
-        XdmfInt64  Count[ XDMF_MAX_DIMENSION ];
+        XdmfInt32  rank;
+        XdmfInt64  start[ XDMF_MAX_DIMENSION ];
+        XdmfInt64  stride[ XDMF_MAX_DIMENSION ];
+        XdmfInt64  count[ XDMF_MAX_DIMENSION ];
 
         // Select the HyperSlab from HDF5
         XdmfDebug("Reform from Hyperslab");
-        Rank = DataDesc->GetHyperSlab( Start, Stride, Count );
-        this->Reform(Rank, Count);
+        rank = DataDesc->GetHyperSlab( start, stride, count );
+        this->Reform(rank, count);
         this->SelectAll();
     } else {
         XdmfInt64  NumberOfCoordinates;
