@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.24 2008-05-06 14:31:22 clarke Exp $  */
-/*  Date : $Date: 2008-05-06 14:31:22 $ */
-/*  Version : $Revision: 1.24 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.25 2008-09-04 15:46:47 dave.demarle Exp $  */
+/*  Date : $Date: 2008-09-04 15:46:47 $ */
+/*  Version : $Revision: 1.25 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -631,7 +631,7 @@ XdmfGrid::IsUniform(){
 }
 
 XdmfInt32
-XdmfGrid::FindGridsAtTime(XdmfTime *Time, XdmfArray *ArrayToFill, XdmfFloat64 Epsilon, XdmfInt32 Append){
+XdmfGrid::FindGridsAtTime(XdmfTime *theTime, XdmfArray *ArrayToFill, XdmfFloat64 Epsilon, XdmfInt32 Append){
     XdmfInt64   i, index = 0, nchild;
 
     nchild = this->GetNumberOfChildren();
@@ -645,7 +645,7 @@ XdmfGrid::FindGridsAtTime(XdmfTime *Time, XdmfArray *ArrayToFill, XdmfFloat64 Ep
     }
     for(i=0 ; i < this->GetNumberOfChildren() ; i++){
         // cout << "IsValid(" << i << ") = " << this->GetChild(i)->GetTime()->IsValid(Time) << endl;
-        if(this->GetChild(i)->GetTime()->IsValid(Time)){
+        if(this->GetChild(i)->GetTime()->IsValid(theTime)){
             ArrayToFill->SetValueFromInt64(index, i);
             index++;
         }

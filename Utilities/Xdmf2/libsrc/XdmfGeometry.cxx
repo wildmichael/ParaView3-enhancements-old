@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.14 2008-02-21 21:10:22 clarke Exp $  */
-/*  Date : $Date: 2008-02-21 21:10:22 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.15 2008-09-04 15:46:47 dave.demarle Exp $  */
+/*  Date : $Date: 2008-09-04 15:46:47 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -54,7 +54,6 @@ XdmfGeometry::~XdmfGeometry() {
 XdmfInt32
 XdmfGeometry::Release()
 {
-  XdmfDataItem *di = NULL;
   XdmfXmlNode node;
   XdmfInt32 Index = 0;
   XdmfXmlNode Node;
