@@ -37,7 +37,7 @@
 #include "vtkPythagoreanQuadruples.h"
 #include "vtkSmartPointer.h"
 
-#include <Utilities/octree/octree>
+#include <octree/octree>
 #include <vtkstd/deque>
 #include <vtkstd/set>
 #include <vtkstd/vector>
@@ -190,7 +190,7 @@ protected:
   double BoundsFactor;
 };
 
-vtkCxxRevisionMacro(vtkLabelHierarchyFrustumIterator,"$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkLabelHierarchyFrustumIterator,"$Revision: 1.5 $");
 vtkStandardNewMacro(vtkLabelHierarchyFrustumIterator);
 vtkCxxSetObjectMacro(vtkLabelHierarchyFrustumIterator, Camera, vtkCamera);
 vtkLabelHierarchyFrustumIterator::vtkLabelHierarchyFrustumIterator()
@@ -678,7 +678,7 @@ protected:
   int NodesTraversed;
 };
 
-vtkCxxRevisionMacro(vtkLabelHierarchyFullSortIterator,"$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkLabelHierarchyFullSortIterator,"$Revision: 1.5 $");
 vtkStandardNewMacro(vtkLabelHierarchyFullSortIterator);
 vtkCxxSetObjectMacro(vtkLabelHierarchyFullSortIterator, Camera, vtkCamera);
 void vtkLabelHierarchyFullSortIterator::Prepare( vtkLabelHierarchy* hier, vtkCamera* cam,
@@ -913,7 +913,7 @@ vtkLabelHierarchyFullSortIterator::~vtkLabelHierarchyFullSortIterator()
 // vtkLabelHierarchy
 
 vtkStandardNewMacro(vtkLabelHierarchy);
-vtkCxxRevisionMacro(vtkLabelHierarchy,"$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkLabelHierarchy,"$Revision: 1.5 $");
 vtkCxxSetObjectMacro(vtkLabelHierarchy,Priorities,vtkDataArray);
 vtkLabelHierarchy::vtkLabelHierarchy()
 {
