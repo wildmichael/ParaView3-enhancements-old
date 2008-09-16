@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-09-04 15:59:53 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2008-09-16 12:52:12 $
+  Version:   $Revision: 1.55 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.55 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -2920,7 +2920,7 @@ int vtkXdmfReaderInternal::RequestGridData(
       if ( values )
         {
         vtkDataArray* vtkValues = this->ArrayConverter->FromXdmfArray(
-          values->GetTagName(), 1, globalrank, Components);
+          values->GetTagName(), 1, globalrank, Components, 0);
         
         vtkDebugWithObjectMacro(this->Reader,
                                 "Reading array: " << name );
@@ -2940,7 +2940,7 @@ int vtkXdmfReaderInternal::RequestGridData(
                               values->GetValueAsFloat64(0) );
           vtkValues->Delete();
           this->ArrayConverter->SetVtkArray( NULL );
-          vtkValues=this->ArrayConverter->FromXdmfArray(tmpArray->GetTagName(), 1, 1, Components);
+          vtkValues=this->ArrayConverter->FromXdmfArray(tmpArray->GetTagName(), 1, 1, Components, 0);
           if( !name )
             {
             name = values->GetTagName();
