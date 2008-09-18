@@ -63,9 +63,9 @@ using vtkstd::string;
 // ansi c
 #include <math.h>
 // other
-#include "vtkCTHFragmentUtils.hxx"
+#include "vtkCTHFragmentUtilities.hxx"
 
-vtkCxxRevisionMacro(vtkCTHFragmentIntersect, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCTHFragmentIntersect, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkCTHFragmentIntersect);
 
 //----------------------------------------------------------------------------
