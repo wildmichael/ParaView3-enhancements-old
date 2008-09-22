@@ -1,4 +1,4 @@
-nn/*=========================================================================
+/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
@@ -23,7 +23,7 @@ nn/*=========================================================================
 #include <math.h>
 #include "vtkCriticalSection.h"
 
-vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.79 $");
 vtkStandardNewMacro(vtkColorTransferFunction);
 
 //=============================================================================
