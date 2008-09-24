@@ -22,13 +22,14 @@
 #include "vtkObjectFactory.h"
 
 vtkStandardNewMacro(vtkGraphInternals);
-vtkCxxRevisionMacro(vtkGraphInternals, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkGraphInternals, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkGraphInternals::vtkGraphInternals()
 { 
   this->NumberOfEdges = 0; 
   this->LastRemoteEdgeId = -1;
+  this->UsingPedigreeIds = false;
 }
 
 //----------------------------------------------------------------------------
