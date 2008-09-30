@@ -36,7 +36,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <vtkstd/map>
 #include <vtkstd/set>
 
-vtkCxxRevisionMacro(vtkOrderStatistics, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkOrderStatistics, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkOrderStatistics);
 
 // ----------------------------------------------------------------------
@@ -191,7 +191,7 @@ void vtkOrderStatistics::ExecuteLearn( vtkTable* inData,
 }
 
 // ----------------------------------------------------------------------
-void vtkOrderStatistics::ExecuteDerive( vtkTable* inMeta )
+void vtkOrderStatistics::ExecuteDerive( vtkTable* vtkNotUsed( inMeta ) )
 {
 }
 

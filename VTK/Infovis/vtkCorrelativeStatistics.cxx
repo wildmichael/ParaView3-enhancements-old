@@ -37,7 +37,7 @@
 
 #include <vtksys/ios/sstream>
 
-vtkCxxRevisionMacro(vtkCorrelativeStatistics, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkCorrelativeStatistics, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkCorrelativeStatistics);
 
 // ----------------------------------------------------------------------
@@ -250,7 +250,7 @@ void vtkCorrelativeStatistics::ExecuteLearn( vtkTable* inData,
 }
 
 // ----------------------------------------------------------------------
-void vtkCorrelativeStatistics::ExecuteDerive( vtkTable* inMeta )
+void vtkCorrelativeStatistics::ExecuteDerive( vtkTable* vtkNotUsed( inMeta ) )
 {
 }
 
