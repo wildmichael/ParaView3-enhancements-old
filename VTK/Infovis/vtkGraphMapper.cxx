@@ -52,7 +52,7 @@
 #include "vtkVertexGlyphFilter.h"
 #include "vtkViewTheme.h"
 
-vtkCxxRevisionMacro(vtkGraphMapper, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkGraphMapper, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkGraphMapper);
 
 #define VTK_CREATE(type,name) \
@@ -152,6 +152,10 @@ vtkGraphMapper::~vtkGraphMapper()
   this->VertexLookupTable = 0;
   this->EdgeLookupTable->Delete();
   this->EdgeLookupTable = 0;
+  if(this->ScalingArrayName!=0)
+    {
+    delete[] this->ScalingArrayName;
+    }
 }
 
 //----------------------------------------------------------------------------
