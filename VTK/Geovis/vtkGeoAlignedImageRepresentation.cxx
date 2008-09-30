@@ -38,7 +38,7 @@
 #include "vtkView.h"
 
 
-vtkCxxRevisionMacro(vtkGeoAlignedImageRepresentation, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkGeoAlignedImageRepresentation, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkGeoAlignedImageRepresentation);
 
 //-----------------------------------------------------------------------------

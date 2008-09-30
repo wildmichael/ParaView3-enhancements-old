@@ -24,7 +24,7 @@
 #include "vtkXMLImageDataReader.h"
 #include "vtkXMLImageDataWriter.h"
 
-vtkCxxRevisionMacro(vtkGeoImageNode, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkGeoImageNode, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkGeoImageNode);
 
 

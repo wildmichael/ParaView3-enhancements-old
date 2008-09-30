@@ -24,7 +24,7 @@
 #include "vtkCellData.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkGeoComputeTextureCoordinates, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkGeoComputeTextureCoordinates, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkGeoComputeTextureCoordinates);
 
 

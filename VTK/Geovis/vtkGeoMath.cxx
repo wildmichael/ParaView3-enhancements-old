@@ -23,7 +23,7 @@
 #include "vtkGeoMath.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkGeoMath, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkGeoMath, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkGeoMath);
 
 
