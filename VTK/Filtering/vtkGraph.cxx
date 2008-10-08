@@ -63,7 +63,7 @@ private:
   void operator=(const vtkGraphEdgePoints&);  // Not implemented.
 };
 vtkStandardNewMacro(vtkGraphEdgePoints);
-vtkCxxRevisionMacro(vtkGraphEdgePoints, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkGraphEdgePoints, "$Revision: 1.31 $");
 
 //----------------------------------------------------------------------------
 // class vtkGraph
@@ -72,7 +72,7 @@ vtkCxxSetObjectMacro(vtkGraph, Points, vtkPoints);
 vtkCxxSetObjectMacro(vtkGraph, Internals, vtkGraphInternals);
 vtkCxxSetObjectMacro(vtkGraph, EdgePoints, vtkGraphEdgePoints);
 vtkCxxSetObjectMacro(vtkGraph, EdgeList, vtkIdTypeArray);
-vtkCxxRevisionMacro(vtkGraph, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkGraph, "$Revision: 1.31 $");
 //----------------------------------------------------------------------------
 vtkGraph::vtkGraph()
 {
@@ -1193,8 +1193,6 @@ void vtkGraph::AddVertexInternal(vtkVariantArray *propertyArr,
           vtkAbstractArray* arr = vertexData->GetAbstractArray(iprop);
           arr->InsertVariantValue(index, propertyArr->GetValue(iprop));
           }
-        vtkAbstractArray *peds2 = this->GetVertexData()->GetPedigreeIds();
-        
       }  // end if (peds)
     //----------------------------------------------------------------
     else   // We have propArr, but not pedIds - just add the propArr
