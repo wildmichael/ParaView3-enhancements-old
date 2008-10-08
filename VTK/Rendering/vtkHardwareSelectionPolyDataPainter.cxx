@@ -27,7 +27,7 @@
 #include "vtkPointData.h"
 
 vtkStandardNewMacro(vtkHardwareSelectionPolyDataPainter);
-vtkCxxRevisionMacro(vtkHardwareSelectionPolyDataPainter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkHardwareSelectionPolyDataPainter, "$Revision: 1.2 $");
 //-----------------------------------------------------------------------------
 static inline int vtkHardwareSelectionPolyDataPainterGetTotalCells(vtkPolyData* pd,
   unsigned long typeflags)
@@ -57,9 +57,9 @@ vtkHardwareSelectionPolyDataPainter::~vtkHardwareSelectionPolyDataPainter()
 //-----------------------------------------------------------------------------
 void vtkHardwareSelectionPolyDataPainter::RenderInternal(
   vtkRenderer* renderer,
-  vtkActor* actor, 
+  vtkActor* vtkNotUsed(actor),
   unsigned long typeflags,
-  bool forceCompileOnly)
+  bool vtkNotUsed(forceCompileOnly))
 {
   if (typeflags == 0)
     {
