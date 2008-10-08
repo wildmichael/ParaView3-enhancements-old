@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.138 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.139 $");
 
 vtkCxxSetObjectMacro(vtkActor,Texture,vtkTexture);
 vtkCxxSetObjectMacro(vtkActor,Mapper,vtkMapper);
@@ -528,3 +528,13 @@ int vtkActor::GetNumberOfParts()
 #endif
 
 
+//----------------------------------------------------------------------------
+bool vtkActor::GetSupportsSelection()
+{
+  if (this->Mapper)
+    {
+    return this->Mapper->GetSupportsSelection();
+    }
+
+  return false;
+}
