@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.2 2005-06-30 13:37:55 king Exp $
+# $Id: CMakeLists.txt,v 1.3 2008-10-17 16:43:27 berk Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -22,5 +22,6 @@ ADD_LIBRARY(icet_strategies ${ICET_STRATEGIES_SRCS})
 TARGET_LINK_LIBRARIES(icet_strategies icet)
 
 IF(NOT ICET_INSTALL_NO_LIBRARIES)
-  INSTALL_TARGETS(${ICET_INSTALL_LIB_DIR} icet_strategies)
+  INSTALL(TARGETS icet_strategies 
+    LIBRARY DESTINATION ${ICET_INSTALL_LIB_DIR} COMPONENT RuntimeLibraries)
 ENDIF(NOT ICET_INSTALL_NO_LIBRARIES)

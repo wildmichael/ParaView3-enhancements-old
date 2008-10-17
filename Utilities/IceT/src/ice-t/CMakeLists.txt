@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.3 2005-06-30 13:37:55 king Exp $
+# $Id: CMakeLists.txt,v 1.4 2008-10-17 16:43:27 berk Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -23,11 +23,12 @@ SET(ICET_SRCS
 ADD_LIBRARY(icet ${ICET_SRCS})
 
 IF(NOT ICET_INSTALL_NO_LIBRARIES)
-  INSTALL_TARGETS(${ICET_INSTALL_LIB_DIR} icet)
+  INSTALL(TARGETS icet 
+        LIBRARY DESTINATION ${ICET_INSTALL_LIB_DIR} COMPONENT RuntimeLibraries)
 ENDIF(NOT ICET_INSTALL_NO_LIBRARIES)
 IF(NOT ICET_INSTALL_NO_DEVELOPMENT)
-  INSTALL_FILES(${ICET_INSTALL_INCLUDE_DIR}/GL .h
-                ${ICET_SOURCE_DIR}/src/include/GL/ice-t
-                ${ICET_SOURCE_DIR}/src/include/GL/ice-t_buckets
-                ${ICET_BINARY_DIR}/src/include/GL/ice-t_config)
+  INSTALL(FILES ${ICET_SOURCE_DIR}/src/include/GL/ice-t.h
+    ${ICET_SOURCE_DIR}/src/include/GL/ice-t_buckets.h
+    ${ICET_BINARY_DIR}/src/include/GL/ice-t_config.h
+    DESTINATION ${ICET_INSTALL_INCLUDE_DIR}/GL)
 ENDIF(NOT ICET_INSTALL_NO_DEVELOPMENT)
