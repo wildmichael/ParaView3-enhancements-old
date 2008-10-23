@@ -35,7 +35,7 @@
 
 #include <vtkstd/set>
 
-vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkDescriptiveStatistics);
 
 // ----------------------------------------------------------------------
@@ -294,7 +294,7 @@ void vtkDescriptiveStatistics::ExecuteDerive( vtkTable* inMeta )
 }
 
 // ----------------------------------------------------------------------
-class TableColumnDeviantFunctor : public vtkDescriptiveStatistics::AssessFunctor
+class TableColumnDeviantFunctor : public vtkStatisticsAlgorithm::AssessFunctor
 {
 public:
   vtkTable* Data;
