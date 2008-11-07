@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_sterea.c,v 1.1 2008-11-07 16:41:16 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_sterea.c,v 1.2 2008-11-07 21:40:43 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -40,15 +40,15 @@ PROJ_HEAD(sterea, "Oblique Stereographic Alternative")
 # define MAX_ITER  10
 
 FORWARD(e_forward); /* ellipsoid */
-  double cosc, sinc, cosl, k;
+  double cosc, sinc, coslval, k;
 
   lp = proj_gauss(lp, P->en);
   sinc = sin(lp.phi);
   cosc = cos(lp.phi);
-  cosl = cos(lp.lam);
-  k = P->k0 * P->R2 / (1. + P->sinc0 * sinc + P->cosc0 * cosc * cosl);
+  coslval = cos(lp.lam);
+  k = P->k0 * P->R2 / (1. + P->sinc0 * sinc + P->cosc0 * cosc * coslval);
   xy.x = k * cosc * sin(lp.lam);
-  xy.y = k * (P->cosc0 * sinc - P->sinc0 * cosc * cosl);
+  xy.y = k * (P->cosc0 * sinc - P->sinc0 * cosc * coslval);
   return (xy);
 }
 INVERSE(e_inverse); /* ellipsoid */
@@ -82,6 +82,9 @@ ENTRY0(sterea)
 ENDENTRY(P)
 /*
 ** $Log: proj_sterea.c,v $
+** Revision 1.2  2008-11-07 21:40:43  jeff
+** ENH: Fixing some proj.4 warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:16  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All

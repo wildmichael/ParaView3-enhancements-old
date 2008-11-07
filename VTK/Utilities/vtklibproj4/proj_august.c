@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_august.c,v 1.1 2008-11-07 16:41:13 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_august.c,v 1.2 2008-11-07 21:40:43 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -30,22 +30,25 @@ LIBPROJ_ID[] = "$Id: proj_august.c,v 1.1 2008-11-07 16:41:13 jeff Exp $";
 PROJ_HEAD(august, "August Epicycloidal") "\n\tMisc Sph, no inv.";
 #define M 1.333333333333333
 FORWARD(s_forward); /* spheroid */
-  double t, c1, c, x1, x12, y1, y12;
+  double t, c1, c, x1, x12, y1val, y12;
   (void) P; /* avoid warning */
 
   t = tan(.5 * lp.phi);
   c1 = sqrt(1. - t * t);
   c = 1. + c1 * cos(lp.lam *= .5);
   x1 = sin(lp.lam) *  c1 / c;
-  y1 =  t / c;
-  xy.x = M * x1 * (3. + (x12 = x1 * x1) - 3. * (y12 = y1 *  y1));
-  xy.y = M * y1 * (3. + 3. * x12 - y12);
+  y1val =  t / c;
+  xy.x = M * x1 * (3. + (x12 = x1 * x1) - 3. * (y12 = y1val *  y1val));
+  xy.y = M * y1val * (3. + 3. * x12 - y12);
   return (xy);
 }
 FREEUP; if (P) free(P); }
 ENTRY0(august) P->inv = 0; P->fwd = s_forward; P->es = 0.; ENDENTRY(P)
 /*
 ** $Log: proj_august.c,v $
+** Revision 1.2  2008-11-07 21:40:43  jeff
+** ENH: Fixing some proj.4 warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:13  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All

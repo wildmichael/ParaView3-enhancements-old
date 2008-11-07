@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_imw_p.c,v 1.1 2008-11-07 16:41:14 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_imw_p.c,v 1.2 2008-11-07 21:40:43 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -132,7 +132,7 @@ xy(PROJ *P, double phi, double *x, double *y, double *sp, double *R) {
 }
 FREEUP; if (P) { if (P->en) free(P->en); free(P); } }
 ENTRY1(imw_p, en)
-  double del, sig, s, t, x1, x2, T2, y1, m1, m2, y2;
+  double del, sig, s, t, x1, x2, T2, y1val, m1, m2, y2;
   int i;
 
   if (!((P->en = proj_mdist_ini(P->es)))) E_ERROR_0;
@@ -153,10 +153,10 @@ ENTRY1(imw_p, en)
     P->lam_1 = sig * DEG_TO_RAD;
   }
   P->mode = 0;
-  if (P->phi_1) xy(P, P->phi_1, &x1, &y1, &P->sphi_1, &P->R_1);
+  if (P->phi_1) xy(P, P->phi_1, &x1, &y1val, &P->sphi_1, &P->R_1);
   else {
     P->mode = 1;
-    y1 = 0.;
+    y1val = 0.;
     x1 = P->lam_1;
   }
   if (P->phi_2) xy(P, P->phi_2, &x2, &T2, &P->sphi_2, &P->R_2);
@@ -169,11 +169,11 @@ ENTRY1(imw_p, en)
   m2 = proj_mdist(P->phi_2, P->sphi_2, cos(P->phi_2), P->en);
   t = m2 - m1;
   s = x2 - x1;
-  y2 = sqrt(t * t - s * s) + y1;
+  y2 = sqrt(t * t - s * s) + y1val;
   P->C2 = y2 - T2;
   t = 1. / t;
-  P->P = (m2 * y1 - m1 * y2) * t;
-  P->Q = (y2 - y1) * t;
+  P->P = (m2 * y1val - m1 * y2) * t;
+  P->Q = (y2 - y1val) * t;
   P->Pp = (m2 * x1 - m1 * x2) * t;
   P->Qp = (x2 - x1) * t;
   P->fwd = e_forward;
@@ -181,6 +181,9 @@ ENTRY1(imw_p, en)
 ENDENTRY(P)
 /*
 ** $Log: proj_imw_p.c,v $
+** Revision 1.2  2008-11-07 21:40:43  jeff
+** ENH: Fixing some proj.4 warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:14  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All
