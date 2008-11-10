@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_param.c,v 1.1 2008-11-07 16:41:15 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_param.c,v 1.2 2008-11-10 14:57:43 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -49,7 +49,7 @@ proj_param(paralist *pl, const char *opt) {
 
   type = *opt++;
   /* simple linear lookup */
-  l = strlen(opt);
+  l = (unsigned)strlen(opt);
   while (pl && !(!strncmp(pl->param, opt, l) &&
     (!pl->param[l] || pl->param[l] == '=')))
     pl = pl->next;
@@ -112,6 +112,9 @@ bum_type:  /* note: this is an error in parameter, not a user error */
 }
 /* Revision log:
 ** $Log: proj_param.c,v $
+** Revision 1.2  2008-11-10 14:57:43  jeff
+** COMP: Removing conversion warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:15  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All

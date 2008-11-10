@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_pr_list.c,v 1.1 2008-11-07 16:41:15 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_pr_list.c,v 1.2 2008-11-10 14:57:43 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -41,7 +41,7 @@ pr_list(PROJ *P, int not_used) {
   (void)putchar('#');
   for (t = P->params; t; t = t->next)
     if ((!not_used && t->used) || (not_used && !t->used)) {
-      l = strlen(t->param) + 1;
+      l = (int)strlen(t->param) + 1;
       if (n + l > LINE_LEN) {
         (void)fputs("\n#", stdout);
         n = 2;
@@ -75,6 +75,9 @@ proj_pr_list(PROJ *P) {
 }
 /*
 ** $Log: proj_pr_list.c,v $
+** Revision 1.2  2008-11-10 14:57:43  jeff
+** COMP: Removing conversion warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:15  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All
