@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 22:03:39 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2008-11-10 22:08:35 $
+  Version:   $Revision: 1.57 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.57 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -2126,7 +2126,7 @@ int vtkXdmfReaderInternal::RequestGridData(
     //continue;
     }
   
-    cout << "RequestGridData Node " << this->Reader->GetController()->GetLocalProcessId() << " Reading data for " << xdmfGrid->GetName() << endl;
+    // cout << "RequestGridData Node " << this->Reader->GetController()->GetLocalProcessId() << " Reading data for " << xdmfGrid->GetName() << endl;
   vtkDebugWithObjectMacro(this->Reader, 
                           "Reading Heavy Data for " << xdmfGrid->GetName());
 #ifndef XDMF_NO_MPI
