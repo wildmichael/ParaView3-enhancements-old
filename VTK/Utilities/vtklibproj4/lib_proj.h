@@ -2,7 +2,7 @@
 /*
 ** libproj4 -- library of cartographic projections
 **
-** $Id: lib_proj.h,v 1.1 2008-11-07 16:41:13 jeff Exp $
+** $Id: lib_proj.h,v 1.2 2008-11-10 20:40:20 jeff Exp $
 **
 ** Copyright (c) 2003, 2005, 2006   Gerald I. Evenden
 **
@@ -41,6 +41,13 @@
 #  pragma warn -8060 /* possibly incorrect assignment */
 #  pragma warn -8066 /* unreachable code */
 #  pragma warn -8072 /* suspicious pointer arithmetic */
+# endif
+#endif
+
+#if defined(_MSC_VER)
+  // Disable MSVC compiler warning messages that often occur in valid code.
+# if !defined(VTK_DISPLAY_WIN32_WARNINGS)
+#  pragma warning ( disable : 4706 ) /* assignment in conditional expression */
 # endif
 #endif
 
@@ -247,6 +254,9 @@ END_C_DECLS
 #endif /* end of basic projections header */
 /*
 ** $Log: lib_proj.h,v $
+** Revision 1.2  2008-11-10 20:40:20  jeff
+** COMP: Ignoring assignment in conditional expression warning.
+**
 ** Revision 1.1  2008-11-07 16:41:13  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All
