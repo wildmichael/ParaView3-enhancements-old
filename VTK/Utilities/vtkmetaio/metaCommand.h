@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaCommand.h,v $
   Language:  C++
-  Date:      $Date: 2008-04-09 01:42:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2008-11-10 14:13:06 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -41,7 +41,7 @@ class METAIO_EXPORT MetaCommand
 public:
 
   typedef enum {DATA_NONE,DATA_IN,DATA_OUT} DataEnumType;
-  typedef enum {INT,FLOAT,CHAR,STRING,LIST,FLAG,BOOL,IMAGE,FILE} TypeEnumType;
+  typedef enum {INT,FLOAT,CHAR,STRING,LIST,FLAG,BOOL,IMAGE,ENUM,FILE} TypeEnumType;
 
   struct Field{
     METAIO_STL::string  name;
@@ -71,6 +71,7 @@ public:
     METAIO_STL::string                     name;
     METAIO_STL::string                     description;
     METAIO_STL::vector<METAIO_STL::string> options;
+    bool                                   advanced;
     };
 
   typedef METAIO_STL::vector<Option>             OptionVector;
@@ -123,6 +124,11 @@ public:
                       METAIO_STL::string rangeMin,
                       METAIO_STL::string rangeMax);
 
+  /** Set the list of values that can be used with an option */
+  bool SetOptionEnumerations(METAIO_STL::string optionName,
+                             METAIO_STL::string name,
+                             METAIO_STL::string optionEnums);
+
   /** Set the long tag for the option */
   bool SetOptionLongTag(METAIO_STL::string optionName,
                         METAIO_STL::string longTag);
@@ -135,7 +141,8 @@ public:
    *  If the group doesn't exist it is automatically created. */
   bool SetParameterGroup(METAIO_STL::string optionName,
                          METAIO_STL::string groupName,
-                         METAIO_STL::string groupDescription="");
+                         METAIO_STL::string groupDescription="",
+                         bool advanced=false);
 
   /** Collect all the information until the next tag 
    * \warning this function works only if the field is of type String */
