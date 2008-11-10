@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_lcc.c,v 1.1 2008-11-07 16:41:14 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_lcc.c,v 1.2 2008-11-10 14:51:10 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -79,7 +79,7 @@ INVERSE(e_inverse); /* ellipsoid & spheroid */
   }
   return (lp);
 }
-SPECIAL(fac) {
+SPECIAL(fact) {
   if (fabs(fabs(lp.phi) - HALFPI) < EPS10) {
     if ((lp.phi * P->n) <= 0.) return;
     P->rho = 0.;
@@ -135,10 +135,13 @@ ENTRY0(lcc)
   }
   P->inv = e_inverse;
   P->fwd = e_forward;
-  P->spc = fac;
+  P->spc = fact;
 ENDENTRY(P)
 /*
 ** $Log: proj_lcc.c,v $
+** Revision 1.2  2008-11-10 14:51:10  jeff
+** COMP: Fix shadowed declaration warning.
+**
 ** Revision 1.1  2008-11-07 16:41:14  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All
