@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:20 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2008-11-10 14:13:23 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1551,7 +1551,10 @@ ReadStream(int _nDims,
         {
         METAIO_STREAM::cerr << "MetaImage: Read: Cannot open data file"
                             << METAIO_STREAM::endl;
-        m_ReadStream->close();
+        if(m_ReadStream)
+          {
+          m_ReadStream->close();
+          }
         return false;
         }
 
@@ -3106,7 +3109,10 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
         {
         METAIO_STREAM::cerr << "MetaImage: ReadROI: Cannot open data file"
                             << METAIO_STREAM::endl;
-        m_ReadStream->close();
+        if(m_ReadStream)
+          {
+          m_ReadStream->close();
+          }
         return false;
         }     
      
