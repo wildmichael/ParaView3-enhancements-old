@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.h,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2008-11-10 14:13:37 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -338,6 +338,7 @@ class METAIO_EXPORT MetaImage : public MetaObject
     bool  M_ReadElements(METAIO_STREAM::ifstream * _fstream, 
                          void * _data,
                          METAIO_STL::streamsize _dataQuantity);
+
 
     bool  M_ReadElementsROI(METAIO_STREAM::ifstream * _fstream, 
                             void * _data,

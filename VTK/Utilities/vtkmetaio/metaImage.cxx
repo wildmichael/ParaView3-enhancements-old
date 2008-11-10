@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:30 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2008-11-10 14:13:37 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2907,7 +2907,6 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
        !strcmp("LOCAL", m_ElementDataFileName) ||
        !strcmp("local", m_ElementDataFileName))
       {
-      int elementSize;
       M_ReadElementsROI(_stream, m_ElementData, quantity,
                         _indexMin, _indexMax, subSamplingFactor,
                         m_Quantity);
