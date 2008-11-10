@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2008-11-10 14:13:20 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2971,7 +2971,7 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
         // read only one slice           
         int * indexMin = new int[m_NDims];
         int * indexMax = new int[m_NDims];
-        METAIO_STL::streamsize quantity = 1;
+        quantity = 1;
         for(int k = 0;k<m_NDims-1;k++)
           {
           quantity *= _indexMax[k]-_indexMin[k]+1; 
@@ -3057,7 +3057,7 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
         // read only one slice
         int * indexMin = new int[m_NDims];
         int * indexMax = new int[m_NDims];
-        METAIO_STL::streamsize quantity = 1;
+        quantity = 1;
         for(int k = 0;k<m_NDims-1;k++)
           {
           quantity *= _indexMax[k]-_indexMin[k]+1; 
