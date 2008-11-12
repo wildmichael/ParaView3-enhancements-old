@@ -61,12 +61,12 @@ private:
 };
 
 vtkStandardNewMacro(vtkSelfConnectionUndoSet);
-vtkCxxRevisionMacro(vtkSelfConnectionUndoSet, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSelfConnectionUndoSet, "$Revision: 1.5 $");
 vtkCxxSetObjectMacro(vtkSelfConnectionUndoSet, XMLElement, vtkPVXMLElement);
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkSelfConnection);
-vtkCxxRevisionMacro(vtkSelfConnection, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSelfConnection, "$Revision: 1.5 $");
 //-----------------------------------------------------------------------------
 vtkSelfConnection::vtkSelfConnection()
 {
@@ -93,7 +93,7 @@ int vtkSelfConnection::Initialize(int argc, char** argv, int *partitionId)
   *partitionId = this->GetPartitionId();
   // Nothing to do here, really.
   // Just return success.
-  return 0;
+  return this->Superclass::Initialize(argc, argv, partitionId);
 }
 
 //-----------------------------------------------------------------------------
