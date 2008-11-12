@@ -160,7 +160,7 @@ void ComputeVectorStatistics(
 
 
 
-vtkCxxRevisionMacro(vtkQuadraturePointStatistics, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkQuadraturePointStatistics, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkQuadraturePointStatistics);
 
 //-----------------------------------------------------------------------------
@@ -327,7 +327,7 @@ int vtkQuadraturePointStatistics::ComputeStatistics(
       }
     }
   results->GetFieldData()->Initialize();
-  return columns.size();
+  return static_cast<int>(columns.size());
 }
 
 //-----------------------------------------------------------------------------
