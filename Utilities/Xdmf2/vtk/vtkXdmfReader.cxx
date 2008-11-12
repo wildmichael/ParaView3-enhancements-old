@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 22:08:35 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2008-11-12 18:33:30 $
+  Version:   $Revision: 1.58 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.58 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -3080,6 +3080,8 @@ int vtkXdmfReaderInternal::RequestGridData(
   nameArray->Delete();
   */
 
+  // Release Duplicate Big Data 
+  grid->XMGrid->Release();
   return 1;
 }
 //----------------------------------------------------------------------------
