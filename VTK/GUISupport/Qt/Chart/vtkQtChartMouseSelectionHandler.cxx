@@ -21,16 +21,18 @@
 /// \file vtkQtChartMouseSelectionHandler.cxx
 /// \date March 19, 2008
 
-#include "vtkQtChartMouseSelectionHandler.h"
+#ifdef _MSC_VER
+// Disable warnings that Qt headers give.
+#pragma warning(disable:4127)
+#endif
 
-#include "vtkQtChartMouseBox.h"
+#include "vtkQtChartMouseSelectionHandler.h"
 
 
 vtkQtChartMouseSelectionHandler::vtkQtChartMouseSelectionHandler(
     QObject *parentObject)
   : QObject(parentObject)
 {
-  this->MouseBox = 0;
 }
 
 
