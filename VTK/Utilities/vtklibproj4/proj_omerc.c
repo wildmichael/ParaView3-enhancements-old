@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_omerc.c,v 1.2 2008-11-07 21:40:43 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_omerc.c,v 1.3 2008-11-14 16:56:33 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -97,8 +97,8 @@ INVERSE(e_inverse); /* ellipsoid */
 }
 FREEUP; if (P) free(P); }
 ENTRY0(omerc)
-  double con, com, cosph0, D, F, H, L, sinph0, p, J, gammaval,
-    gamma0, lamc, lam1, lam2, phi1, phi2, alpha_c;
+  double con, com, cosph0, D, F, H, L, sinph0, p, J, gammaval = 0.,
+    gamma0, lamc = 0., lam1 = 0., lam2 = 0., phi1 = 0., phi2 =0., alpha_c = 0.;
   int alp, gam, no_off = 0;
 
   P->no_rot = proj_param(P->params, "tno_rot").i;
@@ -194,6 +194,9 @@ ENTRY0(omerc)
 ENDENTRY(P)
 /*
 ** $Log: proj_omerc.c,v $
+** Revision 1.3  2008-11-14 16:56:33  jeff
+** COMP: Fixing more libproj warnings.
+**
 ** Revision 1.2  2008-11-07 21:40:43  jeff
 ** ENH: Fixing some proj.4 warnings.
 **

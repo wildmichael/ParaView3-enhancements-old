@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2005, 2006   Gerald I. Evenden
 */
 static const char
-RCS_ID[] = "$Id: lproj.c,v 1.2 2008-11-07 21:40:43 jeff Exp $";
+RCS_ID[] = "$Id: lproj.c,v 1.3 2008-11-14 16:56:33 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -106,7 +106,7 @@ emess(int code, char *fmt, ...) {
 }
   static void  /* file processing function */
 process(FILE *fid) {
-  char line[MAX_LINE+3], *s, pline[40];
+  char line[MAX_LINE+3], *s = 0, pline[40];
   PROJ_UV data;
 
   for (;;) {
@@ -143,7 +143,7 @@ process(FILE *fid) {
         t = *s;
         *s = '\0';
         (void)fputs(line, stdout);
-        *s = t;
+        *s = (char)t;
         putchar('\t');
       }
     }
@@ -492,11 +492,13 @@ badscale:
     (void)fclose(fid);
     emess_dat.File_name = 0;
   }
-  exit(0);
   return 0; /* normal completion */
 }
 /*
 ** $Log: lproj.c,v $
+** Revision 1.3  2008-11-14 16:56:33  jeff
+** COMP: Fixing more libproj warnings.
+**
 ** Revision 1.2  2008-11-07 21:40:43  jeff
 ** ENH: Fixing some proj.4 warnings.
 **

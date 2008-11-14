@@ -4,7 +4,7 @@
 ** Copyright (c) 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_psi.c,v 1.1 2008-11-07 16:41:15 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_psi.c,v 1.2 2008-11-14 16:56:33 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -40,6 +40,7 @@ proj_apsi(double psi, double e) {
   double esp, phi, phi0, he = e * 0.5, exp_psi = exp(psi);
   int i = MAX_ITER;
 
+  phi = 0.;
   phi0 = 2. * atan(exp_psi) - HALFPI;
   while (--i) {
     esp = e * sin(phi0);
@@ -51,6 +52,9 @@ proj_apsi(double psi, double e) {
 }
 /*
 ** $Log: proj_psi.c,v $
+** Revision 1.2  2008-11-14 16:56:33  jeff
+** COMP: Fixing more libproj warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:15  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All

@@ -4,7 +4,7 @@
 ** Copyright (c) 2003, 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_factors.c,v 1.1 2008-11-07 16:41:14 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_factors.c,v 1.2 2008-11-14 16:56:33 jeff Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -37,7 +37,7 @@ LIBPROJ_ID[] = "$Id: proj_factors.c,v 1.1 2008-11-07 16:41:14 jeff Exp $";
 #define EPS 1.0e-12
   int
 proj_factors(PROJ_LP lp, PROJ *P, double h, struct PROJ_FACTORS *fac) {
-  struct PROJ_DERIVS der;
+  struct PROJ_DERIVS der = {0., 0., 0., 0.};
   double cosphi, t, n, r;
 
   /* check for forward and latitude or longitude overange */
@@ -112,6 +112,9 @@ proj_factors(PROJ_LP lp, PROJ *P, double h, struct PROJ_FACTORS *fac) {
 }
 /*
 ** $Log: proj_factors.c,v $
+** Revision 1.2  2008-11-14 16:56:33  jeff
+** COMP: Fixing more libproj warnings.
+**
 ** Revision 1.1  2008-11-07 16:41:14  jeff
 ** ENH: Adding a 2D geoview. Adding the geographic projection library libproj4
 ** to Utilities. Updating the architecture of the geospatial views. All
