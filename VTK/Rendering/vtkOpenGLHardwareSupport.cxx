@@ -20,9 +20,9 @@
 #include "vtkOpenGLExtensionManager.h"
 #include "vtkRenderWindow.h"
 #include "vtkOpenGLRenderWindow.h"
-#include "vtkGL.h"
+#include "vtkgl.h"
 
-vtkCxxRevisionMacro(vtkOpenGLHardwareSupport, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkOpenGLHardwareSupport, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkOpenGLHardwareSupport);
 
 vtkCxxSetObjectMacro(vtkOpenGLHardwareSupport, ExtensionManager, vtkOpenGLExtensionManager);
