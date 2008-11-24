@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: Config.h.in,v $
+   Module:    $RCSfile: pqGraphLayoutStrategyInterface.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,20 +29,32 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef OVERVIEW_CONFIG_H
-#define OVERVIEW_CONFIG_H
 
-#define OVERVIEW_VERSION "@OVERVIEW_VERSION@"
-#define OVERVIEW_VERSION_FULL "@OVERVIEW_VERSION_FULL@"
+#ifndef _pqGraphLayoutStrategyInterface_h
+#define _pqGraphLayoutStrategyInterface_h
 
-#define OVERVIEW_BRANDED_APPLICATION_TITLE "@OVERVIEW_BRANDED_APPLICATION_TITLE@"
-#define OVERVIEW_BRANDED_SPLASH_TEXT_COLOR "@OVERVIEW_BRANDED_SPLASH_TEXT_COLOR@"
-#define OVERVIEW_BRANDED_VERSION "@OVERVIEW_BRANDED_VERSION@"
-#define OVERVIEW_BRANDED_VERSION_FULL "@OVERVIEW_BRANDED_VERSION_FULL@"
+#include "OverViewCoreExport.h"
 
-#define OVERVIEW_GEO_TILE_PATH "@OVERVIEW_GEO_TILE_PATH@"
+#include <QtPlugin>
+#include <QStringList>
 
-#cmakedefine OVERVIEW_INSTALLER_SUPPORT
+class vtkGraphLayoutStrategy;
 
-#endif // !OVERVIEW_CONFIG_H
+/// interface class for plugins that create view modules
+class OVERVIEW_CORE_EXPORT pqGraphLayoutStrategyInterface
+{
+public:
+  /// destructor
+  virtual ~pqGraphLayoutStrategyInterface() {}
+  
+  /// Return a list of layout strategies supported by this interface
+  virtual QStringList graphLayoutStrategies() const = 0;
+
+  virtual vtkGraphLayoutStrategy* getGraphLayoutStrategy(const QString& layoutStrategy) = 0;
+
+};
+
+Q_DECLARE_INTERFACE(pqGraphLayoutStrategyInterface, "com.kitware/paraview/graphLayoutStrategy")
+
+#endif
 

@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqPropertyHelper.h,v $
+   Module:    $RCSfile: GlobalGraphViewOptions.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,28 +30,55 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef pqPropertyHelper_h
-#define pqPropertyHelper_h
+#ifndef _GlobalGraphViewOptions_h
+#define _GlobalGraphViewOptions_h
 
-#include "OverViewUtilityExport.h"
-#include <vtkSMPropertyHelper.h>
+#include "OverViewCoreExport.h"
 
-#include <QStringList>
+#include "pqOptionsContainer.h"
 
-/// Helper object to simplify working with properties
-class OVERVIEW_UTILITY_EXPORT pqPropertyHelper :
-  public vtkSMPropertyHelper
+/// options container for pages of render view options
+class OVERVIEW_CORE_EXPORT GlobalGraphViewOptions : public pqOptionsContainer
 {
+  Q_OBJECT
+
 public:
-  pqPropertyHelper(vtkSMProxy* proxy, const char* name);
+  GlobalGraphViewOptions(QWidget *parent=0);
+  virtual ~GlobalGraphViewOptions();
 
-  void Set(const QString& value);
-  void Set(unsigned int index, const QString& value);
-  void Set(const QStringList& value);
+  // set the current page
+  virtual void setPage(const QString &page);
+  // return a list of strings for pages we have
+  virtual QStringList getPageList();
 
-  const QString GetAsString(unsigned int index = 0);
-  const QStringList GetAsStringList();
+  // apply the changes
+  virtual void applyChanges();
+  // reset the changes
+  virtual void resetChanges();
+
+  // tell pqOptionsDialog that we want an apply button
+  virtual bool isApplyUsed() const { return true; }
+
+
+  struct ManipulatorType
+    {
+    int Mouse;
+    int Shift;
+    int Control;
+    QByteArray Name;
+    };
+
+protected:
+  void init();
+
+private slots:
+  void resetDefaultCameraManipulators();
+
+private:
+  class pqInternal;
+  pqInternal* Internal;
+
+  static ManipulatorType DefaultManipulatorTypes[9];
 };
 
-#endif // !pqPropertyHelper_h
-
+#endif

@@ -32,6 +32,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __pqClientProcessModudeGUIHelper_h
 #define __pqClientProcessModudeGUIHelper_h
 
+#include "OverViewCoreExport.h"
+
 #include "pqProcessModuleGUIHelper.h"
 #include <QPointer>
 #include <QSplashScreen>
@@ -41,12 +43,14 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * so that we can create the type of MainWindow needed for pqClient.
  *
  */
-class ProcessModuleGUIHelper : public pqProcessModuleGUIHelper
+class OVERVIEW_CORE_EXPORT ProcessModuleGUIHelper : public pqProcessModuleGUIHelper
 {
 public:
   static ProcessModuleGUIHelper* New();
   vtkTypeRevisionMacro(ProcessModuleGUIHelper, pqProcessModuleGUIHelper);
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  void SetConfiguredPlugins(const QStringList& configured_plugins);
 
   /// Compares the contents of the window with the given reference image, returns true iff they "match" within some tolerance
   virtual  bool compareView(const QString& ReferenceImage, double Threshold, ostream& Output, const QString& TempDirectory);
@@ -59,6 +63,7 @@ protected:
   virtual QWidget* CreateMainWindow();
 
   QPointer<QSplashScreen> Splash;
+  QStringList ConfiguredPlugins;
 
 private:
   ProcessModuleGUIHelper(const ProcessModuleGUIHelper&); // Not implemented.

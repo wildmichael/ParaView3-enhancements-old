@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: GlobalGraphViewOptions.h,v $
+   Module:    $RCSfile: OverView.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,54 +29,31 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#ifndef OVERVIEW_H
+#define OVERVIEW_H
 
-#ifndef _GlobalGraphViewOptions_h
-#define _GlobalGraphViewOptions_h
+#include <QStringList>
 
-#include "pqOptionsContainer.h"
-
-/// options container for pages of render view options
-class GlobalGraphViewOptions : public pqOptionsContainer
+class OverView
 {
-  Q_OBJECT
-
 public:
-  GlobalGraphViewOptions(QWidget *parent=0);
-  virtual ~GlobalGraphViewOptions();
+  static int main(int argc, char* argv[],
+    const QStringList& ConfiguredPlugins,
+    const QString& BrandedApplicationTitle,
+    const QString& BrandedSplashTextColor,
+    const QString& BrandedVersion,
+    const QString& BrandedFullVersion,
+    const QString& GeoTilePath,
+    const bool InstallerSupport
+    );
 
-  // set the current page
-  virtual void setPage(const QString &page);
-  // return a list of strings for pages we have
-  virtual QStringList getPageList();
-
-  // apply the changes
-  virtual void applyChanges();
-  // reset the changes
-  virtual void resetChanges();
-
-  // tell pqOptionsDialog that we want an apply button
-  virtual bool isApplyUsed() const { return true; }
-
-
-  struct ManipulatorType
-    {
-    int Mouse;
-    int Shift;
-    int Control;
-    QByteArray Name;
-    };
-
-protected:
-  void init();
-
-private slots:
-  void resetDefaultCameraManipulators();
-
-private:
-  class pqInternal;
-  pqInternal* Internal;
-
-  static ManipulatorType DefaultManipulatorTypes[9];
+  static const QString GetBrandedApplicationTitle();
+  static const QString GetBrandedSplashTextColor();
+  static const QString GetBrandedVersion();
+  static const QString GetBrandedFullVersion();
+  static const QString GetGeoTilePath();
+  static const bool GetInstallerSupport();
 };
 
-#endif
+#endif // !OVERVIEW_H
+

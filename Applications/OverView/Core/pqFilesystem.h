@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqGraphLayoutStrategyInterface.h,v $
+   Module:    $RCSfile: pqFilesystem.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,29 +30,25 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqGraphLayoutStrategyInterface_h
-#define _pqGraphLayoutStrategyInterface_h
 
-#include <QtPlugin>
-#include <QStringList>
+#ifndef pqFilesystem_h
+#define pqFilesystem_h
 
-class vtkGraphLayoutStrategy;
+#include "OverViewCoreExport.h"
 
-/// interface class for plugins that create view modules
-class pqGraphLayoutStrategyInterface
+#include <QDir>
+
+/// Provides convenient access to common filesystem locations
+class OVERVIEW_CORE_EXPORT pqFilesystem
 {
 public:
-  /// destructor
-  virtual ~pqGraphLayoutStrategyInterface() {}
-  
-  /// Return a list of layout strategies supported by this interface
-  virtual QStringList graphLayoutStrategies() const = 0;
-
-  virtual vtkGraphLayoutStrategy* getGraphLayoutStrategy(const QString& layoutStrategy) = 0;
-
+  /// Returns the top-level install directory
+  static const QDir installDirectory();
+  /// Returns the bin directory (where the binary is located)
+  static const QDir binDirectory();
+  /// Returns the share directory
+  static const QDir shareDirectory();
 };
 
-Q_DECLARE_INTERFACE(pqGraphLayoutStrategyInterface, "com.kitware/paraview/graphLayoutStrategy")
-
-#endif
+#endif // !pqFilesystem_h
 

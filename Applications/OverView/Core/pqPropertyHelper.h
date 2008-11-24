@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: ApplicationOptionsDialog.h,v $
+   Module:    $RCSfile: pqPropertyHelper.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,20 +30,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _ApplicationOptionsDialog_h
-#define _ApplicationOptionsDialog_h
+#ifndef pqPropertyHelper_h
+#define pqPropertyHelper_h
 
-#include "pqOptionsDialog.h"
+#include "OverViewCoreExport.h"
+#include <vtkSMPropertyHelper.h>
 
-/// dialog class that allows editing of application wide settings
-class ApplicationOptionsDialog : public pqOptionsDialog
+#include <QStringList>
+
+/// Helper object to simplify working with properties
+class OVERVIEW_CORE_EXPORT pqPropertyHelper :
+  public vtkSMPropertyHelper
 {
-  Q_OBJECT
-
 public:
-  ApplicationOptionsDialog(QWidget *parent=0);
-  ~ApplicationOptionsDialog();
+  pqPropertyHelper(vtkSMProxy* proxy, const char* name);
 
+  void Set(const QString& value);
+  void Set(unsigned int index, const QString& value);
+  void Set(const QStringList& value);
+
+  const QString GetAsString(unsigned int index = 0);
+  const QStringList GetAsStringList();
 };
 
-#endif
+#endif // !pqPropertyHelper_h
+

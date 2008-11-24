@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: vtkSMSourceSelectionLink.h,v $
+   Module:    $RCSfile: Config.h.in,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,51 +29,11 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkSMSourceSelectionLink - Links vtkSMSourceProxy selections
-// .SECTION Description
+#ifndef OVERVIEW_CONFIG_H
+#define OVERVIEW_CONFIG_H
 
-#ifndef __vtkSMSourceSelectionLink_h
-#define __vtkSMSourceSelectionLink_h
+#define OVERVIEW_VERSION "@OVERVIEW_VERSION@"
+#define OVERVIEW_VERSION_FULL "@OVERVIEW_VERSION_FULL@"
 
-#include "OverViewUtilityExport.h"
-
-#include <vtkObject.h>
-
-class vtkSMSourceProxy;
-class vtkSMSourceSelectionLinkCommand;
-class vtkSMSourceSelectionLinkInternals;
-class pqViewManager;
-
-class OVERVIEW_UTILITY_EXPORT vtkSMSourceSelectionLink : public vtkObject
-{
-public:
-  static vtkSMSourceSelectionLink *New();
-  vtkTypeRevisionMacro(vtkSMSourceSelectionLink, vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
-
-  void AddSource(vtkSMSourceProxy* source);
-  void RemoveSource(vtkSMSourceProxy* source);
-
-  void SetViewManager(pqViewManager* manager)
-    { this->ViewManager = manager; }
-
-protected:
-  vtkSMSourceSelectionLink();
-  ~vtkSMSourceSelectionLink();
-
-  void SelectionChanged(vtkSMSourceProxy* source);
-
-private:
-  vtkSMSourceSelectionLink(const vtkSMSourceSelectionLink&);  // Not implemented.
-  void operator=(const vtkSMSourceSelectionLink&);  // Not implemented.
-
-  pqViewManager* ViewManager;
-  bool InSelectionChanged;
-
-  friend class vtkSMSourceSelectionLinkCommand;
-  vtkSMSourceSelectionLinkCommand* Command;
-  vtkSMSourceSelectionLinkInternals* Internals;
-};
-
-#endif
+#endif // !OVERVIEW_CONFIG_H
 

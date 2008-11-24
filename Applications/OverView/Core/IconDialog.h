@@ -32,12 +32,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __IconDialog_h
 #define __IconDialog_h
 
-#include "OverViewUtilityExport.h"
+#include "OverViewCoreExport.h"
 
 #include <pqDialog.h>
 #include <pqRepresentation.h>
 
-class OVERVIEW_UTILITY_EXPORT IconDialog : public pqDialog
+class OVERVIEW_CORE_EXPORT IconDialog : public pqDialog
 {
   Q_OBJECT
   

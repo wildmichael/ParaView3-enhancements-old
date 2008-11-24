@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: AboutDialog.h,v $
+   Module:    $RCSfile: vtkSMSourceSelectionLink.h,v $
 
    Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,36 +29,51 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+// .NAME vtkSMSourceSelectionLink - Links vtkSMSourceProxy selections
+// .SECTION Description
 
-#ifndef _AboutDialog_h
-#define _AboutDialog_h
+#ifndef __vtkSMSourceSelectionLink_h
+#define __vtkSMSourceSelectionLink_h
 
-#include <QDialog>
+#include "OverViewCoreExport.h"
 
-namespace Ui { class AboutDialog; }
+#include <vtkObject.h>
 
-class pqServer;
-class QTreeWidget;
-/// Provides an about dialog
-class AboutDialog :
-  public QDialog
+class vtkSMSourceProxy;
+class vtkSMSourceSelectionLinkCommand;
+class vtkSMSourceSelectionLinkInternals;
+class pqViewManager;
+
+class OVERVIEW_CORE_EXPORT vtkSMSourceSelectionLink : public vtkObject
 {
-  Q_OBJECT
-
 public:
-  AboutDialog(QWidget* Parent);
+  static vtkSMSourceSelectionLink *New();
+  vtkTypeRevisionMacro(vtkSMSourceSelectionLink, vtkObject);
+  void PrintSelf(ostream& os, vtkIndent indent);
+
+  void AddSource(vtkSMSourceProxy* source);
+  void RemoveSource(vtkSMSourceProxy* source);
+
+  void SetViewManager(pqViewManager* manager)
+    { this->ViewManager = manager; }
+
+protected:
+  vtkSMSourceSelectionLink();
+  ~vtkSMSourceSelectionLink();
+
+  void SelectionChanged(vtkSMSourceProxy* source);
 
 private:
-  ~AboutDialog();
-  AboutDialog(const AboutDialog&);
-  AboutDialog& operator=(const AboutDialog&);
+  vtkSMSourceSelectionLink(const vtkSMSourceSelectionLink&);  // Not implemented.
+  void operator=(const vtkSMSourceSelectionLink&);  // Not implemented.
 
-  void AddClientInformation();
-  void AddServerInformation();
-  void AddServerInformation(pqServer* server, QTreeWidget* tree);
-  
-  Ui::AboutDialog* const Ui;
+  pqViewManager* ViewManager;
+  bool InSelectionChanged;
+
+  friend class vtkSMSourceSelectionLinkCommand;
+  vtkSMSourceSelectionLinkCommand* Command;
+  vtkSMSourceSelectionLinkInternals* Internals;
 };
 
-#endif // !_AboutDialog_h
+#endif
 
