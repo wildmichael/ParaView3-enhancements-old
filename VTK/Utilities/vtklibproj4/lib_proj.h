@@ -2,7 +2,7 @@
 /*
 ** libproj4 -- library of cartographic projections
 **
-** $Id: lib_proj.h,v 1.2 2008-11-10 20:40:20 jeff Exp $
+** $Id: lib_proj.h,v 1.3 2008-11-25 19:30:04 david.cole Exp $
 **
 ** Copyright (c) 2003, 2005, 2006   Gerald I. Evenden
 **
@@ -174,6 +174,12 @@ extern PROJ_EXPORT const struct PROJ_LIST proj_list[];
 #  undef PROJ_HEAD
 #endif
 
+#if defined ( _MSC_VER )
+#pragma warning ( disable : 4132 )
+  // const object should be initialized...
+  // these two are initialized in the .c files...
+#endif
+
 #ifndef PROJ_ELLPS__
 extern
 #endif
@@ -183,6 +189,10 @@ PROJ_EXPORT const struct PROJ_ELLPS proj_ellps[];
 extern
 #endif
 PROJ_EXPORT const struct PROJ_UNITS proj_units[];
+
+#if defined ( _MSC_VER )
+#pragma warning ( default : 4132 )
+#endif
 
 #ifdef PROJ_LIB__
     /* repeatative projection code */
@@ -254,6 +264,9 @@ END_C_DECLS
 #endif /* end of basic projections header */
 /*
 ** $Log: lib_proj.h,v $
+** Revision 1.3  2008-11-25 19:30:04  david.cole
+** COMP: Suppress warnings in vtklibproj4.
+**
 ** Revision 1.2  2008-11-10 20:40:20  jeff
 ** COMP: Ignoring assignment in conditional expression warning.
 **
