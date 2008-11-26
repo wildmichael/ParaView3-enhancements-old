@@ -299,7 +299,7 @@ protected:
   double BoundsFactor;
 };
 
-vtkCxxRevisionMacro(vtkLabelHierarchyFrustumIterator,"$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkLabelHierarchyFrustumIterator,"$Revision: 1.17 $");
 vtkStandardNewMacro(vtkLabelHierarchyFrustumIterator);
 vtkCxxSetObjectMacro(vtkLabelHierarchyFrustumIterator, Camera, vtkCamera);
 vtkLabelHierarchyFrustumIterator::vtkLabelHierarchyFrustumIterator()
@@ -787,7 +787,7 @@ protected:
   int NodesTraversed;
 };
 
-vtkCxxRevisionMacro(vtkLabelHierarchyFullSortIterator,"$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkLabelHierarchyFullSortIterator,"$Revision: 1.17 $");
 vtkStandardNewMacro(vtkLabelHierarchyFullSortIterator);
 vtkCxxSetObjectMacro(vtkLabelHierarchyFullSortIterator, Camera, vtkCamera);
 void vtkLabelHierarchyFullSortIterator::Prepare( vtkLabelHierarchy* hier, vtkCamera* cam,
@@ -1022,7 +1022,7 @@ vtkLabelHierarchyFullSortIterator::~vtkLabelHierarchyFullSortIterator()
 // vtkLabelHierarchy
 
 vtkStandardNewMacro(vtkLabelHierarchy);
-vtkCxxRevisionMacro(vtkLabelHierarchy,"$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkLabelHierarchy,"$Revision: 1.17 $");
 vtkCxxSetObjectMacro(vtkLabelHierarchy,Priorities,vtkDataArray);
 vtkLabelHierarchy::vtkLabelHierarchy()
 {
@@ -1104,8 +1104,12 @@ void vtkLabelHierarchy::ComputeHierarchy( vtkPoints* coincidentPts, vtkIdTypeArr
     this->Implementation->DropAnchor( *it ); // Ha!!!
     }
 
-  coincidenceMap;
-  coincidentPts;
+  if(coincidenceMap)
+    {
+    }
+  if(coincidentPts)
+    {
+    }
 
   this->Implementation->HierarchyTime.Modified();
 
