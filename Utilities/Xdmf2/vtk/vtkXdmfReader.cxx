@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-28 17:40:50 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2008-11-28 17:41:50 $
+  Version:   $Revision: 1.61 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.61 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -2026,7 +2026,7 @@ int vtkXdmfReaderInternal::RequestGridData(
                 hasUpdateExtent = grid->GetInformation()->Has(vtkStreamingDemandDrivenPipeline::UPDATE_EXTENT());
                 childhasUpdateExtent = (*it)->GetInformation()->Has(vtkStreamingDemandDrivenPipeline::UPDATE_EXTENT());
                 if( hasUpdateExtent && (!childhasUpdateExtent)){
-                    cout << "Copying Update Extents" << endl;
+                    // cout << "Copying Update Extents" << endl;
                         (*it)->GetInformation()->CopyEntry(grid->GetInformation(), 
                             vtkStreamingDemandDrivenPipeline::UPDATE_EXTENT());
                         (*it)->GetInformation()->CopyEntry(grid->GetInformation(), 
