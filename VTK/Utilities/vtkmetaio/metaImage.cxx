@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:37 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2008-12-03 00:42:52 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -3092,6 +3092,12 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
 
         readStreamTemp->close();
         }
+     
+      for(i=0; i<nWrds; i++)
+        {
+        delete [] wrds[i++];
+        }
+          
       delete readStreamTemp;
       }
     else
