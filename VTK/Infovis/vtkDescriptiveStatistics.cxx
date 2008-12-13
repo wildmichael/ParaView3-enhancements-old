@@ -35,7 +35,7 @@
 #include <vtkstd/set>
 #include <vtksys/ios/sstream> 
 
-vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkDescriptiveStatistics);
 
 // ----------------------------------------------------------------------
@@ -80,7 +80,7 @@ void vtkDescriptiveStatistics::SetDeviationParameter( const char* name )
 void vtkDescriptiveStatistics::ExecuteLearn( vtkTable* inData,
                                              vtkDataObject* outMetaDO )
 {
-  vtkTable* outMeta = vtkTable::SafeDownCast( outMetaDO ); 
+  vtkTable* outMeta = vtkTable::SafeDownCast( outMetaDO );
   if ( ! outMeta ) 
     { 
     return; 
