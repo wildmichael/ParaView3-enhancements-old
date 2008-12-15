@@ -33,8 +33,9 @@
 
 #define VTK_MYSQL_DEFAULT_PORT 3306
  
-vtkCxxRevisionMacro(vtkMySQLDatabase, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkMySQLDatabase, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkMySQLDatabase);
+
 
 // ----------------------------------------------------------------------
 vtkMySQLDatabase::vtkMySQLDatabase() :
