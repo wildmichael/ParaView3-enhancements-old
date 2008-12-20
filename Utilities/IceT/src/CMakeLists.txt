@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.4 2008-12-18 00:45:30 burlen Exp $
+# $Id: CMakeLists.txt,v 1.5 2008-12-20 02:14:57 burlen Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -13,7 +13,19 @@ ADD_SUBDIRECTORY(communication)
 ADD_SUBDIRECTORY(strategies)
 
 IF (NOT PV_INSTALL_NO_DEVELOPMENT)
-  PV3InstallHeaders(${CMAKE_CURRENT_SOURCE_DIR}/ice-t ${PV_INSTALL_INCLUDE_DIR})
-  PV3InstallHeaders(${CMAKE_CURRENT_SOURCE_DIR}/communication ${PV_INSTALL_INCLUDE_DIR})
-  PV3InstallHeaders(${CMAKE_CURRENT_SOURCE_DIR}/strategies ${PV_INSTALL_INCLUDE_DIR})
+  SET(resPath "${CMAKE_CURRENT_SOURCE_DIR}/ice-t")
+  GLOB_INSTALL_DEVELOPMENT(
+      "${CMAKE_CURRENT_SOURCE_DIR}"
+      "${PV_INSTALL_INCLUDE_DIR}/ice-t"
+      "${resPath}/*.h;${resPath}/*.hxx;${resPath}/*.txx")
+  SET(resPath "${CMAKE_CURRENT_SOURCE_DIR}/communication")
+  GLOB_INSTALL_DEVELOPMENT(
+      "${CMAKE_CURRENT_SOURCE_DIR}"
+      "${PV_INSTALL_INCLUDE_DIR}/ice-t"
+      "${resPath}/*.h;${resPath}/*.hxx;${resPath}/*.txx")
+  SET(resPath "${CMAKE_CURRENT_SOURCE_DIR}/strategies")
+  GLOB_INSTALL_DEVELOPMENT(
+      "${CMAKE_CURRENT_SOURCE_DIR}"
+      "${PV_INSTALL_INCLUDE_DIR}/ice-t"
+      "${resPath}/*.h;${resPath}/*.hxx;${resPath}/*.txx")
 ENDIF (NOT PV_INSTALL_NO_DEVELOPMENT)
