@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-12-28 16:54:34 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2008-12-29 17:04:27 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -3223,7 +3223,7 @@ M_ReadElementsROI(METAIO_STREAM::ifstream * _fstream, void * _data,
       // Optimize the size of the buffer to read depending on the
       // region shape
       METAIO_STL::streamsize readLine = _indexMax[0] - _indexMin[0] + 1;
-      unsigned int movingDirection = 1;
+      int movingDirection = 1;
       while(movingDirection < m_NDims 
             && _indexMin[movingDirection] == 0
             && _indexMax[movingDirection] == m_DimSize[movingDirection]-1)
@@ -3336,7 +3336,7 @@ M_ReadElementsROI(METAIO_STREAM::ifstream * _fstream, void * _data,
     // Optimize the size of the buffer to read depending on the
     // region shape
     METAIO_STL::streamsize readLine = _indexMax[0] - _indexMin[0] + 1;
-    unsigned int movingDirection = 1;
+    int movingDirection = 1;
     while(movingDirection < m_NDims 
           && subSamplingFactor == 1 && _indexMin[movingDirection] == 0
           && _indexMax[movingDirection] == m_DimSize[movingDirection]-1)
