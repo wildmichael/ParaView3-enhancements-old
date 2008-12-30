@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2008-12-30 21:04:38 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2386,6 +2386,7 @@ bool MetaCommand::LoadArgumentsFromXML(const char* filename,
     }
    
 #endif
+  xmlFreeDoc(doc);
   return true;
 }
 
