@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-12-30 21:04:38 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2008-12-30 21:24:21 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2378,7 +2378,7 @@ bool MetaCommand::LoadArgumentsFromXML(const char* filename,
       }
     cur = cur->next;
     }
-
+  xmlFreeDoc(doc);
 #else 
   METAIO_STREAM::cout << "LoadArguments(" << filename << ") requires libxml2" << METAIO_STREAM::endl; 
   if(createMissingArguments)
@@ -2386,7 +2386,6 @@ bool MetaCommand::LoadArgumentsFromXML(const char* filename,
     }
    
 #endif
-  xmlFreeDoc(doc);
   return true;
 }
 
