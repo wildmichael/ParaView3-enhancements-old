@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.h,v 1.6 2008-09-16 12:52:34 clarke Exp $  */
-/*  Date : $Date: 2008-09-16 12:52:34 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfArray.h,v 1.7 2008-12-30 20:47:33 clarke Exp $  */
+/*  Date : $Date: 2008-12-30 20:47:33 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -44,7 +44,9 @@ of the array is the same type). Access to HDF5 files is
 accomplished directly thru XdmfArrays by the XdmfHDF class.
 */
 
+#ifndef SWIG
 #include <stdlib.h>
+#endif
 
 class XDMF_EXPORT XdmfArray : public XdmfDataDesc {
 

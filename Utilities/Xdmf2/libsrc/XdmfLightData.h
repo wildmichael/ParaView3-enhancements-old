@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfLightData.h,v 1.7 2008-06-26 19:00:46 fbertel Exp $  */
-/*  Date : $Date: 2008-06-26 19:00:46 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfLightData.h,v 1.8 2008-12-30 20:47:33 clarke Exp $  */
+/*  Date : $Date: 2008-12-30 20:47:33 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,7 +27,9 @@
 
 #include "XdmfObject.h"
 
+#ifndef SWIG
 #include <string.h> // strcmp, strlen, strcpy
+#endif
 
 // typedef XdmfPointer XdmfXmlNode;
 struct _xmlNode;
