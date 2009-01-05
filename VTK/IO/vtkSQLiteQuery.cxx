@@ -36,7 +36,7 @@
 #define COMMIT_TRANSACTION "COMMIT"
 #define ROLLBACK_TRANSACTION "ROLLBACK"
 
-vtkCxxRevisionMacro(vtkSQLiteQuery, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkSQLiteQuery, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkSQLiteQuery);
 
 // ----------------------------------------------------------------------
@@ -809,3 +809,9 @@ bool vtkSQLiteQuery::ClearParameterBindings()
   return true;
 }
     
+// ----------------------------------------------------------------------
+
+bool vtkSQLiteQuery::BindParameter(int index, vtkVariant value)
+{
+  return this->Superclass::BindParameter(index, value);
+}
