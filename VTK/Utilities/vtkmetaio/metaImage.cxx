@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-01-08 11:33:55 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2009-01-08 11:44:00 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1928,7 +1928,7 @@ bool MetaImage::WriteROI( int * _indexMin, int * _indexMax,
       // Check if we are still in the region
       for( i=1; i<m_NDims; i++ )
         {
-        if( currentIndex[i] >= _indexMax[i] )
+        if( currentIndex[i] > _indexMax[i] )
           {
           if( i == m_NDims-1 )
             {
