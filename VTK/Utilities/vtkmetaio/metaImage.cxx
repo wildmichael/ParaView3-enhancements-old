@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-01-08 11:44:00 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2009-01-08 11:44:05 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -2135,7 +2135,7 @@ bool MetaImage::WriteROI( int * _indexMin, int * _indexMax,
           } 
         
         // Write the line
-        long bytesToWrite = _indexMax[0]-_indexMin[0];
+        long bytesToWrite = _indexMax[0] - _indexMin[0] + 1;
         MetaImage::M_WriteElementData(m_WriteStream, elementData, bytesToWrite);
         elementData += bytesToWrite*elementNumberOfBytes;
         currentPos += bytesToWrite*elementNumberOfBytes;
@@ -2152,7 +2152,7 @@ bool MetaImage::WriteROI( int * _indexMin, int * _indexMax,
         // Check if we are still in the region
         for(i=1;i<m_NDims;i++)
           {
-          if(currentIndex[i]>=_indexMax[i])
+          if(currentIndex[i]>_indexMax[i])
             {
             if(i==m_NDims-1)
               {
