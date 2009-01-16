@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: expatt.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expatt.c,v 1.4 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -121,6 +121,11 @@ int ex_put_attr (int   exoid,
   case EX_ELEM_BLOCK:
     status = nc_inq_varid (exoid, VAR_ATTRIB(blk_id_ndx), &attrid);
     break;
+  default:
+    sprintf(errmsg,
+      "Error: Called with invalid blk_type %d", blk_type );
+    ex_err("ex_put_attr",errmsg,exerrval);
+    return (EX_FATAL);
   }
 
   if (status != NC_NOERR) {

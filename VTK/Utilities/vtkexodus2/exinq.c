@@ -48,7 +48,7 @@
 *
 * revision history - 
 *
-*  $Id: exinq.c,v 1.4 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exinq.c,v 1.5 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -201,9 +201,9 @@ int ex_inquire (int   exoid,
                 void *ret_float,
                 char *ret_char)
 {
-  int dimid, varid, i, tmp_num, *ids;
+  int dimid, varid, tmp_num, *ids;
   size_t ldum = 0;
-  size_t num_sets, idum;
+  size_t num_sets, idum, i;
   int *stat_vals;
   char  errmsg[MAX_ERR_LENGTH];
   int status;

@@ -46,7 +46,7 @@
 *
 * exit conditions - 
 *
-*  $Id: expoatt.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expoatt.c,v 1.4 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -146,6 +146,11 @@ int ex_put_one_attr( int   exoid,
     dnumobjatt = DIM_NUM_ATT_IN_BLK(obj_id_ndx);
     vattrbname = VAR_ATTRIB(obj_id_ndx);
     break;
+  default:
+    sprintf(errmsg,
+      "Error: Called with invalid obj_type %d", obj_type);
+    ex_err("ex_put_one_attr",errmsg,exerrval);
+    return (EX_FATAL);
   }
 
   /* inquire id's of previously defined dimensions  */
@@ -155,7 +160,7 @@ int ex_put_one_attr( int   exoid,
   if (ex_get_dimension(exoid, dnumobjatt,"attributes", &num_attr, &temp, "ex_put_one_attr") != NC_NOERR)
     return EX_FATAL;
 
-  if (attrib_index < 1 || attrib_index > num_attr) {
+  if (attrib_index < 1 || (size_t)attrib_index > num_attr) {
     exerrval = EX_FATAL;
     sprintf(errmsg,
             "Error: Invalid attribute index specified: %d.  Valid range is 1 to %d for %s %d in file id %d",

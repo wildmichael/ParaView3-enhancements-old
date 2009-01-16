@@ -45,7 +45,7 @@
 * exit conditions - 
 *       int*    var_tab            element variable truth table array
 *
-*  $Id: exgvartab.c,v 1.1 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgvartab.c,v 1.2 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -151,7 +151,7 @@ int ex_get_truth_table (int  exoid,
     return (EX_FATAL);
   }
 
-  if (num_entity != num_blk) {
+  if (num_entity != (size_t)num_blk) {
     exerrval = EX_FATAL;
     sprintf(errmsg,
       "Error: # of %s doesn't match those defined in file id %d",
@@ -160,7 +160,7 @@ int ex_get_truth_table (int  exoid,
     return (EX_FATAL);
   }
 
-  if (num_var_db != num_var) {
+  if (num_var_db != (size_t)num_var) {
     exerrval = EX_FATAL;
     sprintf(errmsg,
       "Error: # of %s variables doesn't match those defined in file id %d",

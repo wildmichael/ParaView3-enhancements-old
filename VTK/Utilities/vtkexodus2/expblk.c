@@ -50,7 +50,7 @@
 *
 * exit conditions - 
 *
-*  $Id: expblk.c,v 1.4 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expblk.c,v 1.5 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -271,6 +271,11 @@ int ex_put_block( int         exoid,
     vedgcon = VAR_ECONN(blk_id_ndx);
     vfaccon = VAR_FCONN(blk_id_ndx);
     break;
+  default:
+    sprintf(errmsg,
+      "Error: Called with invalid blk_type %d", blk_type );
+    ex_err("ex_put_block",errmsg,exerrval);
+    return (EX_FATAL);
   }
   /* define some dimensions and variables*/
 

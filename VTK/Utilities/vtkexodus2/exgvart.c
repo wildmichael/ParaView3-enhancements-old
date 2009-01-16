@@ -53,7 +53,7 @@
 * revision history - 
 *   20061002 - David Thompson - Adapted from ex_get_var_time
 *
-* $Id: exgvart.c,v 1.2 2009-01-16 14:32:01 utkarsh Exp $
+* $Id: exgvart.c,v 1.3 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -207,7 +207,7 @@ int ex_get_var_time( int   exoid,
     }
   }
   else { /* default: status is true */
-    for(i=0;i<num_obj;i++)
+    for(i=0;i<(int)num_obj;i++)
       stat_vals[i]=1;
   }
 

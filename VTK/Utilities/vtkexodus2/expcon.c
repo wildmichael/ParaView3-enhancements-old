@@ -45,7 +45,7 @@
 *
 * revision history - 
 *
-*  $Id: expcon.c,v 1.4 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expcon.c,v 1.5 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -99,7 +99,7 @@ int ex_put_coord_names (int   exoid,
 
   /* write out coordinate names */
 
-  for (i=0; i<num_dim; i++) {
+  for (i=0; i<(int)num_dim; i++) {
     start[0] = i;
     start[1] = 0;
 

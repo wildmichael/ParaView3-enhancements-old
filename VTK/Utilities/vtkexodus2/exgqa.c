@@ -45,7 +45,7 @@
 *
 * revision history - 
 *
-*  $Id: exgqa.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgqa.c,v 1.4 2009-01-16 20:52:13 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -100,7 +100,7 @@ int ex_get_qa (int exoid,
 
 
     /* read the QA records */
-    for (i=0; i<num_qa_records; i++) {
+    for (i=0; i<(int)num_qa_records; i++) {
       for (j=0; j<4; j++) {
 	start[0] = i;
 	start[1] = j;
