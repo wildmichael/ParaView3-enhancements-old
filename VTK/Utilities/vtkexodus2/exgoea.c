@@ -45,17 +45,17 @@
 *       float*  attrib                  array of attributes
 *
 * revision history - 
-*   20061003 - David Thompson - moved to ex_get_one_attr
 *
-*  $Id: exgoea.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgoea.c,v 1.2 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * reads the attributes for an element block
+ * \deprecated Use ex_get_one_attr()(exoid, EX_ELEM_BLOCK, elem_blk_id, attrib_index, attrib)
  */
 int ex_get_one_elem_attr (int   exoid,
                           int   elem_blk_id,

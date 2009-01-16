@@ -44,18 +44,16 @@
 * exit conditions - 
 *       char*   names[]                 ptr array of attribute names
 *
-* revision history - 
-*   20061003 - David Thompson - moved to ex_get_attr_names
-*
-*  $Id: exgean.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgean.c,v 1.2 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * reads the attribute names for an element block
+ * \deprecated Use ex_get_attr_names()(exoid, EX_ELEM_BLOCK, elem_blk_id, names) instead
  */
 int ex_get_elem_attr_names (int   exoid,
                             int   elem_blk_id,

@@ -36,14 +36,6 @@
 *
 * exgeat - ex_get_elem_attr
 *
-* author - Sandia National Laboratories
-*          Larry A. Schoof - Original
-*          James A. Schutt - 8 byte float and standard C definitions
-*          Vic Yarberry    - Added headers and error logging
-*
-*          
-* environment - UNIX
-*
 * entry conditions - 
 *   input parameters:
 *       int     exoid                   exodus file id
@@ -52,18 +44,16 @@
 * exit conditions - 
 *       float*  attrib                  array of attributes
 *
-* revision history - 
-*   20061003 - David Thompson - moved to ex_get_att
-*
-*  $Id: exgeat.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgeat.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * reads the attributes for an element block
+ * \deprecated Use ex_get_attr()(exoid, EX_ELEM_BLOCK, elem_blk_id, attrib) instead
  */
 
 int ex_get_elem_attr (int   exoid,

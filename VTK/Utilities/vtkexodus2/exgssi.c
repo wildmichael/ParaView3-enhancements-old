@@ -34,15 +34,7 @@
  */
 /*****************************************************************************
 *
-* exgssi - ex_get_size_set_ids
-*
-* author - Sandia National Laboratories
-*          Larry A. Schoof - Original
-*          James A. Schutt - 8 byte float and standard C definitions
-*          Vic Yarberry    - Added headers and error logging
-*
-*          
-* environment - UNIX
+* exgssi - ex_get_side_set_ids
 *
 * entry conditions - 
 *   input parameters:
@@ -53,16 +45,16 @@
 *
 * revision history - 
 *
-*  $Id: exgssi.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgssi.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
-#include <stdlib.h>
 #include "exodusII.h"
 #include "exodusII_int.h"
 
 /*!
  *  reads the side set ids from the database
+ * \deprecated Use ex_get_ids()(exoid, EX_SIDE_SET, ids)
  */
 
 int ex_get_side_set_ids (int  exoid,

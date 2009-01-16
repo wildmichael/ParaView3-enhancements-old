@@ -49,7 +49,7 @@
 *
 * revision history - 
 *
-*  $Id: expvtt.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expvtt.c,v 1.3 2009-01-16 14:32:03 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -66,6 +66,11 @@
  * of define mode (causing the entire file to be copied over and over)
  * which is what occurs when the element variable values variables are
  * defined in ex_put_elem_var
+ * \param       exoid          int             exodus file id
+ * \param       num_elem_blk   int             number of element blocks
+ * \param       num_elem_var   int             number of element variables
+ * \param       elem_var_tab   int*            element variable truth table array
+ * \deprecated Use ex_put_truth_table()(exoid, EX_ELEM_BLOCK, num_elem_blk, num_elem_var, elem_var_tab)
  */
 
 int ex_put_elem_var_tab (int  exoid,
@@ -73,5 +78,5 @@ int ex_put_elem_var_tab (int  exoid,
                          int  num_elem_var,
                          int *elem_var_tab)
 {
-  return ex_put_var_tab(exoid, "E", num_elem_blk, num_elem_var, elem_var_tab);
+  return ex_put_truth_table(exoid, EX_ELEM_BLOCK, num_elem_blk, num_elem_var, elem_var_tab);
 }

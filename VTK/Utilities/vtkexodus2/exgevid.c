@@ -45,18 +45,19 @@
 *
 * revision history - 
 *
-*  $Id: exgevid.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgevid.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 
-/*
+/*!
  * reads the EXODUS II variable varids from the database
+ * \deprecated Use ex_get_varid()(exoid, EX_ELEM_BLOCK, varid)
  */
 
 int ex_get_elem_varid (int  exoid,
                        int *varid)
 {
-  return ex_get_varid(exoid, "e", varid);
+  return ex_get_varid(exoid, EX_ELEM_BLOCK, varid);
 }

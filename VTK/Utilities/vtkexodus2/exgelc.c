@@ -36,13 +36,6 @@
 *
 * exgelc - exodusII read element block connectivity
 *
-* author - Sandia National Laboratories
-*          Larry A. Schoof - Original
-*          James A. Schutt - 8 byte float and standard C definitions
-*          Vic Yarberry    - Added headers and error logging
-*
-* environment - UNIX
-*
 * entry conditions - 
 *   expelb must be called first to establish element block parameters.
 *   input parameters:
@@ -52,17 +45,16 @@
 * exit conditions - 
 *       int*    connect         connectivity array
 *
-* revision history - 
-*   20061001 - David Thompson - Moved to exgconn (ex_get_conn)
 *
-* $Id: exgelc.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+* $Id: exgelc.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 */
 #include <stdlib.h>
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * reads the connectivity array for an element block
+ * \deprecated Use ex_get_conn()(exoid, EX_ELEM_BLOCK, elem_blk_id, connect, 0, 0) instead
  */
 
 int ex_get_elem_conn (int   exoid,

@@ -36,12 +36,6 @@
 *
 * exopts - ex_opts
 *
-* author - Sandia National Laboratories
-*          Vic Yarberry    - Original
-*
-*          
-* environment - UNIX
-*
 * entry conditions - 
 *   input parameters:
 *       int     options         error reporting options mask
@@ -52,7 +46,7 @@
 *
 * revision history - 
 *
-*  $Id: exopts.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exopts.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 #include "exodusII.h"
@@ -65,27 +59,17 @@ int exoptval = EX_VERBOSE;   /* loud mode: set EX_VERBOSE */
 #if defined (DEBUG)
 int exoptval = EX_VERBOSE | EX_DEBUG;/* debug mode: set EX_VERBOSE & EX_DEBUG */
 #else
-int exoptval = 0;  /* set default global options value to NOT print error msgs*/
+int exoptval = EX_DEFAULT;  /* set default global options value to NOT print error msgs*/
 #endif
 #endif
 
 /*!
  * error reporting options mask
+ * \param  options         error reporting options mask \sa ex_options
  */
 void ex_opts (int options)      
 {
-  static int first_time = TRUE;
   exerrval = 0; /* clear error code */
   exoptval = options;
-
-  if (first_time)       /* set ncopts to quiet & no abort first time through */
-  {
-    ncopts = 0;
-    first_time = FALSE;
-  }
-
-  if (exoptval & EX_DEBUG)
-    ncopts = ncopts | NC_VERBOSE;       /* debug mode: turn on netCDF verbose */
-  else
-    ncopts = ncopts & !NC_VERBOSE;
+  ncopts = exoptval;
 }

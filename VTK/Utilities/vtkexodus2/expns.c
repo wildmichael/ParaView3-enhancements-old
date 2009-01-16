@@ -36,14 +36,6 @@
 *
 * expns - ex_put_node_set
 *
-* author - Sandia National Laboratories
-*          Larry A. Schoof - Original
-*          James A. Schutt - 8 byte float and standard C definitions
-*          Vic Yarberry    - Added headers and error logging
-*
-*          
-* environment - UNIX
-*
 * entry conditions - 
 *   input parameters:
 *       int     exoid                   exodus file id
@@ -54,7 +46,7 @@
 *
 * revision history - 
 *
-*  $Id: expns.c,v 1.3 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expns.c,v 1.4 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -63,6 +55,10 @@
 
 /*!
  * writes the node list for a single node set
+ * \param   exoid                   exodus file id
+ * \param   node_set_id             node set id
+ * \param   node_set_node_list      node list array for the node set
+ * \deprecated Use ex_put_set()(exoid, EX_NODE_SET, node_set_id, node_set_node_list, NULL)
  */
 
 int ex_put_node_set (int   exoid,
@@ -70,5 +66,5 @@ int ex_put_node_set (int   exoid,
                      const int  *node_set_node_list)
 {
   return ex_put_set(exoid, EX_NODE_SET, node_set_id,
-        node_set_node_list, NULL);
+		    node_set_node_list, NULL);
 }

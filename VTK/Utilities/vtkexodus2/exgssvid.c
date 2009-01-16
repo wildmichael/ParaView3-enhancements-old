@@ -45,7 +45,7 @@
 *
 * revision history - 
 *
-*  $Id: exgssvid.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgssvid.c,v 1.2 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -55,10 +55,11 @@
 
 /*!
  * reads the EXODUS II variable varids from the database
+ * \deprecated Use ex_get_varid()(exoid, EX_SIDE_SET, varid)
  */
 
 int ex_get_sset_varid (int  exoid,
                        int *varid)
 {
-  return ex_get_varid(exoid, "s", varid);
+  return ex_get_varid(exoid, EX_SIDE_SET, varid);
 }

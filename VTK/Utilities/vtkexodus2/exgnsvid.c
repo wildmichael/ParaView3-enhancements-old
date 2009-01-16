@@ -45,7 +45,7 @@
 *
 * revision history - 
 *
-*  $Id: exgnsvid.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgnsvid.c,v 1.2 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -53,12 +53,13 @@
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * reads the EXODUS II variable varids from the database
+ * \deprecated Use ex_get_varid()(exoid, EX_NODE_SET, varid)
  */
 
 int ex_get_nset_varid (int  exoid,
                        int *varid)
 {
-  return ex_get_varid(exoid, "m", varid);
+  return ex_get_varid(exoid, EX_NODE_SET, varid);
 }

@@ -36,12 +36,6 @@
 *
 * expssd - ex_put_side_set_dist_fact
 *
-* author - Sandia National Laboratories
-*          Larry A. Schoof - Original
-*
-*          
-* environment - UNIX
-*
 * entry conditions - 
 *   input parameters:
 *       int     exoid                   exodus file id
@@ -52,7 +46,7 @@
 *
 * revision history - 
 *
-*  $Id: expssd.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expssd.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -61,6 +55,10 @@
 
 /*!
  * writes the distribution factors for a single side set
+ * \param       exoid                   exodus file id
+ * \param       side_set_id             side set id
+ * \param      *side_set_dist_fact      array of dist factors for side set
+ * \deprecated Use ex_put_set_dist_fact()(exoid, EX_SIDE_SET, side_set_id, side_set_dist_fact)
  */
 
 int ex_put_side_set_dist_fact (int   exoid,
@@ -68,5 +66,5 @@ int ex_put_side_set_dist_fact (int   exoid,
                                const void *side_set_dist_fact)
 {
   return ex_put_set_dist_fact(exoid, EX_SIDE_SET, side_set_id,
-            side_set_dist_fact);
+			      side_set_dist_fact);
 }

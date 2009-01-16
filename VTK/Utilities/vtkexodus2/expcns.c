@@ -52,7 +52,7 @@
 *
 * revision history - 
 *
-*  $Id: expcns.c,v 1.3 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expcns.c,v 1.4 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -63,6 +63,15 @@
 /*!
  * writes the node set ID's, node set count array, node set pointers array, 
  * and node set node list for all of the node sets
+ * \param    exoid                   exodus file id
+ * \param    node_set_ids            array of node set ids
+ * \param    num_nodes_per_set       array of number of nodes per set
+ * \param    num_dist_per_set        array of number of dist fact  per set
+ * \param    node_sets_node_index    array of set indices into node list
+ * \param    node_sets_df_index      array of set indices into dist fact list
+ * \param    node_sets_node_list     array of node list #'s for node set
+ * \param    node_sets_dist_fact     array of dist factors for node set
+ * \deprecated Use ex_put_concat_sets()(exoid, EX_NODE_SET, &set_specs)
  */
 
 int ex_put_concat_node_sets (int   exoid,

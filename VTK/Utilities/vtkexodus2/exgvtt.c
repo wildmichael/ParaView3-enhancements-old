@@ -36,8 +36,6 @@
 *
 * exgvtt - ex_get_elem_var_tab
 *
-* environment - UNIX
-*
 * entry conditions - 
 *   input parameters:
 *       int     exoid                   exodus file id
@@ -49,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: exgvtt.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgvtt.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -59,6 +57,7 @@
 
 /*!
  * reads the EXODUS II element variable truth table from the database
+ * \deprecated Use ex_get_truth_table()(exoid, EX_ELEM_BLOCK, num_elem_blk, num_elem_var, elem_var_tab)
  */
 
 int ex_get_elem_var_tab (int  exoid,
@@ -66,5 +65,5 @@ int ex_get_elem_var_tab (int  exoid,
                          int  num_elem_var,
                          int *elem_var_tab)
 {
-  return ex_get_var_tab(exoid, "E", num_elem_blk, num_elem_var, elem_var_tab);
+  return ex_get_truth_table(exoid, EX_ELEM_BLOCK, num_elem_blk, num_elem_var, elem_var_tab);
 }

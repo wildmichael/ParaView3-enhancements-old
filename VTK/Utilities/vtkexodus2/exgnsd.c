@@ -36,14 +36,6 @@
 *
 * exgnsd - ex_get_node_set_dist_fact
 *
-* author - Sandia National Laboratories
-*          Larry A. Schoof - Original
-*          James A. Schutt - 8 byte float and standard C definitions
-*          Vic Yarberry    - Added headers and error logging
-*
-*          
-* environment - UNIX
-*
 * entry conditions - 
 *   input parameters:
 *       int     exoid                   exodus file id
@@ -54,15 +46,16 @@
 *
 * revision history - 
 *
-*  $Id: exgnsd.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgnsd.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * reads the distribution factors for a single node set
+ * \deprecated Use ex_get_set_dist_fact()(exoid, EX_NODE_SET, node_set_id, node_set_dist_fact)
  */
 
 int ex_get_node_set_dist_fact  (int   exoid,
@@ -70,5 +63,5 @@ int ex_get_node_set_dist_fact  (int   exoid,
                                 void *node_set_dist_fact)
 {
   return ex_get_set_dist_fact(exoid, EX_NODE_SET, node_set_id,
-            node_set_dist_fact);
+			      node_set_dist_fact);
 }
