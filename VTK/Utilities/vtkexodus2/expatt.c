@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: expatt.c,v 1.4 2009-01-16 20:52:13 utkarsh Exp $
+*  $Id: expatt.c,v 1.5 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -68,7 +68,7 @@ int ex_put_attr (int   exoid,
 		 const void *attrib)
 {
   int status;
-  int attrid, blk_id_ndx;
+  int attrid, blk_id_ndx = 0;
   char errmsg[MAX_ERR_LENGTH];
 
   exerrval = 0; /* clear error code */

@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: exgatn.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgatn.c,v 1.4 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -63,7 +63,7 @@ int ex_get_attr_names( int   exoid,
                        char **names)
 {
   int status;
-  int varid, numattrdim, obj_id_ndx;
+  int varid, numattrdim, obj_id_ndx = 0;
   size_t i, num_attr, start[2];
   char *ptr;
   char errmsg[MAX_ERR_LENGTH];

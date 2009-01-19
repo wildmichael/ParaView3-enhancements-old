@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: exgcor.c,v 1.5 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgcor.c,v 1.6 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -198,8 +198,8 @@ int ex_get_coord (int exoid,
     /* write out the coordinates  */
     for (i=0; i<num_dim; i++)
       {
-        void *coor;
-        char *which;
+        void *coor = NULL;
+        char *which = NULL;
         int status;
        
         if (i == 0) {

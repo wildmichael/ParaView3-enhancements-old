@@ -48,7 +48,7 @@
 *
 * revision history - 
 *
-*  $Id: exgset.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgset.c,v 1.4 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -71,8 +71,8 @@ int ex_get_set (int   exoid,
   int set_id_ndx;
   char errmsg[MAX_ERR_LENGTH];
   char* numentryptr;
-  char* entryptr;
-  char* extraptr;
+  char* entryptr = NULL;
+  char* extraptr = NULL;
 
   exerrval = 0; /* clear error code */
 

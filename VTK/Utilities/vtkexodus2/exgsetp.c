@@ -49,7 +49,7 @@
 *
 * revision history - 
 *
-*  $Id: exgsetp.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgsetp.c,v 1.4 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -73,7 +73,7 @@ int ex_get_set_param (int  exoid,
   size_t lnum_dist_fact_in_set;
   char errmsg[MAX_ERR_LENGTH];
   char* numentryptr;
-  char* numdfptr;
+  char* numdfptr = 0;
 
   exerrval = 0; /* clear error code */
 

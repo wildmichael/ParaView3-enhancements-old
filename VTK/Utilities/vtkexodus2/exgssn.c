@@ -48,7 +48,7 @@
 *
 * revision history - 
 *
-*  $Id: exgssn.c,v 1.9 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgssn.c,v 1.10 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -71,7 +71,7 @@ int ex_get_side_set_node_list(int exoid,
   int  num_side_sets, num_elem_blks, num_df, ndim;
   int tot_num_elem = 0, tot_num_ss_elem = 0, elem_num = 0;
   int connect_offset, side_num, node_pos;
-  int *elem_blk_ids, *connect; 
+  int *elem_blk_ids, *connect = NULL; 
   int *ss_elem_ndx, *ss_elem_node_ndx, *ss_parm_ndx;
   int *side_set_elem_list, *side_set_side_list;
   int elem_ctr, node_ctr, elem_num_pos;

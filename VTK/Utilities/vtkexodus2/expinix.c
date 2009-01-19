@@ -46,7 +46,7 @@
 * revision history - 
 *          David Thompson  - Added edge/face blocks/sets
 *
-*  $Id: expinix.c,v 1.5 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expinix.c,v 1.6 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -54,6 +54,7 @@
 #include "exodusII_int.h"
 #include <string.h>
 #include <assert.h>
+#include <stdlib.h>
 
 #define EX_WRITE_OBJECT_PARAMS(TNAME,DNAME,SNAME,INAME,NUM_BLK,DIMVAR) \
   /* Can have nonzero model->num_elem_blk even if model->num_elem == 0 */ \

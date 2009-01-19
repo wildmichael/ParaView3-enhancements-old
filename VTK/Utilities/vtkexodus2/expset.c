@@ -48,7 +48,7 @@
 *
 * revision history - 
 *
-*  $Id: expset.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expset.c,v 1.4 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -74,8 +74,8 @@ int ex_put_set (int   exoid,
   int dimid, status;
   int entry_list_id, extra_list_id, set_id_ndx;
   char errmsg[MAX_ERR_LENGTH];
-  char* entryptr;
-  char* extraptr;
+  char* entryptr = NULL;
+  char* extraptr = NULL;
 
   exerrval = 0; /* clear error code */
 

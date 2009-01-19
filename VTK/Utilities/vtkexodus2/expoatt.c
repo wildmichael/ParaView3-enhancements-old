@@ -46,7 +46,7 @@
 *
 * exit conditions - 
 *
-*  $Id: expoatt.c,v 1.4 2009-01-16 20:52:13 utkarsh Exp $
+*  $Id: expoatt.c,v 1.5 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -69,7 +69,7 @@ int ex_put_one_attr( int   exoid,
                      const void *attrib )
 {
   int status;
-  int attrid, obj_id_ndx, temp;
+  int attrid, obj_id_ndx = 0, temp;
   size_t num_entries_this_obj, num_attr;
   size_t start[2], count[2];
   ptrdiff_t stride[2];

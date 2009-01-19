@@ -46,7 +46,7 @@
 *
 * revision history - 
 *
-*  $Id: expcset.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expcset.c,v 1.4 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -85,10 +85,10 @@ int ex_put_concat_sets (int   exoid,
   char errmsg[MAX_ERR_LENGTH];
   char* idsptr;
   char* statptr;
-  char* numdfptr;
-  char* factptr;
-  char* elemptr;
-  char* extraptr;
+  char* numdfptr = NULL;
+  char* factptr = NULL;
+  char* elemptr = NULL;
+  char* extraptr = NULL;
   ex_inquiry ex_inq_val;
   const int *extra_list;   
 

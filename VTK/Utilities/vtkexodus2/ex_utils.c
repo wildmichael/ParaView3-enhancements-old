@@ -36,7 +36,7 @@
 *
 * exutils - utility routines
 *
-*  $Id: ex_utils.c,v 1.4 2009-01-16 20:52:13 utkarsh Exp $
+*  $Id: ex_utils.c,v 1.5 2009-01-19 18:46:30 utkarsh Exp $
 *****************************************************************************/
 
 #if defined(DEBUG_QSORT)
@@ -547,7 +547,7 @@ int ex_id_lkup( int exoid,
       if ( !(tmp_stats->valid_ids) ) {
         if (id_vals) free (id_vals); 
       }
-      return(-(i+1)); /* return index into id array (1-based) */
+      return(-(((int)i)+1)); /* return index into id array (1-based) */
     }
   }
   if ( !(tmp_stats->valid_ids) ) {

@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: expcor.c,v 1.6 2009-01-16 20:52:13 utkarsh Exp $
+*  $Id: expcor.c,v 1.7 2009-01-19 18:46:31 utkarsh Exp $
 *
 *****************************************************************************/
 
@@ -198,9 +198,8 @@ int ex_put_coord (int   exoid,
 
     /* write out the coordinates  */
     for (i=0; i<num_dim; i++) {
-      const void *coor;
-      char *which;
-      int status;
+      const void *coor = NULL;
+      char *which = NULL;
        
       if (i == 0) {
 	coor = x_coor;
