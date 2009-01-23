@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.6 2008-07-04 13:25:54 biddisco Exp $  */
-/*  Date : $Date: 2008-07-04 13:25:54 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.7 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,9 +34,7 @@ XdmfDataDesc::XdmfDataDesc() {
   this->NextOffset = 0;
   this->Rank = 1;
   this->ShapeString = 0;
-#ifndef XDMF_NO_MPI
   this->DsmBuffer = NULL;
-#endif
 }
 
 XdmfDataDesc::~XdmfDataDesc() {

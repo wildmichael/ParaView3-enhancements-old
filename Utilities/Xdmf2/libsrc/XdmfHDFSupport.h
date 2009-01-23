@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDFSupport.h,v 1.1 2006-12-15 21:55:21 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 21:55:21 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHDFSupport.h,v 1.2 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.cxx,v 1.10 2008-04-04 19:30:21 clarke Exp $  */
-/*  Date : $Date: 2008-04-04 19:30:21 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDsmBuffer.cxx,v 1.11 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -79,6 +79,13 @@ XdmfDsmBuffer::ServiceThread(){
     this->ThreadDsmReady = 0;
     XdmfDebug("Ending DSM Service on node " << UniqueBuffer.GetComm()->GetId() << " last op = " << ReturnOpcode);
     return((void *)this);
+}
+
+XdmfInt32
+XdmfDsmBuffer::ServiceInit(){
+    XdmfInt32   status = XDMF_SUCCESS;
+
+    return(status);
 }
 
 XdmfInt32

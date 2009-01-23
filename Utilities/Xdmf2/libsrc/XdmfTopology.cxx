@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.17 2008-05-02 14:58:15 clarke Exp $  */
-/*  Date : $Date: 2008-05-02 14:58:15 $ */
-/*  Version : $Revision: 1.17 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.18 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.18 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -72,7 +72,7 @@ XdmfTopology::Build(){
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     this->Set("TopologyType", this->GetTopologyTypeAsString());
     if(this->GetNumberOfElements()){
-        this->Set("NumberOfElements", this->Shape->GetShapeAsString());
+        this->Set("Dimensions", this->Shape->GetShapeAsString());
     }
     if( this->OrderIsDefault == 0 ){
         this->Set("Order", this->GetOrderAsString());
@@ -82,6 +82,24 @@ XdmfTopology::Build(){
         ostrstream OffsetStream(Offset, 80);
         OffsetStream << this->BaseOffset << ends;
         this->Set("BaseOffset", Offset);
+    }
+    if(this->DataXml){
+        if(this->DOM){
+            if(this->InsertedDataXml == this->DataXml){
+                // Already done
+                return(XDMF_SUCCESS);
+            }
+            if(this->DOM->InsertFromString(this->GetElement(), this->DataXml)){
+                this->SetInsertedDataXml(this->DataXml);
+                return(XDMF_SUCCESS);
+            }else{
+                XdmfErrorMessage("Error Inserting Raw XML : " << endl << this->DataXml);
+                return(XDMF_FAIL);
+            }
+        }else{
+            XdmfErrorMessage("Can't insert raw XML sine DOM is not set");
+            return(XDMF_FAIL);
+        }
     }
     if(this->Connectivity){
         XdmfDataItem    *di = NULL;
@@ -591,9 +609,7 @@ if( this->GetClass() == XDMF_UNSTRUCTURED ){
     // cout << "Connection DataItem = " << &Connections << endl;
     XdmfDebug("Reading Connections from DataItem");
     if(Connections.SetDOM(this->DOM) == XDMF_FAIL) return(XDMF_FAIL);
-#ifndef XDMF_NO_MPI
     Connections.SetDsmBuffer(this->DsmBuffer);
-#endif
     if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
     if(Connections.SetElement(ConnectionElement, 0) == XDMF_FAIL) return(XDMF_FAIL);
     if(Connections.UpdateInformation() == XDMF_FAIL) return(XDMF_FAIL);

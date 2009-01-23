@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.20 2008-02-22 17:11:34 clarke Exp $  */
-/*  Date : $Date: 2008-02-22 17:11:34 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfElement.h,v 1.21 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,9 +32,7 @@
 #define XDMF_ELEMENT_STATE_HEAVY_READ    2
 
 class XdmfDOM;
-#ifndef XDMF_NO_MPI
 class XdmfDsmBuffer;
-#endif
 
 //! Basic XML Based Element
 /*!
@@ -140,6 +138,16 @@ public:
     //! Set the ElementName. i.e. ElementName for <Information ... = "Information"
     XdmfSetStringMacro(ElementName);
 
+    //! Get the DataXml. This is used by Build() when HeavyData has already been written
+    XdmfGetStringMacro(DataXml);
+    //! Set the DataXml. This will override the Build() method and inject the raw XML
+    XdmfSetStringMacro(DataXml);
+
+    //! Get the DataXml. This is used by Build() when HeavyData has already been written
+    XdmfGetStringMacro(InsertedDataXml);
+    //! Set the DataXml. This will override the Build() method and inject the raw XML
+    XdmfInt32 SetInsertedDataXml(XdmfString Inserted){this->InsertedDataXml = Inserted; return(XDMF_SUCCESS);};
+
     //! Get the Element type : Grid, Topology, etc.
     XdmfConstString GetElementType();
 
@@ -166,12 +174,10 @@ public:
 
     //! Follow a Refernce Chain one step, if it exists
     XdmfXmlNode FollowReference(XdmfXmlNode Element);
-#ifndef XDMF_NO_MPI
     //! Get DSM Buffer
     XdmfGetValueMacro(DsmBuffer, XdmfDsmBuffer *);
     //! Set DSM Buffer
     XdmfSetValueMacro(DsmBuffer, XdmfDsmBuffer *);
-#endif
 
 protected:
     void        SetReferenceObject(XdmfXmlNode Element, void *p);
@@ -183,6 +189,8 @@ protected:
     XdmfDOM     *DOM;
     XdmfInt32   State;
     XdmfString  ElementName;
+    XdmfString  DataXml;
+    XdmfString  InsertedDataXml;
     //! Target XML That Represents this. In the case of a reference, this is the target XML not the Reference="XX" node.
     XdmfXmlNode Element;
     //! If this is a Reference XML, this is the head of the Reference chain (the Original XML node).
@@ -190,9 +198,7 @@ protected:
     XdmfInt32   IsReference;
     // Copy, don't copy data out of reference element. Default is to copy.
     XdmfInt32   CopyReferenceData;
-#ifndef XDMF_NO_MPI
-        XdmfDsmBuffer *DsmBuffer;
-#endif
+    XdmfDsmBuffer *DsmBuffer;
     XdmfXmlNode RootWhenParsed;
 };
 #endif // __XdmfElement_h

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.26 2008-06-26 19:00:46 fbertel Exp $  */
-/*  Date : $Date: 2008-06-26 19:00:46 $ */
-/*  Version : $Revision: 1.26 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.27 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.27 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -63,9 +63,9 @@ XdmfElement::XdmfElement() {
     this->State = XDMF_ELEMENT_STATE_UNINITIALIZED;
     this->CopyReferenceData = 1;
     this->RootWhenParsed = 0;
-#ifndef XDMF_NO_MPI
     this->DsmBuffer = NULL;
-#endif
+    this->DataXml = 0;
+    this->InsertedDataXml = 0;
 }
 
 XdmfElement::~XdmfElement() {
@@ -84,6 +84,7 @@ XdmfElement::~XdmfElement() {
     }
     this->Element = NULL;
     if(this->ElementName) delete [] this->ElementName;
+    if(this->DataXml) delete [] this->DataXml;
 }
 
 void XdmfElement::SetReferenceObject(XdmfXmlNode anElement, void *p){

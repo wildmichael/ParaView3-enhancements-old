@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.h,v 1.3 2007-07-10 22:17:10 dave.demarle Exp $  */
-/*  Date : $Date: 2007-07-10 22:17:10 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDsmCommMpi.h,v 1.4 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,7 +26,13 @@
 #define __XdmfDsmCommMpi_h
 
 #include "XdmfDsmComm.h"
+#ifndef XDMF_NO_MPI
+#ifndef SWIG
 #include <mpi.h>
+#endif // SWIG
+#else // XDMF_NO_MPI
+typedef int MPI_Comm;
+#endif // XDMF_NO_MPI
 
 //! Base comm object for Distributed Shared Memory implementation
 /*!
@@ -42,12 +48,14 @@ public:
   XdmfConstString GetClassName() { return ( "XdmfDsmCommMpi" ) ; };
 
 
+#ifndef SWIG
     //! Set the MPI Communicator
     XdmfSetValueMacro(Comm, MPI_Comm);
     //! Get the MPI Communicator
     XdmfGetValueMacro(Comm, MPI_Comm);
 
     XdmfInt32   DupComm(MPI_Comm Source);
+#endif
     XdmfInt32   Init();
     XdmfInt32   Send(XdmfDsmMsg *Msg);
     XdmfInt32   Receive(XdmfDsmMsg *Msg);

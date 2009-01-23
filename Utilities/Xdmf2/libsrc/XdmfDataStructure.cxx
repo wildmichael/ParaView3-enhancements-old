@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.cxx,v 1.13 2007-01-26 18:06:24 clarke Exp $  */
-/*  Date : $Date: 2007-01-26 18:06:24 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfDataStructure.cxx,v 1.14 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */

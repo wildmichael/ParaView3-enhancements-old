@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.15 2008-09-04 15:46:47 dave.demarle Exp $  */
-/*  Date : $Date: 2008-09-04 15:46:47 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.16 2009-01-23 20:31:39 clarke Exp $  */
+/*  Date : $Date: 2009-01-23 20:31:39 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -93,8 +93,27 @@ XdmfGeometry::Build(){
     XdmfDataItem    *di = NULL;
     XdmfArray       *array;
 
+    cout << "Building Geometry" << endl;
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     this->Set("GeometryType", this->GetGeometryTypeAsString());
+    if(this->DataXml){
+        if(this->DOM){
+            if(this->InsertedDataXml == this->DataXml){
+                // Already done
+                return(XDMF_SUCCESS);
+            }
+            if(this->DOM->InsertFromString(this->GetElement(), this->DataXml)){
+                this->SetInsertedDataXml(this->DataXml);
+                return(XDMF_SUCCESS);
+            }else{
+                XdmfErrorMessage("Error Inserting Raw XML : " << endl << this->DataXml);
+                return(XDMF_FAIL);
+            }
+        }else{
+            XdmfErrorMessage("Can't insert raw XML sine DOM is not set");
+            return(XDMF_FAIL);
+        }
+    }
     switch( this->GeometryType ){
       case XDMF_GEOMETRY_VXVYVZ:
             if(!this->VectorX || !this->VectorY || !this->VectorZ){
@@ -320,9 +339,7 @@ if( ( this->GeometryType == XDMF_GEOMETRY_X_Y_Z ) ||
     if(PointsItem.SetDOM( this->DOM ) == XDMF_FAIL) return(XDMF_FAIL);
     if(PointsItem.SetElement(PointsElement, 0) == XDMF_FAIL) return(XDMF_FAIL);
     if(PointsItem.UpdateInformation() == XDMF_FAIL) return(XDMF_FAIL);
-#ifndef XDMF_NO_MPI
     PointsItem.SetDsmBuffer(this->DsmBuffer);
-#endif
     if(PointsItem.Update() == XDMF_FAIL) return(XDMF_FAIL);
     TmpArray = PointsItem.GetArray();
     if( TmpArray ){
@@ -391,9 +408,7 @@ if( ( this->GeometryType == XDMF_GEOMETRY_X_Y_Z ) ||
   if( this->GeometryType == XDMF_GEOMETRY_ORIGIN_DXDYDZ ) {
       XdmfDataItem PointsItem;
       PointsItem.SetDOM(this->DOM);
-#ifndef XDMF_NO_MPI
       PointsItem.SetDsmBuffer(this->DsmBuffer);
-#endif
       XdmfDebug("Reading Origin and Dx, Dy, Dz" );
       PointsElement = this->DOM->FindDataElement(0, this->Element );
       if( PointsElement ){
