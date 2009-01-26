@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.7 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.8 2009-01-26 21:15:21 clarke Exp $  */
+/*  Date : $Date: 2009-01-26 21:15:21 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -191,10 +191,10 @@ ostrstream   StringOutput;
 XdmfInt64  i, rank, Dimensions[ XDMF_MAX_DIMENSION ];
 
 rank = this->GetShape( Dimensions );
-for( i = 0 ; i < rank ; i++ ){
+for( i = 0 ; i < rank - 1 ; i++ ){
   StringOutput << XDMF_64BIT_CAST Dimensions[i] << " ";
   }
-StringOutput << ends;
+StringOutput << XDMF_64BIT_CAST Dimensions[i] << ends;
 this->SetShapeString(StringOutput.str());
 StringOutput.rdbuf()->freeze(0);
 return( this->ShapeString );

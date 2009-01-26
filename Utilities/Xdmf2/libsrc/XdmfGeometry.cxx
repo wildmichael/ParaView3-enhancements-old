@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.16 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.17 2009-01-26 21:15:21 clarke Exp $  */
+/*  Date : $Date: 2009-01-26 21:15:21 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -88,6 +88,7 @@ XdmfGeometry::GetDataItem(XdmfInt32 Index, XdmfXmlNode Node){
     return(di);
 }
 
+
 XdmfInt32
 XdmfGeometry::Build(){
     XdmfDataItem    *di = NULL;
@@ -96,24 +97,8 @@ XdmfGeometry::Build(){
     cout << "Building Geometry" << endl;
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     this->Set("GeometryType", this->GetGeometryTypeAsString());
-    if(this->DataXml){
-        if(this->DOM){
-            if(this->InsertedDataXml == this->DataXml){
-                // Already done
-                return(XDMF_SUCCESS);
-            }
-            if(this->DOM->InsertFromString(this->GetElement(), this->DataXml)){
-                this->SetInsertedDataXml(this->DataXml);
-                return(XDMF_SUCCESS);
-            }else{
-                XdmfErrorMessage("Error Inserting Raw XML : " << endl << this->DataXml);
-                return(XDMF_FAIL);
-            }
-        }else{
-            XdmfErrorMessage("Can't insert raw XML sine DOM is not set");
-            return(XDMF_FAIL);
-        }
-    }
+    // Build Children from String , if provided
+    if(this->BuildFromDataXml() == XDMF_SUCCESS) return(XDMF_SUCCESS);
     switch( this->GeometryType ){
       case XDMF_GEOMETRY_VXVYVZ:
             if(!this->VectorX || !this->VectorY || !this->VectorZ){

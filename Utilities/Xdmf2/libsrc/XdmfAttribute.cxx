@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.15 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.16 2009-01-26 21:15:21 clarke Exp $  */
+/*  Date : $Date: 2009-01-26 21:15:21 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -69,24 +69,7 @@ XdmfAttribute::Build(){
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     this->Set("AttributeType", this->GetAttributeTypeAsString());
     this->Set("Center", this->GetAttributeCenterAsString());
-    if(this->DataXml){
-        if(this->DOM){
-            if(this->InsertedDataXml == this->DataXml){
-                // Already done
-                return(XDMF_SUCCESS);
-            }
-            if(this->DOM->InsertFromString(this->GetElement(), this->DataXml)){
-                this->SetInsertedDataXml(this->DataXml);
-                return(XDMF_SUCCESS);
-            }else{
-                XdmfErrorMessage("Error Inserting Raw XML : " << endl << this->DataXml);
-                return(XDMF_FAIL);
-            }
-        }else{
-            XdmfErrorMessage("Can't insert raw XML sine DOM is not set");
-            return(XDMF_FAIL);
-        }
-    }
+    if(this->BuildFromDataXml() == XDMF_SUCCESS) return(XDMF_SUCCESS);
     if(this->Values){
         XdmfDataItem    *di = NULL;
         XdmfXmlNode     node;

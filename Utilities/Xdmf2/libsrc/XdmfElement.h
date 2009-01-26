@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.21 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.21 $ */
+/*  Id : $Id: XdmfElement.h,v 1.22 2009-01-26 21:15:21 clarke Exp $  */
+/*  Date : $Date: 2009-01-26 21:15:21 $ */
+/*  Version : $Revision: 1.22 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -147,6 +147,9 @@ public:
     XdmfGetStringMacro(InsertedDataXml);
     //! Set the DataXml. This will override the Build() method and inject the raw XML
     XdmfInt32 SetInsertedDataXml(XdmfString Inserted){this->InsertedDataXml = Inserted; return(XDMF_SUCCESS);};
+
+    //! Build XML from user supplied DataXml
+    XdmfInt32 BuildFromDataXml(XdmfInt32 AllowCData = 0);
 
     //! Get the Element type : Grid, Topology, etc.
     XdmfConstString GetElementType();

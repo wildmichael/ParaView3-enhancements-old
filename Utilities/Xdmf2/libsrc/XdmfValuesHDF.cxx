@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.12 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.13 2009-01-26 21:15:21 clarke Exp $  */
+/*  Date : $Date: 2009-01-26 21:15:21 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -163,4 +163,30 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
     H5.Close();
     delete [] hds;
     return(XDMF_SUCCESS);
+}
+
+XdmfString XdmfValuesHDF::DataItemFromHDF(XdmfConstString H5DataSet){
+    XdmfHDF         H5;
+    ostrstream      StringOutput;
+    char            *Ptr;
+    static XdmfString ReturnString = NULL;
+
+    if(H5.Open(H5DataSet, "r") == XDMF_FAIL){
+        XdmfErrorMessage("Can't open H5 Dataset " << H5DataSet << " for reading");
+        return(NULL);
+    }
+    StringOutput << "<DataItem NumberType=\"";
+    StringOutput << XdmfTypeToClassString(H5.GetNumberType());
+    StringOutput << "\" Precision=\"";
+    StringOutput << H5.GetElementSize();
+    StringOutput << "\" Dimensions=\"";
+    StringOutput << H5.GetShapeAsString();
+    StringOutput << "\">" << H5DataSet << "</DataItem>";
+    StringOutput << ends;
+
+    if ( ReturnString != NULL ) delete [] ReturnString;
+    Ptr = StringOutput.str();
+    ReturnString = new char[strlen(Ptr) + 2 ];
+    strcpy( ReturnString, Ptr );
+    return(ReturnString);
 }
