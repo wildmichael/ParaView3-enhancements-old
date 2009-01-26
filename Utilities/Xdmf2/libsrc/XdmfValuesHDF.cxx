@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.13 2009-01-26 21:15:21 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:15:21 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.14 2009-01-26 21:23:41 clarke Exp $  */
+/*  Date : $Date: 2009-01-26 21:23:41 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -183,6 +183,7 @@ XdmfString XdmfValuesHDF::DataItemFromHDF(XdmfConstString H5DataSet){
     StringOutput << H5.GetShapeAsString();
     StringOutput << "\">" << H5DataSet << "</DataItem>";
     StringOutput << ends;
+    H5.Close();
 
     if ( ReturnString != NULL ) delete [] ReturnString;
     Ptr = StringOutput.str();
