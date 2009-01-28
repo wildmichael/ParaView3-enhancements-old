@@ -34,7 +34,7 @@
 #include "vtkObjectFactory.h"
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkQtLineChartView, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkQtLineChartView, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkQtLineChartView);
 
 //----------------------------------------------------------------------------
@@ -50,9 +50,6 @@ vtkQtLineChartView::vtkQtLineChartView()
   this->LineModel = new vtkQtChartSeriesModelCollection(this->LineChart);
   this->LineChart->setModel(this->LineModel);
   area->addLayer(this->LineChart);
-
-  // TEMP
-  this->SetupDefaultInteractor();
 }
 
 //----------------------------------------------------------------------------
