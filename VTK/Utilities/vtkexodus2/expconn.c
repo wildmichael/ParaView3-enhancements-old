@@ -32,7 +32,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  */
-/*  $Id: expconn.c,v 1.3 2009-01-16 20:52:13 utkarsh Exp $ */
+/*  $Id: expconn.c,v 1.4 2009-01-29 15:13:41 berk Exp $ */
 
 #include "exodusII.h"
 #include "exodusII_int.h"
@@ -185,7 +185,7 @@ int ex_put_conn (int   exoid,
        sprintf(errmsg,
          "Error: number of edges per element (%ld) doesn't "
          "agree with elem_edge_conn (0x%p)",
-	       num_ed_per_elem, (void*)elem_edge_conn );
+	       (long)num_ed_per_elem, (void*)elem_edge_conn );
        ex_err("ex_put_conn",errmsg,exerrval);
        return (EX_FATAL);
        }
@@ -197,7 +197,7 @@ int ex_put_conn (int   exoid,
        sprintf(errmsg,
          "Error: number of faces per element (%ld) doesn't "
          "agree with elem_face_conn (0x%p)",
-	       num_fa_per_elem, (void*)elem_face_conn );
+	       (long)num_fa_per_elem, (void*)elem_face_conn );
        ex_err("ex_put_conn",errmsg,exerrval);
        return (EX_FATAL);
        }

@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: exgcor.c,v 1.6 2009-01-19 18:46:31 utkarsh Exp $
+*  $Id: exgcor.c,v 1.7 2009-01-29 15:13:41 berk Exp $
 *
 *****************************************************************************/
 
@@ -200,7 +200,6 @@ int ex_get_coord (int exoid,
       {
         void *coor = NULL;
         char *which = NULL;
-        int status;
        
         if (i == 0) {
           coor = x_coor;
