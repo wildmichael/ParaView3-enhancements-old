@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.26 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.26 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.27 2009-01-30 21:52:06 clarke Exp $  */
+/*  Date : $Date: 2009-01-30 21:52:06 $ */
+/*  Version : $Revision: 1.27 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -116,6 +116,7 @@ XdmfGrid::Insert( XdmfElement *Child){
         XDMF_WORD_CMP(Child->GetElementName(), "Geometry") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Topology") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Attribute") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Region") ||
         XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Time") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Information")
@@ -134,7 +135,7 @@ XdmfGrid::Insert( XdmfElement *Child){
             return(XDMF_SUCCESS);
         }
     }else{
-        XdmfErrorMessage("Grid can only Insert Grid | Geometry | Topology | DataItem | Information elements, not a " << Child->GetElementName());
+        XdmfErrorMessage("Grid can only Insert Grid | Geometry | Topology | Attribute | Region | DataItem | Information elements, not a " << Child->GetElementName());
     }
     return(XDMF_FAIL);
 }
