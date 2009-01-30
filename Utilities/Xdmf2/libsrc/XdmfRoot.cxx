@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.cxx,v 1.6 2008-06-26 19:00:46 fbertel Exp $  */
-/*  Date : $Date: 2008-06-26 19:00:46 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfRoot.cxx,v 1.7 2009-01-30 17:30:06 clarke Exp $  */
+/*  Date : $Date: 2009-01-30 17:30:06 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -68,7 +68,7 @@ XdmfInt32 XdmfRoot::Build(){
         if(this->GetDOM()){
             XdmfXmlNode  node;
 
-            node = this->GetDOM()->Create();
+            node = this->GetDOM()->Create(this->GetElementName());
             this->SetElement(node);
         }
     }

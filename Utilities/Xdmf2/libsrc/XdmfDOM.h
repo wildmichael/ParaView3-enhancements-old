@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.15 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.16 2009-01-30 17:30:06 clarke Exp $  */
+/*  Date : $Date: 2009-01-30 17:30:06 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -163,7 +163,7 @@ public :
   //! Create a node from an XML string and insert it in the DOM
   XdmfXmlNode InsertFromString(XdmfXmlNode parent, XdmfConstString xml );
   //! Create a new document
-  XdmfXmlNode Create(XdmfConstString Version="2.0");
+  XdmfXmlNode Create(XdmfConstString RootElementName="Xdmf", XdmfConstString Version="2.0");
   //! Create a new node under an existing one
   XdmfXmlNode InsertNew(XdmfXmlNode Parent, XdmfConstString Type);
   //! Delete a node
