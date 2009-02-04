@@ -44,7 +44,7 @@
 #include <assert.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkOpenGLProperty);
 #endif
 
@@ -471,6 +471,15 @@ void vtkOpenGLProperty::Render(vtkActor *anActor,
 #endif // VTK_USE_GL2PS
     }
 
+  if(this->Lighting) // fixed-pipeline
+    {
+    glEnable(GL_LIGHTING);
+    }
+  else
+    {
+    glDisable(GL_LIGHTING);
+    }
+  
   // render any textures.
   vtkIdType numTextures = this->GetNumberOfTextures();
   if (numTextures > 0)
