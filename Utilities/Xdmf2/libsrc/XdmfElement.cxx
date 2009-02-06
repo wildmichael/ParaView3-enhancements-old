@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.28 2009-01-26 21:15:21 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:15:21 $ */
-/*  Version : $Revision: 1.28 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.29 2009-02-06 17:34:39 clarke Exp $  */
+/*  Date : $Date: 2009-02-06 17:34:39 $ */
+/*  Version : $Revision: 1.29 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -456,7 +456,7 @@ XdmfElement::BuildFromDataXml(XdmfInt32 AllowCData){
             return(XDMF_FAIL);
         }
     }
-    return(XDMF_SUCCESS);
+    return(XDMF_FAIL);
 }
 
 XdmfInt32 XdmfElement::Build(){
