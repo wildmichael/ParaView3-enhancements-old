@@ -243,7 +243,7 @@ public:
 };
 
 vtkStandardNewMacro(vtkPVProgressHandler);
-vtkCxxRevisionMacro(vtkPVProgressHandler, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPVProgressHandler, "$Revision: 1.16 $");
 //----------------------------------------------------------------------------
 vtkPVProgressHandler::vtkPVProgressHandler()
 {
@@ -394,7 +394,8 @@ void vtkPVProgressHandler::CleanupSatellites()
     if (this->Internals->AsyncRequestValid)
       {
       this->Internals->AsyncRequestValid = false;
-      if (!this->Internals->ForceAsyncRequestReceived)
+      if (!this->Internals->ForceAsyncRequestReceived &&
+        !this->Internals->AsyncRequest.Test())
         {
         this->Internals->AsyncRequest.Cancel();
         }
