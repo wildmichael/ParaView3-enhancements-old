@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.14 2009-01-26 21:23:41 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:23:41 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.15 2009-02-12 21:13:17 biddisco Exp $  */
+/*  Date : $Date: 2009-02-12 21:13:17 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -123,6 +123,7 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
     char* hds;
     XdmfHDF H5;
 
+    H5.SetWorkingDirectory(this->DOM->GetWorkingDirectory());
     if(!aHeavyDataSetName) aHeavyDataSetName = this->GetHeavyDataSetName();
     if(!aHeavyDataSetName){
         if(anArray->GetHeavyDataSetName()){

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.9 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.10 2009-02-12 21:13:17 biddisco Exp $  */
+/*  Date : $Date: 2009-02-12 21:13:17 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -742,7 +742,7 @@ if( this->File < 0 ){
       return( XDMF_FAIL );
     } else if( STRCASECMP( this->Domain, "FILE" ) == 0 ) {
     }
-    this->File = H5Fcreate(this->FileName,
+    this->File = H5Fcreate(FullFileName.str(),
       H5F_ACC_TRUNC,
       this->CreatePlist,
       this->AccessPlist);
