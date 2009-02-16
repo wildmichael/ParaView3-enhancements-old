@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-02-16 00:02:06 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2009-02-16 01:52:07 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1103,8 +1103,6 @@ CanRead(const char *_headerName) const
     {
     return false;
     }
-
-  int i=0;
 
   // Now check the file content
   METAIO_STREAM::ifstream inputStream;
