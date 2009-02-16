@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-02-16 01:52:09 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2009-02-16 13:02:04 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1814,7 +1814,7 @@ bool MetaImage::WriteROI( int * _indexMin, int * _indexMax,
       ElementDataFileName(_dataName);
       }
 
-    if( m_ElementDataFileName == "LIST" 
+    if( !strcmp(m_ElementDataFileName, "LIST")
         || strstr(m_ElementDataFileName, "%") )
       {
       METAIO_STREAM::cerr 
