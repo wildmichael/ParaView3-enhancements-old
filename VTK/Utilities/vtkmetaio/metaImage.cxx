@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-02-16 01:52:07 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2009-02-16 01:52:09 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1639,8 +1639,6 @@ bool MetaImage::WriteROI( int * _indexMin, int * _indexMax,
                           bool _append
                           )
 {   
-  int i=0;
-      
   if( _headName != NULL ) 
     {
     FileName( _headName );
