@@ -33,7 +33,7 @@
 #include "vtkVolumeProperty.h"
 #include "vtkUnstructuredGridVolumeRayCastIterator.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -96,7 +96,7 @@ private:
   void operator=(const vtkUnstructuredGridBunykRayCastIterator&);  // Not implemented
 };
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastIterator, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastIterator, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastIterator);
 
 vtkUnstructuredGridBunykRayCastIterator::vtkUnstructuredGridBunykRayCastIterator()
@@ -467,8 +467,8 @@ void vtkUnstructuredGridBunykRayCastFunction::TransformPoints()
   vtkCamera *cam = ren->GetActiveCamera();
   perspectiveTransform->Identity();
   perspectiveTransform->
-    Concatenate(cam->GetPerspectiveTransformMatrix(aspect[0]/
-                                                   aspect[1], 0.0, 1.0 ));
+    Concatenate(cam->GetProjectionTransformMatrix(aspect[0]/
+                                                  aspect[1], 0.0, 1.0 ));
   perspectiveTransform->Concatenate(cam->GetViewTransformMatrix());
   perspectiveTransform->Concatenate(vol->GetMatrix());
   perspectiveMatrix->DeepCopy(perspectiveTransform->GetMatrix());
