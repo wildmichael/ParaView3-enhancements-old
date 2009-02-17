@@ -33,12 +33,13 @@
 #include <assert.h> // assert()
 
 
-vtkInformationKeyMacro(vtkDistributedGraphHelper, DISTRIBUTEDIDS, Integer);
+vtkInformationKeyMacro(vtkDistributedGraphHelper, DISTRIBUTEDVERTEXIDS, Integer);
+vtkInformationKeyMacro(vtkDistributedGraphHelper, DISTRIBUTEDEDGEIDS, Integer);
 
 //----------------------------------------------------------------------------
 // class vtkDistributedGraphHelper
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkDistributedGraphHelper, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkDistributedGraphHelper, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 void vtkDistributedGraphHelper::PrintSelf(ostream& os, vtkIndent indent)
