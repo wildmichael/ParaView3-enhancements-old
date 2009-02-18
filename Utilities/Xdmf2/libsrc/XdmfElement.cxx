@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.29 2009-02-06 17:34:39 clarke Exp $  */
-/*  Date : $Date: 2009-02-06 17:34:39 $ */
-/*  Version : $Revision: 1.29 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.30 2009-02-18 20:30:11 clarke Exp $  */
+/*  Date : $Date: 2009-02-18 20:30:11 $ */
+/*  Version : $Revision: 1.30 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -66,6 +66,7 @@ XdmfElement::XdmfElement() {
     this->DsmBuffer = NULL;
     this->DataXml = 0;
     this->InsertedDataXml = 0;
+    this->DeleteOnGridDelete = 0;
 }
 
 XdmfElement::~XdmfElement() {

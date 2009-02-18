@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.22 2009-01-26 21:15:21 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:15:21 $ */
-/*  Version : $Revision: 1.22 $ */
+/*  Id : $Id: XdmfElement.h,v 1.23 2009-02-18 20:30:11 clarke Exp $  */
+/*  Date : $Date: 2009-02-18 20:30:11 $ */
+/*  Version : $Revision: 1.23 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -181,6 +181,10 @@ public:
     XdmfGetValueMacro(DsmBuffer, XdmfDsmBuffer *);
     //! Set DSM Buffer
     XdmfSetValueMacro(DsmBuffer, XdmfDsmBuffer *);
+    //! Delete the Element when the XdmfGrid container is deleted. Default = 0
+    XdmfSetValueMacro(DeleteOnGridDelete, XdmfInt32);
+    //! Delete the Element when the XdmfGrid container is deleted. Default = 0
+    XdmfGetValueMacro(DeleteOnGridDelete, XdmfInt32);
 
 protected:
     void        SetReferenceObject(XdmfXmlNode Element, void *p);
@@ -203,5 +207,6 @@ protected:
     XdmfInt32   CopyReferenceData;
     XdmfDsmBuffer *DsmBuffer;
     XdmfXmlNode RootWhenParsed;
+    XdmfInt32   DeleteOnGridDelete;
 };
 #endif // __XdmfElement_h

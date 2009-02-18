@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.14 2008-03-11 14:25:12 clarke Exp $  */
-/*  Date : $Date: 2008-03-11 14:25:12 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.15 2009-02-18 20:30:11 clarke Exp $  */
+/*  Date : $Date: 2009-02-18 20:30:11 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,7 @@ class XdmfTopology;
 class XdmfAttribute;
 class XdmfArray;
 class XdmfTime;
+class XdmfSet;
 
 #define XDMF_GRID_UNIFORM       0x00000 // Type xor XDMF_GRID_MASK = XdmfTopology Type
 #define XDMF_GRID_COLLECTION    0x10000
@@ -207,12 +208,19 @@ public:
         on the Node, Cell, Edge, Face, or Grid.
 */
   XdmfGetValueMacro( NumberOfAttributes, XdmfInt32 );
+
+//! Get Number of Sets
+  XdmfGetValueMacro( NumberOfSets, XdmfInt32 );
+
 //! Retreive a particilar XdmfAttribute
 /*!
         Returns the Xdmf Attribute from the grid.
         \param Index    0 based index of the Attribute to retreive
 */
   XdmfGetIndexValueMacro( Attribute, XdmfAttribute * );
+
+//! Get a particular Set
+  XdmfGetIndexValueMacro( Sets, XdmfSet * );
 
 //! Update an Attribute and Mark it as Primary
 /*!
@@ -297,11 +305,13 @@ protected:
   XdmfInt32     TopologyIsMine;
   XdmfInt32     TimeIsMine;
   XdmfInt32     NumberOfAttributes;
+  XdmfInt32     NumberOfSets;
   XdmfInt32     GridType;
   XdmfInt32     CollectionType;
   XdmfInt32     NumberOfChildren;
   XdmfInt32     BuildTime;
   XdmfGrid      **Children;
+  XdmfSet       **Sets;
   XdmfAttribute **Attribute;
   XdmfAttribute *AssignedAttribute;
 };
