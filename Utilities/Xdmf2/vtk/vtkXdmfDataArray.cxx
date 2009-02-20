@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.7 2008-09-16 13:43:54 clarke Exp $  */
-/*  Date : $Date: 2008-09-16 13:43:54 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.8 2009-02-20 20:05:12 clarke Exp $  */
+/*  Date : $Date: 2009-02-20 20:05:12 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -275,6 +275,16 @@ vtkDataArray *vtkXdmfDataArray::FromXdmfArray( char *ArrayName, int CopyShape,
         return(0);
     }
     uinta->SetArray((unsigned int *)array->GetDataPointer(), components * tuples, 0);
+    }
+    break;
+  case XDMF_INT64_TYPE :
+    {
+    vtkLongArray *longa = vtkLongArray::SafeDownCast(this->vtkArray);
+    if(!longa){
+        XdmfErrorMessage("Cannot downcast longa array");
+        return(0);
+    }
+    longa->SetArray((long *)array->GetDataPointer(), components * tuples, 0);
     }
     break;
   case XDMF_FLOAT32_TYPE :
