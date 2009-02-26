@@ -46,7 +46,7 @@
 *
 * revision history - 
 *
-*  $Id: exgnams.c,v 1.2 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgnams.c,v 1.3 2009-02-26 16:45:01 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -168,8 +168,7 @@ int ex_get_names (int exoid,
       }
       --ptr;
       if (ptr > names[i]) {
-	/*    get rid of trailing blanks */
-	while (*(--ptr) == ' ');
+	while (--ptr >= names[i] && *ptr == ' ');      /*    get rid of trailing blanks */
       }
       *(++ptr) = '\0';
     }

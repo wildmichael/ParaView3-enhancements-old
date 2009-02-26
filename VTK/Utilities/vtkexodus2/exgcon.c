@@ -45,7 +45,7 @@
 *
 * revision history - 
 *
-*  $Id: exgcon.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: exgcon.c,v 1.4 2009-02-26 16:45:01 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -133,7 +133,7 @@ int ex_get_coord_names (int    exoid,
     --ptr;
     if (ptr > coord_names[i]) {
       /*    get rid of trailing blanks */
-      while (*(--ptr) == ' ');
+      while (--ptr >= coord_names[i] && *ptr == ' ');
     }
     *(++ptr) = '\0';
   }

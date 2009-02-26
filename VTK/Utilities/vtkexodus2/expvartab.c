@@ -48,7 +48,7 @@
 *
 * revision history - 
 *
-*  $Id: expvartab.c,v 1.2 2009-01-16 20:52:13 utkarsh Exp $
+*  $Id: expvartab.c,v 1.3 2009-02-26 16:45:01 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -176,7 +176,7 @@ int ex_put_truth_table (int  exoid,
 		     &num_var_db, &numelvardim, routine);
     status = nc_inq_varid (exoid, VAR_ELSET_TAB, &varid);
     var_name = "vals_elset_var";
-    ent_type = "els";
+    ent_type = "es";
     ent_size = "num_ele_els";
     sta_type = VAR_ELS_STAT;
     tab_type = VAR_ELSET_TAB;

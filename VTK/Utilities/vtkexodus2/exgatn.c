@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: exgatn.c,v 1.4 2009-01-19 18:46:31 utkarsh Exp $
+*  $Id: exgatn.c,v 1.5 2009-02-26 16:45:01 david.cole Exp $
 *
 *****************************************************************************/
 
@@ -196,7 +196,7 @@ int ex_get_attr_names( int   exoid,
       --ptr;
       if (ptr > names[i]) {
 	/*    get rid of trailing blanks */
-	while (*(--ptr) == ' ');
+	while (--ptr >= names[i] && *ptr == ' ');
       }
       *(++ptr) = '\0';
     }
