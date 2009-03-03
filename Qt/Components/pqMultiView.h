@@ -36,6 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "pqComponentsExport.h"
 #include <QStackedWidget>
 #include <QList>
+#include <QStringList>
 
 class pqMultiViewFrame;
 class vtkPVXMLElement;
@@ -125,6 +126,9 @@ signals:
   /// Fired when a request is made to split the views
   void afterSplitView(const Index& index, 
     Qt::Orientation orientation, float percent, const Index& childIndex);
+
+  /// Fired when QFileOpenEvent is received
+  void triggerFileOpen(const QStringList& files);
 
 public slots:
   void removeWidget(QWidget *widget);

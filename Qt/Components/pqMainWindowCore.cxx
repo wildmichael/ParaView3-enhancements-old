@@ -1653,6 +1653,10 @@ void pqMainWindowCore::onFileOpen(pqServer* server)
 //-----------------------------------------------------------------------------
 void pqMainWindowCore::onFileOpen(const QStringList& files)
 {
+  // In case ParaView gets started by double-clicking
+  // a file associated with ParaView.
+  // Michael Wild <themiwi@users.sourceforge.net>
+  this->makeDefaultConnectionIfNoneExists();
   this->createReaderOnActiveServer(files);
 }
 

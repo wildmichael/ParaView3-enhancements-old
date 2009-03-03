@@ -63,7 +63,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QUuid>
 #include <QApplication>
 #include <QScrollArea>
-
+#include <QFileOpenEvent>
+#include <QStringList>
 
 // ParaView includes.
 #include "pqActiveViewOptionsManager.h"
@@ -942,6 +943,14 @@ bool pqViewManager::eventFilter(QObject* caller, QEvent* e)
     // Update ViewPosition and GUISize properties on all view modules.
     this->updateViewPositions(); 
     }
+  else if(e->type() == QEvent::FileOpen)
+    {
+    // Handle the QFileOpenEvent
+    // Michael Wild <themiwi@users.sourceforge.net>
+    // Get the file we should open and emit the signal
+    emit triggerFileOpen(QStringList(static_cast<QFileOpenEvent *>(e)->file()));
+    return true;
+    }
 
   return pqMultiView::eventFilter(caller, e);
 }
@@ -1457,3 +1466,4 @@ void pqViewManager::setActiveView(pqView* view)
     frame->setActive(false);
     }
 }
+

@@ -86,6 +86,19 @@ ADD_EXECUTABLE(${PV_EXE_NAME} WIN32 ${MAKE_BUNDLE}
   ${apple_bundle_sources}
 )
 
+# Need an extended Info.plist to register all the file types on Mac OS X
+# Further also fill it with version and copyright info.
+# Michael Wild <wild@ifd.mavt.ethz.ch>
+SET_TARGET_PROPERTIES(${PV_EXE_NAME} PROPERTIES
+  MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/MacOSXBundleInfo.plist.in
+  MACOSX_BUNDLE_GUI_IDENTIFIER com.kitware.paraview
+  MACOSX_BUNDLE_LONG_VERSION_STRING ${PARAVIEW_VERSION_FULL}
+  MACOSX_BUNDLE_SHORT_VERSION_STRING ${PARAVIEW_VERSION}
+  MACOSX_BUNDLE_BUNDLE_VERSION ${PARAVIEW_VERSION_FULL}
+  MACOSX_BUNDLE_INFO_STRING "ParaView visualization tool by Kitware Inc."
+  MACOSX_BUNDLE_COPYRIGHT "© 2000-2009, Kitware Inc., Sandia National Laboratories, Los Alamos National Laboratory, Army Research Laboratory, CSimSoft"
+  )
+
 TARGET_LINK_LIBRARIES(${PV_EXE_NAME}
   pqComponents
   pqCore
