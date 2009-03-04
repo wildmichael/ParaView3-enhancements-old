@@ -50,9 +50,13 @@ IF(WIN32)
 ENDIF(WIN32)
 
 IF(Q_WS_MAC)
-  SET(apple_bundle_sources "MacIcon.icns")
-  SET_SOURCE_FILES_PROPERTIES(
+  SET(apple_bundle_sources
     "MacIcon.icns"
+    "${CMAKE_SOURCE_DIR}/Common/DocumentIcons/OpenFOAM.icns"
+    "${CMAKE_SOURCE_DIR}/Common/DocumentIcons/vtk.icns"
+    )
+  SET_SOURCE_FILES_PROPERTIES(
+    ${apple_bundle_sources}
     PROPERTIES
     MACOSX_PACKAGE_LOCATION Resources
     )
