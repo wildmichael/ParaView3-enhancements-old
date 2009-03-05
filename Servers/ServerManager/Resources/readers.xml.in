@@ -4058,7 +4058,7 @@
 
     <!-- Beginning of FOAM Reader -->
     <SourceProxy name="OpenFOAMReader" 
-                    class="vtkOpenFOAMReader">
+                    class="@VTK_OPENFOAM_READER_CLASS@">
       <Documentation
         short_help="Reads a dataset in OpenFOAM format."
         long_help="Reads a dataset in OpenFOAM format." >

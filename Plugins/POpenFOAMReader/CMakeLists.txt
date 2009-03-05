@@ -21,23 +21,27 @@
 # All rights reserved.
 # Date: 2008-08-31
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-FIND_PACKAGE(ParaView REQUIRED)
-INCLUDE(${PARAVIEW_USE_FILE})
+IF(PARAVIEW_USE_MPI)
 
-IF(VTK_USE_PARALLEL)
+  INCLUDE( ${QT_USE_FILE} )
+
+  INCLUDE_DIRECTORIES(
+    ${VTK_INCLUDE_DIR}
+    ${PARAVIEW_INCLUDE_DIRS}
+    ${PARAVIEW_GUI_INCLUDE_DIRS}
+    )
 
   # Server side
 
   ADD_PARAVIEW_PLUGIN(
-    POpenFOAMReaderSMPlugin "1.0" 
+    POpenFOAMReaderSMPlugin "1.0"
     SERVER_MANAGER_XML POpenFOAMReaderSM.xml
     SERVER_MANAGER_SOURCES vtkPOpenFOAMReader.cxx)
 
   # Client side - no longer necessary!
 
   # ADD_PARAVIEW_PLUGIN(
-  #   POpenFOAMReaderGUIPlugin "1.0" 
+  #   POpenFOAMReaderGUIPlugin "1.0"
   #   GUI_RESOURCE_FILES POpenFOAMReaderGUI.xml
   #   )
 
@@ -56,14 +60,14 @@ IF(VTK_USE_PARALLEL)
     )
 
   ADD_PARAVIEW_PLUGIN(
-    POpenFOAMPanel "1.0" 
+    POpenFOAMPanel "1.0"
     GUI_INTERFACES ${IFACES}
     SOURCES pqPOpenFOAMPanel.cxx
       ${MOC_SRCS} ${RCS_SRCS} ${IFACE_SRCS}
     )
 
-ELSE(VTK_USE_PARALLEL)
+ELSE(PARAVIEW_USE_MPI)
 
   MESSAGE(FATAL_ERROR "vtkPOpenFOAMReader requires parallelization support.")
 
-ENDIF(VTK_USE_PARALLEL)
+ENDIF(PARAVIEW_USE_MPI)

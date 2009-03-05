@@ -36,19 +36,19 @@
 #ifndef __vtkPOpenFOAMReader_h
 #define __vtkPOpenFOAMReader_h
 
-#include "vtkOpenFOAMReader.h"
+#include "vtkNewOpenFOAMReader.h"
 
 class vtkDataArraySelection;
 class vtkMultiProcessController;
 
-class VTK_EXPORT vtkPOpenFOAMReader : public vtkOpenFOAMReader
+class VTK_EXPORT vtkPOpenFOAMReader : public vtkNewOpenFOAMReader
 {
 public:
   //BTX
   enum caseType { DECOMPOSED_CASE = 0, RECONSTRUCTED_CASE = 1 };
   //ETX
   static vtkPOpenFOAMReader *New();
-  vtkTypeRevisionMacro(vtkPOpenFOAMReader, vtkOpenFOAMReader);
+  vtkTypeRevisionMacro(vtkPOpenFOAMReader, vtkNewOpenFOAMReader);
 
   void PrintSelf(ostream &os, vtkIndent indent);
 

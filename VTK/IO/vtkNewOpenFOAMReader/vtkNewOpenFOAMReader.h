@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkOpenFOAMReader.h,v $
+  Module:    $RCSfile: vtkNewOpenFOAMReader.h,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -12,9 +12,9 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkOpenFOAMReader - reads a dataset in OpenFOAM format
+// .NAME vtkNewOpenFOAMReader - reads a dataset in OpenFOAM format
 // .SECTION Description
-// vtkOpenFOAMReader creates a multiblock dataset. It reads mesh
+// vtkNewOpenFOAMReader creates a multiblock dataset. It reads mesh
 // information and time dependent data.  The polyMesh folders contain
 // mesh information. The time folders contain transient data for the
 // cells. Each folder can contain any number of data files.
@@ -37,8 +37,8 @@
 
 // version 2008-09-29
 
-#ifndef __vtkOpenFOAMReader_h
-#define __vtkOpenFOAMReader_h
+#ifndef __vtkNewOpenFOAMReader_h
+#define __vtkNewOpenFOAMReader_h
 
 #include "vtkMultiBlockDataSetAlgorithm.h"
 
@@ -49,13 +49,13 @@ class vtkDoubleArray;
 class vtkStdString;
 class vtkStringArray;
 
-class vtkOpenFOAMReaderPrivate;
+class vtkNewOpenFOAMReaderPrivate;
 
-class VTK_IO_EXPORT vtkOpenFOAMReader : public vtkMultiBlockDataSetAlgorithm
+class VTK_IO_EXPORT vtkNewOpenFOAMReader : public vtkMultiBlockDataSetAlgorithm
 {
 public:
-  static vtkOpenFOAMReader *New();
-  vtkTypeRevisionMacro(vtkOpenFOAMReader, vtkMultiBlockDataSetAlgorithm);
+  static vtkNewOpenFOAMReader *New();
+  vtkTypeRevisionMacro(vtkNewOpenFOAMReader, vtkMultiBlockDataSetAlgorithm);
   void PrintSelf(ostream &, vtkIndent);
 
   // Description:
@@ -222,7 +222,7 @@ public:
 
   void SetRefresh() { this->Refresh = true; this->Modified(); }
 
-  void SetParent(vtkOpenFOAMReader *parent) { this->Parent = parent; }
+  void SetParent(vtkNewOpenFOAMReader *parent) { this->Parent = parent; }
   //BTX
   int MakeInformationVector(vtkInformationVector *, const vtkStdString &);
   //ETX
@@ -231,7 +231,7 @@ public:
   int MakeMetaDataAtTimeStep(const bool);
 
   //BTX
-  friend class vtkOpenFOAMReaderPrivate;
+  friend class vtkNewOpenFOAMReaderPrivate;
   //ETX
 
 protected:
@@ -292,8 +292,8 @@ protected:
   // index of the active reader
   int CurrentReaderIndex;
 
-  vtkOpenFOAMReader();
-  ~vtkOpenFOAMReader();
+  vtkNewOpenFOAMReader();
+  ~vtkNewOpenFOAMReader();
   int RequestInformation(vtkInformation *, vtkInformationVector **,
     vtkInformationVector *);
   int RequestData(vtkInformation *, vtkInformationVector **,
@@ -306,10 +306,10 @@ protected:
   void UpdateProgress(double);
 
 private:
-  vtkOpenFOAMReader *Parent;
+  vtkNewOpenFOAMReader *Parent;
 
-  vtkOpenFOAMReader(const vtkOpenFOAMReader&);  // Not implemented.
-  void operator=(const vtkOpenFOAMReader&);  // Not implemented.
+  vtkNewOpenFOAMReader(const vtkNewOpenFOAMReader&);  // Not implemented.
+  void operator=(const vtkNewOpenFOAMReader&);  // Not implemented.
 
   int GetNumberOfSelectionArrays(vtkDataArraySelection *);
   int GetSelectionArrayStatus(vtkDataArraySelection *, const char *);

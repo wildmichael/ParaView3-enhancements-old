@@ -81,7 +81,6 @@ vtkNetCDFCOARDSReader.cxx
 vtkNetCDFReader.cxx
 vtkOBJReader.cxx
 vtkOutputStream.cxx
-vtkOpenFOAMReader.cxx
 vtkPDBReader.cxx
 vtkPLOT3DReader.cxx
 vtkPLY.cxx
@@ -234,6 +233,15 @@ IF(WIN32)
     SET(KIT_LIBS ${KIT_LIBS} vfw32)
   ENDIF(VTK_USE_VIDEO_FOR_WINDOWS)
 ENDIF(WIN32)
+
+#-----------------------------------------------------------------------------
+# new vtkOpenFOAMReader
+# If the user wants the new vtkOpenFOAMReader, enable it
+IF (VTK_USE_NEW_VTKOPENFOAMREADER)
+  SET(Kit_SRCS ${Kit_SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/vtkNewOpenFOAMReader/vtkNewOpenFOAMReader.cxx)
+ELSE (VTK_USE_NEW_VTKOPENFOAMREADER)
+  SET(Kit_SRCS ${Kit_SRCS} vtkOpenFOAMReader.cxx)
+ENDIF (VTK_USE_NEW_VTKOPENFOAMREADER)
 
 #-----------------------------------------------------------------------------
 # FFMPEG

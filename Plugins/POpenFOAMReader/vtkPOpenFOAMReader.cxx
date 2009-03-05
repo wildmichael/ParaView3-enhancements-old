@@ -227,7 +227,7 @@ int vtkPOpenFOAMReader::RequestInformation(vtkInformation *request,
       // get time directories from the first processor subdirectory
       if(procNames->GetNumberOfTuples() > 0)
 	{
-	vtkOpenFOAMReader *masterReader = vtkOpenFOAMReader::New();
+	vtkNewOpenFOAMReader *masterReader = vtkNewOpenFOAMReader::New();
         masterReader->SetFileName(this->FileName);
         masterReader->SetParent(this);
         if(!masterReader->MakeInformationVector(outputVector, procNames
@@ -285,7 +285,7 @@ int vtkPOpenFOAMReader::RequestInformation(vtkInformation *request,
     for(int procI = (this->ProcessId ? this->ProcessId : this->NumProcesses);
       procI < procNames->GetNumberOfTuples(); procI += this->NumProcesses)
       {
-      vtkOpenFOAMReader *subReader = vtkOpenFOAMReader::New();
+      vtkNewOpenFOAMReader *subReader = vtkNewOpenFOAMReader::New();
       subReader->SetFileName(this->FileName);
       subReader->SetParent(this);
       // if getting metadata failed simply delete the reader instance
@@ -365,10 +365,10 @@ int vtkPOpenFOAMReader::RequestData(vtkInformation *request,
     vtkAppendCompositeDataLeaves *append = vtkAppendCompositeDataLeaves::New();
     // append->AppendFieldDataOn();
 
-    vtkOpenFOAMReader *reader;
+    vtkNewOpenFOAMReader *reader;
     this->Superclass::CurrentReaderIndex = 0;
     this->Superclass::Readers->InitTraversal();
-    while((reader = vtkOpenFOAMReader::SafeDownCast(
+    while((reader = vtkNewOpenFOAMReader::SafeDownCast(
       this->Superclass::Readers->GetNextItemAsObject())) != NULL)
       {
       // even if the child readers themselves are not modified, mark

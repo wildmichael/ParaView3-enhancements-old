@@ -41,4 +41,6 @@ paraview_build_optional_plugin(TableToSparseArrayPanel "TableToSparseArrayPanel"
 paraview_build_optional_plugin(ThresholdTablePanel "ThresholdTablePanel" ThresholdTablePanel OFF) 
 paraview_build_optional_plugin(ClientGraphViewFrame "ClientGraphViewFrame" ClientGraphViewFrame OFF) 
 paraview_build_optional_plugin(ClientTreeAreaView "ClientTreeAreaView" ClientTreeAreaView OFF) 
-
+if(VTK_USE_NEW_VTKOPENFOAMREADER)
+  add_subdirectory(POpenFOAMReader)
+endif(VTK_USE_NEW_VTKOPENFOAMREADER)
