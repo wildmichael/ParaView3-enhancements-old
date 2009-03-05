@@ -247,12 +247,14 @@ ENDIF (VTK_USE_NEW_VTKOPENFOAMREADER)
 # FFMPEG
 # If the ffmpeg library is available, compile vtkFFMPEGWriter.
 IF (VTK_USE_FFMPEG_ENCODER)
-  INCLUDE_DIRECTORIES(${FFMPEG_INCLUDE_DIR})
+  INCLUDE_DIRECTORIES(
+    ${VTK_SOURCE_DIR}/Utilities/vtkffmpeg/libavutil
+    ${VTK_SOURCE_DIR}/Utilities/vtkffmpeg/libavcodec
+    ${VTK_SOURCE_DIR}/Utilities/vtkffmpeg/libavformat
+    ${VTK_BINARY_DIR}/Utilities/vtkffmpeg
+    )
   SET(Kit_SRCS ${Kit_SRCS} vtkFFMPEGWriter.cxx)
-  SET(KIT_LIBS ${KIT_LIBS}  
-    ${FFMPEG_avcodec_LIBRARY} 
-    ${FFMPEG_avformat_LIBRARY}
-    ${FFMPEG_avutil_LIBRARY})
+  SET(KIT_LIBS ${KIT_LIBS} vtkffmpeg)
 ENDIF (VTK_USE_FFMPEG_ENCODER)
 
 #-----------------------------------------------------------------------------

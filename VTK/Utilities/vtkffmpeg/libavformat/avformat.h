@@ -59,7 +59,8 @@ typedef struct AVPacket {
 } AVPacket;
 #define PKT_FLAG_KEY   0x0001
 
-void av_destruct_packet_nofree(AVPacket *pkt);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API void av_destruct_packet_nofree(AVPacket *pkt);
 void av_destruct_packet(AVPacket *pkt);
 
 /* initialize optional fields of a packet */
@@ -431,7 +432,8 @@ void av_register_input_format(AVInputFormat *format);
 void av_register_output_format(AVOutputFormat *format);
 AVOutputFormat *guess_stream_format(const char *short_name,
                                     const char *filename, const char *mime_type);
-AVOutputFormat *guess_format(const char *short_name,
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API AVOutputFormat *guess_format(const char *short_name,
                              const char *filename, const char *mime_type);
 enum CodecID av_guess_codec(AVOutputFormat *fmt, const char *short_name,
                             const char *filename, const char *mime_type, enum CodecType type);
@@ -439,7 +441,8 @@ enum CodecID av_guess_codec(AVOutputFormat *fmt, const char *short_name,
 void av_hex_dump(FILE *f, uint8_t *buf, int size);
 void av_pkt_dump(FILE *f, AVPacket *pkt, int dump_payload);
 
-void av_register_all(void);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API void av_register_all(void);
 
 /* media file input */
 AVInputFormat *av_find_input_format(const char *short_name);
@@ -452,7 +455,8 @@ int av_open_input_file(AVFormatContext **ic_ptr, const char *filename,
                        int buf_size,
                        AVFormatParameters *ap);
 /* no av_open for output, so applications will need this: */
-AVFormatContext *av_alloc_format_context(void);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API AVFormatContext *av_alloc_format_context(void);
 
 #define AVERROR_UNKNOWN     (-1)  /* unknown error */
 #define AVERROR_IO          (-2)  /* i/o error */
@@ -469,7 +473,8 @@ int av_seek_frame(AVFormatContext *s, int stream_index, int64_t timestamp, int f
 int av_read_play(AVFormatContext *s);
 int av_read_pause(AVFormatContext *s);
 void av_close_input_file(AVFormatContext *s);
-AVStream *av_new_stream(AVFormatContext *s, int id);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API AVStream *av_new_stream(AVFormatContext *s, int id);
 void av_set_pts_info(AVStream *s, int pts_wrap_bits,
                      int pts_num, int pts_den);
 
@@ -485,13 +490,17 @@ int av_seek_frame_binary(AVFormatContext *s, int stream_index, int64_t target_ts
 void av_update_cur_dts(AVFormatContext *s, AVStream *ref_st, int64_t timestamp);
 
 /* media file output */
-int av_set_parameters(AVFormatContext *s, AVFormatParameters *ap);
-int av_write_header(AVFormatContext *s);
-int av_write_frame(AVFormatContext *s, AVPacket *pkt);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int av_set_parameters(AVFormatContext *s, AVFormatParameters *ap);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int av_write_header(AVFormatContext *s);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int av_write_frame(AVFormatContext *s, AVPacket *pkt);
 int av_interleaved_write_frame(AVFormatContext *s, AVPacket *pkt);
 int av_interleave_packet_per_dts(AVFormatContext *s, AVPacket *out, AVPacket *pkt, int flush);
 
-int av_write_trailer(AVFormatContext *s);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int av_write_trailer(AVFormatContext *s);
 
 void dump_format(AVFormatContext *ic,
                  int index,

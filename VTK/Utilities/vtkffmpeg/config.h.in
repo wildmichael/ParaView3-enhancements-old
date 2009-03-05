@@ -1,0 +1,101 @@
+#define FFMPEG_CONFIGURATION "Custom build for ParaView"
+
+/* architecture */
+#define TUNECPU generic
+#cmakedefine ARCH_X86 @ARCH_X86@
+#cmakedefine ARCH_X86_64 @ARCH_X86_64@
+#cmakedefine ARCH_ARMV4L @ARCH_ARMV4L@
+#cmakedefine ARCH_ALPHA @ARCH_ALPHA@
+#cmakedefine ARCH_SPARC64 @ARCH_SPARC64@
+#cmakedefine ARCH_SPARC @ARCH_SPARC@
+#cmakedefine ARCH_POWERPC @ARCH_POWERPC@
+#cmakedefine POWERPC_MODE_32BITS @POWERPC_MODE_32BITS@
+#cmakedefine ARCH_MIPS @ARCH_MIPS@
+#cmakedefine ARCH_SH4 @ARCH_SH4@
+#cmakedefine ARCH_PARISC @ARCH_PARISC@
+#cmakedefine ARCH_S390 @ARCH_S390@
+#cmakedefine ARCH_M68K @ARCH_M68K@
+#cmakedefine ARCH_IA64 @ARCH_IA64@
+#cmakedefine ARCH_BFIN @ARCH_BFIN@
+#cmakedefine WORDS_BIGENDIAN @WORDS_BIGENDIAN@
+
+/* inttypes checks */
+#cmakedefine EMULATE_INTTYPES @EMULATE_INTTYPES@
+#cmakedefine EMULATE_FAST_INT @EMULATE_FAST_INT@
+
+/* MMX */
+#cmakedefine HAVE_MMX @HAVE_MMX@
+#ifdef HAVE_MMX
+#define __CPU__ 586
+#endif
+#cmakedefine HAVE_BUILTIN_VECTOR @HAVE_BUILTIN_VECTOR@
+#cmakedefine HAVE_MM3DNOW @HAVE_MM3DNOW@
+
+/* instruction sets */
+#cmakedefine HAVE_ARMV5TE @HAVE_ARMV5TE@
+#cmakedefine HAVE_IWMMXT @HAVE_IWMMXT@
+#cmakedefine HAVE_MMI @HAVE_MMI@
+#cmakedefine HAVE_ALTIVEC @HAVE_ALTIVEC@
+#cmakedefine HAVE_ALTIVEC_H @HAVE_ALTIVEC_H@
+
+/* system functions */
+#cmakedefine HAVE_LOCALTIME_R @HAVE_LOCALTIME_R@
+#cmakedefine HAVE_LRINTF @HAVE_LRINTF@
+
+/* threads (no BEOS and OS2)*/
+#cmakedefine HAVE_PTHREADS @HAVE_PTHREADS@
+#cmakedefine HAVE_W32THREADS @HAVE_W32THREADS@
+#cmakedefine HAVE_THREADS @HAVE_THREADS@
+
+/* build ffmpeg as a shared lib */
+#define BUILD_SHARED_AV 1
+
+/* what to build */
+#define CONFIG_PROTOCOLS 1
+#define CONFIG_PROTOCOLS 1
+#define CONFIG_ENCODERS 1
+#define CONFIG_MUXERS 1
+#define CONFIG_DEMUXERS 1
+#define CONFIG_H263_ENCODER 1
+#define CONFIG_H263_MUXER 1
+#define CONFIG_H263_DEMUXER 1
+#define CONFIG_AVI_DEMUXER 1
+#define CONFIG_AVI_MUXER 1
+#define CONFIG_MSMPEG4V1_ENCODER 1
+#define CONFIG_MSMPEG4V2_ENCODER 1
+#define CONFIG_MSMPEG4V3_ENCODER 1
+
+/* functions and headers */
+#cmakedefine CONFIG_HAVE_DLOPEN @CONFIG_HAVE_DLOPEN@
+#cmakedefine CONFIG_HAVE_DLFCN @CONFIG_HAVE_DLFCN@
+#cmakedefine CONFIG_OS2 @CONFIG_OS2@
+#cmakedefine CONFIG_SUNOS @CONFIG_SUNOS@
+#cmakedefine CONFIG_DARWIN @CONFIG_DARWIN@
+#cmakedefine HAVE_MALLOC_H @HAVE_MALLOC_H@
+#cmakedefine HAVE_MEMALIGN @HAVE_MEMALIGN@
+
+/* miscelani */
+#define restrict @FFMPEG_RESTRICT_KEYWORD@
+#define ASMALIGN(ZEROBITS) @FFMPEG_ASMALIGN_MACRO@
+
+/* WIN32 DLL pain */
+#include "ffmpegDllConfig.h"
+
+/* on Mac OS X override arch/feature flags */
+#if CONFIG_DARWIN
+#  undef ARCH_X86
+#  undef ARCH_X86_64
+#  undef ARCH_POWERPC
+#  undef POWERPC_MODE_32BITS
+#  undef WORDS_BIGENDIAN
+#  undef HAVE_MMX
+#  undef __CPU__
+#  if defined(__i386__)
+#    define ARCH_X86 1
+#  elif defined(__ppc__)     /* defined(__i386__) */
+#    define ARCH_POWERPC 1
+#    define HAVE_ALTIVEC 1
+#    define POWERPC_MODE_32BITS 1
+#    define WORDS_BIGENDIAN 1
+#  endif                     /* defined(__ppc__) */
+#endif                       /* CONFIG_DARWIN */

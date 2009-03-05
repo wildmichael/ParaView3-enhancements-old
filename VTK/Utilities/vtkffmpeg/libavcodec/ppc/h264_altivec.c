@@ -17,6 +17,8 @@
  */
 
 #include "../dsputil.h"
+/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
+#ifdef ARCH_POWERPC
 
 #include "gcc_fixes.h"
 
@@ -434,3 +436,5 @@ void dsputil_h264_init_ppc(DSPContext* c, AVCodecContext *avctx) {
     // ... pending ...
   }
 }
+
+#endif /* ARCH_POWERPC */

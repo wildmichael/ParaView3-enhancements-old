@@ -22,6 +22,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../dsputil.h"
+/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
+#ifdef ARCH_POWERPC
+
 #include "../mpegvideo.h"
 
 #include "gcc_fixes.h"
@@ -647,3 +650,5 @@ POWERPC_PERF_START_COUNT(altivec_dct_unquantize_h263_num, 1);
 
 POWERPC_PERF_STOP_COUNT(altivec_dct_unquantize_h263_num, nCoeffs == 63);
 }
+
+#endif /* ARCH_POWERPC */

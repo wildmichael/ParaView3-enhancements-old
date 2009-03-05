@@ -20,6 +20,9 @@
 
 #include "common.h"
 #include "../dsputil.h"
+/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
+#ifdef ARCH_POWERPC
+
 #include "dsputil_altivec.h"
 #include "gcc_fixes.h"
 
@@ -494,5 +497,7 @@ POWERPC_PERF_STOP_COUNT(altivec_fdct, 1);
 POWERPC_PERF_STOP_COUNT(altivec_fdct, 1);
 #endif /* ALTIVEC_USE_REFERENCE_C_CODE */
 }
+
+#endif /* ARCH_POWERPC */
 
 /* vim:set foldmethod=marker foldlevel=0: */

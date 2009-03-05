@@ -2402,11 +2402,13 @@ int avpicture_alloc(AVPicture *picture, int pix_fmt, int width, int height);
 /* Free a picture previously allocated by avpicture_alloc. */
 void avpicture_free(AVPicture *picture);
 
-int avpicture_fill(AVPicture *picture, uint8_t *ptr,
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int avpicture_fill(AVPicture *picture, uint8_t *ptr,
                    int pix_fmt, int width, int height);
 int avpicture_layout(const AVPicture* src, int pix_fmt, int width, int height,
                      unsigned char *dest, int dest_size);
-int avpicture_get_size(int pix_fmt, int width, int height);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int avpicture_get_size(int pix_fmt, int width, int height);
 void avcodec_get_chroma_sub_sample(int pix_fmt, int *h_shift, int *v_shift);
 const char *avcodec_get_pix_fmt_name(int pix_fmt);
 void avcodec_set_dimensions(AVCodecContext *s, int width, int height);
@@ -2431,7 +2433,8 @@ int img_get_alpha_info(const AVPicture *src,
                        int pix_fmt, int width, int height);
 
 /* convert among pixel formats */
-int img_convert(AVPicture *dst, int dst_pix_fmt,
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int img_convert(AVPicture *dst, int dst_pix_fmt,
                 const AVPicture *src, int pix_fmt,
                 int width, int height);
 
@@ -2450,7 +2453,8 @@ unsigned avcodec_build(void);
 void avcodec_init(void);
 
 void register_avcodec(AVCodec *format);
-AVCodec *avcodec_find_encoder(enum CodecID id);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API AVCodec *avcodec_find_encoder(enum CodecID id);
 AVCodec *avcodec_find_encoder_by_name(const char *name);
 AVCodec *avcodec_find_decoder(enum CodecID id);
 AVCodec *avcodec_find_decoder_by_name(const char *name);
@@ -2459,7 +2463,8 @@ void avcodec_string(char *buf, int buf_size, AVCodecContext *enc, int encode);
 void avcodec_get_context_defaults(AVCodecContext *s);
 AVCodecContext *avcodec_alloc_context(void);
 void avcodec_get_frame_defaults(AVFrame *pic);
-AVFrame *avcodec_alloc_frame(void);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API AVFrame *avcodec_alloc_frame(void);
 
 int avcodec_default_get_buffer(AVCodecContext *s, AVFrame *pic);
 void avcodec_default_release_buffer(AVCodecContext *s, AVFrame *pic);
@@ -2478,7 +2483,8 @@ int avcodec_default_execute(AVCodecContext *c, int (*func)(AVCodecContext *c2, v
  * opens / inits the AVCodecContext.
  * not thread save!
  */
-int avcodec_open(AVCodecContext *avctx, AVCodec *codec);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int avcodec_open(AVCodecContext *avctx, AVCodec *codec);
 
 /**
  * Decode an audio frame.
@@ -2505,7 +2511,8 @@ int avcodec_parse_frame(AVCodecContext *avctx, uint8_t **pdata,
                         uint8_t *buf, int buf_size);
 int avcodec_encode_audio(AVCodecContext *avctx, uint8_t *buf, int buf_size,
                          const short *samples);
-int avcodec_encode_video(AVCodecContext *avctx, uint8_t *buf, int buf_size,
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API int avcodec_encode_video(AVCodecContext *avctx, uint8_t *buf, int buf_size,
                          const AVFrame *pict);
 int avcodec_encode_subtitle(AVCodecContext *avctx, uint8_t *buf, int buf_size,
                             const AVSubtitle *sub);

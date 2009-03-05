@@ -28,6 +28,8 @@
 #define M_PI    3.14159265358979323846
 #endif
 
+#include "ffmpegDllConfig.h"
+
 #ifdef HAVE_AV_CONFIG_H
 /* only include the following when compiling package */
 #    include "config.h"
@@ -406,7 +408,8 @@ tend= read_time();\
 /* memory */
 void *av_malloc(unsigned int size);
 void *av_realloc(void *ptr, unsigned int size);
-void av_free(void *ptr);
+/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
+FFMPEG_API void av_free(void *ptr);
 
 void *av_mallocz(unsigned int size);
 char *av_strdup(const char *s);

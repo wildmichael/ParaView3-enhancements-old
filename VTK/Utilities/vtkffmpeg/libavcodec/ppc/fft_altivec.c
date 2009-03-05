@@ -19,6 +19,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 #include "../dsputil.h"
+/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
+#ifdef ARCH_POWERPC
 
 #include "gcc_fixes.h"
 
@@ -245,3 +247,5 @@ POWERPC_PERF_STOP_COUNT(altivec_fft_num, s->nbits >= 6);
 
 #endif /* ALTIVEC_USE_REFERENCE_C_CODE */
 }
+
+#endif /* ARCH_POWERPC */

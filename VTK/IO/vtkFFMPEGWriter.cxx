@@ -20,7 +20,7 @@
 #include "vtkErrorCode.h"
 
 extern "C" {
-#include <ffmpeg/avformat.h>
+#include "avformat.h"
 }
 
 //---------------------------------------------------------------------------

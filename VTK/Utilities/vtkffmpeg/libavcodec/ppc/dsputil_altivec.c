@@ -20,6 +20,9 @@
 
 #include "../dsputil.h"
 
+/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
+#ifdef ARCH_POWERPC
+
 #include "gcc_fixes.h"
 
 #include "dsputil_altivec.h"
@@ -1858,3 +1861,5 @@ void dsputil_init_altivec(DSPContext* c, AVCodecContext *avctx)
     c->vorbis_inverse_coupling = vorbis_inverse_coupling_altivec;
 #endif
 }
+
+#endif /* ARCH_POWERPC */
