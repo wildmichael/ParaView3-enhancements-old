@@ -1,4 +1,10 @@
 --- 
+Plugins/POpenFOAMReader: 
+  squashed: true
+  url: https://of-interfaces.svn.sourceforge.net/svnroot/of-interfaces/trunk/vtkPOpenFOAMReader/GPL
+  type: svn
+  revision: 107
+  remote: braid/Plugins/POpenFOAMReader
 VTK/IO/vtkNewOpenFOAMReader: 
   squashed: true
   url: https://of-interfaces.svn.sourceforge.net/svnroot/of-interfaces/trunk/vtkPOpenFOAMReader/BSD
