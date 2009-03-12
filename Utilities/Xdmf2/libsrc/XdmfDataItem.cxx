@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.23 2009-01-26 21:15:21 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:15:21 $ */
-/*  Version : $Revision: 1.23 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.24 2009-03-12 20:56:40 clarke Exp $  */
+/*  Date : $Date: 2009-03-12 20:56:40 $ */
+/*  Version : $Revision: 1.24 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -593,6 +593,20 @@ XdmfInt32 XdmfDataItem::Build(){
             break;
         default :
             break;
+    }
+    switch (this->Format) {
+        case XDMF_FORMAT_HDF :
+            this->Set("Format", "HDF");
+            break;
+        case XDMF_FORMAT_XML :
+            this->Set("Format", "XML");
+            break;
+        case XDMF_FORMAT_MYSQL :
+            this->Set("Format", "MYSQL");
+            break;
+        default :
+            XdmfErrorMessage("Unsupported Data Format");
+            return(XDMF_FAIL);
     }
     if(this->BuildFromDataXml(1) == XDMF_SUCCESS) return(XDMF_SUCCESS);
     if(this->CheckValues(this->Format) != XDMF_SUCCESS){
