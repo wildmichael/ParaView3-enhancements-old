@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkQtListView.h,v $
+  Module:    $RCSfile: vtkQtColumnView.h,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -17,17 +17,17 @@
   Under the terms of Contract DE-AC04-94AL85000 with Sandia Corporation,
   the U.S. Government retains certain rights in this software.
 -------------------------------------------------------------------------*/
-// .NAME vtkQtListView - A VTK view based on a Qt List view.
+// .NAME vtkQtColumnView - A VTK view based on a Qt column view.
 //
 // .SECTION Description
-// vtkQtListView is a VTK view using an underlying QListView. 
+// vtkQtColumnView is a VTK view using an underlying QColumnView. 
 //
 // .SECTION Thanks
 // Thanks to Brian Wylie from Sandia National Laboratories for implementing
 // this class
 
-#ifndef __vtkQtListView_h
-#define __vtkQtListView_h
+#ifndef __vtkQtColumnView_h
+#define __vtkQtColumnView_h
 
 #include "QVTKWin32Header.h"
 #include "vtkQtView.h"
@@ -35,16 +35,16 @@
 #include "vtkQtAbstractModelAdapter.h"
 
 class QItemSelection;
-class QListView;
-class vtkQtTableModelAdapter;
+class QColumnView;
+class vtkQtTreeModelAdapter;
 
-class QVTK_EXPORT vtkQtListView : public vtkQtView
+class QVTK_EXPORT vtkQtColumnView : public vtkQtView
 {
 Q_OBJECT
 
 public:
-  static vtkQtListView *New();
-  vtkTypeRevisionMacro(vtkQtListView, vtkQtView);
+  static vtkQtColumnView *New();
+  vtkTypeRevisionMacro(vtkQtColumnView, vtkQtView);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
@@ -64,9 +64,8 @@ public:
   virtual void Update();
 
 protected:
-
-  vtkQtListView();
-  ~vtkQtListView();
+  vtkQtColumnView();
+  ~vtkQtColumnView();
 
   // Description:
   // Connects the algorithm output to the internal pipeline.
@@ -81,20 +80,19 @@ protected:
     vtkAlgorithmOutput* conn,
     vtkAlgorithmOutput* selectionConn);
 
-  // Description:
-  // We need to keep track of whether were in selection mode
-  bool Selecting;
-  
-  QPointer<QListView> ListView;
-  vtkQtTableModelAdapter* ListAdapter;
-
 private slots:
   void slotSelectionChanged(const QItemSelection&,const QItemSelection&);
 
 private:
-  vtkQtListView(const vtkQtListView&);  // Not implemented.
-  void operator=(const vtkQtListView&);  // Not implemented.
+  vtkQtColumnView(const vtkQtColumnView&);  // Not implemented.
+  void operator=(const vtkQtColumnView&);  // Not implemented.
   
+  // Description:
+  // We need to keep track of whether were in selection mode
+  bool Selecting;
+  
+  QPointer<QColumnView> ColumnView;
+  vtkQtTreeModelAdapter* TreeAdapter;
 };
 
 #endif
