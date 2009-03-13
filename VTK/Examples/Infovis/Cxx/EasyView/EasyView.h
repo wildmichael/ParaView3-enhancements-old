@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: EasyView.h,v $
   Language:  C++
-  Date:      $Date: 2008-10-16 21:05:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2009-03-13 16:13:53 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2007 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -27,6 +27,7 @@ class Ui_EasyView;
 // Forward VTK class declarations
 class vtkXMLTreeReader;
 class vtkGraphLayoutView;
+class vtkQtColumnView;
 class vtkQtTableView;
 class vtkQtTreeView;
 
@@ -61,7 +62,7 @@ private:
   vtkSmartPointer<vtkGraphLayoutView>     GraphView;
   vtkSmartPointer<vtkQtTreeView>          TreeView;
   vtkSmartPointer<vtkQtTableView>         TableView;
-  vtkSmartPointer<vtkQtTreeView>          ColumnView;
+  vtkSmartPointer<vtkQtColumnView>        ColumnView;
     
   // Designer form
   Ui_EasyView *ui;
