@@ -29,13 +29,15 @@
 #endif
 
 vtkStandardNewMacro(vtkPixelBufferObject);
-vtkCxxRevisionMacro(vtkPixelBufferObject, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPixelBufferObject, "$Revision: 1.7 $");
 //----------------------------------------------------------------------------
 vtkPixelBufferObject::vtkPixelBufferObject()
 {
   this->Handle = 0;
   this->Context = 0;
   this->BufferTarget = 0;
+  this->Size=0;
+  this->Type=VTK_UNSIGNED_CHAR;
 }
 
 //----------------------------------------------------------------------------
