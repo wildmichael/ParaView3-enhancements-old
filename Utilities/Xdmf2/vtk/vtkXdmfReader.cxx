@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-02-12 21:19:58 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2009-03-13 18:36:28 $
+  Version:   $Revision: 1.63 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -90,7 +90,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.63 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -1784,9 +1784,9 @@ int vtkXdmfReaderInternal::RequestGridInformation(
     Dimensions[i] = 1;
     }
   // End Extent is Dim - 1
-  EndExtent[0] = Dimensions[0] - 1;
-  EndExtent[1] = Dimensions[1] - 1;
-  EndExtent[2] = Dimensions[2] - 1;
+  EndExtent[0] = vtkMAX(0, Dimensions[0] - 1);
+  EndExtent[1] = vtkMAX(0, Dimensions[1] - 1);
+  EndExtent[2] = vtkMAX(0, Dimensions[2] - 1);
   // vtk Dims are i,j,k XDMF are k,j,i
   EndExtent[0] = vtkMAX(0, EndExtent[0]) / readerStride[2];
   EndExtent[1] = vtkMAX(0, EndExtent[1]) / readerStride[1];
@@ -2209,9 +2209,9 @@ int vtkXdmfReaderInternal::RequestGridData(
     start[1] = vtkMAX(0, upext[2]);
     start[0] = vtkMAX(0, upext[4]);
     
-    count[2] = upext[1] - upext[0];
-    count[1] = upext[3] - upext[2];
-    count[0] = upext[5] - upext[4];
+    count[2] = vtkMAX(1, upext[1] - upext[0]);
+    count[1] = vtkMAX(1, upext[3] - upext[2]);
+    count[0] = vtkMAX(1, upext[5] - upext[4]);
     }
   
   XdmfGeometry  *Geometry = xdmfGrid->GetGeometry();
