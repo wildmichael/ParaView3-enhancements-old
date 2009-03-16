@@ -24,7 +24,7 @@
 #include "vtkUnivariateStatisticsAlgorithmPrivate.h"
 
 #include "vtkDoubleArray.h"
-#include "vtkIDTypeArray.h"
+#include "vtkIdTypeArray.h"
 #include "vtkInformation.h"
 #include "vtkInformationVector.h"
 #include "vtkObjectFactory.h"
@@ -36,7 +36,7 @@
 #include <vtkstd/set>
 #include <vtksys/ios/sstream> 
 
-vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkDescriptiveStatistics);
 
 // ----------------------------------------------------------------------
