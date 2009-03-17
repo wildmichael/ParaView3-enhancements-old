@@ -37,7 +37,7 @@
 #include "vtkDoubleArray.h"
 
 vtkStandardNewMacro(vtkSplineRepresentation);
-vtkCxxRevisionMacro(vtkSplineRepresentation, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSplineRepresentation, "$Revision: 1.3 $");
 //----------------------------------------------------------------------------
 vtkSplineRepresentation::vtkSplineRepresentation()
 {
@@ -1125,7 +1125,7 @@ void vtkSplineRepresentation::WidgetInteraction(double e[2])
 }
 
 //----------------------------------------------------------------------------
-void vtkSplineRepresentation::EndWidgetInteraction(double e[2])
+void vtkSplineRepresentation::EndWidgetInteraction(double[2])
 {
   switch (this->InteractionState) 
     {
