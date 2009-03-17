@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkQtChartStyleGenerator.cxx,v $
+  Module:    $RCSfile: vtkQtChartStyleBrush.cxx,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -18,18 +18,18 @@
   the U.S. Government retains certain rights in this software.
 -------------------------------------------------------------------------*/
 
-/// \file vtkQtChartStyleGenerator.cxx
-/// \date February 15, 2008
+/// \file vtkQtChartStyleBrush.cxx
+/// \date March 16, 2009
 
 #ifdef _MSC_VER
 // Disable warnings that Qt headers give.
 #pragma warning(disable:4127)
 #endif
 
-#include "vtkQtChartStyleGenerator.h"
+#include "vtkQtChartStyleBrush.h"
 
 
-vtkQtChartStyleGenerator::vtkQtChartStyleGenerator(QObject *parentObject)
+vtkQtChartStyleBrush::vtkQtChartStyleBrush(QObject *parentObject)
   : QObject(parentObject)
 {
 }
