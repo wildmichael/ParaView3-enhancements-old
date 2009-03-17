@@ -1,4 +1,4 @@
-/* $Id: tif_jpeg.c,v 1.3 2008-03-13 15:47:54 andinet Exp $ */
+/* $Id: tif_jpeg.c,v 1.4 2009-03-17 17:44:27 fbertel Exp $ */
 
 /*
  * Copyright (c) 1994-1997 Sam Leffler
@@ -53,6 +53,10 @@ int TIFFFillTile(TIFF*, ttile_t);
 
 #if defined(__BORLANDC__)
 #pragma warn -8066 // Disable "unreachable code" warning.
+#endif
+
+#if defined (_MSC_VER)
+#pragma warning(disable:4324) /* structure was padded due to... */
 #endif
 
 /*
