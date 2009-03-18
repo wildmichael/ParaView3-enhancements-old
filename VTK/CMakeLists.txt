@@ -847,10 +847,8 @@ cvs -d :pserver:anonymous@public.kitware.com:/cvsroot/VTK checkout VTKLargeData"
 # new vtkOpenFOAMReader
 # If the user wants the new vtkOpenFOAMReader, enable it if we have
 # parallel support.
-IF(VTK_USE_PARALLEL)
-  OPTION (VTK_USE_NEW_VTKOPENFOAMREADER "Should VTK use the new OpenFOAM reader?" ON)
-  MARK_AS_ADVANCED(VTK_USE_NEW_VTKOPENFOAMREADER)
-ENDIF(VTK_USE_PARALLEL)
+OPTION (VTK_USE_NEW_VTKOPENFOAMREADER "Should VTK use the new OpenFOAM reader?" ON)
+MARK_AS_ADVANCED(VTK_USE_NEW_VTKOPENFOAMREADER)
 
 #-----------------------------------------------------------------------------
 # FFMPEG
