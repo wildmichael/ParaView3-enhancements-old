@@ -40,6 +40,12 @@ function(gp_item_default_embedded_path_override item default_embedded_path_var)
     set(path "@executable_path/../Plugins")
   endif(item MATCHES "Plugin\\.dylib$")
 
+  # ...embed *Panel.dylib in the Plugins folder:
+  #
+  if(item MATCHES "Panel\\.dylib$")
+    set(path "@executable_path/../Plugins")
+  endif(item MATCHES "Panel\\.dylib$")
+
   # ...embed *.so in the Plugins folder:
   #
   if(item MATCHES "\\.so$")
