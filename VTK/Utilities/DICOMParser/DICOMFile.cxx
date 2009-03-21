@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-03-21 15:41:07 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2009-03-21 18:16:19 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -112,7 +112,7 @@ void DICOMFile::Close()
 
 long DICOMFile::Tell() 
 {
-  vtksys_ios::streamoff loc = InputStream.tellg();
+  dicom_stream::ios::streamoff loc = InputStream.tellg();
   // dicom_stream::cout << "Tell: " << loc << dicom_stream::endl;
   return static_cast<long>(loc);
 }
