@@ -615,3 +615,28 @@ IF(Q_WS_MAC)
 
   INSTALL(SCRIPT "${OSX_MAKE_STANDALONE_BUNDLE_CMAKE_SCRIPT}")
 ENDIF(Q_WS_MAC)
+
+#########################################################################
+# Create a drag and drop bundle on Mac OS X
+if(Q_WS_MAC)
+  CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/CreateDragNDropBundle.sh.in
+    ${CMAKE_CURRENT_BINARY_DIR}/CreateDragNDropBundle.sh @ONLY)
+  # read the license file
+  FILE(READ ${CMAKE_CURRENT_SOURCE_DIR}/DmgLicense_v1.2.txt LICENSE_TEXT)
+  # escape dangerous characters (that's just ridiculous...)
+  STRING(REGEX REPLACE "([\\\"])" "\\\\\\1" LICENSE_TEXT "${LICENSE_TEXT}")
+  # wrap lines in quotes and end them with \n
+  STRING(REPLACE "\n" "\\n\"\n\"" LICENSE_TEXT "${LICENSE_TEXT}")
+  SET(LICENSE_TEXT "\"${LICENSE_TEXT}\\n\"\n")
+  # configure the resource file
+  CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/DmgResource.r.in
+    ${CMAKE_CURRENT_BINARY_DIR}/DmgResource.r @ONLY)
+  # now define a target to run the thing
+  ADD_CUSTOM_TARGET(dmg
+    COMMAND ${CMAKE_CURRENT_BINARY_DIR}/CreateDragNDropBundle.sh all
+    DEPENDS ${PV_EXE_NAME}
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Creating drag-n-drop installer disk image"
+    VERBATIM
+    )
+endif(Q_WS_MAC)

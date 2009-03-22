@@ -1,0 +1,213 @@
+#!/bin/sh
+
+# inspired by http://svn.tribler.org/abc/branches/old-mainbranch-till-4.1.7plus/mac/Makefile-from-vlc-ready
+# and http://mxr.mozilla.org/firefox/source/build/package/mac_osx/pkg-dmg
+# and http://github.com/drnic/choctop/blob/100aa520b16d31a02d6d7332d524a12045e23ade/README.rdoc
+
+staging_area="@CMAKE_BINARY_DIR@/CMakeFiles/dmg_staging"
+dmg_src_folder="$staging_area/src_folder"
+dmg_name=ParaView-@PARAVIEW_VERSION_FULL@
+vol_name="ParaView @PARAVIEW_VERSION_FULL@"
+dmg_path="@CMAKE_BINARY_DIR@/$dmg_name.dmg"
+app_name="ParaView @PARAVIEW_VERSION_FULL@.app"
+
+this_script="$0"
+
+function cleanup() {
+  echo "-- Cleaning away disk image source folder"
+  rm -rf "$dmg_src_folder"
+
+  echo "-- Cleaning away temporary disk image"
+  rm -f "$staging_area/rw.dmg"
+}
+
+function purge_all() {
+  cleanup || return 1
+  echo "-- Cleaning away final disk image"
+  rm -f "$dmg_path"
+}
+
+# fixup the bundle
+function fixup_bundle() {
+  echo "-- Fixing up the application bundle"
+  DESTDIR="$staging_area/destdir" "@CMAKE_COMMAND@" -P "@CMAKE_BINARY_DIR@/paraview_OSX_MakeStandAloneBundle.cmake" || return 1
+}
+
+# copy it into the dmg-source folder
+function create_src_folder() {
+  echo "-- Copying the application bundle into the disk image source folder"
+  if [ ! -d "$staging_area/destdir/Applications/$app_name" ]; then
+    echo "Error: '$staging_area/destdir/Applications/$app_name' does not exist!" >&2
+    return 1
+  fi
+  mkdir -p "$dmg_src_folder" || return 1
+  rsync -a "$staging_area/destdir/Applications/$app_name" "$dmg_src_folder/" || return 1
+
+  # Background
+  echo "-- Copying the background image"
+  mkdir -p $dmg_src_folder/.background || return 1
+  rsync "@CMAKE_CURRENT_SOURCE_DIR@/pvDmgBackground.png" "$dmg_src_folder/.background/" || return 1
+
+  # Volume Icon
+  echo "-- Copying the volume icon"
+  rsync "@CMAKE_CURRENT_SOURCE_DIR@/pvDmgIcon.icns" "$dmg_src_folder/.VolumeIcon.icns" || return 1
+
+  # Shortcut to /Applications
+  echo "-- Creating the soft-link to /Applications"
+  if [ -e "$dmg_src_folder/Applications" ]; then
+    if [ ! -L "$dmg_src_folder/Applications" ]; then
+      echo "Error: '$dmg_src_folder/Applications' exists. Cannot create link to /Applications" >&2
+      return 1
+    fi
+  else
+    ln -s /Applications "$dmg_src_folder/Applications" || return 1
+  fi
+
+  touch "$dmg_src_folder" || return 1
+}
+
+# create temporary image
+function create_rw_image() {
+  if [ -e "$staging_area/rw.dmg" ]; then
+    echo "Error: '$staging_area/rw.dmg exists! Cannot create temporary disk image." >&2
+    return 1
+  fi
+  echo "-- Creating the temporary disk image '$staging_area/rw.dmg'"
+  hdiutil create -srcfolder "$dmg_src_folder" -format UDRW -scrub -volname "$vol_name" "$staging_area/rw.dmg"
+}
+
+function beautify_rw_image() {
+  # open it
+  echo "-- Mounting temporary disk image '$staging_area/rw.dmg' on '$staging_area/mnt'"
+  hdiutil attach -readwrite -noverify "$staging_area/rw.dmg" -mountpoint "$staging_area/mnt"
+
+  # make sure root folder is opened when image is
+  echo "-- Blessing '$staging_area/mnt'"
+  bless --folder "$staging_area/mnt" --openfolder "$staging_area/mnt"
+  # hack: wait for completion
+  open "$staging_area/mnt"
+  sleep 5
+
+  # position items
+  echo "-- Beautifying DMG Finder appearence"
+  osascript - << EOF
+tell application "Finder"
+  set f to POSIX file ("$staging_area/mnt" as string) as alias
+  tell folder f
+    open
+    delay 2 -- Sync
+    tell container window
+      set toolbar visible to false
+      set statusbar visible to false
+      set current view to icon view
+      delay 1 -- Sync
+      set the bounds to {150, 100, 1100, 1000} -- Big size so the finder won't do silly things
+    end tell
+    delay 1 -- Sync
+    set icon size of the icon view options of container window to 90
+    set text size of the icon view options of container window to 12
+    set arrangement of the icon view options of container window to not arranged
+    set position of item "$app_name" to {85, 190}
+    set position of item "Applications" to {385, 190}
+    set background picture of the icon view options of container window to file ".background:pvDmgBackground.png"
+    set the bounds of the container window to {150, 100, 620, 420}
+    update without registering applications
+    delay 5 -- Sync
+    close
+  end tell
+  -- Sync
+  delay 5
+end tell
+EOF
+if [ $? -ne 0 ]; then
+  return 1
+fi
+
+  # turn on custom volume icon
+  echo "-- Setting volume icon"
+  /Developer/Tools/SetFile -a C "$staging_area/mnt"
+
+  # close
+  echo "-- Detaching temporary disk image"
+  hdiutil detach "$staging_area/mnt"
+}
+
+# create read-only (final) disk image
+function create_final_image() {
+  if [ -e "$dmg_path" ]; then
+    echo "Error: '$dmg_path exists! Cannot create final disk image." >&2
+    return 1
+  fi
+  echo "-- Creating final DMG '$dmg_path' from temporary image"
+  hdiutil convert "$staging_area/rw.dmg" -format UDZO -imagekey zlib-level=9 -o "$dmg_path" || return 1
+
+  # add SLA
+  echo "-- Adding SLA"
+  echo "--   Unflatten image"
+  hdiutil unflatten "$dmg_path" || return 1
+  echo "--   Compile resource file and attach it to disk image"
+  /Developer/Tools/Rez Carbon.r @CMAKE_CURRENT_BINARY_DIR@/DmgResource.r -a -o "$dmg_path" || return 1
+  echo "--   Flatten image"
+  hdiutil flatten "$dmg_path" || return 1
+}
+
+# usage instructions
+function usage() {
+cat << EOF
+Usage: $this_script action
+Available actions:
+  clean     Delete intermediate files/folders
+  purge     The same as clean, but also deletes the final DMG
+  fixup     Fixes up the application bundle
+  rw        Creates the temporary disk image
+  beautify  Sets background image, icon positions and Finder appearance
+  final     Creates the final disk image from the temporary image
+  all       The same as "purge fixup rw beautify final clean"
+  -h --help Print this message
+EOF
+}
+
+if [ $# -lt 1 ]; then
+  1=all
+fi
+
+for action do
+  case "$action" in
+    clean)
+      cleanup || exit 1
+      ;;
+    purge)
+      purge_all || exit 1
+      ;;
+    fixup)
+      fixup_bundle || exit 1
+      ;;
+    rw)
+      create_src_folder || exit 1
+      create_rw_image || exit 1
+      ;;
+    beautify)
+      beautify_rw_image || exit 1
+      ;;
+    final)
+      create_final_image || exit 1
+      ;;
+    all)
+      purge_all || exit 1
+      fixup_bundle || exit 1
+      create_src_folder || exit 1
+      create_rw_image || exit 1
+      beautify_rw_image || exit 1
+      create_final_image || exit 1
+      cleanup || exit 1
+      ;;
+    -h|--help)
+      usage
+    ;;
+    *)
+      echo "Eror: unkown action or option '$action'" >&2
+      usage
+      exit 1
+      ;;
+  esac
+done
