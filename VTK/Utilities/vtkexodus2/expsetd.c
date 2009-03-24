@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: expsetd.c,v 1.3 2009-01-16 14:32:01 utkarsh Exp $
+*  $Id: expsetd.c,v 1.4 2009-03-24 14:35:12 dave.demarle Exp $
 *
 *****************************************************************************/
 
@@ -71,7 +71,7 @@ int ex_put_set_dist_fact (int   exoid,
   int dimid, set_id_ndx;
   int dist_id;
   char errmsg[MAX_ERR_LENGTH];
-  char* factptr;
+  char* factptr = NULL;
 
   exerrval = 0; /* clear error code */
 
