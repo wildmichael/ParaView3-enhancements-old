@@ -72,7 +72,7 @@ public:
   vtksys_stl::vector<int> ThreadIds;
 };
 
-vtkCxxRevisionMacro(vtkGeoSource, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkGeoSource, "$Revision: 1.8 $");
 vtkGeoSource::vtkGeoSource()
 {
   this->InputSet = vtkCollection::New();
@@ -137,6 +137,7 @@ void vtkGeoSource::ShutDown()
       this->Threader->TerminateThread(*iter);
       }
     this->Implementation->ThreadIds.clear();
+    this->Implementation->OutputMap.clear();
     }
   this->Initialized = false;
 }
