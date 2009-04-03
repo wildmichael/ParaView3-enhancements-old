@@ -40,7 +40,7 @@
 #include "vtkWorldPointPicker.h"
 #include "vtkVariant.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTreeMapHover, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTreeMapHover, "$Revision: 1.1 $");
 vtkStandardNewMacro(vtkInteractorStyleTreeMapHover);
 
 //----------------------------------------------------------------------------
