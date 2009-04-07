@@ -4,7 +4,7 @@
 ** Copyright (c) 2006   Gerald I. Evenden
 */
 static const char
-LIBPROJ_ID[] = "$Id: proj_psi.c,v 1.2 2008-11-14 16:56:33 jeff Exp $";
+LIBPROJ_ID[] = "$Id: proj_psi.c,v 1.3 2009-04-07 18:26:42 fbertel Exp $";
 /*
 ** Permission is hereby granted, free of charge, to any person obtaining
 ** a copy of this software and associated documentation files (the
@@ -29,13 +29,13 @@ LIBPROJ_ID[] = "$Id: proj_psi.c,v 1.2 2008-11-14 16:56:33 jeff Exp $";
 #define MAX_ITER 11
 #define EPS 1e-14
 
-  double // isometric latitude
+  double /* isometric latitude */
 proj_psi(double phi, double sphi, double e) {
   double esp = e * sphi;
 
   return log(tan(FORTPI + 0.5 * phi) * pow((1. - esp)/(1. + esp), 0.5 * e));
 }
-  double // inverse isometric latitude
+  double /* inverse isometric latitude */
 proj_apsi(double psi, double e) {
   double esp, phi, phi0, he = e * 0.5, exp_psi = exp(psi);
   int i = MAX_ITER;
@@ -52,6 +52,9 @@ proj_apsi(double psi, double e) {
 }
 /*
 ** $Log: proj_psi.c,v $
+** Revision 1.3  2009-04-07 18:26:42  fbertel
+** COMP:Fixed C++-style to C-style for strict compilers.
+**
 ** Revision 1.2  2008-11-14 16:56:33  jeff
 ** COMP: Fixing more libproj warnings.
 **
