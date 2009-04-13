@@ -15,11 +15,11 @@
 #include "vtkSMChartOptionsProxy.h"
 
 #include "vtkObjectFactory.h"
-#include "vtkQtChartViewBase.h"
+#include "vtkQtChartView.h"
 
 vtkStandardNewMacro(vtkSMChartOptionsProxy);
-vtkCxxRevisionMacro(vtkSMChartOptionsProxy, "$Revision: 1.1 $");
-vtkCxxSetObjectMacro(vtkSMChartOptionsProxy, ChartView, vtkQtChartViewBase);
+vtkCxxRevisionMacro(vtkSMChartOptionsProxy, "$Revision: 1.2 $");
+vtkCxxSetObjectMacro(vtkSMChartOptionsProxy, ChartView, vtkQtChartView);
 //----------------------------------------------------------------------------
 vtkSMChartOptionsProxy::vtkSMChartOptionsProxy()
 {

@@ -18,10 +18,10 @@
 #include "vtkQtChartInteractorSetup.h"
 #include "vtkQtChartMouseSelection.h"
 #include "vtkQtChartWidget.h"
-#include "vtkQtChartViewBase.h"
+#include "vtkQtChartView.h"
 #include "vtkSMChartOptionsProxy.h"
 
-vtkCxxRevisionMacro(vtkSMChartViewProxy, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMChartViewProxy, "$Revision: 1.2 $");
 //----------------------------------------------------------------------------
 vtkSMChartViewProxy::vtkSMChartViewProxy()
 {
@@ -70,7 +70,7 @@ vtkQtChartWidget* vtkSMChartViewProxy::GetChartWidget()
 }
 
 //----------------------------------------------------------------------------
-vtkQtChartViewBase* vtkSMChartViewProxy::GetChartView()
+vtkQtChartView* vtkSMChartViewProxy::GetChartView()
 {
   return this->ChartView;
 }
