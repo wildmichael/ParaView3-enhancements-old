@@ -24,11 +24,13 @@
 #include "vtkSparseArray.h"
 #include <vtkVariant.h>
 
+#include <vtkstd/algorithm>
+
 //
 // Standard functions
 //
 
-vtkCxxRevisionMacro(vtkArray, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkArray, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 
