@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ChartView.h,v $
   Language:  C++
-  Date:      $Date: 2009-04-20 15:36:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2009-04-21 13:32:53 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2007 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -25,12 +25,13 @@
 class Ui_ChartView;
 
 // Forward VTK class declarations
-class vtkXMLTreeReader;
-class vtkGraphLayoutView;
-class vtkQtColumnView;
+class vtkQtBarChartView;
+class vtkQtLineChartView;
+class vtkQtStackedChartView;
+class vtkQtStatisticalBoxChartView;
 class vtkQtTableView;
-class vtkQtTreeView;
-
+class vtkRowQueryToTable;
+class vtkSQLDatabase;
 
 class ChartView : public QMainWindow
 {
@@ -44,12 +45,15 @@ public:
 
 public slots:
 
-  virtual void slotOpenXMLFile();
+  virtual void slotOpenDatabase();
   virtual void slotExit();
 
 protected:
    
 protected slots:
+
+  // Description: Display and database errors
+  void slotShowError(const QString &error); 
 
 private:
 
@@ -58,11 +62,13 @@ private:
   
    
   // Members
-  vtkSmartPointer<vtkXMLTreeReader>       XMLReader;
-  vtkSmartPointer<vtkGraphLayoutView>     GraphView;
-  vtkSmartPointer<vtkQtTreeView>          TreeView;
-  vtkSmartPointer<vtkQtTableView>         TableView;
-  vtkSmartPointer<vtkQtColumnView>        ColumnView;
+  vtkSmartPointer<vtkSQLDatabase>               Database;
+  vtkSmartPointer<vtkRowQueryToTable>           QueryToTable;
+  vtkSmartPointer<vtkQtTableView>               TableView;
+  vtkSmartPointer<vtkQtBarChartView>            BarChart;
+  vtkSmartPointer<vtkQtLineChartView>           LineChart;
+  vtkSmartPointer<vtkQtStackedChartView>        StackedChart;
+  vtkSmartPointer<vtkQtStatisticalBoxChartView> BoxChart;
     
   // Designer form
   Ui_ChartView *ui;
