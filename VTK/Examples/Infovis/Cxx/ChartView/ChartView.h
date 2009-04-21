@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ChartView.h,v $
   Language:  C++
-  Date:      $Date: 2009-04-21 13:32:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2009-04-21 15:25:59 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2007 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -25,6 +25,9 @@
 class Ui_ChartView;
 
 // Forward VTK class declarations
+class vtkCorrelativeStatistics;
+class vtkDescriptiveStatistics;
+class vtkOrderStatistics;
 class vtkQtBarChartView;
 class vtkQtLineChartView;
 class vtkQtStackedChartView;
@@ -61,10 +64,22 @@ private:
   void SetupSelectionLink();
   
    
-  // Members
+  // Data ingestion
   vtkSmartPointer<vtkSQLDatabase>               Database;
   vtkSmartPointer<vtkRowQueryToTable>           QueryToTable;
-  vtkSmartPointer<vtkQtTableView>               TableView;
+
+  // Statistics filters
+  vtkSmartPointer<vtkDescriptiveStatistics>     DescriptiveStats;
+  vtkSmartPointer<vtkOrderStatistics>           QuartileStats;
+  vtkSmartPointer<vtkOrderStatistics>           DecileStats;
+  vtkSmartPointer<vtkCorrelativeStatistics>     CorrelativeStats;
+
+  // Views
+  vtkSmartPointer<vtkQtTableView>               TableView0;
+  vtkSmartPointer<vtkQtTableView>               TableView1;
+  vtkSmartPointer<vtkQtTableView>               TableView2;
+  vtkSmartPointer<vtkQtTableView>               TableView3;
+  vtkSmartPointer<vtkQtTableView>               TableView4;
   vtkSmartPointer<vtkQtBarChartView>            BarChart;
   vtkSmartPointer<vtkQtLineChartView>           LineChart;
   vtkSmartPointer<vtkQtStackedChartView>        StackedChart;
