@@ -38,7 +38,7 @@
 #include <vtksys/stl/vector>
 #include <vtksys/stl/map>
 
-vtkCxxRevisionMacro(vtkGeoEdgeStrategy, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkGeoEdgeStrategy, "$Revision: 1.1 $");
 vtkStandardNewMacro(vtkGeoEdgeStrategy);
 
 vtkGeoEdgeStrategy::vtkGeoEdgeStrategy()
