@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkDijkstraGraphGeodesicPath.cxx,v $
   Language:  C++
-  Date:    $Date: 2008-08-31 11:46:41 $
-  Version:   $Revision: 1.13 $
+  Date:    $Date: 2009-04-26 09:39:21 $
+  Version:   $Revision: 1.14 $
   
   Made by Rasmus Paulsen
   email:  rrp(at)imm.dtu.dk
@@ -18,6 +18,7 @@
 #include "vtkDijkstraGraphInternals.h"
 #include "vtkExecutive.h"
 #include "vtkFloatArray.h"
+#include "vtkDoubleArray.h"
 #include "vtkIdList.h"
 #include "vtkInformation.h"
 #include "vtkInformationVector.h"
@@ -27,8 +28,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-
-vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkDijkstraGraphGeodesicPath);
 vtkCxxSetObjectMacro(vtkDijkstraGraphGeodesicPath,RepelVertices,vtkPoints);
 
@@ -56,6 +56,21 @@ vtkDijkstraGraphGeodesicPath::~vtkDijkstraGraphGeodesicPath()
     delete this->Internals;
     }
   this->SetRepelVertices(NULL);
+}
+
+//----------------------------------------------------------------------------
+void vtkDijkstraGraphGeodesicPath::GetCumulativeWeights(vtkDoubleArray *weights)
+{
+  if (!weights) 
+    {
+    return;
+    }
+  
+  weights->Initialize();
+  double *weightsArray = new double[this->Internals->CumulativeWeights.size()];
+  vtkstd::copy(this->Internals->CumulativeWeights.begin(), 
+    this->Internals->CumulativeWeights.end(), weightsArray);
+  weights->SetArray(weightsArray, this->Internals->CumulativeWeights.size(), 0);
 }
 
 //----------------------------------------------------------------------------
