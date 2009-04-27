@@ -1,9 +1,9 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqCoreInit.cxx,v $
+   Module:    $RCSfile: pqComparativeLineChartView.cxx,v $
 
-   Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
+   Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
 
    ParaView is a free software; you can redistribute it and/or modify it
@@ -29,17 +29,20 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ========================================================================*/
+#include "pqComparativeLineChartView.h"
 
-#include "pqCoreInit.h"
-#include <QObject>
-#include <QtPlugin>
-
-void pqCoreInit()
+//-----------------------------------------------------------------------------
+pqComparativeLineChartView::pqComparativeLineChartView(
+  const QString& group, const QString& name, 
+  vtkSMComparativeViewProxy* view, pqServer* server, QObject* parentObject)
+: Superclass(comparativeLineChartViewType(),
+  group, name, view, server, parentObject)
 {
-#ifndef PARAVIEW_BUILD_SHARED_LIBS
-  Q_INIT_RESOURCE(pqCore);
-  Q_INIT_RESOURCE(QtWidgets);
-  Q_IMPORT_PLUGIN(QtWidgets);
-#endif
 }
+
+//-----------------------------------------------------------------------------
+pqComparativeLineChartView::~pqComparativeLineChartView()
+{
+}
+
 
