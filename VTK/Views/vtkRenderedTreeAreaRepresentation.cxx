@@ -78,7 +78,7 @@ public:
   vtkstd::vector<vtkSmartPointer<vtkActor> > ActorsToRemove;
 };
 
-vtkCxxRevisionMacro(vtkRenderedTreeAreaRepresentation, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkRenderedTreeAreaRepresentation, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkRenderedTreeAreaRepresentation);
 
 vtkRenderedTreeAreaRepresentation::vtkRenderedTreeAreaRepresentation()
@@ -312,6 +312,7 @@ void vtkRenderedTreeAreaRepresentation::SetAreaLabelMapper(vtkLabeledDataMapper*
       if (oldMapper)
         {
         this->AreaLabelMapper->SetFieldDataName(oldMapper->GetFieldDataName());
+        this->SetAreaLabelTextProperty( oldMapper->GetLabelTextProperty() );
         }
       this->AreaLabelMapper->SetInputConnection(this->AreaLayout->GetOutputPort());
       this->AreaLabelActor->SetMapper(this->AreaLabelMapper);
