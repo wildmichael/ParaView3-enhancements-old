@@ -78,7 +78,7 @@ public:
   vtkstd::vector<vtkSmartPointer<vtkActor> > ActorsToRemove;
 };
 
-vtkCxxRevisionMacro(vtkRenderedTreeAreaRepresentation, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkRenderedTreeAreaRepresentation, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkRenderedTreeAreaRepresentation);
 
 vtkRenderedTreeAreaRepresentation::vtkRenderedTreeAreaRepresentation()
@@ -771,9 +771,9 @@ vtkSelection* vtkRenderedTreeAreaRepresentation::ConvertSelection(
     vtkSelection* conv = p->ConvertSelection(view, sel);
     if (conv)
       {
-      for (unsigned int i = 0; i < conv->GetNumberOfNodes(); ++i)
+      for (unsigned int j = 0; j < conv->GetNumberOfNodes(); ++j)
         {
-        converted->AddNode(conv->GetNode(i));
+        converted->AddNode(conv->GetNode(j));
         }
       conv->Delete();
       }
