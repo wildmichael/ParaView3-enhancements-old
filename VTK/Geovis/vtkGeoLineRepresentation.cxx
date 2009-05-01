@@ -47,7 +47,7 @@
 #include "vtkVertexGlyphFilter.h"
 #include "vtkXMLDataSetWriter.h"
 
-vtkCxxRevisionMacro(vtkGeoLineRepresentation, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkGeoLineRepresentation, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkGeoLineRepresentation);
 //----------------------------------------------------------------------------
 vtkGeoLineRepresentation::vtkGeoLineRepresentation()
@@ -110,7 +110,7 @@ vtkGeoLineRepresentation::~vtkGeoLineRepresentation()
 }
 
 //----------------------------------------------------------------------------
-void vtkGeoLineRepresentation::SetupInputConnections()
+void vtkGeoLineRepresentation::PrepareInputConnections()
 {
   this->GeometryFilter->SetInput(this->GetInput());
   this->ExtractSelection->SetInput(this->GetInput());
