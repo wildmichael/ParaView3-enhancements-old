@@ -247,12 +247,12 @@ boost::graph::distributed::mpi_process_group *
 vtkPBGLDistributedGraphHelperInternals::root_process_group;
 
 vtkStandardNewMacro(vtkPBGLDistributedGraphHelperInternals);
-vtkCxxRevisionMacro(vtkPBGLDistributedGraphHelperInternals, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkPBGLDistributedGraphHelperInternals, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 // class vtkPBGLDistributedGraphHelper
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkPBGLDistributedGraphHelper, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkPBGLDistributedGraphHelper, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkPBGLDistributedGraphHelper);
 
 
@@ -270,6 +270,16 @@ vtkPBGLDistributedGraphHelper::vtkPBGLDistributedGraphHelper()
 vtkPBGLDistributedGraphHelper::~vtkPBGLDistributedGraphHelper()
 {
   this->Internals->Delete();
+}
+
+
+
+//----------------------------------------------------------------------------
+void vtkPBGLDistributedGraphHelper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os, indent);
+
+  os << indent << "vtkPBGLDistributedGraphHelper" << endl;
 }
 
 
