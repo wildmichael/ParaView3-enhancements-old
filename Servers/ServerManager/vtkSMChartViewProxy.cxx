@@ -21,7 +21,7 @@
 #include "vtkQtChartView.h"
 #include "vtkSMChartOptionsProxy.h"
 
-vtkCxxRevisionMacro(vtkSMChartViewProxy, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSMChartViewProxy, "$Revision: 1.3 $");
 //----------------------------------------------------------------------------
 vtkSMChartViewProxy::vtkSMChartViewProxy()
 {
@@ -78,6 +78,8 @@ vtkQtChartView* vtkSMChartViewProxy::GetChartView()
 //----------------------------------------------------------------------------
 void vtkSMChartViewProxy::PerformRender()
 {
+  vtkSMChartOptionsProxy::SafeDownCast(
+    this->GetSubProxy("ChartOptions"))->PrepareForRender(this);
   this->ChartView->Update();
   this->ChartView->Render();
 }
