@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.15 2009-02-12 21:13:17 biddisco Exp $  */
-/*  Date : $Date: 2009-02-12 21:13:17 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.16 2009-05-08 18:41:46 clarke Exp $  */
+/*  Date : $Date: 2009-05-08 18:41:46 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -146,6 +146,7 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
     XDMF_STRING_DUPLICATE(hds, aHeavyDataSetName);
     XDMF_WORD_TRIM( hds );
     this->Set("CDATA", hds);
+    H5.SetCompression(anArray->GetCompression());
     H5.CopyType(this->DataDesc);
     H5.CopyShape(this->DataDesc);
     H5.CopySelection(this->DataDesc);

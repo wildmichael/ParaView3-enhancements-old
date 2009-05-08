@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.h,v 1.3 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDataDesc.h,v 1.4 2009-05-08 18:41:46 clarke Exp $  */
+/*  Date : $Date: 2009-05-08 18:41:46 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -136,6 +136,12 @@ public :
 //! Get the number of total elements in a dataset
   XdmfInt64  GetNumberOfElements( void );
 
+//! Get the Compression Value
+  XdmfGetValueMacro( Compression, XdmfInt32 );
+//! Set the Compression Value
+  XdmfSetValueMacro( Compression, XdmfInt32 );
+  XdmfInt32 SetCompression(){return(this->SetCompression(0));};
+
 //! Get the number of dimensions
   XdmfGetValueMacro( Rank, XdmfInt32 );
 //! Get the length of each dimension
@@ -219,6 +225,7 @@ protected:
   XdmfInt32  SelectionType;
   XdmfInt32  NumberType;
   XdmfInt32  Rank;
+  XdmfInt32  Compression;
   XdmfInt64  NextOffset;
   XdmfInt64  Dimension[XDMF_MAX_DIMENSION];
 #if (H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&((H5_VERS_MINOR>6)||((H5_VERS_MINOR==6)&&(H5_VERS_RELEASE>=4))))

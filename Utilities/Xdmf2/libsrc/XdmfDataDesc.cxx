@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.8 2009-01-26 21:15:21 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:15:21 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.9 2009-05-08 18:41:45 clarke Exp $  */
+/*  Date : $Date: 2009-05-08 18:41:45 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,7 @@ XdmfDataDesc::XdmfDataDesc() {
   this->SelectionType = XDMF_SELECTALL;
   this->NextOffset = 0;
   this->Rank = 1;
+  this->Compression = 0;
   this->ShapeString = 0;
   this->DsmBuffer = NULL;
 }
