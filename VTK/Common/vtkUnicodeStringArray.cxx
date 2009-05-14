@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnicodeStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-05-14 17:50:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2009-05-14 18:19:43 $
+  Version:   $Revision: 1.6 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -28,7 +28,7 @@ public:
   StorageT Storage;
 };
 
-vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkUnicodeStringArray);
 
 vtkUnicodeStringArray::vtkUnicodeStringArray(vtkIdType)
@@ -102,7 +102,7 @@ void vtkUnicodeStringArray::InsertTuple(vtkIdType i, vtkIdType j, vtkAbstractArr
     return;
     }
 
-  if(this->Implementation->Storage.size() <= i)
+  if(static_cast<vtkIdType>(this->Implementation->Storage.size()) <= i)
     this->Implementation->Storage.resize(i + 1);
 
   this->Implementation->Storage[i] = array->Implementation->Storage[j];
