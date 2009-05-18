@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnicodeStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-05-14 18:19:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2009-05-18 21:06:19 $
+  Version:   $Revision: 1.7 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -28,7 +28,7 @@ public:
   StorageT Storage;
 };
 
-vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkUnicodeStringArray);
 
 vtkUnicodeStringArray::vtkUnicodeStringArray(vtkIdType)
@@ -290,6 +290,11 @@ vtkUnicodeString& vtkUnicodeStringArray::GetValue(vtkIdType i)
 void vtkUnicodeStringArray::InsertNextUTF8Value(const char* value)
 {
   this->InsertNextValue(vtkUnicodeString::from_utf8(value));
+}
+
+void vtkUnicodeStringArray::SetUTF8Value(vtkIdType i, const char* value)
+{
+  this->SetValue(i, vtkUnicodeString::from_utf8(value));
 }
 
 const char* vtkUnicodeStringArray::GetUTF8Value(vtkIdType i)
