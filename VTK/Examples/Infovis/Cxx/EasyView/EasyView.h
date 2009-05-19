@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: EasyView.h,v $
   Language:  C++
-  Date:      $Date: 2009-03-13 16:13:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2009-05-19 14:40:08 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2007 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -54,7 +54,7 @@ protected slots:
 private:
 
   // Methods
-  void SetupSelectionLink();
+  void SetupAnnotationLink();
   
    
   // Members
