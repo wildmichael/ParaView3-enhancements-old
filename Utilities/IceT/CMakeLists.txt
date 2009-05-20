@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.23 2008-10-17 16:43:26 berk Exp $
+# $Id: CMakeLists.txt,v 1.24 2009-05-20 15:12:28 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -15,9 +15,9 @@ IF(COMMAND cmake_policy)
 ENDIF(COMMAND cmake_policy)
 
 # Set the current ICE-T version.
-SET(ICET_MAJOR_VERSION 0)
-SET(ICET_MINOR_VERSION 5)
-SET(ICET_PATCH_VERSION 3)
+SET(ICET_MAJOR_VERSION 1)
+SET(ICET_MINOR_VERSION 0)
+SET(ICET_PATCH_VERSION 0)
 SET(ICET_VERSION "${ICET_MAJOR_VERSION}.${ICET_MINOR_VERSION}.${ICET_PATCH_VERSION}")
 
 # Set output paths.
