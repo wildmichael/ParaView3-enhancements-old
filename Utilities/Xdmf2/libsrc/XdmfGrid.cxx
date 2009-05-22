@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.30 2009-04-06 13:15:59 utkarsh Exp $  */
-/*  Date : $Date: 2009-04-06 13:15:59 $ */
-/*  Version : $Revision: 1.30 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.31 2009-05-22 13:26:39 clarke Exp $  */
+/*  Date : $Date: 2009-05-22 13:26:39 $ */
+/*  Version : $Revision: 1.31 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -139,7 +139,7 @@ XdmfGrid::Insert( XdmfElement *Child){
         XDMF_WORD_CMP(Child->GetElementName(), "Information")
         )){
         XdmfInt32   status = XdmfElement::Insert(Child);
-        if((status = XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Set")){
+        if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Set")){
             XdmfSet *ChildSet = (XdmfSet *)Child;
             this->NumberOfSets++;
             this->Sets = ( XdmfSet **)realloc( this->Sets,
@@ -150,7 +150,7 @@ XdmfGrid::Insert( XdmfElement *Child){
             }
             this->Sets[this->NumberOfSets - 1] = ChildSet;
             }
-        if((status = XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Attribute")){
+        if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Attribute")){
             XdmfAttribute *ChildAttr = (XdmfAttribute *)Child;
             this->NumberOfAttributes++;
             this->Attribute = ( XdmfAttribute **)realloc( this->Attribute,
@@ -161,7 +161,7 @@ XdmfGrid::Insert( XdmfElement *Child){
             }
             this->Attribute[this->NumberOfAttributes - 1] = ChildAttr;
             }
-        if((status = XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Grid")){
+        if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Grid")){
             XdmfGrid *ChildGrid = (XdmfGrid *)Child;
             XdmfInt32 nchild = this->NumberOfChildren + 1;
             this->Children = (XdmfGrid **)realloc(this->Children, nchild * sizeof(XdmfGrid *));
