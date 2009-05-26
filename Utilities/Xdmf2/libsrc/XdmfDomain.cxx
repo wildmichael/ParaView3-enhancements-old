@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDomain.cxx,v 1.2 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDomain.cxx,v 1.3 2009-05-26 15:18:57 clarke Exp $  */
+/*  Date : $Date: 2009-05-26 15:18:57 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -46,7 +46,7 @@ XdmfDomain::Insert( XdmfElement *Child){
         XDMF_WORD_CMP(Child->GetElementName(), "Information")
         )){
         XdmfInt32 status = XdmfElement::Insert(Child);
-        if((status = XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Grid")){
+        if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Grid")){
             XdmfGrid *ChildGrid = (XdmfGrid *)Child;
             if((ChildGrid->GetGridType() & XDMF_GRID_MASK) == XDMF_GRID_UNIFORM){
                 if(ChildGrid->InsertTopology() != XDMF_SUCCESS) return(XDMF_FAIL);
