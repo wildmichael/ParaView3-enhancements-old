@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDFSupport.cxx,v 1.2 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHDFSupport.cxx,v 1.3 2009-05-27 16:52:28 clarke Exp $  */
+/*  Date : $Date: 2009-05-27 16:52:28 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,6 +31,10 @@ XdmfTypeToClassString( XdmfInt32 XdmfType ) {
       return( "Char");
     case XDMF_UINT8_TYPE :
       return( "UChar");
+    case XDMF_INT16_TYPE :
+      return( "Short");
+    case XDMF_UINT16_TYPE :
+      return( "UShort");
     case XDMF_UINT32_TYPE :
       return "UInt";
     case XDMF_INT32_TYPE :

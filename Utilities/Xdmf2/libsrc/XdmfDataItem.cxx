@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.24 2009-03-12 20:56:40 clarke Exp $  */
-/*  Date : $Date: 2009-03-12 20:56:40 $ */
-/*  Version : $Revision: 1.24 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.25 2009-05-27 16:52:28 clarke Exp $  */
+/*  Date : $Date: 2009-05-27 16:52:28 $ */
+/*  Version : $Revision: 1.25 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -179,12 +179,18 @@ XdmfInt32 XdmfDataItem::UpdateInformationUniform(){
         this->DataDesc->SetNumberType(XDMF_INT8_TYPE);
     } else if(XDMF_WORD_CMP(Value, "UChar")){
         this->DataDesc->SetNumberType(XDMF_UINT8_TYPE);
+    } else if(XDMF_WORD_CMP(Value, "Short")){
+        this->DataDesc->SetNumberType(XDMF_INT16_TYPE);
+    } else if(XDMF_WORD_CMP(Value, "UShort")){
+        this->DataDesc->SetNumberType(XDMF_UINT16_TYPE);
     } else if(XDMF_WORD_CMP(Value, "Int")){
         if(Precision == 8){
             this->DataDesc->SetNumberType(XDMF_INT64_TYPE);
         }else{
             this->DataDesc->SetNumberType(XDMF_INT32_TYPE);
         }
+    } else if(XDMF_WORD_CMP(Value, "UInt")){
+        this->DataDesc->SetNumberType(XDMF_UINT32_TYPE);
     } else {
         if(Precision == 8){
             this->DataDesc->SetNumberType(XDMF_FLOAT64_TYPE);
