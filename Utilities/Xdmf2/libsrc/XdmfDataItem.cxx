@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.25 2009-05-27 16:52:28 clarke Exp $  */
-/*  Date : $Date: 2009-05-27 16:52:28 $ */
-/*  Version : $Revision: 1.25 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.26 2009-05-27 17:43:19 kwleiter Exp $  */
+/*  Date : $Date: 2009-05-27 17:43:19 $ */
+/*  Version : $Revision: 1.26 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -594,6 +594,9 @@ XdmfInt32 XdmfDataItem::Build(){
         case 4 :
             this->Set("Precision", "4");
             break;
+	case 2 :
+	    this->Set("Precision", "2");
+	    break;	
         case 1 :
             this->Set("Precision", "1");
             break;
