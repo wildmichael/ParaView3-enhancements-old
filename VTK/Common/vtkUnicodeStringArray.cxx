@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnicodeStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-05-18 21:06:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2009-05-27 22:36:04 $
+  Version:   $Revision: 1.8 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -28,7 +28,7 @@ public:
   StorageT Storage;
 };
 
-vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkUnicodeStringArray);
 
 vtkUnicodeStringArray::vtkUnicodeStringArray(vtkIdType)
@@ -241,6 +241,11 @@ vtkArrayIterator* vtkUnicodeStringArray::NewIterator()
 {
   vtkErrorMacro("Not implemented.");
   return 0;
+}
+
+vtkVariant vtkUnicodeStringArray::GetVariantValue(vtkIdType idx)
+{
+  return this->GetValue(idx);
 }
 
 vtkIdType vtkUnicodeStringArray::LookupValue(vtkVariant)
