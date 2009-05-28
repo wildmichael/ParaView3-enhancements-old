@@ -35,7 +35,7 @@
 #include "vtkCellPicker.h"
 #include "vtkPolyDataMapper.h"
 
-vtkCxxRevisionMacro(vtkLineRepresentation, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkLineRepresentation, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkLineRepresentation);
 
 vtkCxxSetObjectMacro(vtkLineRepresentation,HandleRepresentation,vtkPointHandleRepresentation3D);
@@ -766,6 +766,15 @@ void vtkLineRepresentation::HighlightLine(int highlight)
     this->LineActor->SetProperty(this->LineProperty);
     }
 }
+
+//----------------------------------------------------------------------------
+void vtkLineRepresentation::SetLineColor(double r, double g, double b)
+{
+  if(this->GetLineProperty())
+    {
+    this->GetLineProperty()->SetColor(r, g, b);
+    }
+}  
 
 //----------------------------------------------------------------------------
 void vtkLineRepresentation::ClampPosition(double x[3])
