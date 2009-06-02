@@ -51,7 +51,7 @@
 #include <sys/types.h> // Linux specific gettid()
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeZPass, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCompositeZPass, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCompositeZPass);
 vtkCxxSetObjectMacro(vtkCompositeZPass,Controller,vtkMultiProcessController);
 
@@ -757,6 +757,8 @@ void vtkCompositeZPass::CreateProgram(vtkOpenGLRenderWindow *context)
 void vtkCompositeZPass::ReleaseGraphicsResources(vtkWindow *w)
 {
   assert("pre: w_exists" && w!=0);
+  
+  (void)w;
   
   if(this->PBO!=0)
     {
