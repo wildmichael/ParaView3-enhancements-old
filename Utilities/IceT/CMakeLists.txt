@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.25 2009-06-03 17:02:28 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.26 2009-06-03 17:03:30 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -117,6 +117,9 @@ ENDIF(NOT ICET_INSTALL_INCLUDE_DIR)
 IF(NOT ICET_INSTALL_LIB_DIR)
   SET(ICET_INSTALL_LIB_DIR lib)
 ENDIF(NOT ICET_INSTALL_LIB_DIR)
+IF(NOT ICET_INSTALL_MAN_DIR)
+  SET(ICET_INSTALL_MAN_DIR share/man)
+ENDIF(NOT ICET_INSTALL_MAN_DIR)
 
 # Shared libraries are considered both runtime and development and
 # static libraries are considered development only.  In order to
@@ -150,6 +153,8 @@ IF (BUILD_TESTING AND ICET_BUILD_TESTING)
     MESSAGE(STATUS "Tests not supported on Mac.  Disabling.")
   ENDIF (NOT APPLE)
 ENDIF (BUILD_TESTING AND ICET_BUILD_TESTING)
+
+ADD_SUBDIRECTORY(doc)
 
 # Save the CMake settings so another project can import them.  Loaded by:
 #  INCLUDE(${CMAKE_ROOT}/Modules/CMakeImportBuildSettings.cmake)
