@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.7 2009-06-03 15:41:52 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.8 2009-06-03 15:46:18 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -32,6 +32,6 @@ IF (NOT ICET_INSTALL_NO_DEVELOPMENT)
   ENDFOREACH(p IN ${resPath})
   INSTALL(
       FILES ${filesToInstall}
-      DESTINATION "${PV_INSTALL_INCLUDE_DIR}/ice-t"
+      DESTINATION "${ICET_INSTALL_INCLUDE_DIR}/ice-t"
       COMPONENT Development)
 ENDIF (NOT ICET_INSTALL_NO_DEVELOPMENT)
