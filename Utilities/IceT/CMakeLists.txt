@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.24 2009-05-20 15:12:28 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.25 2009-06-03 17:02:28 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -144,7 +144,11 @@ INCLUDE_DIRECTORIES(${ICET_BINARY_DIR}/src/include)
 ADD_SUBDIRECTORY(src)
 
 IF (BUILD_TESTING AND ICET_BUILD_TESTING)
-  ADD_SUBDIRECTORY(tests)
+  IF (NOT APPLE)
+    ADD_SUBDIRECTORY(tests)
+  ELSE (NOT APPLE)
+    MESSAGE(STATUS "Tests not supported on Mac.  Disabling.")
+  ENDIF (NOT APPLE)
 ENDIF (BUILD_TESTING AND ICET_BUILD_TESTING)
 
 # Save the CMake settings so another project can import them.  Loaded by:
