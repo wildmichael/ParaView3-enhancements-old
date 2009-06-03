@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: SimpleExample.c,v 1.6 2005-12-16 19:02:08 kmorel Exp $
+** $Id: SimpleExample.c,v 1.7 2009-06-03 16:19:31 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -17,8 +17,13 @@
 #include "test_codes.h"
 #include "glwin.h"
 
-#include <GL/gl.h>
-#include <GL/glu.h>
+#ifdef __APPLE__
+#  include <OpenGL/gl.h>
+#  include <OpenGL/glu.h>
+#else
+#  include <GL/gl.h>
+#  include <GL/glu.h>
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
