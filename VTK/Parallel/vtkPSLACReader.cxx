@@ -322,7 +322,7 @@ struct vtkPSLACReaderIdTypeHash {
 };
 
 //=============================================================================
-vtkCxxRevisionMacro(vtkPSLACReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPSLACReader, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPSLACReader);
 
 vtkCxxSetObjectMacro(vtkPSLACReader, Controller, vtkMultiProcessController);
@@ -388,7 +388,14 @@ void vtkPSLACReader::PrintSelf(ostream &os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
 
-  os << indent << "Controller: " << this->Controller << endl;
+  if (this->Controller)
+    {
+    os << indent << "Controller: " << this->Controller << endl;
+    }
+  else
+    {
+    os << indent << "Controller: (null)\n";
+    }
 }
 
 //-----------------------------------------------------------------------------
