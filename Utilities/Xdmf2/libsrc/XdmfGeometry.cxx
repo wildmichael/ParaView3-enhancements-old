@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.18 2009-06-11 13:41:23 clarke Exp $  */
-/*  Date : $Date: 2009-06-11 13:41:23 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.19 2009-06-11 13:49:41 clarke Exp $  */
+/*  Date : $Date: 2009-06-11 13:49:41 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -329,7 +329,10 @@ if(!Attribute){
     Attribute = this->Get( "Type" );
 }
 if( Attribute ){
-  this->SetGeometryTypeFromString( Attribute );
+  if(this->SetGeometryTypeFromString( Attribute ) != XDMF_SUCCESS){
+      XdmfErrorMessage("No such Geometry Type : " << Attribute);
+      return(XDMF_FAIL);
+  }
 } else {
   this->GeometryType = XDMF_GEOMETRY_XYZ;
 }
