@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqTreeWidgetEventTranslator.h,v $
+   Module:    $RCSfile: pqTreeViewEventTranslator.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,33 +29,33 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ========================================================================*/
-#ifndef __pqTreeWidgetEventTranslator_h 
-#define __pqTreeWidgetEventTranslator_h
+#ifndef __pqTreeViewEventTranslator_h 
+#define __pqTreeViewEventTranslator_h
 
 #include "pqWidgetEventTranslator.h"
 
-class QTreeWidgetItem;
+class QModelIndex;
 
-/// Event recorder for QTreeWidget. Records the toggling of the check states for
+/// Event recorder for QTreeView. Records the toggling of the check states for
 /// tree widget items. The recorded state can be played back using
-/// pqTreeWidgetEventPlayer.
-class QTTESTING_EXPORT pqTreeWidgetEventTranslator : public pqWidgetEventTranslator
+/// pqTreeViewEventPlayer.
+class QTTESTING_EXPORT pqTreeViewEventTranslator : public pqWidgetEventTranslator
 {
   Q_OBJECT
   typedef pqWidgetEventTranslator Superclass;
 public:
-  pqTreeWidgetEventTranslator(QObject* parent=0);
-  ~pqTreeWidgetEventTranslator();
+  pqTreeViewEventTranslator(QObject* parent=0);
+  ~pqTreeViewEventTranslator();
 
   /// Overridden to handle events on QColorDialog. 
   virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error);
  
 private slots:
-  void onItemChanged(QTreeWidgetItem* item, int column);
+  void onItemChanged(const QModelIndex&);
 
 private:
-  pqTreeWidgetEventTranslator(const pqTreeWidgetEventTranslator&); // Not implemented.
-  void operator=(const pqTreeWidgetEventTranslator&); // Not implemented.
+  pqTreeViewEventTranslator(const pqTreeViewEventTranslator&); // Not implemented.
+  void operator=(const pqTreeViewEventTranslator&); // Not implemented.
 };
 
 #endif

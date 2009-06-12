@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqTreeWidgetEventPlayer.h,v $
+   Module:    $RCSfile: pqTreeViewEventPlayer.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,27 +29,27 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ========================================================================*/
-#ifndef __pqTreeWidgetEventPlayer_h 
-#define __pqTreeWidgetEventPlayer_h
+#ifndef __pqTreeViewEventPlayer_h 
+#define __pqTreeViewEventPlayer_h
 
 #include "pqWidgetEventPlayer.h"
 
-/// pqTreeWidgetEventPlayer is a player for QTreeWidget. Plays back the state
-/// recorded using pqTreeWidgetEventTranslator.
-class QTTESTING_EXPORT pqTreeWidgetEventPlayer : public pqWidgetEventPlayer
+/// pqTreeViewEventPlayer is a player for QTreeWidget. Plays back the state
+/// recorded using pqTreeViewEventTranslator.
+class QTTESTING_EXPORT pqTreeViewEventPlayer : public pqWidgetEventPlayer
 {
   Q_OBJECT
   typedef pqWidgetEventPlayer Superclass;
 public:
-  pqTreeWidgetEventPlayer(QObject* parent=0);
-  ~pqTreeWidgetEventPlayer();
+  pqTreeViewEventPlayer(QObject* parent=0);
+  ~pqTreeViewEventPlayer();
 
   bool playEvent(QObject* object, const QString& command, const QString&
     arguments, bool& error);
 
 private:
-  pqTreeWidgetEventPlayer(const pqTreeWidgetEventPlayer&); // Not implemented.
-  void operator=(const pqTreeWidgetEventPlayer&); // Not implemented.
+  pqTreeViewEventPlayer(const pqTreeViewEventPlayer&); // Not implemented.
+  void operator=(const pqTreeViewEventPlayer&); // Not implemented.
 };
 
 #endif
