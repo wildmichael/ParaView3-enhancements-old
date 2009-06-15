@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-06-05 16:26:54 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2009-06-15 20:56:31 $
+  Version:   $Revision: 1.66 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -91,7 +91,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.66 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -3073,7 +3073,7 @@ int vtkXdmfReaderInternal::RequestGridData(
             XdmfArray   SetArray;
             XdmfArray   IndexArray;
             XdmfInt32   *index, i;
-            vtkDataArray* vtkValues;
+            vtkDataArray* vtkValues = NULL;
 
 
             IndexArray.SetNumberType(XDMF_INT32_TYPE);
