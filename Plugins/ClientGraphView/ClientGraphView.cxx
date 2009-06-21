@@ -117,6 +117,7 @@ public:
     this->Theme.TakeReference(vtkViewTheme::CreateNeonTheme());
     this->View = vtkSmartPointer<vtkGraphLayoutView>::New();
     this->View->SetLayoutStrategyToFast2D();
+    this->View->SetInteractor(this->Widget->GetInteractor());
     this->Widget->SetRenderWindow(this->View->GetRenderWindow());
     this->View->ApplyViewTheme(this->Theme);
     
@@ -473,6 +474,9 @@ void ClientGraphView::renderInternal()
 
     this->Implementation->View->SetVertexLabelArrayName(
       vtkSMPropertyHelper(proxy, "VertexLabelArray").GetAsString());
+
+     this->Implementation->View->SetGlyphType(
+      vtkSMPropertyHelper(proxy, "GlyphType").GetAsInt());
 
     bool iconVisibility = vtkSMPropertyHelper(proxy, "IconVisibility").GetAsInt();
 

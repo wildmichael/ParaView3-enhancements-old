@@ -35,6 +35,7 @@
 #include <QPointer>
 #include "vtkQtAbstractModelAdapter.h"
 
+class QAbstractItemDelegate;
 class QItemSelection;
 class QTreeView;
 class vtkQtTreeModelAdapter;
@@ -78,6 +79,10 @@ public:
   // Description:
   // Updates the view.
   virtual void Update();
+
+  // Description:
+  // Set item delegate to something custom
+  void SetItemDelegate(QAbstractItemDelegate* delegate);
 
 protected:
   vtkQtTreeView();
