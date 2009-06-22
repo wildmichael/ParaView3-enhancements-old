@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.9 2009-05-08 18:41:45 clarke Exp $  */
-/*  Date : $Date: 2009-05-08 18:41:45 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.10 2009-06-22 15:10:28 clarke Exp $  */
+/*  Date : $Date: 2009-06-22 15:10:28 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -573,7 +573,11 @@ if( HDF5TypeToXdmfType(dataType) == XDMF_COMPOUND_TYPE ) {
   if( rank <= 0 ){
     return( XDMF_FAIL );
     }
+#if (H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&(H5_VERS_MINOR>=8))
+  H5Tget_array_dims2(dataType, Dims);
+#else
   H5Tget_array_dims(dataType, Dims, NULL );
+#endif
   for( i = 0 ; i < rank ; i++ ){
     Dimensions[i] = Dims[i];
   }
@@ -717,7 +721,11 @@ if( ( rank == 1 ) && ( *Dimensions == 1 ) ){
   status = H5Tinsert( this->DataType,
     Name,
     Offset,
+#if (H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&(H5_VERS_MINOR>=8))
+    H5Tarray_create( HNumberType, rank, Dims));
+#else
     H5Tarray_create( HNumberType, rank, Dims, NULL ));
+#endif
 }
 if( status < 0 ){
   return( XDMF_FAIL );
