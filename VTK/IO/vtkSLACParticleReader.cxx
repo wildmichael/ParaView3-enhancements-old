@@ -45,8 +45,6 @@
 
 #include <netcdf.h>
 
-using namespace vtkstd;
-
 //=============================================================================
 #define CALL_NETCDF(call)                       \
   { \
@@ -162,7 +160,7 @@ private:
 };
 
 //=============================================================================
-vtkCxxRevisionMacro(vtkSLACParticleReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSLACParticleReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkSLACParticleReader);
 
 //-----------------------------------------------------------------------------
