@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.3 2009-06-23 13:41:05 clarke Exp $  */
-/*  Date : $Date: 2009-06-23 13:41:05 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.4 2009-06-23 15:33:50 clarke Exp $  */
+/*  Date : $Date: 2009-06-23 15:33:50 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -141,7 +141,8 @@ protected:
 };
 
 /// Callback function to decorate opening a heavy dataset.
-struct XdmfOpenCallback {
+class XdmfOpenCallback {
+    public :
   virtual XdmfInt32 DoOpen( 
     XdmfHeavyData* ds, 
     XdmfConstString name,
@@ -152,21 +153,24 @@ struct XdmfOpenCallback {
 };
 
 /// Callback function to decorate reading a heavy dataset.
-struct XdmfReadCallback {
+class XdmfReadCallback {
+    public :
   virtual XdmfArray* DoRead( XdmfHeavyData* ds, XdmfArray* array ) {
     return ds->DoRead( array );
   }
 };
 
 /// Callback function to decorate writing a heavy dataset.
-struct XdmfWriteCallback {
+class XdmfWriteCallback {
+    public :
   virtual XdmfInt32 DoWrite( XdmfHeavyData* ds, XdmfArray* array ) {
     return ds->DoWrite( array );
   }
 };
 
 /// Callback function to decorate closing a heavy dataset.
-struct XdmfCloseCallback {
+class XdmfCloseCallback {
+    public :
   virtual XdmfInt32 DoClose( XdmfHeavyData* ds ) {
     return ds->DoClose();
   }
