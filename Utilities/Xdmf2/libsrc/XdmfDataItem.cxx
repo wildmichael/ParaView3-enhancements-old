@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.27 2009-06-23 16:39:20 clarke Exp $  */
-/*  Date : $Date: 2009-06-23 16:39:20 $ */
-/*  Version : $Revision: 1.27 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.28 2009-06-23 20:22:03 clarke Exp $  */
+/*  Date : $Date: 2009-06-23 20:22:03 $ */
+/*  Version : $Revision: 1.28 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -579,7 +579,8 @@ XdmfInt32 XdmfDataItem::Update(){
 					return(XDMF_FAIL);
 			}
 
-			XdmfPointer ArrayPointer, ArrayPointerT;
+			// XdmfPointer ArrayPointer, ArrayPointerT;
+			XdmfPointer ArrayPointer;
 
 			for(int j=0; j<NJ; j++)
 			{
