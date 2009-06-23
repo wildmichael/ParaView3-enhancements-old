@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.13 2009-06-10 18:43:54 kwleiter Exp $  */
-/*  Date : $Date: 2009-06-10 18:43:54 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.14 2009-06-23 13:41:05 clarke Exp $  */
+/*  Date : $Date: 2009-06-23 13:41:05 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -215,6 +215,7 @@ XdmfArray::XdmfArray() {
 
 XdmfArray::XdmfArray( XdmfInt32 numberType ) {
   XdmfDebug("XdmfArray Constructor");
+  this->AllowAllocate = 1;
   this->DataPointer = NULL;
   this->DataIsMine = 1;
   this->SetNumberType( numberType );
@@ -223,6 +224,7 @@ XdmfArray::XdmfArray( XdmfInt32 numberType ) {
 
 XdmfArray::XdmfArray( XdmfInt32 numberType, XdmfLength Length ) {
   XdmfDebug("XdmfArray Constructor");
+  this->AllowAllocate = 1;
   this->DataPointer = NULL;
   this->DataIsMine = 1;
   this->SetNumberType( numberType );
