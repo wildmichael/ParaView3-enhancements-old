@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiff.cc,v 1.3 2009-06-25 18:54:40 kwleiter Exp $  */
-/*  Date : $Date: 2009-06-25 18:54:40 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDiff.cc,v 1.4 2009-07-01 18:05:21 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-01 18:05:21 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -1068,69 +1068,4 @@ void XdmfDiff::ParseSettingsFile(XdmfConstString settingsFile)
        }
        diffRun = false;
        ifs.close();
-}
-
-/**
- * Entry point for command line utility
- *
- */
-int main(int argc, char* argv[]) {
-
-   XdmfDiff * diffFramework;
-
-   if (argc < 3)
-   {
-	   cout << "Improper Number Of Arguments Given" << endl;
-	   return 1;
-   }
-
-   if (argc >= 3)
-   {
-	   FILE * refFile = fopen(argv[1],"r");
-	   if(refFile)
-	   {
-		   // Success
-		   fclose(refFile);
-	   }
-	   else
-	   {
-		   cout << "Cannot open: " << argv[1] << endl;
-		   return 1;
-	   }
-
-	   FILE * newFile = fopen(argv[2],"r");
-	   if(newFile)
-	   {
-		   // Success
-		   fclose(newFile);
-	   }
-	   else
-	   {
-		   cout << "Cannot open: " << argv[2] << endl;
-		   return 1;
-	   }
-
-	   diffFramework = new XdmfDiff(argv[1], argv[2]);
-
-	   if(argc >= 4)
-	   {
-		   FILE * defFile = fopen(argv[3],"r");
-		   if(defFile)
-		   {
-			   // Success
-			   fclose(defFile);
-		   }
-		   else
-		   {
-			   cout << "Cannot open: " << argv[3] << endl;
-			   return 1;
-		   }
-		   diffFramework->ParseSettingsFile(argv[3]);
-	   }
-   }
-
-   std::string output = diffFramework->GetDiffs();
-   cout << output << endl;
-   delete diffFramework;
-   return 0;
 }
