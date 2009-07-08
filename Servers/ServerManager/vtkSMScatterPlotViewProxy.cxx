@@ -28,7 +28,7 @@
 #include "vtkClientServerStream.h"
 
 vtkStandardNewMacro(vtkSMScatterPlotViewProxy);
-vtkCxxRevisionMacro(vtkSMScatterPlotViewProxy, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMScatterPlotViewProxy, "$Revision: 1.2 $");
 //----------------------------------------------------------------------------
 vtkSMScatterPlotViewProxy::vtkSMScatterPlotViewProxy()
 {
@@ -172,7 +172,7 @@ vtkSMRepresentationProxy* vtkSMScatterPlotViewProxy::CreateDefaultRepresentation
 
 
 //----------------------------------------------------------------------------
-const char* vtkSMScatterPlotViewProxy::GetSuggestedViewType(vtkIdType connectionID)
+const char* vtkSMScatterPlotViewProxy::GetSuggestedViewType(vtkIdType vtkNotUsed(connectionID))
 {
   /*
   vtkSMViewProxy* rootView =
