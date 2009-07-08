@@ -28,10 +28,13 @@ def MakeObserver(numpy_array):
 def vtkDataArrayToVTKArray(array, dataset=None):
     "Given a vtkDataArray and a dataset owning it, returns a VTKArray."
     narray = numpy_support.vtk_to_numpy(array)
-    # The numpy_support convention of returning an array of snape (n,)
-    # causes problems. Change it to (n,1)
-    if len(narray.shape) == 1:
-        narray = narray.reshape(narray.shape[0], 1)
+
+    # Make arrays of 9 components into matrices. Also transpose
+    # as VTK store matrices in Fortran order
+    shape = narray.shape
+    if len(shape) == 2 and shape[1] == 9:
+        narray = narray.reshape((shape[0], 3, 3)).transpose(0, 2, 1)
+
     return VTKArray(narray, array=array, dataset=dataset)
     
 def numpyTovtkDataArray(array, name="numpy_array"):
@@ -46,8 +49,20 @@ def numpyTovtkDataArray(array, name="numpy_array"):
     # This makes the VTK array carry a reference to the numpy array.
     vtkarray.AddObserver('DeleteEvent', MakeObserver(array))
     return vtkarray
-    
-class VTKArray(numpy.ndarray):
+
+def make_tensor_array_contiguous(array):
+    if array == None:
+        return None
+    if array.flags.contiguous:
+        return array
+    array = numpy.asarray(array)
+    size = array.dtype.itemsize
+    strides = array.strides
+    if len(strides) == 3 and strides[1]/size == 1 and strides[2]/size == 3:
+        return array.transpose(0, 2, 1)
+    return array
+
+class VTKArray(numpy.matrix):
     """This is a sub-class of numpy ndarray that stores a
     reference to a vtk array as well as the owning dataset.
     The numpy array and vtk array should point to the same
@@ -57,25 +72,41 @@ class VTKArray(numpy.ndarray):
         # Input array is an already formed ndarray instance
         # We first cast to be our class type
         obj = numpy.asarray(input_array).view(cls)
+        if len(obj.shape) == 1:
+            obj = obj.reshape(obj.shape[0], 1)
         # add the new attributes to the created instance
         obj.VTKObject = array
-        obj.DataSet = dataset
+        if dataset:
+            import weakref
+            obj.DataSet = weakref.ref(dataset)
         # Finally, we must return the newly created object:
         return obj
 
     def __array_finalize__(self,obj):
-        # reset the attributes from passed original object
-        self.VTKObject = getattr(obj, 'VTKObject', None)
+        # Copy the VTK array only if the two share data
+        slf = make_tensor_array_contiguous(self)
+        obj2 = make_tensor_array_contiguous(obj)
+        if hasattr(slf, 'data') and hasattr(obj2, 'data') and \
+          slf.data == obj2.data:
+            self.VTKObject = getattr(obj, 'VTKObject', None)
+        else:
+            self.VTKObject = None
         self.DataSet = getattr(obj, 'DataSet', None)
-        # We do not need to return anything
 
     def __getattr__(self, name):
         "Forwards unknown attribute requests to VTK array."
-        if not self.VTKObject:
+        if not hasattr(self, "VTKObject") or not self.VTKObject:
             raise AttributeError("class has no attribute %s" % name)
-            return None
         return getattr(self.VTKObject, name)
+        
+    def __mul__(self, other):
+        return numpy.multiply(self, other)
 
+    def __rmul__(self, other):
+        return numpy.multiply(self, other)
+
+    def __pow__(self, other):
+        return numpy.power(self, other)
 
 class DataSetAttributes(VTKObjectWrapper):
     """This is a python friendly wrapper of vtkDataSetAttributes. It
@@ -83,7 +114,8 @@ class DataSetAttributes(VTKObjectWrapper):
     
     def __init__(self, vtkobject, dataset):
         self.VTKObject = vtkobject
-        self.DataSet = dataset
+        import weakref
+        self.DataSet = weakref.ref(dataset)
 
     def __getitem__(self, idx):
         """Implements the [] operator. Accepts an array name."""
@@ -94,7 +126,7 @@ class DataSetAttributes(VTKObjectWrapper):
         vtkarray = self.VTKObject.GetArray(idx)
         if not vtkarray:
             return None
-        return vtkDataArrayToVTKArray(vtkarray, self.DataSet)
+        return vtkDataArrayToVTKArray(vtkarray, self.DataSet())
 
     def keys(self):
         """Returns the names of the arrays as a list."""
@@ -118,8 +150,29 @@ class DataSetAttributes(VTKObjectWrapper):
 
     def append(self, narray, name):
         """Appends a new array to the dataset attributes."""
+
+        shape = narray.shape
+
+        if len(shape) == 3:
+            # Array of matrices. We need to make sure the order  in memory is right.
+            # If column order (c order), transpose. VTK wants row order (fortran
+            # order). The deep copy later will make sure that the array is contiguous.
+            # If row order but not contiguous, transpose so that the deep copy below
+            # does not happen.
+            size = narray.dtype.itemsize
+            if (narray.strides[1]/size == 3 and narray.strides[2]/size == 1) or \
+                (narray.strides[1]/size == 1 and narray.strides[2]/size == 3 and \
+                 not narray.flags.contiguous):
+                narray  = narray.transpose(0, 2, 1)
+
+        # If array is not contiguous, make a deep copy that is contiguous
         if not narray.flags.contiguous:
             narray = narray.copy()
+
+        # Flatten array of matrices to array of vectors
+        if len(shape) == 3:
+            narray = narray.reshape(shape[0], shape[1]*shape[2])
+
         arr = numpyTovtkDataArray(narray, name)
         self.VTKObject.AddArray(arr)
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.13 2008-05-08 17:48:44 clarke Exp $  */
-/*  Date : $Date: 2008-05-08 17:48:44 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.14 2009-06-23 16:41:47 clarke Exp $  */
+/*  Date : $Date: 2009-06-23 16:41:47 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -199,6 +199,10 @@ public:
     XdmfGetStringMacro(Function);
     //! Release Large Data
     XdmfInt32   Release();
+    XdmfGetValueMacro(ColumnMajor, XdmfInt32);
+    XdmfSetValueMacro(ColumnMajor, XdmfInt32);
+    XdmfGetValueMacro(TransposeInMemory, XdmfInt32);
+    XdmfSetValueMacro(TransposeInMemory, XdmfInt32);
 
 protected:
     XdmfInt32       Format;
@@ -210,6 +214,8 @@ protected:
     XdmfValues      *Values;
     XdmfString      HeavyDataSetName;
     XdmfString      Function;
+	XdmfInt32  ColumnMajor;
+	XdmfInt32  TransposeInMemory;
 
     //! Make sure this->Values is correct
     XdmfInt32       CheckValues(XdmfInt32 Format);

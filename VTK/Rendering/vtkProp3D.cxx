@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.39 $");
 
 //----------------------------------------------------------------------------
 // Construct with the following defaults: origin(0,0,0)

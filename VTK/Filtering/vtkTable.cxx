@@ -35,7 +35,7 @@
 // Standard functions
 //
 
-vtkCxxRevisionMacro(vtkTable, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkTable, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkTable);
 vtkCxxSetObjectMacro(vtkTable, RowData, vtkDataSetAttributes);
 
@@ -216,7 +216,7 @@ void vtkTable::SetRow(vtkIdType row, vtkVariantArray *values)
 }
 
 //----------------------------------------------------------------------------
-vtkIdType vtkTable::InsertNextBlankRow()
+vtkIdType vtkTable::InsertNextBlankRow(double default_num_val)
 {
   vtkIdType ncol = this->GetNumberOfColumns();
   for (vtkIdType i = 0; i < ncol; i++)
@@ -229,7 +229,7 @@ vtkIdType vtkTable::InsertNextBlankRow()
       double* tuple = new double[comps];
       for (int j = 0; j < comps; j++)
         {
-        tuple[j] = 0;
+        tuple[j] = default_num_val;
         }
       data->InsertNextTuple(tuple);
       delete[] tuple;
@@ -626,4 +626,28 @@ void vtkTable::DeepCopy(vtkDataObject* src)
     }
 
   Superclass::DeepCopy(src);
+}
+
+//----------------------------------------------------------------------------
+vtkFieldData* vtkTable::GetAttributesAsFieldData(int type)
+{
+  switch(type)
+    {
+    case ROW:
+      return this->GetRowData();
+      break;
+    }
+  return this->Superclass::GetAttributesAsFieldData(type);
+}
+
+//----------------------------------------------------------------------------
+vtkIdType vtkTable::GetNumberOfElements(int type)
+{
+  switch (type)
+    {
+    case ROW:
+      return this->GetNumberOfRows();
+      break;
+    }
+  return this->Superclass::GetNumberOfElements(type);;
 }

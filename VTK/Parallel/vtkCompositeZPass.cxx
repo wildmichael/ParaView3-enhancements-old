@@ -51,7 +51,7 @@
 #include <sys/types.h> // Linux specific gettid()
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeZPass, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCompositeZPass, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCompositeZPass);
 vtkCxxSetObjectMacro(vtkCompositeZPass,Controller,vtkMultiProcessController);
 
@@ -64,6 +64,7 @@ vtkCompositeZPass::vtkCompositeZPass()
   this->Controller=0;
   this->PBO=0;
   this->ZTexture=0;
+  this->Program=0;
   this->RawZBuffer=0;
   this->RawZBufferSize=0;
 }
@@ -262,7 +263,7 @@ void vtkCompositeZPass::Render(const vtkRenderState *s)
     // for debugging only.
     
     // Framebuffer to PBO
-    this->PBO->Allocate(byteSize);
+    this->PBO->Allocate(byteSize,VTK_FLOAT);
     this->PBO->Bind(vtkPixelBufferObject::PACKED_BUFFER);
     glReadPixels(0,0,w,h,GL_DEPTH_COMPONENT,GL_FLOAT,
                  static_cast<GLfloat *>(NULL));
@@ -520,7 +521,7 @@ void vtkCompositeZPass::Render(const vtkRenderState *s)
     
     
     
-    this->PBO->Allocate(byteSize);
+    this->PBO->Allocate(byteSize,VTK_FLOAT);
     this->PBO->Bind(vtkPixelBufferObject::PACKED_BUFFER);
     glReadPixels(0,0,w,h,GL_DEPTH_COMPONENT,GL_FLOAT,
                  static_cast<GLfloat *>(NULL));
@@ -586,7 +587,7 @@ void vtkCompositeZPass::Render(const vtkRenderState *s)
     // 2. receive final z-buffer and copy it
     
     // framebuffer to PBO.
-    this->PBO->Allocate(byteSize);
+    this->PBO->Allocate(byteSize,VTK_FLOAT);
     this->PBO->Bind(vtkPixelBufferObject::PACKED_BUFFER);
     glReadPixels(0,0,w,h,GL_DEPTH_COMPONENT,GL_FLOAT,
                  static_cast<GLfloat *>(NULL));

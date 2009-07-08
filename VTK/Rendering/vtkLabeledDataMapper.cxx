@@ -30,7 +30,9 @@
 #include "vtkTable.h"
 #include "vtkTextMapper.h"
 #include "vtkTextProperty.h"
+#include "vtkTypeTraits.h"
 #include "vtkTransform.h"
+#include "vtkUnicodeStringArray.h"
 
 #include <vtkstd/map>
 
@@ -40,7 +42,7 @@ public:
   vtkstd::map<int, vtkSmartPointer<vtkTextProperty> > TextProperties;
 };
 
-vtkCxxRevisionMacro(vtkLabeledDataMapper, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkLabeledDataMapper, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkLabeledDataMapper);
 
 vtkCxxSetObjectMacro(vtkLabeledDataMapper,Transform,vtkTransform);
@@ -347,6 +349,7 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
   vtkAbstractArray *abstractData = NULL;
   vtkDataArray *numericData = NULL;
   vtkStringArray *stringData = NULL;
+  vtkUnicodeStringArray *uStringData = NULL;
 
   if (input->GetNumberOfPoints() == 0)
     {
@@ -356,9 +359,6 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
   vtkPointData *pd = input->GetPointData();
   // figure out what to label, and if we can label it
   pointIdLabels = 0;
-  abstractData = NULL;
-  numericData = NULL;
-  stringData = NULL;
   switch (this->LabelMode)
     {
     case VTK_LABEL_IDS:
@@ -412,6 +412,7 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
       }
     numericData = vtkDataArray::SafeDownCast(abstractData);
     stringData = vtkStringArray::SafeDownCast(abstractData);
+    uStringData = vtkUnicodeStringArray::SafeDownCast(abstractData);
     }; break;
     }
 
@@ -436,6 +437,10 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
     if ( stringData )
       {
       numComp = stringData->GetNumberOfComponents();
+      }
+    else if( uStringData )
+      {
+      numComp = uStringData->GetNumberOfComponents();
       }
     else
       {
@@ -476,34 +481,47 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
         {
         case VTK_VOID: FormatString = "0x%x"; break;
 
-        case VTK_BIT:
-        case VTK_SHORT:
-        case VTK_UNSIGNED_SHORT:
-        case VTK_INT:
-        case VTK_UNSIGNED_INT:
-          FormatString = "%d"; break;
+        // dont use vtkTypeTraits::ParseFormat for character types as parse formats
+          // aren't the same as print formats for these types.
+          case VTK_BIT:
+          case VTK_SHORT:
+          case VTK_UNSIGNED_SHORT:
+          case VTK_INT:
+          case VTK_UNSIGNED_INT:
+            FormatString = "%d"; break;
 
-        case VTK_CHAR:
-        case VTK_SIGNED_CHAR:
-        case VTK_UNSIGNED_CHAR:
-          FormatString = "%c"; break;
+          case VTK_CHAR:
+          case VTK_SIGNED_CHAR:
+          case VTK_UNSIGNED_CHAR:
+            FormatString = "%c"; break;
 
-        case VTK_LONG:
-        case VTK_UNSIGNED_LONG:
-        case VTK_ID_TYPE:
-          FormatString = "%ld"; break;
+          case VTK_LONG:
+            FormatString = vtkTypeTraits<long>::ParseFormat(); break;
+          case VTK_UNSIGNED_LONG:
+            FormatString = vtkTypeTraits<unsigned long>::ParseFormat(); break;
 
-        case VTK_LONG_LONG:
-        case VTK_UNSIGNED_LONG_LONG:
-        case VTK___INT64:
-        case VTK_UNSIGNED___INT64:
-          FormatString = "%lld"; break;
+          case VTK_ID_TYPE:
+            FormatString = vtkTypeTraits<vtkIdType>::ParseFormat(); break;
 
-        case VTK_FLOAT:
-          FormatString = "%f"; break;
+#if defined(VTK_TYPE_USE_LONG_LONG)
+          case VTK_LONG_LONG:
+            FormatString = vtkTypeTraits<long long>::ParseFormat(); break;
+          case VTK_UNSIGNED_LONG_LONG:
+            FormatString = vtkTypeTraits<unsigned long long>::ParseFormat(); break;
+#endif
 
-        case VTK_DOUBLE:
-          FormatString = "%g"; break;
+#if defined(VTK_TYPE_USE___INT64)
+          case VTK___INT64:
+            FormatString = vtkTypeTraits<__int64>::ParseFormat(); break;
+          case VTK_UNSIGNED___INT64:
+            FormatString = vtkTypeTraits<unsigned __int64>::ParseFormat(); break;
+#endif
+
+          case VTK_FLOAT:
+            FormatString = vtkTypeTraits<float>::ParseFormat(); break;
+
+          case VTK_DOUBLE:
+            FormatString = vtkTypeTraits<double>::ParseFormat(); break;
 
         default:
           FormatString = "BUG - UNKNOWN DATA FORMAT"; break;
@@ -512,6 +530,11 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
     else if (stringData)
       {
       FormatString = ""; // we'll use vtkStdString::operator+ instead of sprintf
+      }
+    else if (uStringData)
+      {
+      vtkWarningMacro( "Unicode string arrays are not adequately supported by the vtkLabeledDataMapper.  Unicode strings will be converted to vtkStdStrings for rendering.");
+      FormatString = "unicode"; // we'll use vtkStdString::operator+ instead of sprintf
       }
     else
       {
@@ -599,13 +622,20 @@ void vtkLabeledDataMapper::BuildLabelsInternal(vtkDataSet* input)
         // we'll sidestep a lot of sprintf nonsense.
         if (this->LabelFormat == NULL)
           {
-          ResultString = stringData->GetValue(i);
+          if( uStringData )
+            {
+            ResultString = uStringData->GetValue(i).utf8_str();
+            }
+          else
+            {
+            ResultString = stringData->GetValue(i);
+            }
           }
         else // the user specified a label format
           {
           SNPRINTF(TempString, 1023, LiveFormatString, 
                    stringData->GetValue(i).c_str());
-            ResultString = TempString;
+          ResultString = TempString;
           } // done printing strings with label format
         } // done printing strings
       } // done creating string 

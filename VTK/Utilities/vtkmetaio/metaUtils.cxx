@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.cxx,v $
   Language:  C++
-  Date:      $Date: 2008-11-10 14:13:28 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2009-06-21 21:52:05 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -16,6 +16,7 @@
 =========================================================================*/
 #ifdef _MSC_VER
 #pragma warning(disable:4702)
+#pragma warning(disable:4996)
 #endif
 
 #include "metaUtils.h"

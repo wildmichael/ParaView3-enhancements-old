@@ -38,15 +38,12 @@
 
 #include "vtkPolyDataAlgorithm.h"
 
-#include "vtkSmartPointer.h"    // For ivars
-#include <vtkstd/map>           // For internal map
-
 class vtkDataArraySelection;
 class vtkIdTypeArray;
 class vtkInformationIntegerKey;
 class vtkInformationObjectBaseKey;
 
-class vtkSLACParticleReader : public vtkPolyDataAlgorithm
+class VTK_IO_EXPORT vtkSLACParticleReader : public vtkPolyDataAlgorithm
 {
 public:
   vtkTypeRevisionMacro(vtkSLACParticleReader, vtkPolyDataAlgorithm);

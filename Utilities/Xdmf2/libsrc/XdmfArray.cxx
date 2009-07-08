@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.13 2009-06-10 18:43:54 kwleiter Exp $  */
-/*  Date : $Date: 2009-06-10 18:43:54 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.15 2009-07-07 20:06:50 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-07 20:06:50 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -215,6 +215,7 @@ XdmfArray::XdmfArray() {
 
 XdmfArray::XdmfArray( XdmfInt32 numberType ) {
   XdmfDebug("XdmfArray Constructor");
+  this->AllowAllocate = 1;
   this->DataPointer = NULL;
   this->DataIsMine = 1;
   this->SetNumberType( numberType );
@@ -223,6 +224,7 @@ XdmfArray::XdmfArray( XdmfInt32 numberType ) {
 
 XdmfArray::XdmfArray( XdmfInt32 numberType, XdmfLength Length ) {
   XdmfDebug("XdmfArray Constructor");
+  this->AllowAllocate = 1;
   this->DataPointer = NULL;
   this->DataIsMine = 1;
   this->SetNumberType( numberType );
@@ -1226,7 +1228,7 @@ XdmfLength  i, Length;
 XdmfFloat64  Value, *Data;
 
 Length = this->GetNumberOfElements();
-Data = new XdmfFloat64[ Length + 10 ];
+Data = new XdmfFloat64[ Length ];
 this->GetValues( 0, Data, Length);
 Value = Data[0];
 for( i = 0 ; i < Length ; i++ ){
@@ -1244,7 +1246,7 @@ XdmfLength  i, Length;
 XdmfFloat64  Value, *Data;
 
 Length = this->GetNumberOfElements();
-Data = new XdmfFloat64[ Length + 10 ];
+Data = new XdmfFloat64[ Length ];
 this->GetValues( 0, Data, Length);
 Value = Data[0];
 for( i = 0 ; i < Length ; i++ ){
@@ -1258,12 +1260,38 @@ return( Value );
 
 XdmfInt64
 XdmfArray::GetMinAsInt64( void ) {
-return( static_cast<XdmfInt64>(this->GetMinAsFloat64()) );
+XdmfLength  i, Length;
+XdmfInt64  Value, *Data;
+
+Length = this->GetNumberOfElements();
+Data = new XdmfInt64[ Length ];
+this->GetValues( 0, Data, Length);
+Value = Data[0];
+for( i = 0 ; i < Length ; i++ ){
+  if ( Data[i] < Value ) {
+    Value =  Data[i];
+    }
+  }
+delete [] Data;
+return( Value );
 }
 
 XdmfInt64
 XdmfArray::GetMaxAsInt64( void ) {
-return( static_cast<XdmfInt64>(this->GetMaxAsFloat64()) );
+XdmfLength  i, Length;
+XdmfInt64  Value, *Data;
+
+Length = this->GetNumberOfElements();
+Data = new XdmfInt64[ Length ];
+this->GetValues( 0, Data, Length);
+Value = Data[0];
+for( i = 0 ; i < Length ; i++ ){
+  if ( Data[i] > Value ) { 
+    Value =  Data[i];
+    }
+  }
+delete [] Data;
+return( Value );
 }
 
 XdmfInt32 XdmfArray::SetValue( XdmfInt64 Index, XdmfUInt8 Value ) {

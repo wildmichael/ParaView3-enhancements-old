@@ -23,6 +23,7 @@
 #include "vtkPVOptions.h"
 #include "vtkPVPythonInterpretor.h"
 #include "vtkPointData.h"
+#include "vtkPythonProgrammableFilter.h"
 #include "vtkCellData.h"
 #include "vtkProcessModule.h"
 
@@ -31,43 +32,13 @@
 #include <vtkstd/map>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkPythonCalculator, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPythonCalculator, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPythonCalculator);
 
 //----------------------------------------------------------------------------
 
-typedef vtkstd::map<vtkstd::string, vtkstd::string> ParametersT;
-
-class vtkPythonCalculatorImplementation
-{
-public:
-  vtkPythonCalculatorImplementation() :
-    Interpretor(NULL)
-  {
-  }
-
-  void DestroyInterpretor()
-    {
-      if (this->Interpretor)
-        {
-        // The following is necessary because the Delete() may
-        // cause the destruction of vtkPythonCalculator
-        // which calls DestroyInterpretor() in its destructor.
-        // If this->Interpretor is not set to 0, it will be
-        // deleted a second time causing segmentation fault.
-        vtkPVPythonInterpretor* interp = this->Interpretor;
-        this->Interpretor = 0;
-        interp->Delete();
-        }
-    }
-
-  vtkPVPythonInterpretor* Interpretor;
-  
-};
-
 //----------------------------------------------------------------------------
-vtkPythonCalculator::vtkPythonCalculator() :
-  Implementation(new vtkPythonCalculatorImplementation())
+vtkPythonCalculator::vtkPythonCalculator()
 {
   this->Expression = NULL;
   this->ArrayName = NULL;
@@ -82,9 +53,6 @@ vtkPythonCalculator::~vtkPythonCalculator()
 {
   this->SetExpression(NULL);
   this->SetArrayName(NULL);
-
-  this->Implementation->DestroyInterpretor();
-  delete this->Implementation;
 }
 
 //----------------------------------------------------------------------------
@@ -137,6 +105,11 @@ void vtkPythonCalculator::ExecuteScript(void *arg)
 void vtkPythonCalculator::Exec(const char* expression,
                                const char* funcname)
 {
+  if (!expression)
+    {
+    return;
+    }
+
   vtkDataObject* firstInput = this->GetInputDataObject(0, 0);
   vtkFieldData* fd = 0;
   if (this->ArrayAssociation == vtkDataObject::FIELD_ASSOCIATION_POINTS)
@@ -159,16 +132,6 @@ void vtkPythonCalculator::Exec(const char* expression,
     {
     vtkErrorMacro("Unexpected association value.");
     return;
-    }
-
-  if (this->Implementation->Interpretor == NULL)
-    {
-    this->Implementation->Interpretor = vtkPVPythonInterpretor::New();
-    this->Implementation->Interpretor->SetCaptureStreams(true);
-    const char* argv0 = vtkProcessModule::GetProcessModule()->
-      GetOptions()->GetArgv0();
-    this->Implementation->Interpretor->InitializeSubInterpretor(
-      1, (char**)&argv0);
     }
 
   // Replace tabs with two spaces
@@ -201,11 +164,13 @@ void vtkPythonCalculator::Exec(const char* expression,
     const char* aname = fd->GetArray(i)->GetName();
     if (aname)
       {
-      fscript += "  try:\n";
-      fscript += "    ";
+      fscript += "  import paraview\n";
+      fscript += "  name = paraview.make_name_valid(\"";
       fscript += aname;
-      fscript += " = ";
-      fscript += " inputs[0].";
+      fscript += "\")\n";
+      fscript += "  if name:\n";
+      fscript += "    try:\n";
+      fscript += "      exec \"%s = inputs[0].";
       if (this->ArrayAssociation == vtkDataObject::FIELD_ASSOCIATION_POINTS)
         {
         fscript += "PointData['";
@@ -215,11 +180,11 @@ void vtkPythonCalculator::Exec(const char* expression,
         fscript += "CellData['";
         }
       fscript += aname;
-      fscript += "']\n";
-      fscript += "  except: pass\n";
-      fscript += "  arrays[";
+      fscript += "']\" % (name)\n";
+      fscript += "    except: pass\n";
+      fscript += "  arrays['";
       fscript += aname;
-      fscript += "] = inputs[0].";
+      fscript += "'] = inputs[0].";
       if (this->ArrayAssociation == vtkDataObject::FIELD_ASSOCIATION_POINTS)
         {
         fscript += "PointData['";
@@ -232,7 +197,9 @@ void vtkPythonCalculator::Exec(const char* expression,
       fscript += "']\n";
       }
     }
-  fscript += "  points = inputs[0].Points\n";
+  fscript += "  try:\n";
+  fscript += "    points = inputs[0].Points\n";
+  fscript += "  except: pass\n";
   
   if (expression && strlen(expression) > 0)  
     {
@@ -256,7 +223,7 @@ void vtkPythonCalculator::Exec(const char* expression,
     fscript += "  return None\n";
     }
   
-  this->Implementation->Interpretor->RunSimpleString(fscript.c_str());
+  vtkPythonProgrammableFilter::GetGlobalPipelineInterpretor()->RunSimpleString(fscript.c_str());
 
   vtkstd::string runscript;
   runscript += "from paraview import vtk\n";
@@ -288,10 +255,10 @@ void vtkPythonCalculator::Exec(const char* expression,
   for (int i=0; i<numinps; i++)
     {
     runscript += 
-      "inputs.append(dataset_adapter.DataSet(myarg.GetInputDataObject(0, index)))\n";
+      "inputs.append(dataset_adapter.WrapDataObject(myarg.GetInputDataObject(0, index)))\n";
     runscript += "index += 1\n";
     }
-  runscript += "output = dataset_adapter.DataSet(myarg.GetOutputDataObject(0))\n";
+  runscript += "output = dataset_adapter.WrapDataObject(myarg.GetOutputDataObject(0))\n";
   if (this->ArrayAssociation == vtkDataObject::FIELD_ASSOCIATION_POINTS)
     {
     runscript +=  "fd = output.PointData\n";
@@ -320,9 +287,8 @@ void vtkPythonCalculator::Exec(const char* expression,
   runscript += "del retVal\n";
   runscript += "del output\n";
   
-  this->Implementation->Interpretor->RunSimpleString(runscript.c_str());
-
-  this->Implementation->Interpretor->FlushMessages();
+  vtkPythonProgrammableFilter::GetGlobalPipelineInterpretor()->RunSimpleString(runscript.c_str());
+  vtkPythonProgrammableFilter::GetGlobalPipelineInterpretor()->FlushMessages();
 }
 
 //----------------------------------------------------------------------------

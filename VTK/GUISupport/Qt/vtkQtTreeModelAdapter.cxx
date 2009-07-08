@@ -21,6 +21,7 @@
 
 #include "vtkAdjacentVertexIterator.h"
 #include "vtkArrayIteratorIncludes.h"
+#include "vtkConvertSelection.h"
 #include "vtkIdList.h"
 #include "vtkIdTypeArray.h"
 #include "vtkPointData.h"
@@ -36,6 +37,9 @@
 #include <vtkstd/algorithm>
 #include <QIcon>
 #include <QPixmap>
+#include <QMimeData>
+
+#include <vtksys/ios/sstream>
 
 vtkQtTreeModelAdapter::vtkQtTreeModelAdapter(QObject* p, vtkTree* t)
   : vtkQtAbstractModelAdapter(p)
@@ -333,7 +337,14 @@ Qt::ItemFlags vtkQtTreeModelAdapter::flags(const QModelIndex &idx) const
     return Qt::ItemIsEnabled;
     }
 
-  return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+  Qt::ItemFlags itemFlags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+
+  if(!this->hasChildren(idx))
+    {
+    itemFlags = itemFlags | Qt::ItemIsDragEnabled;
+    }
+
+  return itemFlags;
 }
 
 QVariant vtkQtTreeModelAdapter::headerData(int section, Qt::Orientation orientation,
@@ -488,4 +499,33 @@ int vtkQtTreeModelAdapter::columnCount(const QModelIndex & vtkNotUsed(parentIdx)
       vtkGenericWarningMacro("vtkQtTreeModelAdapter: Bad view type.");
     };
   return 0;
+}
+
+QStringList vtkQtTreeModelAdapter::mimeTypes() const
+{
+  QStringList types;
+  types << "vtk/selection";
+  return types;
+}
+
+QMimeData *vtkQtTreeModelAdapter::mimeData(const QModelIndexList &indexes) const
+{
+  QMimeData *mime_data = new QMimeData();
+
+  // First get the index selection using a helper method
+  vtkSmartPointer<vtkSelection> indexSelection = vtkSmartPointer<vtkSelection>::New();
+  indexSelection.TakeReference(this->QModelIndexListToVTKIndexSelection(indexes));
+
+  vtkSelection* pedigreeIdSelection = vtkConvertSelection::ToSelectionType(indexSelection, this->Tree, vtkSelectionNode::PEDIGREEIDS);
+
+  vtksys_ios::ostringstream buffer;
+  buffer << pedigreeIdSelection;
+  mime_data->setData("vtk/selection", buffer.str().c_str());
+
+  return mime_data;
+}
+
+Qt::DropActions vtkQtTreeModelAdapter::supportedDragActions() const
+{
+   return Qt::CopyAction;
 }

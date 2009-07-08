@@ -45,8 +45,6 @@
 
 #include <netcdf.h>
 
-using namespace vtkstd;
-
 //=============================================================================
 #define CALL_NETCDF(call)                       \
   { \
@@ -162,7 +160,7 @@ private:
 };
 
 //=============================================================================
-vtkCxxRevisionMacro(vtkSLACParticleReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSLACParticleReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkSLACParticleReader);
 
 //-----------------------------------------------------------------------------
@@ -182,7 +180,14 @@ void vtkSLACParticleReader::PrintSelf(ostream &os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
 
-  os << indent << "FileName: " << this->FileName << endl;
+  if (this->FileName)
+  {
+    os << indent << "FileName: " << this->FileName << endl;
+  }
+  else
+  {
+    os << indent << "FileName: (null)\n";
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -343,6 +348,13 @@ int vtkSLACParticleReader::RequestData(vtkInformation *vtkNotUsed(request),
     verts->InsertNextCell(1, &i);
     }
   output->SetVerts(verts);
+
+  int timeVar;
+  CALL_NETCDF(nc_inq_varid(ncFD(), "time", &timeVar));
+  double timeValue;
+  CALL_NETCDF(nc_get_var_double(ncFD(), timeVar, &timeValue));
+  output->GetInformation()->Set(vtkDataObject::DATA_TIME_STEPS(),
+                                &timeValue, 1);
 
   return 1;
 } 

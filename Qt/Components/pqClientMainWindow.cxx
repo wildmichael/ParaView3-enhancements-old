@@ -65,6 +65,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <pqViewManager.h>
 #include <pqViewMenu.h>
 
+// Include pqPythonManager when compiled with python support
+#ifdef PARAVIEW_ENABLE_PYTHON
+#include <pqPythonManager.h>
+#endif
+
 #include <QAssistantClient>
 #include <QDir>
 #include <QFileInfo>
@@ -626,6 +631,14 @@ void pqClientMainWindow::constructorHelper()
     this->Implementation->UI.lookmarkToolbar,
     this->Implementation->UI.lookmarkToolbar->windowTitle());
 
+  // The macro toolbar defaults to hidden.
+  this->Implementation->UI.macroToolbar->setVisible(0);
+#ifdef PARAVIEW_ENABLE_PYTHON
+  this->Implementation->ToolbarsMenu->addWidget(
+    this->Implementation->UI.macroToolbar,
+    this->Implementation->UI.macroToolbar->windowTitle());
+#endif // PARAVIEW_ENABLE_PYTHON
+
   this->Implementation->ToolbarsMenu->addWidget(
     this->Implementation->UI.mainToolBar,
     this->Implementation->UI.mainToolBar->windowTitle());
@@ -844,6 +857,26 @@ void pqClientMainWindow::constructorHelper()
       &this->Implementation->Core->multiViewManager(), SIGNAL(triggerFileOpen(const QStringList&)),
       this->Implementation->Core, SLOT(onFileOpen(const QStringList&)));
 
+  // The Macros menu defaults to hidden
+  this->Implementation->UI.menuMacros->menuAction()->setVisible(false);
+
+#ifdef PARAVIEW_ENABLE_PYTHON
+  // Give the macro toolbar and macro menu to the pqPythonMacroSupervisor
+  pqPythonManager* manager = qobject_cast<pqPythonManager*>(
+    pqApplicationCore::instance()->manager("PYTHON_MANAGER"));
+  if (manager)
+    {
+    manager->addWidgetForMacros(this->Implementation->UI.menuMacros);
+    manager->addWidgetForMacros(this->Implementation->UI.macroToolbar);
+    }
+
+  // Connect the onSettingsModified slot, then call it once to initialize
+  connect(pqApplicationCore::instance()->settings(), SIGNAL(modified()),
+    this, SLOT(onSettingsModified()));
+  this->onSettingsModified();
+#endif // PARAVIEW_ENABLE_PYTHON
+
+
   // Restore the state of the window ...
   pqApplicationCore::instance()->settings()->restoreState("pqClientMainWindow", *this);
 
@@ -858,6 +891,15 @@ pqClientMainWindow::~pqClientMainWindow()
   pqApplicationCore::instance()->settings()->saveState(*this, "pqClientMainWindow");
 
   delete this->Implementation;
+}
+
+//-----------------------------------------------------------------------------
+void pqClientMainWindow::onSettingsModified()
+{
+  // Hide or show the Macros menu
+  bool showMacroMenu = pqApplicationCore::instance()->settings()->value(
+    "PythonMacros/ShowMenu", false).toBool();
+  this->Implementation->UI.menuMacros->menuAction()->setVisible(showMacroMenu);
 }
 
 //-----------------------------------------------------------------------------
@@ -1035,7 +1077,11 @@ void pqClientMainWindow::makeAssistant()
   if(assistantExe.isEmpty())
     {
 #if defined(Q_WS_MAC)
+# if QT_VERSION >= 0x040300 && QT_VERSION < 0x040400
+    assistantExe = QCoreApplication::applicationDirPath() + "/../Support/assistant";
+# else
     assistantExe = QCoreApplication::applicationDirPath() + "/../Support/Assistant_adp";
+# endif
 #else
     assistantExe = ::Locate(assistantName);
 #endif

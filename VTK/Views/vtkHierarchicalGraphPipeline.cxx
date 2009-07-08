@@ -21,15 +21,19 @@
 #include "vtkHierarchicalGraphPipeline.h"
 
 #include "vtkActor.h"
+#include "vtkActor2D.h"
 #include "vtkApplyColors.h"
 #include "vtkConvertSelection.h"
 #include "vtkDataRepresentation.h"
+#include "vtkDynamic2DLabelMapper.h"
+#include "vtkEdgeCenters.h"
 #include "vtkGraphHierarchicalBundleEdges.h"
 #include "vtkGraphToPolyData.h"
 #include "vtkInformation.h"
 #include "vtkLookupTable.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
 #include "vtkSelection.h"
 #include "vtkSelectionNode.h"
 #include "vtkSmartPointer.h"
@@ -38,7 +42,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewTheme.h"
 
-vtkCxxRevisionMacro(vtkHierarchicalGraphPipeline, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkHierarchicalGraphPipeline, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkHierarchicalGraphPipeline);
 
 vtkHierarchicalGraphPipeline::vtkHierarchicalGraphPipeline()
@@ -50,8 +54,12 @@ vtkHierarchicalGraphPipeline::vtkHierarchicalGraphPipeline()
   this->Mapper = vtkPolyDataMapper::New();
   this->Actor = vtkActor::New();
   this->TextProperty = vtkTextProperty::New();
+  this->EdgeCenters = vtkEdgeCenters::New();
+  this->LabelMapper = vtkDynamic2DLabelMapper::New();
+  this->LabelActor = vtkActor2D::New();
 
   this->ColorArrayNameInternal = 0;
+  this->LabelArrayNameInternal = 0;
 
   /*
   <graphviz>
@@ -59,6 +67,7 @@ vtkHierarchicalGraphPipeline::vtkHierarchicalGraphPipeline()
     "Graph input" -> Bundle
     "Tree input" -> Bundle
     Bundle -> Spline -> ApplyColors -> GraphToPoly -> Mapper -> Actor
+    Spline -> EdgeCenters -> LabelMapper -> LabelActor
   }
   </graphviz>
   */
@@ -68,6 +77,13 @@ vtkHierarchicalGraphPipeline::vtkHierarchicalGraphPipeline()
   this->GraphToPoly->SetInputConnection(this->ApplyColors->GetOutputPort());
   this->Mapper->SetInputConnection(this->GraphToPoly->GetOutputPort());
   this->Actor->SetMapper(this->Mapper);
+
+  this->EdgeCenters->SetInputConnection(this->Spline->GetOutputPort());
+  this->LabelMapper->SetInputConnection(this->EdgeCenters->GetOutputPort());
+  this->LabelMapper->SetLabelTextProperty(this->TextProperty);
+  this->LabelMapper->SetLabelModeToLabelFieldData();
+  this->LabelActor->SetMapper(this->LabelMapper);
+  this->LabelActor->VisibilityOff();
 
   this->Mapper->SetScalarModeToUseCellFieldData();
   this->Mapper->SelectColorArray("vtkApplyColors color");
@@ -84,6 +100,7 @@ vtkHierarchicalGraphPipeline::vtkHierarchicalGraphPipeline()
 vtkHierarchicalGraphPipeline::~vtkHierarchicalGraphPipeline()
 {
   this->SetColorArrayNameInternal(0);
+  this->SetLabelArrayNameInternal(0);
   this->ApplyColors->Delete();
   this->Bundle->Delete();
   this->GraphToPoly->Delete();
@@ -91,6 +108,9 @@ vtkHierarchicalGraphPipeline::~vtkHierarchicalGraphPipeline()
   this->Mapper->Delete();
   this->Actor->Delete();
   this->TextProperty->Delete();
+  this->EdgeCenters->Delete();
+  this->LabelMapper->Delete();
+  this->LabelActor->Delete();
 }
 
 void vtkHierarchicalGraphPipeline::SetBundlingStrength(double strength)
@@ -103,25 +123,25 @@ double vtkHierarchicalGraphPipeline::GetBundlingStrength()
   return this->Bundle->GetBundlingStrength();
 }
 
-// TODO: edge labeling
 void vtkHierarchicalGraphPipeline::SetLabelArrayName(const char* name)
 {
-  (void)name;
+  this->LabelMapper->SetFieldDataName(name);
+  this->SetLabelArrayNameInternal(name);
 }
 
 const char* vtkHierarchicalGraphPipeline::GetLabelArrayName()
 {
-  return 0;
+  return this->GetLabelArrayNameInternal();
 }
 
 void vtkHierarchicalGraphPipeline::SetLabelVisibility(bool vis)
 {
-  (void)vis;
+  this->LabelActor->SetVisibility(vis);
 }
 
 bool vtkHierarchicalGraphPipeline::GetLabelVisibility()
 {
-  return false;
+  return (this->LabelActor->GetVisibility() ? true : false);
 }
 
 void vtkHierarchicalGraphPipeline::SetLabelTextProperty(vtkTextProperty* prop)
@@ -232,6 +252,8 @@ void vtkHierarchicalGraphPipeline::ApplyViewTheme(vtkViewTheme* theme)
     lut->Build();
     this->ApplyColors->SetCellLookupTable(lut);
     }
+  this->TextProperty->SetColor(theme->GetEdgeLabelColor());
+  this->Actor->GetProperty()->SetLineWidth(theme->GetLineWidth());
 }
 
 void vtkHierarchicalGraphPipeline::PrintSelf(ostream& os, vtkIndent indent)
@@ -242,6 +264,16 @@ void vtkHierarchicalGraphPipeline::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << "\n";
     this->Actor->PrintSelf(os, indent.GetNextIndent());
+    }
+  else
+    {
+    os << "(none)\n";
+    }
+  os << indent << "LabelActor: ";
+  if (this->LabelActor && this->Bundle->GetNumberOfInputConnections(0) > 0)
+    {
+    os << "\n";
+    this->LabelActor->PrintSelf(os, indent.GetNextIndent());
     }
   else
     {

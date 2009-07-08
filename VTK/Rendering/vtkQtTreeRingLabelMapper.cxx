@@ -39,6 +39,8 @@ PURPOSE.  See the above copyright notice for more information.
 #include "vtkTexturedActor2D.h"
 #include "vtkTextureMapToPlane.h"
 #include "vtkTree.h"
+#include "vtkUnicodeStringArray.h"
+#include "vtkUnicodeString.h"
 
 #include <QApplication>
 #include <QFont>
@@ -55,7 +57,7 @@ PURPOSE.  See the above copyright notice for more information.
 #define VTK_CREATE(type, name)                                  \
   vtkSmartPointer<type> name = vtkSmartPointer<type>::New()
 
-vtkCxxRevisionMacro(vtkQtTreeRingLabelMapper, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkQtTreeRingLabelMapper, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkQtTreeRingLabelMapper);
 
 vtkCxxSetObjectMacro(vtkQtTreeRingLabelMapper,LabelTextProperty,vtkTextProperty);
@@ -99,6 +101,14 @@ vtkQtTreeRingLabelMapper::vtkQtTreeRingLabelMapper()
   this->LabelTexture = vtkTexture::New();
   
   this->QtImage = new QImage( 1, 1, QImage::Format_ARGB32 );
+
+//FIXME: QImage is initialized to grey.  This will fix that, although it is a bit of a hack...
+  QPainter painter( this->QtImage );
+  painter.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing );
+  painter.setCompositionMode( QPainter::CompositionMode_Clear );
+  painter.drawImage( 0, 0, *this->QtImage );
+  painter.setCompositionMode( QPainter::CompositionMode_SourceOver );
+
   this->QtImageSource->SetQImage( this->QtImage );
   this->LabelTexture->SetInput(this->QtImageSource->GetOutput());
   this->LabelTexture->InterpolateOn();
@@ -159,15 +169,18 @@ void vtkQtTreeRingLabelMapper::RenderOpaqueGeometry(vtkViewport *viewport,
   vtkAbstractArray *abstractData;
   vtkDataArray *numericData, *sectorInfo;
   vtkStringArray *stringData;
+  vtkUnicodeStringArray *uStringData;
   vtkTree *input=this->GetInputTree();
-  if ( ! input )
+  if ( !input )
     {
     vtkErrorMacro(<<"Need input tree to render labels (2)");
     return;
     }
   
-  input->Update();
-  input = this->GetInputTree();
+  if( input->GetNumberOfVertices() == 0 )
+    {
+    return;
+    }
   
   vtkDataSetAttributes *pd = input->GetVertexData();
   sectorInfo = this->GetInputArrayToProcess(0, input);
@@ -199,6 +212,7 @@ void vtkQtTreeRingLabelMapper::RenderOpaqueGeometry(vtkViewport *viewport,
     abstractData = NULL;
     numericData = NULL;
     stringData = NULL;
+    uStringData = NULL;
     switch (this->LabelMode)
       {
       case VTK_LABEL_SCALARS:
@@ -246,6 +260,7 @@ void vtkQtTreeRingLabelMapper::RenderOpaqueGeometry(vtkViewport *viewport,
         }
       numericData = vtkDataArray::SafeDownCast(abstractData);
       stringData = vtkStringArray::SafeDownCast(abstractData);
+      uStringData = vtkUnicodeStringArray::SafeDownCast(abstractData);
       };
       break;
       }
@@ -262,13 +277,13 @@ void vtkQtTreeRingLabelMapper::RenderOpaqueGeometry(vtkViewport *viewport,
         numComp = 1;
         }
       }
-    else if( !stringData )
+    else if( !stringData && !uStringData )
       {
       vtkErrorMacro(<<"Need input data to render labels (3)");
       return;
       }
     
-    this->LabelTree(input, sectorInfo, numericData, stringData,
+    this->LabelTree(input, sectorInfo, numericData, stringData, uStringData,
                     activeComp, numComp, viewport );
     }
   
@@ -284,13 +299,14 @@ void vtkQtTreeRingLabelMapper::RenderOpaqueGeometry(vtkViewport *viewport,
 }
 
 void vtkQtTreeRingLabelMapper::LabelTree(
-  vtkTree *tree, vtkDataArray *sectorInfo, vtkDataArray *numericData, vtkStringArray *stringData,
+  vtkTree *tree, vtkDataArray *sectorInfo, vtkDataArray *numericData, vtkStringArray *stringData, vtkUnicodeStringArray *uStringData,
   int activeComp, int numComps, vtkViewport* viewport )
 {
   delete this->QtImage;
   this->QtImage = new QImage( this->WindowSize[0], this->WindowSize[1], QImage::Format_ARGB32 );
   
   char string[1024];
+//  QString string;
   vtkIdType i, root = tree->GetRoot();
   if (root < 0)
     {
@@ -329,8 +345,8 @@ void vtkQtTreeRingLabelMapper::LabelTree(
       }
     
     //check to see if the text will fit in the sector
-    this->GetVertexLabel(i, numericData, stringData, activeComp, numComps, string);
-    vtkStdString ResultString = string;
+    this->GetVertexLabel(i, numericData, stringData, uStringData, activeComp, numComps, string);
+    QString ResultString(string);
     
     double x[3];
     x[0] = textPosDC[0];
@@ -368,7 +384,8 @@ void vtkQtTreeRingLabelMapper::LabelTree(
 //FIXME - This next step assumes no markup to the original text, which is probably a bad
 //  choice, but is necessary due to Qt's current methods for handling and computing
 //  rich text widths and ellipsis...
-    QTextStream(&testString) << fontMetric.elidedText( QString::fromUtf8( ResultString.c_str() ), Qt::ElideRight, allowedTextWidth );
+//    QTextStream(&testString) << fontMetric.elidedText( QString::fromUtf8( ResultString.c_str() ), Qt::ElideRight, allowedTextWidth );
+    QTextStream(&testString) << fontMetric.elidedText( ResultString, Qt::ElideRight, allowedTextWidth );
     QTextStream(&textString) << "<span>" << testString << "</span>";
 //end FIXME
     
@@ -406,6 +423,7 @@ void vtkQtTreeRingLabelMapper::LabelTree(
         break;
       case VTK_TEXT_CENTERED: 
         delta_y = -fontMetric.height()/2.;
+//        delta_y = -fontMetric.ascent()/2.;
         break;
       case VTK_TEXT_BOTTOM: 
         delta_y = -baseline;
@@ -560,7 +578,7 @@ void vtkQtTreeRingLabelMapper::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 void vtkQtTreeRingLabelMapper::GetVertexLabel(
-  vtkIdType vertex, vtkDataArray *numericData, vtkStringArray *stringData, 
+  vtkIdType vertex, vtkDataArray *numericData, vtkStringArray *stringData, vtkUnicodeStringArray* uStringData, 
   int activeComp, int numComp, char *string)
 {
   char format[1024];
@@ -610,6 +628,16 @@ void vtkQtTreeRingLabelMapper::GetVertexLabel(
       }
     sprintf(string, this->LabelFormat, 
             stringData->GetValue(vertex).c_str());
+    }
+  else if (uStringData)// rendering unicode string data
+    {
+    if (strcmp(this->LabelFormat,"%s") != 0) 
+      {
+      vtkErrorMacro(<<"Label format must be %s to use with strings");
+      string[0] = '\0';
+      return;
+      }
+    sprintf(string, this->LabelFormat, uStringData->GetValue(vertex).utf8_str());
     }
   else // Use the vertex id
     {

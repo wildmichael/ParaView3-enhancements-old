@@ -71,8 +71,10 @@ def CreateRenderView():
     return view
 
 def GetRenderView():
-    "Returns the first render view."
-    return servermanager.GetRenderView()
+    "Returns the active view if there is one. Else creates and returns a new view."
+    view = active_objects.view
+    if not view: view = CreateRenderView()
+    return view
 
 def GetRenderViews():
     "Returns all render views as a list."
@@ -258,17 +260,45 @@ def Delete(proxy=None):
                 SetActiveView(GetRenderViews()[0])
             else:
                 SetActiveView(None)
+
+def CreateLookupTable(**params):
+    """Create and return a lookup table.  Optionally, parameters can be given
+    to assign to the lookup table.
+    """
+    lt = servermanager.rendering.PVLookupTable()
+    servermanager.Register(lt)
+    SetProperties(lt, **params)
+    return lt
+
+def CreateScalarBar(**params):
+    """Create and return a scalar bar widget.  The returned widget may
+    be added to a render view by appending it to the view's representations
+    The widget must have a valid lookup table before it is added to a view.
+    It is possible to pass the lookup table (and other properties) as arguments
+    to this method:
     
+    lt = MakeBlueToRedLt(3.5, 7.5)
+    bar = CreateScalarBar(LookupTable=lt, Title="Velocity")
+    GetRenderView().Representations.append(bar)
+    
+    By default the returned widget is selectable and resizable.
+    """
+    sb = servermanager.rendering.ScalarBarWidgetRepresentation()
+    servermanager.Register(sb)
+    sb.Selectable = 1
+    sb.Resizable = 1
+    sb.Enabled = 1
+    sb.Title = "Scalars"
+    SetProperties(sb, **params)
+    return sb
+
 # TODO: Change this to take the array name and number of components. Register 
 # the lt under the name ncomp.array_name
 def MakeBlueToRedLT(min, max):
-    lt = servermanager.rendering.PVLookupTable()
-    servermanager.Register(lt)
-    # Add to RGB points. These are tuples of 4 values. First one is
+    # Define RGB points. These are tuples of 4 values. First one is
     # the scalar values, the other 3 the RGB values. 
-    lt.RGBPoints = [min, 0, 0, 1, max, 1, 0, 0]
-    lt.ColorSpace = "HSV"
-    return lt
+    rgbPoints = [min, 0, 0, 1, max, 1, 0, 0]
+    return CreateLookupTable(RGBPoints=rgbPoints, ColorSpace="HSV")
     
 def _find_writer(filename):
     "Internal function."
@@ -362,13 +392,22 @@ def _create_func(key, module):
             if len(input) > 0:
                 raise RuntimeError, "This function does not expect an input."
 
+        registrationName = None
+        if 'registrationName' in params:
+            registrationName = params['registrationName']
+            del params['registrationName']
+
         # Pass all the named arguments as property,value pairs
         for param in params.keys():
             setattr(px, param, params[param])
 
         try:
             # Register the proxy with the proxy manager.
-            group, name = servermanager.Register(px)
+            if registrationName:
+                group, name = servermanager.Register(px, registrationName=registrationName)
+            else:
+                group, name = servermanager.Register(px)
+
 
             # Register pipeline objects with the time keeper. This is used to extract time values
             # from sources. NOTE: This should really be in the servermanager controller layer.

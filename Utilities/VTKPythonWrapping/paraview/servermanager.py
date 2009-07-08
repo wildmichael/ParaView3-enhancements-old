@@ -421,8 +421,14 @@ class SourceProxy(Proxy):
         self.UpdatePipeline()
         return FieldDataInformation(self.SMProxy, self.Port, "CellData")
 
+    def GetFieldDataInformation(self):
+        """Returns the associated cell data information."""
+        self.UpdatePipeline()
+        return FieldDataInformation(self.SMProxy, self.Port, "FieldData")
+
     PointData = property(GetPointDataInformation, None, None, "Returns point data information")
     CellData = property(GetCellDataInformation, None, None, "Returns cell data information")
+    FieldData = property(GetFieldDataInformation, None, None, "Returns field data information")
 
 
 class ExodusIIReaderProxy(SourceProxy):
@@ -1337,7 +1343,7 @@ class FieldDataInformation(object):
         kys = []
         narrays = self.GetNumberOfArrays()
         for i in range(narrays):
-            kys.append(ai.GetName())
+            kys.append(self.GetArray(i).GetName())
         return kys
 
     def values(self):
@@ -2180,7 +2186,11 @@ def Fetch(input, arg1=None, arg2=None, idx=0):
     #go!
     gvd.UpdateVTKObjects()
     gvd.Update()
-    return gvd.GetOutput()
+    op = gvd.GetOutput()
+    opc = gvd.GetOutput().NewInstance()
+    opc.ShallowCopy(op)
+    opc.UnRegister(None)
+    return opc
 
 def AnimateReader(reader, view, filename=None):
     """This is a utility function that, given a reader and a view
@@ -2335,6 +2345,8 @@ def _findClassForProxy(xmlName, xmlGroup):
     """Given the xmlName for a proxy, returns a Proxy class. Note
     that if there are duplicates, the first one is returned."""
     global sources, filters, rendering, animation, implicit_functions, writers, extended_sources, misc
+    if not xmlName:
+        return None
     if xmlGroup == "sources":
         return sources.__dict__[xmlName]
     elif xmlGroup == "filters":
@@ -2428,13 +2440,7 @@ class PVModule(object):
     pass
 
 def _make_name_valid(name):
-    if name.find('(') >= 0 or name.find(')') >=0:
-        return None
-    name = name.replace(' ','')
-    name = name.replace('-','')
-    if not name[0].isalpha():
-        name = 'a' + name
-    return name
+    return paraview.make_name_valid(name)
 
 def createModule(groupName, mdl=None):
     """Populates a module with proxy classes defined in the given group.

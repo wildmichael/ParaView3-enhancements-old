@@ -15,6 +15,11 @@ SET ( QVTKMocHeaders
     vtkQtConnection.h
     )
 
+SET ( QVTKNonMocHeaders
+    ${CMAKE_CURRENT_SOURCE_DIR}/QVTKWin32Header.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/vtkEventQtSlotConnect.h
+    )
+
 INCLUDE_DIRECTORIES ( ${CMAKE_CURRENT_BINARY_DIR} )
 
 
@@ -60,7 +65,6 @@ IF(DESIRED_QT_VERSION MATCHES 4)
       vtkQtStatisticalBoxChartView.cxx
       vtkQtTableRepresentation.cxx
       vtkQtTableView.cxx
-      vtkQtTreeView.cxx
       vtkQtView.cxx
       ) 
     SET_SOURCE_FILES_PROPERTIES(vtkQtView.cxx ABSTRACT )
@@ -71,19 +75,20 @@ IF(DESIRED_QT_VERSION MATCHES 4)
       vtkQtLineChartView.h
       vtkQtListView.h
       vtkQtRecordView.h
+      vtkQtStackedChartView.h
+      vtkQtStatisticalBoxChartView.h
       vtkQtTableView.h
-      vtkQtTreeView.h
       vtkQtView.h
       )
-    # Column view is only supported in Qt >= 4.3.0
-    STRING(REGEX MATCH "^4\\.0\\.[0-9]+" QT_VERSION_4_0 "${QTVERSION}")
-    STRING(REGEX MATCH "^4\\.1\\.[0-9]+" QT_VERSION_4_1 "${QTVERSION}")
-    STRING(REGEX MATCH "^4\\.2\\.[0-9]+" QT_VERSION_4_2 "${QTVERSION}")
-    IF(QT_VERSION_4_0 OR QT_VERSION_4_1 OR QT_VERSION_4_2)
-    ELSE(QT_VERSION_4_0 OR QT_VERSION_4_1 OR QT_VERSION_4_2)
-      SET(QVTKLibSrcs ${QVTKLibSrcs} vtkQtColumnView.cxx)
-      SET(QVTKMocHeaders ${QVTKMocHeaders} vtkQtColumnView.h)
-    ENDIF(QT_VERSION_4_0 OR QT_VERSION_4_1 OR QT_VERSION_4_2)
+    SET ( QVTKNonMocHeaders ${QVTKNonMocHeaders}
+      vtkQtChartRepresentation.h
+      vtkQtTableRepresentation.h
+      )
+   # Tree view (because it contains QColumnView) is only supported in Qt >= 4.3.0
+    IF(QT_VERSION_MINOR GREATER 3 OR QT_VERSION_MINOR EQUAL 3)
+      SET(QVTKLibSrcs ${QVTKLibSrcs} vtkQtTreeView.cxx)
+      SET(QVTKMocHeaders ${QVTKMocHeaders} vtkQtTreeView.h)
+    ENDIF(QT_VERSION_MINOR GREATER 3 OR QT_VERSION_MINOR EQUAL 3)
 
     # Rich-text view requires Qt >= 4.5.0
     # Rich-text depends on QT Webkit which is not portable on Unix (AIX & HP-UX)
@@ -92,18 +97,18 @@ IF(DESIRED_QT_VERSION MATCHES 4)
         QT4_WRAP_UI(UI_FILES vtkQtRichTextView.ui)
         SET(QVTKLibSrcs ${QVTKLibSrcs} ${UI_FILES} vtkQtRichTextView.cxx)
         SET(QVTKMocHeaders ${QVTKMocHeaders} vtkQtRichTextView.h)
+        SET(QT_USE_PHONON 1)
+        SET(QT_USE_QTWEBKIT 1)
       ENDIF(QT_VERSION_MINOR GREATER 5 OR QT_VERSION_MINOR EQUAL 5)
     ENDIF(QT_QTWEBKIT_FOUND)
   ENDIF(VTK_USE_VIEWS)
   
-  # help CMake fine QtDesigner on Mac (binary install)
+  # help CMake find QtDesigner on Mac (binary install)
   FIND_PATH(QT_QTDESIGNER_INCLUDE_DIR QDesignerComponents
             PATHS ${QT_LIBRARY_DIR}/QtDesigner.framework/Headers
             NO_DEFAULT_PATH)
 
   # import Qt4 build settings
-  SET (QT_USE_PHONON 1)
-  SET (QT_USE_QTWEBKIT 1)
   SET (QT_USE_QTNETWORK 1)
   INCLUDE(${QT_USE_FILE})
 
@@ -268,9 +273,8 @@ ENDIF(NOT VTK_INSTALL_NO_QT_PLUGIN)
 
 IF(NOT VTK_INSTALL_NO_DEVELOPMENT)
   INSTALL(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/QVTKWidget.h"
-    "${CMAKE_CURRENT_SOURCE_DIR}/QVTKWin32Header.h"
-    "${CMAKE_CURRENT_SOURCE_DIR}/vtkEventQtSlotConnect.h"
+    ${QVTKMocHeaders}
+    ${QVTKNonMocHeaders}
     DESTINATION ${VTK_INSTALL_INCLUDE_DIR_CM24}
     COMPONENT Development
     )
@@ -281,6 +285,7 @@ IF(NOT VTK_INSTALL_NO_DEVELOPMENT)
     COMPONENT Development
     )
 ENDIF(NOT VTK_INSTALL_NO_DEVELOPMENT)
+
 IF(NOT VTK_INSTALL_NO_LIBRARIES)
   INSTALL(TARGETS QVTK
     RUNTIME DESTINATION ${VTK_INSTALL_BIN_DIR_CM24} COMPONENT RuntimeLibraries
@@ -304,4 +309,3 @@ IF(DESIRED_QT_VERSION MATCHES 4)
   ENDIF(BUILD_TESTING)
 ENDIF(DESIRED_QT_VERSION MATCHES 4)
 ENDIF(DESIRED_QT_VERSION MATCHES 0)
-

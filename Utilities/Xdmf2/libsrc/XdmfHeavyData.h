@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.2 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.4 2009-06-23 15:33:50 clarke Exp $  */
+/*  Date : $Date: 2009-06-23 15:33:50 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,6 +26,11 @@
 #define __XdmfHeavyData_h
 
 #include "XdmfArray.h"
+
+class XdmfOpenCallback;
+class XdmfReadCallback;
+class XdmfWriteCallback;
+class XdmfCloseCallback;
 
 //! Container class for Heavy Data Access
 /*!
@@ -93,14 +98,82 @@ values can be :
     strcpy( this->Access, access );
     } ;
 
-protected:
+  //-- public interface functions for manipulating heavy data --//
 
+  /// Open a heavy dataset for reading or writing.
+  XdmfInt32 Open( XdmfConstString name = NULL, XdmfConstString access = NULL );
+  /// Read an array from a heavy dataset.
+  XdmfArray* Read( XdmfArray* array = NULL );
+  /// Write to the heavy dataset that is currently open.
+  XdmfInt32 Write( XdmfArray* array );
+  /// Close a heavy dataset.
+  XdmfInt32 Close();
+
+  //-- Implementation Functions for manipulating heavy data --//
+
+  /// Virtual function to define the implementation of Open.
+  virtual XdmfInt32 DoOpen( XdmfConstString name, XdmfConstString access );
+  /// Virtual function to define the implementation of Read.
+  virtual XdmfArray* DoRead( XdmfArray* array );
+  /// Virtual function to define the implementation of Write.
+  virtual XdmfInt32 DoWrite( XdmfArray* array );
+  /// Virtual function to define the implementation of Close
+  virtual XdmfInt32 DoClose();
+
+  void setOpenCallback( XdmfOpenCallback* cb );
+  void setReadCallback( XdmfReadCallback* cb );
+  void setWriteCallback( XdmfWriteCallback* cb );
+  void setCloseCallback( XdmfCloseCallback* cb );
+  
+
+protected:
   char    NdgmHost[XDMF_MAX_STRING_LENGTH];
   XdmfString WorkingDirectory;
   char    Access[XDMF_MAX_STRING_LENGTH];
   char    Domain[XDMF_MAX_STRING_LENGTH];
   XdmfString FileName;
   char    Path[XDMF_MAX_STRING_LENGTH];
+
+  XdmfOpenCallback* mOpenCB;
+  XdmfReadCallback* mReadCB;
+  XdmfWriteCallback* mWriteCB;
+  XdmfCloseCallback* mCloseCB;
+};
+
+/// Callback function to decorate opening a heavy dataset.
+class XdmfOpenCallback {
+    public :
+  virtual XdmfInt32 DoOpen( 
+    XdmfHeavyData* ds, 
+    XdmfConstString name,
+    XdmfConstString access )
+  {
+    return ds->DoOpen( name, access );
+  }
+};
+
+/// Callback function to decorate reading a heavy dataset.
+class XdmfReadCallback {
+    public :
+  virtual XdmfArray* DoRead( XdmfHeavyData* ds, XdmfArray* array ) {
+    return ds->DoRead( array );
+  }
+};
+
+/// Callback function to decorate writing a heavy dataset.
+class XdmfWriteCallback {
+    public :
+  virtual XdmfInt32 DoWrite( XdmfHeavyData* ds, XdmfArray* array ) {
+    return ds->DoWrite( array );
+  }
+};
+
+/// Callback function to decorate closing a heavy dataset.
+class XdmfCloseCallback {
+    public :
+  virtual XdmfInt32 DoClose( XdmfHeavyData* ds ) {
+    return ds->DoClose();
+  }
 };
 
 /*

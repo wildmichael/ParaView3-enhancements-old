@@ -248,6 +248,11 @@ void ClientTreeAreaView::selectionChanged()
     }
 }
 
+vtkView* ClientTreeAreaView::getClientSideView() const
+{
+  return this->Implementation->HierarchicalGraphView;
+}
+
 QWidget* ClientTreeAreaView::getWidget()
 {
   return this->Implementation->Widget;
@@ -303,14 +308,14 @@ void ClientTreeAreaView::showRepresentation(pqRepresentation* representation)
     this->Implementation->TreeAreaRepresentation->SetInput(tree);
     this->Implementation->HierarchicalGraphView->SetRepresentation(this->Implementation->TreeAreaRepresentation);
 
-    this->scheduleSynchronization(DELIVER_TREE | SYNC_ATTRIBUTES | RESET_HGRAPH_CAMERA | UPDATE_HGRAPH_VIEW );
+    this->scheduleSynchronization(DELIVER_TREE | DELIVER_GRAPH | SYNC_ATTRIBUTES | RESET_HGRAPH_CAMERA | UPDATE_HGRAPH_VIEW );
     }
   else if(graph)
     {
     this->Implementation->GraphRepresentation = representation;
     this->Implementation->TreeAreaRepresentation->AddInput(1, graph);
 
-    this->scheduleSynchronization(DELIVER_GRAPH | SYNC_ATTRIBUTES | RESET_HGRAPH_CAMERA | UPDATE_HGRAPH_VIEW );
+    this->scheduleSynchronization(DELIVER_TREE | DELIVER_GRAPH | SYNC_ATTRIBUTES | RESET_HGRAPH_CAMERA | UPDATE_HGRAPH_VIEW );
     }
 }
 
@@ -447,6 +452,11 @@ void ClientTreeAreaView::synchronizeViews()
     // Sync hgraph attributes
     if(this->Implementation->TreeRepresentation && this->Implementation->GraphRepresentation)
       {
+      this->Implementation->HierarchicalGraphTheme->SetLineWidth(vtkSMPropertyHelper(tree_proxy, "EdgeWidth").GetAsDouble());
+
+      this->Implementation->HierarchicalGraphView->SetLabelPlacementMode(vtkSMPropertyHelper(this->getProxy(), "LabelPlacementMode").GetAsInt());
+      this->Implementation->HierarchicalGraphView->SetLabelRenderMode(vtkSMPropertyHelper(this->getProxy(), "LabelRenderMode").GetAsInt());
+
       this->Implementation->HierarchicalGraphView->SetAreaLabelVisibility(vtkSMPropertyHelper(tree_proxy, "AreaLabels").GetAsInt());
       this->Implementation->HierarchicalGraphView->SetAreaLabelArrayName(vtkSMPropertyHelper(tree_proxy, "AreaLabelArray").GetAsString());
 

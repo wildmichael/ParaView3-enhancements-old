@@ -40,7 +40,7 @@
 #include "vtkRenderPass.h"
 #include "vtkRenderState.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.249 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.252 $");
 vtkCxxSetObjectMacro(vtkRenderer, Delegate, vtkRendererDelegate);
 vtkCxxSetObjectMacro(vtkRenderer, Pass, vtkRenderPass);
 
@@ -709,12 +709,15 @@ void vtkRenderer::SetActiveCamera(vtkCamera *cam)
 
   this->ActiveCamera = cam;
   this->Modified();
+  this->InvokeEvent(vtkCommand::ActiveCameraEvent, cam);
 }
 
 //----------------------------------------------------------------------------
 vtkCamera* vtkRenderer::MakeCamera()
 {
-  return vtkCamera::New();
+  vtkCamera *cam = vtkCamera::New();
+  this->InvokeEvent(vtkCommand::CreateCameraEvent, cam);
+  return cam;
 }
   
 //----------------------------------------------------------------------------
@@ -735,16 +738,6 @@ vtkCamera *vtkRenderer::GetActiveCamera()
     }
 
   return this->ActiveCamera;
-}
-
-// ----------------------------------------------------------------------------
-// Description:
-// Tells if there is an active camera. As GetActiveCamera() creates
-// a camera if there is no active camera, this is the only way to
-// query the renderer state without changing it.
-bool vtkRenderer::HasActiveCamera()
-{
-  return this->ActiveCamera!=0;
 }
 
 //----------------------------------------------------------------------------
@@ -1067,8 +1060,31 @@ void vtkRenderer::ResetCamera(double bounds[6])
   // this forms a right triangle with one side being the radius, another being
   // the target distance for the camera, then just find the target dist using
   // a sin.
-  distance =
-    radius/sin(this->ActiveCamera->GetViewAngle()*vtkMath::Pi()/360.0);
+  double angle=this->ActiveCamera->GetViewAngle();
+  double parallelScale=radius;
+  
+  this->ComputeAspect();
+  double aspect[2];
+  this->GetAspect(aspect);
+  
+  if(aspect[0]>=1.0) // horizontal window, deal with vertical angle|scale
+    {
+    if(this->ActiveCamera->GetUseHorizontalViewAngle())
+      {
+      angle=angle/aspect[0];
+      }
+    }
+  else // vertical window, deal with horizontal angle|scale
+    {
+    if(!this->ActiveCamera->GetUseHorizontalViewAngle())
+      {
+      angle=angle*aspect[0];
+      }
+    
+    parallelScale=parallelScale/aspect[0];
+    }
+
+  distance =radius/sin(vtkMath::RadiansFromDegrees(angle)*0.5);
 
   // check view-up vector against view plane normal
   vup = this->ActiveCamera->GetViewUp();
@@ -1087,7 +1103,7 @@ void vtkRenderer::ResetCamera(double bounds[6])
   this->ResetCameraClippingRange( bounds );
 
   // setup default parallel scale
-  this->ActiveCamera->SetParallelScale(radius);
+  this->ActiveCamera->SetParallelScale(parallelScale);
 }
 
 // Alternative version of ResetCamera(bounds[6]);

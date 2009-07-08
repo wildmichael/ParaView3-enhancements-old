@@ -61,7 +61,7 @@
 #include "vtkQtLabelMapper.h"
 #endif
 
-vtkCxxRevisionMacro(vtkRenderView, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkRenderView, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkRenderView);
 vtkCxxSetObjectMacro(vtkRenderView, Transform, vtkAbstractTransform);
 
@@ -72,6 +72,7 @@ vtkRenderView::vtkRenderView()
   vtkTransform* t = vtkTransform::New();
   t->Identity();
   this->Transform = t;
+  this->DisplayHoverText = true;
 
   this->RenderWindow->AddRenderer(this->Renderer);
 
@@ -91,7 +92,6 @@ vtkRenderView::vtkRenderView()
   this->LabelRenderMode = FREETYPE;
 
   this->Balloon = vtkSmartPointer<vtkBalloonRepresentation>::New();
-  this->DisplayHoverText = true;
 
   this->LabelAppend = vtkSmartPointer<vtkAppendPoints>::New();
   this->LabelSize = vtkSmartPointer<vtkLabelSizeCalculator>::New();
@@ -733,7 +733,7 @@ void vtkRenderView::SetLabelPlacementAndRenderMode( int placement_mode, int rend
 #ifdef VTK_USE_QT
 //FIXME - Qt label rendering doesn't have a dynamic2D label mapper; so,
 //  use freetype dynamic labeling with an error...
-        vtkErrorMacro("Qt-based label rendering is not available with dynamic 2D label placement.  Using freetype-based label rendering.\n");
+        vtkWarningMacro("Qt-based label rendering is not available with dynamic 2D label placement.  Using label placer.\n");
         this->QtLabelPlacer->SetOutputCoordinateSystem( vtkLabelPlacer::DISPLAY );
         this->LabelActor->SetMapper(this->QtLabelMapper);
         this->QtLabelMapper->SetInputConnection(this->QtLabelPlacer->GetOutputPort(0));

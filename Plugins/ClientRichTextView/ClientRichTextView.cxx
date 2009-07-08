@@ -141,6 +141,11 @@ ClientRichTextView::~ClientRichTextView()
   this->Command->Delete();
 }
 
+vtkView* ClientRichTextView::getClientSideView() const
+{
+  return this->Implementation->View;
+}
+
 QWidget* ClientRichTextView::getWidget()
 {
   return this->Implementation->Widget;
@@ -311,6 +316,12 @@ void ClientRichTextView::renderInternal()
       this->Implementation->View->GetRepresentation()->Update();
       }
     }
+
+  // Set parameters on the view
+  this->Implementation->View->SetProxyURL(
+    vtkSMPropertyHelper(this->getProxy(), "ProxyURL").GetAsString());
+  this->Implementation->View->SetProxyPort(
+    vtkSMPropertyHelper(this->getProxy(), "ProxyPort").GetAsInt());
 
   this->Implementation->View->Update();
 }

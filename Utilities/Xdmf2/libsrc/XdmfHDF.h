@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.6 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.7 2009-06-23 13:41:05 clarke Exp $  */
+/*  Date : $Date: 2009-06-23 13:41:05 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -174,19 +174,20 @@ public:
         "r"         - Open for Read Only.
     \endverbatim
 */
-  XdmfInt32 Open( XdmfConstString DataSetName  = NULL ,
-    XdmfConstString Access = NULL );
+  virtual XdmfInt32 DoOpen( 
+    XdmfConstString DataSetName,
+    XdmfConstString Access );
 /*!
 Read the curently open dataset into and Array.
 */
-  XdmfArray *Read( XdmfArray *Array = NULL );
+  virtual XdmfArray* DoRead( XdmfArray *Array );
 /*!
 Write to the curently open dataset from and Array.
 */
-  XdmfInt32 Write( XdmfArray *Array );
+  virtual XdmfInt32 DoWrite( XdmfArray *Array );
 
 //! Close the HDF5  File
-  XdmfInt32 Close();
+  virtual XdmfInt32 DoClose();
 
 protected:
   hid_t    File;

@@ -46,7 +46,7 @@ PURPOSE.  See the above copyright notice for more information.
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkInitializationHelper, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkInitializationHelper, "$Revision: 1.6 $");
 
 static void vtkInitializationHelperInit(vtkProcessModule* pm);
 

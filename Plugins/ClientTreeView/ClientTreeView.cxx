@@ -107,6 +107,11 @@ ClientTreeView::~ClientTreeView()
   this->Command->Delete();
 }
 
+vtkView* ClientTreeView::getClientSideView() const
+{
+  return this->Implementation->View;
+}
+
 QWidget* ClientTreeView::getWidget()
 {
   return this->Implementation->Widget;
@@ -231,6 +236,9 @@ void ClientTreeView::renderInternal()
 
   proxy->Update();
 
+  // Make sure the view type is set (either column or tree)
+  this->Implementation->View->SetUseColumnView(
+    vtkSMPropertyHelper(this->getProxy(),"UseColumnView").GetAsInt());
 
   if(this->Implementation->View->GetRepresentation())
     {
@@ -262,6 +270,8 @@ void ClientTreeView::renderInternal()
     vtkSMPropertyHelper(this->getProxy(),"ShowRootNode").GetAsInt());
   this->Implementation->View->SetAlternatingRowColors(
     vtkSMPropertyHelper(this->getProxy(),"AlternatingRowColors").GetAsInt());
+  this->Implementation->View->SetEnableDragDrop(
+    vtkSMPropertyHelper(this->getProxy(),"EnableDragDrop").GetAsInt());
 
   this->Implementation->View->Update();
 

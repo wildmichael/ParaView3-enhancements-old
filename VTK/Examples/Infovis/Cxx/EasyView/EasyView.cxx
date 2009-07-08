@@ -12,7 +12,6 @@
 #include <vtkDataObjectToTable.h>
 #include <vtkDataRepresentation.h>
 #include <vtkGraphLayoutView.h>
-#include <vtkQtColumnView.h>
 #include <vtkQtTableView.h>
 #include <vtkQtTreeView.h>
 #include <vtkRenderer.h>
@@ -45,7 +44,8 @@ EasyView::EasyView()
   this->GraphView    = vtkSmartPointer<vtkGraphLayoutView>::New();
   this->TreeView     = vtkSmartPointer<vtkQtTreeView>::New();
   this->TableView    = vtkSmartPointer<vtkQtTableView>::New();
-  this->ColumnView   = vtkSmartPointer<vtkQtColumnView>::New();
+  this->ColumnView   = vtkSmartPointer<vtkQtTreeView>::New();
+  this->ColumnView->SetUseColumnView(1);
   
   // Tell the table view to sort selections that it receives (but does
   // not initiate) to the top
@@ -71,7 +71,8 @@ EasyView::EasyView()
   // Apply application stylesheet
   QString css = "* { font: bold italic 18px \"Calibri\"; color: midnightblue }";
   css += "QTreeView { font: bold italic 16px \"Calibri\"; color: midnightblue }";
-  qApp->setStyleSheet(css);
+  //qApp->setStyleSheet(css); // Seems to cause a bug on some systems
+                              // But at least it's here as an example
 
   this->GraphView->Render();
 };

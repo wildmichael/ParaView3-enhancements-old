@@ -62,6 +62,7 @@ int TestHierarchicalGraphView(int argc, char* argv[])
   reader2->Update();
   
   VTK_CREATE(vtkHierarchicalGraphView, view);
+  view->GetRenderWindow()->SetMultiSamples(0);
   view->SetHierarchyFromInputConnection(reader1->GetOutputPort());
   view->SetGraphFromInputConnection(reader2->GetOutputPort());
   view->SetVertexColorArrayName("VertexDegree");
@@ -82,7 +83,7 @@ int TestHierarchicalGraphView(int argc, char* argv[])
   
   // Apply a theme to the views
   vtkViewTheme* const theme = vtkViewTheme::CreateMellowTheme();
-  theme->SetLineWidth(3);
+  theme->SetLineWidth(1);
   view->ApplyViewTheme(theme);
   theme->Delete();
  

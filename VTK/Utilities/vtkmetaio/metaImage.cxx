@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-03-16 14:42:04 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2009-07-07 20:02:09 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -697,8 +697,12 @@ ElementNumberOfChannels(int _elementNumberOfChannels)
 //
 //
 void MetaImage::
-ElementByteOrderSwap(void)
+ElementByteOrderSwap(METAIO_STL::streamsize _quantity)
   {
+  
+  // use the user provided value if provided or the internal ivar
+  METAIO_STL::streamsize quantity = _quantity ? _quantity : m_Quantity;
+
   if(META_DEBUG)
     {
     METAIO_STREAM::cout << "MetaImage: ElementByteOrderSwap"
@@ -718,7 +722,7 @@ ElementByteOrderSwap(void)
     case 2:
       {
       int i;
-      for(i=0; i<m_Quantity*m_ElementNumberOfChannels; i++)
+      for(i=0; i<quantity*m_ElementNumberOfChannels; i++)
         {
         ((MET_USHORT_TYPE *)m_ElementData)[i] =
               MET_ByteOrderSwapShort(((MET_USHORT_TYPE *)m_ElementData)[i]);
@@ -728,7 +732,7 @@ ElementByteOrderSwap(void)
     case 4:
       {
       int i;
-      for(i=0; i<m_Quantity*m_ElementNumberOfChannels; i++)
+      for(i=0; i<quantity*m_ElementNumberOfChannels; i++)
         {
         ((MET_UINT_TYPE *)m_ElementData)[i] =
               MET_ByteOrderSwapLong(((MET_UINT_TYPE *)m_ElementData)[i]);
@@ -739,7 +743,7 @@ ElementByteOrderSwap(void)
       {
       int i;
       char* data = (char*)m_ElementData;
-      for(i=0; i<m_Quantity*m_ElementNumberOfChannels; i++)
+      for(i=0; i<quantity*m_ElementNumberOfChannels; i++)
         {
         MET_ByteOrderSwap8(data);
         data += 8;
@@ -751,11 +755,11 @@ ElementByteOrderSwap(void)
   }
 
 bool MetaImage::
-ElementByteOrderFix(void)
+ElementByteOrderFix(METAIO_STL::streamsize _quantity)
   {
   if(m_BinaryDataByteOrderMSB != MET_SystemByteOrderMSB())
     {
-    ElementByteOrderSwap();
+    ElementByteOrderSwap(_quantity);
     return true;
     }
   return true;

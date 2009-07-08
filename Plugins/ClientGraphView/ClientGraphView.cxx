@@ -41,6 +41,7 @@
 #include <vtkIdTypeArray.h>
 #include <vtkProcessModule.h>
 #include <vtkPVDataInformation.h>
+#include <vtkRenderedGraphRepresentation.h>
 #include <vtkRenderer.h>
 #include <vtkRenderWindow.h>
 #include <vtkSelection.h>
@@ -204,6 +205,11 @@ void ClientGraphView::selectionChanged()
     {
     this->getAnnotationLink()->MarkModified(0);
     }
+}
+
+vtkView* ClientGraphView::getClientSideView() const
+{
+  return this->Implementation->View;
 }
 
 QWidget* ClientGraphView::getWidget()
@@ -497,7 +503,7 @@ void ClientGraphView::renderInternal()
 
       vtkSMStringVectorProperty *iconTypes = vtkSMStringVectorProperty::SafeDownCast(proxy->GetProperty("IconTypes"));
       vtkSMIntVectorProperty *iconIndices = vtkSMIntVectorProperty::SafeDownCast(proxy->GetProperty("IconIndices"));
-      this->Implementation->View->ClearIconTypes();
+      //this->Implementation->View->ClearIconTypes();
       for(unsigned int i=0; i<iconTypes->GetNumberOfElements(); i++)
         {
         this->Implementation->View->AddIconType((char*)iconTypes->GetElement(i), iconIndices->GetElement(i));
@@ -505,6 +511,12 @@ void ClientGraphView::renderInternal()
 
       this->Implementation->View->SetIconArrayName(
         vtkSMPropertyHelper(proxy, "IconArray").GetAsString());
+
+      vtkRenderedGraphRepresentation* rep =
+        vtkRenderedGraphRepresentation::SafeDownCast(
+          this->Implementation->View->GetRepresentation());
+      rep->SetVertexSelectedIcon(vtkSMPropertyHelper(proxy, "SelectedIcon").GetAsInt());
+      rep->SetVertexIconSelectionMode(vtkSMPropertyHelper(proxy, "IconSelectionMode").GetAsInt());
       }
 
     this->Implementation->View->SetVertexLabelFontSize(

@@ -979,6 +979,24 @@
    <!-- End HierarchicalBoxDataReader -->
    </SourceProxy>
 
+    <SourceProxy name="SLACParticleReaderCore"
+                 class="vtkSLACParticleReader"
+                 label="SLAC Particle Data Reader">
+      <Documentation>
+        The SLAC Particle data reader.
+      </Documentation>
+
+      <StringVectorProperty name="FileName"
+                            command="SetFileName"
+                            animateable="0"
+                            number_of_elements="1">
+        <FileListDomain name="files" />
+        <Documentation>
+          The name of the file to load.
+        </Documentation>
+      </StringVectorProperty>
+    </SourceProxy> <!-- SLACParticleReaderCore -->
+
     <!-- End of "internal_sources" -->
   </ProxyGroup>
 
@@ -4564,6 +4582,9 @@
         several conventions to form an unstructured grid of elements.
       </Documentation>
 
+      <OutputPort name="External Surface" index="0" />
+      <OutputPort name="Entire Volume" index="1" />
+
       <StringVectorProperty name="MeshFileName"
                             command="SetMeshFileName"
                             animateable="0"
@@ -4660,7 +4681,50 @@
         </Documentation>
       </DoubleVectorProperty>
 
+      <Hints>
+        <!-- Usually you want to look at the external surface, but the
+             volume is there for visualizing the internal fields. -->
+        <OutputPort index="1" visible="0" />
+      </Hints>
+
     </SourceProxy> <!-- SLACReader -->
+
+    <FileSeriesReaderProxy name="SLACParticleReader"
+                           class="vtkFileSeriesReader"
+                           label="SLAC Particle Data Reader"
+                           file_name_method="SetFileName">
+      <Documentation>
+        The SLAC Particle data reader.
+      </Documentation>
+
+      <SubProxy>
+        <Proxy name="Reader"
+               proxygroup="internal_sources" proxyname="SLACParticleReaderCore">
+        </Proxy>
+
+      </SubProxy>
+
+      <StringVectorProperty name="FileName"
+                            clean_command="RemoveAllFileNames"
+                            command="AddFileName"
+                            animateable="0"
+                            number_of_elements="0"
+                            repeat_command="1">
+        <FileListDomain name="files" />
+        <Documentation>
+          A list of files to be read in a time series.
+        </Documentation>
+      </StringVectorProperty>
+
+      <DoubleVectorProperty name="TimestepValues"
+                            repeatable="1"
+                            information_only="1">
+        <TimeStepsInformationHelper />
+        <Documentation>
+          Available timestep values.
+        </Documentation>
+      </DoubleVectorProperty>
+    </FileSeriesReaderProxy> <!-- SLACParticleReader -->
 
    <FileSeriesReaderProxy name="CSVReader"
                           class="vtkFileSeriesReader"

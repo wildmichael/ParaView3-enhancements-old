@@ -105,7 +105,7 @@ public:
 
   // Description:
   // Insert a blank row at the end of the table.
-  vtkIdType InsertNextBlankRow();
+  vtkIdType InsertNextBlankRow(double default_num_val=0.0);
 
   // Description:
   // Insert a row specified by a vtkVariantArray.  The number of entries in the array
@@ -186,6 +186,17 @@ public:
   // Shallow/deep copy the data from src into this object.
   virtual void ShallowCopy(vtkDataObject* src);
   virtual void DeepCopy(vtkDataObject* src);
+
+  // Description:
+  // Returns the attributes of the data object as a vtkFieldData.
+  // This returns non-null values in all the same cases as GetAttributes,
+  // in addition to the case of FIELD, which will return the field data
+  // for any vtkDataObject subclass.
+  virtual vtkFieldData* GetAttributesAsFieldData(int type);
+
+  // Description:
+  // Get the number of elements for a specific attribute type (ROW, etc.).
+  virtual vtkIdType GetNumberOfElements(int type);
 
 protected:
   vtkTable();

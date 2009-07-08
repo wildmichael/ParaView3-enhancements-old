@@ -1,3 +1,28 @@
+/*******************************************************************/
+/*                               XDMF                              */
+/*                   eXtensible Data Model and Format              */
+/*                                                                 */
+/*  Id : $Id: XdmfFortran.cc,v 1.4 2009-06-25 15:30:12 kwleiter Exp $  */
+/*  Date : $Date: 2009-06-25 15:30:12 $ */
+/*  Version : $Revision: 1.4 $ */
+/*                                                                 */
+/*  Author:                                                        */
+/*     Kenneth Leiter                                              */
+/*     kenneth.leiter@arl.army.mil                                 */
+/*     US Army Research Laboratory                                 */
+/*     Aberdeen Proving Ground, MD                                 */
+/*                                                                 */
+/*     Copyright @ 2009 US Army Research Laboratory                */
+/*     All Rights Reserved                                         */
+/*     See Copyright.txt or http://www.arl.hpc.mil/ice for details */
+/*                                                                 */
+/*     This software is distributed WITHOUT ANY WARRANTY; without  */
+/*     even the implied warranty of MERCHANTABILITY or FITNESS     */
+/*     FOR A PARTICULAR PURPOSE.  See the above copyright notice   */
+/*     for more information.                                       */
+/*                                                                 */
+/*******************************************************************/
+
 #include <Xdmf.h>
 #include <XdmfSet.h>
 
@@ -22,19 +47,38 @@
 #define XdmfWriteToFile xdmfwritetofile_
 #define XdmfSerialize xdmfserialize_
 #define XdmfGetDOM xdmfgetdom_
+#define XdmfClose xdmfclose_
 
 XdmfFortran::XdmfFortran()
 {
 	myDOM = new XdmfDOM();
 	myRoot = new XdmfRoot();
 	myDomain = new XdmfDomain();
+	myTopology = NULL;
+	myGeometry = NULL;
 	currentTime = -1;
 	inCollection = false;
 }
 
 XdmfFortran::~XdmfFortran()
 {
+	delete myDOM;
+	delete myRoot;
+	delete myDomain;
+	delete myGeometry;
+	delete myTopology;
 
+	while(!myCollections.empty())
+	{
+		delete myCollections.top();
+		myCollections.pop();
+	}
+
+	while(!myAttributes.empty())
+	{
+		delete myAttributes.back();
+		myAttributes.pop_back();
+	}
 }
 
 //
@@ -51,7 +95,7 @@ extern "C" {
 	 */
 	long XdmfInit(char *outputName)
 	{
-		XdmfFortran * myPointer = new(XdmfFortran);
+		XdmfFortran * myPointer = new XdmfFortran();
 		myPointer->myRoot->SetDOM(myPointer->myDOM);
 		myPointer->myRoot->Build();
 		myPointer->myRoot->Insert(myPointer->myDomain);
@@ -147,8 +191,12 @@ extern "C" {
 		XdmfFortran * myPointer = (XdmfFortran *)*pointer;
 		if(myPointer->inCollection)
 		{
-			myPointer->inCollection = false;
+			delete myPointer->myCollections.top();
 			myPointer->myCollections.pop();
+			if(myPointer->myCollections.empty())
+			{
+				myPointer->inCollection = false;
+			}
 		}
 	}
 
@@ -232,6 +280,7 @@ extern "C" {
 		currAttribute->SetName(attributeName);
 		currAttribute->SetAttributeCenterFromString(attributeCenter);
 		currAttribute->SetAttributeTypeFromString(attributeType);
+		currAttribute->SetDeleteOnGridDelete(true);
 
 		XdmfArray * array = currAttribute->GetValues();
 		array->SetNumberTypeFromString(numberType);
@@ -242,8 +291,8 @@ extern "C" {
 
 	/**
 	 *
-	 * Add an array to the XdmfDOM.  Arrays can be written within collections or
-	 * within the top level domain.
+	 * Write out "generic" data to XDMF.  This writes out data to the end of the top-level domain or the current collection.  It is independent of any grids.
+	 * Currently supports only writing a single dataitem.
 	 *
 	 */
 	void XdmfAddArray(long * pointer, char * name, char * numberType, int * numberOfValues, XdmfPointer * data)
@@ -254,6 +303,7 @@ extern "C" {
     	currSet->SetDOM(myPointer->myDOM);
        	currSet->SetSetType(XDMF_SET_TYPE_NODE);
        	currSet->SetName(name);
+       	currSet->SetDeleteOnGridDelete(true);
 
        	// Copy Elements from Set to XdmfArray
        	XdmfArray * array = currSet->GetIds();
@@ -267,6 +317,7 @@ extern "C" {
 		if (myPointer->inCollection)
 		{
 			myPointer->myCollections.top()->Insert(currSet);
+	        currSet->Build();
 		}
 		else
 		{
@@ -274,9 +325,9 @@ extern "C" {
 			myGrid->SetDOM(myPointer->myDOM);
 	        myGrid->SetElement(myPointer->myDOM->FindElement("Domain"));
 	        myGrid->Insert(currSet);
+	        currSet->Build();
+	        delete myGrid;
 		}
-
-        currSet->Build();
 	}
 
 
@@ -348,7 +399,11 @@ extern "C" {
 		}
 
 		grid->Build();
+		delete grid;
+		myPointer->myTopology = NULL;
+		myPointer->myGeometry = NULL;
 	}
+
 
 	/**
 	 *
@@ -383,5 +438,16 @@ extern "C" {
 	{
 		XdmfFortran * myPointer = (XdmfFortran *)*pointer;
 		strcpy(charPointer, myPointer->myDOM->Serialize());
+	}
+
+	/**
+	 *
+	 * Close XdmfFortran interface and clean memory
+	 *
+	 */
+	void XdmfClose(long * pointer)
+	{
+		XdmfFortran * myPointer = (XdmfFortran *)*pointer;
+		delete myPointer;
 	}
 }

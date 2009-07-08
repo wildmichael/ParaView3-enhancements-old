@@ -58,7 +58,7 @@ static void RenderRMI(void *arg, void *, int, int);
 static void ComputeVisiblePropBoundsRMI(void *arg, void *, int, int);
 bool vtkParallelRenderManager::DefaultRenderEventPropagation = true;
 
-vtkCxxRevisionMacro(vtkParallelRenderManager, "$Revision: 1.81 $");
+vtkCxxRevisionMacro(vtkParallelRenderManager, "$Revision: 1.83 $");
 
 //----------------------------------------------------------------------------
 vtkParallelRenderManager::vtkParallelRenderManager()
@@ -618,7 +618,7 @@ void vtkParallelRenderManager::StartRender()
         }
       }
 
-    bool hasActiveCamera=ren->HasActiveCamera();
+    int hasActiveCamera=ren->IsActiveCameraCreated();
     vtkCamera *cam = ren->GetActiveCamera();
     if(!hasActiveCamera)
       {

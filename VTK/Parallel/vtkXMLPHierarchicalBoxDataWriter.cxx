@@ -19,7 +19,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXMLPHierarchicalBoxDataWriter);
-vtkCxxRevisionMacro(vtkXMLPHierarchicalBoxDataWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPHierarchicalBoxDataWriter, "$Revision: 1.4 $");
 
 vtkCxxSetObjectMacro(vtkXMLPHierarchicalBoxDataWriter, 
                      Controller,
@@ -31,6 +31,7 @@ vtkXMLPHierarchicalBoxDataWriter::vtkXMLPHierarchicalBoxDataWriter()
 {
   this->Controller = 0;
   this->SetController(vtkMultiProcessController::GetGlobalController());
+  this->vtkXMLPHierarchicalBoxDataWriter::SetWriteMetaFile(1);
 }
 
 //----------------------------------------------------------------------------
@@ -56,7 +57,25 @@ void vtkXMLPHierarchicalBoxDataWriter::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //----------------------------------------------------------------------------
-void vtkXMLPHierarchicalBoxDataWriter::FillDataTypes(vtkCompositeDataSet* hdInput)
+void vtkXMLPHierarchicalBoxDataWriter::SetWriteMetaFile(int flag)
+{
+  this->Modified();
+  if(this->Controller == NULL || this->Controller->GetLocalProcessId() == 0)
+    {
+    if(this->WriteMetaFile != flag)
+      {
+      this->WriteMetaFile = flag;
+      }
+    }
+  else
+    {
+    this->WriteMetaFile = 0;
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLPHierarchicalBoxDataWriter::FillDataTypes(
+  vtkCompositeDataSet* hdInput)
 {
   this->Superclass::FillDataTypes(hdInput);
 

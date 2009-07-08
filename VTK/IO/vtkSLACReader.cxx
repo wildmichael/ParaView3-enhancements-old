@@ -48,6 +48,7 @@
 
 #include <netcdf.h>
 
+#include <vtkstd/algorithm>
 #include <vtkstd/map>
 #include <vtkstd/vector>
 #include <vtksys/hash_map.hxx>
@@ -77,6 +78,7 @@
 #ifdef NC_INT64
 // This may or may not work with the netCDF 4 library reading in netCDF 3 files.
 #define nc_get_var_vtkIdType nc_get_var_longlong
+#define nc_get_vars_vtkIdType nc_get_vars_longlong
 #else // NC_INT64
 static int nc_get_var_vtkIdType(int ncid, int varid, vtkIdType *ip)
 {
@@ -108,9 +110,40 @@ static int nc_get_var_vtkIdType(int ncid, int varid, vtkIdType *ip)
 
   return NC_NOERR;
 }
+static int nc_get_vars_vtkIdType(int ncid, int varid,
+                                 const size_t start[], const size_t count[],
+                                 const ptrdiff_t stride[],
+                                 vtkIdType *ip)
+{
+  // Step 1, figure out how many entries in the given variable.
+  int numdims;
+  WRAP_NETCDF(nc_inq_varndims(ncid, varid, &numdims));
+  vtkIdType numValues = 1;
+  for (int dim = 0; dim < numdims; dim++)
+    {
+    numValues *= count[dim];
+    }
+
+  // Step 2, read the data in as 32 bit integers.  Recast the input buffer
+  // so we do not have to create a new one.
+  long *smallIp = reinterpret_cast<long*>(ip);
+  WRAP_NETCDF(nc_get_vars_long(ncid, varid, start, count, stride, smallIp));
+
+  // Step 3, recast the data from 32 bit integers to 64 bit integers.  Since we
+  // are storing both in the same buffer, we need to be careful to not overwrite
+  // uncopied 32 bit numbers with 64 bit numbers.  We can do that by copying
+  // backwards.
+  for (vtkIdType i = numValues-1; i >= 0; i--)
+    {
+    ip[i] = static_cast<vtkIdType>(smallIp[i]);
+    }
+
+  return NC_NOERR;
+}
 #endif // NC_INT64
 #else // VTK_USE_64_BIT_IDS
 #define nc_get_var_vtkIdType nc_get_var_int
+#define nc_get_vars_vtkIdType nc_get_vars_int
 #endif // VTK_USE_64BIT_IDS
 
 //-----------------------------------------------------------------------------
@@ -388,7 +421,7 @@ bool vtkSLACReader::MidpointIdMap::GetNextMidpoint(EdgeEndpoints &edge,
 }
 
 //=============================================================================
-vtkCxxRevisionMacro(vtkSLACReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSLACReader, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkSLACReader);
 
 vtkInformationKeyMacro(vtkSLACReader, IS_INTERNAL_VOLUME, Integer);
@@ -443,6 +476,8 @@ vtkSLACReader::vtkSLACReader()
   this->ReadModeData = false;
   this->TimeStepModes = false;
   this->FrequencyModes = false;
+
+  this->SetNumberOfOutputPorts(NUM_OUTPUTS);
 }
 
 vtkSLACReader::~vtkSLACReader()
@@ -555,9 +590,15 @@ int vtkSLACReader::RequestInformation(
                                  vtkInformationVector **vtkNotUsed(inputVector),
                                  vtkInformationVector *outputVector)
 {
-  vtkInformation *outInfo = outputVector->GetInformationObject(0);
-  outInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
-  outInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_RANGE());
+  vtkInformation *surfaceOutInfo
+    = outputVector->GetInformationObject(SURFACE_OUTPUT);
+  surfaceOutInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
+  surfaceOutInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_RANGE());
+
+  vtkInformation *volumeOutInfo
+    = outputVector->GetInformationObject(VOLUME_OUTPUT);
+  volumeOutInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
+  volumeOutInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_RANGE());
 
   if (!this->MeshFileName)
     {
@@ -671,36 +712,49 @@ int vtkSLACReader::RequestInformation(
       }
 
     double range[2];
-    outInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
+    surfaceOutInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
+    volumeOutInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
     vtkstd::map<double, vtkStdString>::iterator timeitr
       = this->Internal->TimeStepToFile.begin();
     range[0] = timeitr->first;
     for ( ; timeitr != this->Internal->TimeStepToFile.end(); timeitr++)
       {
       range[1] = timeitr->first;        // Eventually set to last value.
-      outInfo->Append(vtkStreamingDemandDrivenPipeline::TIME_STEPS(),
-                      timeitr->first);
+      surfaceOutInfo->Append(vtkStreamingDemandDrivenPipeline::TIME_STEPS(),
+                             timeitr->first);
+      volumeOutInfo->Append(vtkStreamingDemandDrivenPipeline::TIME_STEPS(),
+                            timeitr->first);
       }
-    outInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(), range, 2);
+    surfaceOutInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(),range,2);
+    volumeOutInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(),range,2);
     }
   else if (this->FrequencyModes)
     {
     double range[2];
     range[0] = 0;
     range[1] = 1.0/this->Frequency;
-    outInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(), range, 2);
+    surfaceOutInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(),range,2);
+    volumeOutInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(),range,2);
     }
 
   return 1;
 }
 
 //-----------------------------------------------------------------------------
-int vtkSLACReader::RequestData(vtkInformation *vtkNotUsed(request),
+int vtkSLACReader::RequestData(vtkInformation *request,
                                vtkInformationVector **vtkNotUsed(inputVector),
                                vtkInformationVector *outputVector)
 {
-  vtkInformation *outInfo = outputVector->GetInformationObject(0);
-  vtkMultiBlockDataSet *output = vtkMultiBlockDataSet::GetData(outInfo);
+  vtkInformation *outInfo[NUM_OUTPUTS];
+  for (int i = 0; i < NUM_OUTPUTS; i++)
+    {
+    outInfo[i] = outputVector->GetInformationObject(i);
+    }
+
+  vtkMultiBlockDataSet *surfaceOutput
+    = vtkMultiBlockDataSet::GetData(outInfo[SURFACE_OUTPUT]);
+  vtkMultiBlockDataSet *volumeOutput
+    = vtkMultiBlockDataSet::GetData(outInfo[VOLUME_OUTPUT]);
 
   if (!this->MeshFileName)
     {
@@ -708,11 +762,14 @@ int vtkSLACReader::RequestData(vtkInformation *vtkNotUsed(request),
     return 0;
     }
 
-  double time =  0.0;
+  double time = 0.0;
   bool timeValid = false;
-  if (outInfo->Has(vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS()))
+  int fromPort = request->Get(vtkExecutive::FROM_OUTPUT_PORT());
+  if (outInfo[fromPort]->Has(
+                         vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS()))
     {
-    time =outInfo->Get(vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS(),0);
+    time = outInfo[fromPort]->Get(
+                       vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS(),0);
     timeValid = true;
     }
 
@@ -723,6 +780,11 @@ int vtkSLACReader::RequestData(vtkInformation *vtkNotUsed(request),
 
   int readMesh = !this->MeshUpToDate();
 
+  // This convenience object holds the composite of the surface and volume
+  // outputs.  Since each of these outputs is multiblock (and needs iterators)
+  // anyway, then subroutines can just iterate over everything once.
+  VTK_CREATE(vtkMultiBlockDataSet, compositeOutput);
+
   if (readMesh)
     {
     this->Internal->MidpointIdCache.RemoveAllMidpoints();
@@ -731,38 +793,50 @@ int vtkSLACReader::RequestData(vtkInformation *vtkNotUsed(request),
     vtkSLACReaderAutoCloseNetCDF meshFD(this->MeshFileName, NC_NOWRITE);
     if (!meshFD.Valid()) return 0;
 
-    // Set up point data.
-    VTK_CREATE(vtkPoints, points);
-    VTK_CREATE(vtkPointData, pd);
-    output->GetInformation()->Set(vtkSLACReader::POINTS(), points);
-    output->GetInformation()->Set(vtkSLACReader::POINT_DATA(), pd);
-
     if (!this->ReadInternalVolume && !this->ReadExternalSurface) return 1;
 
-    if (!this->ReadConnectivity(meshFD(), output)) return 0;
+    if (!this->ReadConnectivity(meshFD(),surfaceOutput,volumeOutput)) return 0;
 
     this->UpdateProgress(0.25);
 
-    if (!this->ReadCoordinates(meshFD(), output)) return 0;
+    // Shove two outputs in composite output.
+    compositeOutput->SetNumberOfBlocks(2);
+    compositeOutput->SetBlock(SURFACE_OUTPUT, surfaceOutput);
+    compositeOutput->SetBlock(VOLUME_OUTPUT,  volumeOutput);
+    compositeOutput->GetMetaData(static_cast<unsigned int>(SURFACE_OUTPUT))
+      ->Set(vtkCompositeDataSet::NAME(), "Internal Volume");
+    compositeOutput->GetMetaData(static_cast<unsigned int>(VOLUME_OUTPUT))
+      ->Set(vtkCompositeDataSet::NAME(), "External Surface");
+
+    // Set up point data.
+    VTK_CREATE(vtkPoints, points);
+    VTK_CREATE(vtkPointData, pd);
+    compositeOutput->GetInformation()->Set(vtkSLACReader::POINTS(), points);
+    compositeOutput->GetInformation()->Set(vtkSLACReader::POINT_DATA(), pd);
+
+    if (!this->ReadCoordinates(meshFD(), compositeOutput)) return 0;
 
     this->UpdateProgress(0.5);
 
     if (this->ReadMidpoints)
       {
-      if (!this->ReadMidpointData(meshFD(), output,
+      if (!this->ReadMidpointData(meshFD(), compositeOutput,
                                   this->Internal->MidpointIdCache))
         {
         return 0;
         }
       }
 
-    this->Internal->MeshCache->ShallowCopy(output);
+    this->Internal->MeshCache->ShallowCopy(compositeOutput);
     this->Internal->PointCache = points;
     this->MeshReadTime.Modified();
     }
   else
     {
-    if (!this->RestoreMeshCache(output)) return 0;
+    if (!this->RestoreMeshCache(surfaceOutput, volumeOutput, compositeOutput))
+      {
+      return 0;
+      }
     }
 
   this->UpdateProgress(0.75);
@@ -781,36 +855,45 @@ int vtkSLACReader::RequestData(vtkInformation *vtkNotUsed(request),
     vtkSLACReaderAutoCloseNetCDF modeFD(modeFileName, NC_NOWRITE);
     if (!modeFD.Valid()) return 0;
 
-    if (!this->ReadFieldData(modeFD(), output)) return 0;
+    if (!this->ReadFieldData(modeFD(), compositeOutput)) return 0;
 
     this->UpdateProgress(0.875);
 
-    if (!this->InterpolateMidpointData(output, this->Internal->MidpointIdCache))
+    if (!this->InterpolateMidpointData(compositeOutput,
+                                       this->Internal->MidpointIdCache))
       {
       return 0;
+      }
+
+    if (timeValid)
+      {
+      surfaceOutput->GetInformation()->Set(vtkDataObject::DATA_TIME_STEPS(),
+                                           &time, 1);
+      volumeOutput->GetInformation()->Set(vtkDataObject::DATA_TIME_STEPS(),
+                                          &time, 1);
       }
     }
 
   // Push points to output.
   vtkPoints *points = vtkPoints::SafeDownCast(
-                        output->GetInformation()->Get(vtkSLACReader::POINTS()));
+               compositeOutput->GetInformation()->Get(vtkSLACReader::POINTS()));
   VTK_CREATE(vtkCompositeDataIterator, outputIter);
-  for (outputIter.TakeReference(output->NewIterator());
+  for (outputIter.TakeReference(compositeOutput->NewIterator());
        !outputIter->IsDoneWithTraversal(); outputIter->GoToNextItem())
     {
-    vtkUnstructuredGrid *ugrid
-      = vtkUnstructuredGrid::SafeDownCast(output->GetDataSet(outputIter));
+    vtkUnstructuredGrid *ugrid = vtkUnstructuredGrid::SafeDownCast(
+                                       compositeOutput->GetDataSet(outputIter));
     ugrid->SetPoints(points);
     }
 
   // Push point field data to output.
   vtkPointData *pd = vtkPointData::SafeDownCast(
-                    output->GetInformation()->Get(vtkSLACReader::POINT_DATA()));
-  for (outputIter.TakeReference(output->NewIterator());
+           compositeOutput->GetInformation()->Get(vtkSLACReader::POINT_DATA()));
+  for (outputIter.TakeReference(compositeOutput->NewIterator());
        !outputIter->IsDoneWithTraversal(); outputIter->GoToNextItem())
     {
-    vtkUnstructuredGrid *ugrid
-      = vtkUnstructuredGrid::SafeDownCast(output->GetDataSet(outputIter));
+    vtkUnstructuredGrid *ugrid = vtkUnstructuredGrid::SafeDownCast(
+                                       compositeOutput->GetDataSet(outputIter));
     ugrid->GetPointData()->ShallowCopy(pd);
     }
 
@@ -893,12 +976,63 @@ int vtkSLACReader::ReadTetrahedronExteriorArray(int meshFD,
 }
 
 //-----------------------------------------------------------------------------
-int vtkSLACReader::ReadConnectivity(int meshFD, vtkMultiBlockDataSet *output)
+int vtkSLACReader::CheckTetrahedraWinding(int meshFD)
 {
-  // Get ready to read in cells and separate into assembly based on element
-  // attributes and boundary conditions.
-  VTK_CREATE(vtkMultiBlockDataSet, solidMeshes);
-  VTK_CREATE(vtkMultiBlockDataSet, externalFaces);
+  int i;
+
+  // Read in the first interior tetrahedron topology.
+  int tetInteriorVarId;
+  CALL_NETCDF(nc_inq_varid(meshFD, "tetrahedron_interior", &tetInteriorVarId));
+
+  size_t start[2], count[2];
+  start[0] = 0;  count[0] = 1;
+  start[1] = 0;  count[1] = NumPerTetInt;
+
+  vtkIdType tetTopology[NumPerTetInt];
+  CALL_NETCDF(nc_get_vars_vtkIdType(meshFD, tetInteriorVarId, start, count,
+                                    NULL, tetTopology));
+
+  // Read in the point coordinates for the tetrahedron.  The indices for the
+  // points are stored in values 1-4 of tetTopology.
+  int coordsVarId;
+  CALL_NETCDF(nc_inq_varid(meshFD, "coords", &coordsVarId));
+
+  double pts[4][3];
+  for (i = 0; i < 4; i++)
+    {
+    start[0] = tetTopology[i+1];  count[0] = 1;
+    start[1] = 0;                 count[1] = 3;
+    CALL_NETCDF(nc_get_vars_double(meshFD, coordsVarId, start, count,
+                                   NULL, pts[i]));
+    }
+
+  // Given the coordinates of the tetrahedron points, determine the direction of
+  // the winding.  Note that this test will fail if the tetrahedron is
+  // degenerate.  The first step is finding the normal of the triangle (0,1,2).
+  double v1[3], v2[3], n[3];
+  for (i = 0; i < 3; i++)
+    {
+    v1[i] = pts[1][i] - pts[0][i];
+    v2[i] = pts[2][i] - pts[0][i];
+    }
+  vtkMath::Cross(v1, v2, n);
+
+  // For the VTK winding, the normal, n, should point toward the fourth point
+  // of the tetrahedron.
+  double v3[3];
+  for (i = 0; i < 3; i++)  v3[i] = pts[3][i] - pts[0][i];
+  double dir = vtkMath::Dot(v3, n);
+  return (dir >= 0.0);
+}
+
+//-----------------------------------------------------------------------------
+int vtkSLACReader::ReadConnectivity(int meshFD,
+                                    vtkMultiBlockDataSet *surfaceOutput,
+                                    vtkMultiBlockDataSet *volumeOutput)
+{
+  // Decide if we need to invert the tetrahedra to make them compatible
+  // with VTK winding.
+  int invertTets = !this->CheckTetrahedraWinding(meshFD);
 
   // Read in interior tetrahedra.
   VTK_CREATE(vtkIdTypeArray, connectivity);
@@ -916,11 +1050,14 @@ int vtkSLACReader::ReadConnectivity(int meshFD, vtkMultiBlockDataSet *output)
       // Face 1:  0,  3,  2
       // Face 2:  0,  1,  3
       // Face 3:  1,  2,  3
-      // We are fortunate in that the winding of the tetrahedron agrees with the
-      // VTK winding, so we can just copy indices.
+      // There are two possible "windings," the direction in which the normals
+      // face, for any given tetrahedra.  SLAC files might support either
+      // winding, but it should be consistent through the mesh.  The invertTets
+      // flag set earlier indicates whether we need to invert the tetrahedra.
       vtkIdType tetInfo[NumPerTetInt];
       connectivity->GetTupleValue(i, tetInfo);
-      vtkUnstructuredGrid *ugrid = AllocateGetBlock(solidMeshes, tetInfo[0],
+      if (invertTets) vtkstd::swap(tetInfo[1], tetInfo[2]);
+      vtkUnstructuredGrid *ugrid = AllocateGetBlock(volumeOutput, tetInfo[0],
                                                     IS_INTERNAL_VOLUME());
       ugrid->InsertNextCell(VTK_TETRA, 4, tetInfo+1);
       }
@@ -939,9 +1076,14 @@ int vtkSLACReader::ReadConnectivity(int meshFD, vtkMultiBlockDataSet *output)
     // data set.
     vtkIdType tetInfo[NumPerTetExt];
     connectivity->GetTupleValue(i, tetInfo);
+    if (invertTets)
+      {
+      vtkstd::swap(tetInfo[1], tetInfo[2]); // Invert point indices
+      vtkstd::swap(tetInfo[6], tetInfo[8]); // Correct faces for inversion
+      }
     if (this->ReadInternalVolume)
       {
-      vtkUnstructuredGrid *ugrid = AllocateGetBlock(solidMeshes, tetInfo[0],
+      vtkUnstructuredGrid *ugrid = AllocateGetBlock(volumeOutput, tetInfo[0],
                                                     IS_INTERNAL_VOLUME());
       ugrid->InsertNextCell(VTK_TETRA, 4, tetInfo+1);
       }
@@ -953,7 +1095,7 @@ int vtkSLACReader::ReadConnectivity(int meshFD, vtkMultiBlockDataSet *output)
         int boundaryCondition = tetInfo[5+face];
         if (boundaryCondition >= 0)
           {
-          vtkUnstructuredGrid *ugrid = AllocateGetBlock(externalFaces,
+          vtkUnstructuredGrid *ugrid = AllocateGetBlock(surfaceOutput,
                                                         boundaryCondition,
                                                         IS_EXTERNAL_SURFACE());
           vtkIdType ptids[3];
@@ -964,27 +1106,6 @@ int vtkSLACReader::ReadConnectivity(int meshFD, vtkMultiBlockDataSet *output)
           }
         }
       }
-    }
-
-  // Push connectivity to output.
-  if (this->ReadInternalVolume && this->ReadExternalSurface)
-    {
-    output->SetNumberOfBlocks(2);
-    output->SetBlock(0, solidMeshes);
-    output->SetBlock(1, externalFaces);
-
-    output->GetMetaData(0u)
-      ->Set(vtkCompositeDataSet::NAME(), "Internal Volume");
-    output->GetMetaData(1u)
-      ->Set(vtkCompositeDataSet::NAME(), "External Surface");
-    }
-  else if (this->ReadInternalVolume) // && !this->ReadExternalSurface
-    {
-    output->ShallowCopy(solidMeshes);
-    }
-  else // this->ReadExternalSurface && !this->ReadInternalVolume
-    {
-    output->ShallowCopy(externalFaces);
     }
 
   return 1;
@@ -1335,14 +1456,28 @@ int vtkSLACReader::MeshUpToDate()
 }
 
 //-----------------------------------------------------------------------------
-int vtkSLACReader::RestoreMeshCache(vtkMultiBlockDataSet *output)
+int vtkSLACReader::RestoreMeshCache(vtkMultiBlockDataSet *surfaceOutput,
+                                    vtkMultiBlockDataSet *volumeOutput,
+                                    vtkMultiBlockDataSet *compositeOutput)
 {
-  output->ShallowCopy(this->Internal->MeshCache);
-  output->GetInformation()->Set(vtkSLACReader::POINTS(),
-                                this->Internal->PointCache);
+  surfaceOutput->ShallowCopy(
+                           this->Internal->MeshCache->GetBlock(SURFACE_OUTPUT));
+  volumeOutput->ShallowCopy(this->Internal->MeshCache->GetBlock(VOLUME_OUTPUT));
+
+  // Shove two outputs in composite output.
+  compositeOutput->SetNumberOfBlocks(2);
+  compositeOutput->SetBlock(SURFACE_OUTPUT, surfaceOutput);
+  compositeOutput->SetBlock(VOLUME_OUTPUT,  volumeOutput);
+  compositeOutput->GetMetaData(static_cast<unsigned int>(SURFACE_OUTPUT))
+    ->Set(vtkCompositeDataSet::NAME(), "Internal Volume");
+  compositeOutput->GetMetaData(static_cast<unsigned int>(VOLUME_OUTPUT))
+    ->Set(vtkCompositeDataSet::NAME(), "External Surface");
+
+  compositeOutput->GetInformation()->Set(vtkSLACReader::POINTS(),
+                                         this->Internal->PointCache);
 
   VTK_CREATE(vtkPointData, pd);
-  output->GetInformation()->Set(vtkSLACReader::POINT_DATA(), pd);
+  compositeOutput->GetInformation()->Set(vtkSLACReader::POINT_DATA(), pd);
 
   return 1;
 }

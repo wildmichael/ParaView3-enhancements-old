@@ -26,7 +26,7 @@
 #include <sys/stat.h>
 
 vtkStandardNewMacro(vtkClientServerInterpreter);
-vtkCxxRevisionMacro(vtkClientServerInterpreter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkClientServerInterpreter, "$Revision: 1.19 $");
 
 //----------------------------------------------------------------------------
 class vtkClientServerInterpreterInternals

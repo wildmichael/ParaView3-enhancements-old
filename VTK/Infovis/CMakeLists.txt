@@ -20,6 +20,7 @@ SET( Kit_SRCS
 vtkAddMembershipArray.cxx
 vtkAppendPoints.cxx
 vtkApplyColors.cxx
+vtkApplyIcons.cxx
 vtkArcParallelEdgeStrategy.cxx
 vtkAreaLayout.cxx
 vtkAreaLayoutStrategy.cxx
@@ -59,6 +60,7 @@ vtkGraphLayoutStrategy.cxx
 vtkGroupLeafVertices.cxx
 vtkISIReader.cxx
 vtkKMeansStatistics.cxx
+vtkKMeansDistanceFunctor.cxx
 vtkMergeColumns.cxx
 vtkMergeTables.cxx
 vtkMultiCorrelativeStatistics.cxx
@@ -195,6 +197,7 @@ IF(VTK_USE_PARALLEL)
     vtkPCorrelativeStatistics.cxx
     vtkPContingencyStatistics.cxx
     vtkPDescriptiveStatistics.cxx
+    vtkPKMeansStatistics.cxx
     vtkPMultiCorrelativeStatistics.cxx
     vtkPPCAStatistics.cxx
     )
@@ -218,11 +221,18 @@ vtkAreaLayoutStrategy.cxx
 vtkBivariateStatisticsAlgorithm.cxx
 vtkEdgeLayoutStrategy.cxx
 vtkGraphLayoutStrategy.cxx
+vtkKMeansDistanceFunctor.cxx
 vtkStatisticsAlgorithm.cxx
 vtkTreeMapLayoutStrategy.cxx
 vtkUnivariateStatisticsAlgorithm.cxx
 ABSTRACT
 )
+
+SET_SOURCE_FILES_PROPERTIES(
+vtkKMeansDistanceFunctor.cxx
+WRAP_EXCLUDE
+)
+
 
 SET(Kit_EXTRA_SRCS)
 SET(Kit_EXTRA_CMDS)
