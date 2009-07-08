@@ -37,7 +37,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <vtkstd/set>
 #include <vtksys/ios/sstream> 
 
-vtkCxxRevisionMacro(vtkOrderStatistics, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkOrderStatistics, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkOrderStatistics);
 
 // ----------------------------------------------------------------------
@@ -61,6 +61,92 @@ void vtkOrderStatistics::PrintSelf( ostream &os, vtkIndent indent )
   this->Superclass::PrintSelf( os, indent );
   os << indent << "NumberOfIntervals: " << this->NumberOfIntervals << endl;
   os << indent << "QuantileDefinition: " << this->QuantileDefinition << endl;
+}
+
+// ----------------------------------------------------------------------
+void vtkOrderStatistics::SetQuantileDefinition( int qd )
+{
+  switch ( qd )
+    {
+    case vtkOrderStatistics::InverseCDF:
+      break;
+    case vtkOrderStatistics::InverseCDFAveragedSteps:
+      break;
+    default:
+      vtkWarningMacro( "Incorrect type of quantile definition: "
+                       <<qd
+                       <<". Ignoring it." );
+      return;
+    }
+  
+  this->QuantileDefinition =  static_cast<vtkOrderStatistics::QuantileDefinitionType>( qd );
+  this->Modified();
+
+  return;
+}
+
+// ----------------------------------------------------------------------
+bool vtkOrderStatistics::SetParameter( const char* parameter,
+                                       int vtkNotUsed( index ),
+                                       vtkVariant value )
+{
+  if ( ! strcmp( parameter, "Learn" ) )
+    {
+    if ( value.ToInt() )
+      {
+      SetLearn( true );
+      }
+    else
+      {
+      SetLearn( false );
+      }
+
+    return true;
+    }
+
+  if ( ! strcmp( parameter, "Derive" ) )
+    {
+    if ( value.ToInt() )
+      {
+      SetDerive( true );
+      }
+    else
+      {
+      SetDerive( false );
+      }
+
+    return true;
+    }
+
+  if ( ! strcmp( parameter, "Assess" ) )
+    {
+    if ( value.ToInt() )
+      {
+      SetAssess( true );
+      }
+    else
+      {
+      SetAssess( false );
+      }
+
+    return true;
+    }
+
+  if ( ! strcmp( parameter, "NumberOfIntervals" ) )
+    {
+    this->SetNumberOfIntervals( value.ToInt() );
+
+    return true;
+    }
+
+  if ( ! strcmp( parameter, "QuantileDefinition" ) )
+    {
+    this->SetQuantileDefinition( value.ToInt() );
+
+    return true;
+    }
+
+  return false;
 }
 
 // ----------------------------------------------------------------------
@@ -246,28 +332,6 @@ void vtkOrderStatistics::ExecuteDerive( vtkDataObject* vtkNotUsed( inMeta ) )
 }
 
 // ----------------------------------------------------------------------
-void vtkOrderStatistics::SetQuantileDefinition( int qd )
-{
-  switch ( qd )
-    {
-    case vtkOrderStatistics::InverseCDF:
-      break;
-    case vtkOrderStatistics::InverseCDFAveragedSteps:
-      break;
-    default:
-      vtkWarningMacro( "Incorrect type of quantile definition: "
-                       <<qd
-                       <<". Ignoring it." );
-      return;
-    }
-  
-  this->QuantileDefinition =  static_cast<vtkOrderStatistics::QuantileDefinitionType>( qd );
-  this->Modified();
-
-  return;
-}
-
-// ----------------------------------------------------------------------
 class TableColumnBucketingFunctor : public vtkStatisticsAlgorithm::AssessFunctor
 {
 public:
@@ -302,7 +366,7 @@ public:
       }
 
     result->SetNumberOfValues( 1 );
-    result->SetValue( 0, q - 1 ); // -1 offset needed because value #0 in parameter row is the variable name
+    result->SetValue( 0, q - 1 ); 
   }
 };
 
