@@ -47,7 +47,7 @@
  *
  */
 
-/* @(#) $Id: deflate.c,v 1.2 2007-08-08 14:11:36 seanmcbride Exp $ */
+/* @(#) $Id: deflate.c,v 1.3 2009-07-08 03:07:16 partyd Exp $ */
 
 #include "deflate.h"
 
@@ -1136,10 +1136,10 @@ local uInt longest_match(s, cur_match)
          * the 256th check will be made at strstart+258.
          */
         do {
-        } while (*++scan == *++match && *++scan == *++match &&
+        } while (*++scan == *++match && /**++scan == *++match &&
                  *++scan == *++match && *++scan == *++match &&
                  *++scan == *++match && *++scan == *++match &&
-                 *++scan == *++match && *++scan == *++match &&
+                 *++scan == *++match && *++scan == *++match &&*/
                  scan < strend);
 
         Assert(scan <= s->window+(unsigned)(s->window_size-1), "wild scan");
