@@ -62,6 +62,8 @@ PURPOSE.  See the above copyright notice for more information.
 
 #include "vtkStatisticsAlgorithm.h"
 
+class vtkVariant;
+
 class VTK_INFOVIS_EXPORT vtkMultiCorrelativeStatistics : public vtkStatisticsAlgorithm
 {
 public:

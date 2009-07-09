@@ -152,6 +152,9 @@ SET(Kit_SRCS
   vtkSMRepresentationStrategy.cxx
   vtkSMScalarBarActorProxy.cxx
   vtkSMScalarBarWidgetRepresentationProxy.cxx
+  vtkSMScatterPlotArraysInformationHelper.cxx
+  vtkSMScatterPlotRepresentationProxy.cxx
+  vtkSMScatterPlotViewProxy.cxx
   vtkSMSelectionDeliveryRepresentationProxy.cxx
   vtkSMSelectionHelper.cxx
   vtkSMSelectionRepresentationProxy.cxx
