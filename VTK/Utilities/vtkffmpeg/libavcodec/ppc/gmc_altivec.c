@@ -19,8 +19,6 @@
  */
 
 #include "../dsputil.h"
-/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
-#ifdef ARCH_POWERPC
 
 #include "gcc_fixes.h"
 
@@ -172,5 +170,3 @@ POWERPC_PERF_STOP_COUNT(altivec_gmc1_num, GMC1_PERF_COND);
 
 #endif /* ALTIVEC_USE_REFERENCE_C_CODE */
 }
-
-#endif /* ARCH_POWERPC */

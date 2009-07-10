@@ -19,8 +19,6 @@
  */
 
 #include "../dsputil.h"
-/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
-#ifdef ARCH_POWERPC
 
 #include "gcc_fixes.h"
 
@@ -370,5 +368,3 @@ void vc1dsp_init_altivec(DSPContext* dsp, AVCodecContext *avctx) {
     dsp->vc1_inv_trans_8x8 = vc1_inv_trans_8x8_altivec;
     dsp->vc1_inv_trans_8x4 = vc1_inv_trans_8x4_altivec;
 }
-
-#endif /* ARCH_POWERPC */

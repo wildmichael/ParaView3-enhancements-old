@@ -20,9 +20,6 @@
 
 #include "../dsputil.h"
 
-/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
-#ifdef ARCH_POWERPC
-
 #include "dsputil_ppc.h"
 
 #ifdef HAVE_ALTIVEC
@@ -38,8 +35,7 @@ void dsputil_h264_init_ppc(DSPContext* c, AVCodecContext *avctx);
 
 void dsputil_init_altivec(DSPContext* c, AVCodecContext *avctx);
 void vc1dsp_init_altivec(DSPContext* c, AVCodecContext *avctx);
-/* KITWARE_FFMPEG_CHANGE - No snow encoder in VTKFFMPEG */
-/* void snow_init_altivec(DSPContext* c, AVCodecContext *avctx); */
+void snow_init_altivec(DSPContext* c, AVCodecContext *avctx);
 void float_init_altivec(DSPContext* c, AVCodecContext *avctx);
 
 #endif
@@ -273,8 +269,7 @@ void dsputil_init_ppc(DSPContext* c, AVCodecContext *avctx)
         mm_flags |= MM_ALTIVEC;
 
         dsputil_init_altivec(c, avctx);
-        /* KITWARE_FFMPEG_CHANGE - No snow encoder in VTKFFMPEG */
-        /* snow_init_altivec(c, avctx); */
+        snow_init_altivec(c, avctx);
         vc1dsp_init_altivec(c, avctx);
         float_init_altivec(c, avctx);
         c->gmc1 = gmc1_altivec;
@@ -325,5 +320,3 @@ void dsputil_init_ppc(DSPContext* c, AVCodecContext *avctx)
         // ... pending ...
     }
 }
-
-#endif /* ARCH_POWERPC */

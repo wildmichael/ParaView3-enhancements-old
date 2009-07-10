@@ -17,8 +17,6 @@
  */
 
 #include "../dsputil.h"
-/* KITWARE_FFMPEG_CHANGE - Gets always passed to the compiler on APPLE */
-#ifdef ARCH_POWERPC
 
 #include "gcc_fixes.h"
 
@@ -192,5 +190,3 @@ void float_init_altivec(DSPContext* c, AVCodecContext *avctx)
     if(!(avctx->flags & CODEC_FLAG_BITEXACT))
         c->float_to_int16 = float_to_int16_altivec;
 }
-
-#endif /* ARCH_POWERPC */

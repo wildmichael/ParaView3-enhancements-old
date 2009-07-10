@@ -164,10 +164,8 @@ static inline int url_is_streamed(ByteIOContext *s)
 
 int url_fdopen(ByteIOContext *s, URLContext *h);
 int url_setbufsize(ByteIOContext *s, int buf_size);
-/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
-FFMPEG_API int url_fopen(ByteIOContext *s, const char *filename, int flags);
-/* KITWARE_FFMPEG_CHANGE - Export/Import this function on WIN32 */
-FFMPEG_API int url_fclose(ByteIOContext *s);
+int url_fopen(ByteIOContext *s, const char *filename, int flags);
+int url_fclose(ByteIOContext *s);
 URLContext *url_fileno(ByteIOContext *s);
 int url_fget_max_packet_size(ByteIOContext *s);
 

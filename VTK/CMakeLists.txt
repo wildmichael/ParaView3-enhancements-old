@@ -853,9 +853,12 @@ MARK_AS_ADVANCED(VTK_USE_NEW_VTKOPENFOAMREADER)
 
 #-----------------------------------------------------------------------------
 # FFMPEG
-# Should the ffmpeg library be built?
-OPTION (VTK_USE_FFMPEG_ENCODER "Should VTK build the ffmpeg library and use it for saving .avi animation files?" ON)
+# If the ffmpeg library is available, use it.
+OPTION (VTK_USE_FFMPEG_ENCODER "If the FFMPEG library is available, should VTK use it for saving .avi animation files?" BOOL)
 MARK_AS_ADVANCED(VTK_USE_FFMPEG_ENCODER)
+IF (VTK_USE_FFMPEG_ENCODER)
+  INCLUDE(${VTK_CMAKE_DIR}/FindFFMPEG.cmake OPTIONAL)
+ENDIF (VTK_USE_FFMPEG_ENCODER)
 
 #-----------------------------------------------------------------------------
 # MPEG2
