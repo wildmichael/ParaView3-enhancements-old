@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Time-stamp: <2005-06-23 17:26:59 barre>
+# Time-stamp: <2009-07-15 11:27:00 barre>
 #
 # Convert VTK headers to doxygen format
 #
@@ -125,7 +125,7 @@ my %default =
             "../../Rendering",
             "../../TextAnalysis",
             "../../Views",
-            "../../VolumeRendering"
+            "../../VolumeRendering",
             "../../Widgets"],
    relativeto => "",
    temp => "doc_header2doxygen.tmp",
@@ -272,13 +272,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2009-07-13 12:48:12 $
+        # Date:      $Date: 2009-07-15 15:27:56 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.17 $
+        # Version:   $Revision: 1.18 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
