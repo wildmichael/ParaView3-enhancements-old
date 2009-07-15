@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-13 15:42:08 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2009-07-15 11:32:13 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1261,7 +1261,7 @@ ReadStream(int _nDims,
         }
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
       delete [] wrds;
       if ( (fileImageDim == 0) || (fileImageDim > m_NDims) )
@@ -1321,7 +1321,7 @@ ReadStream(int _nDims,
       delete readStreamTemp;
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
       delete [] wrds;
       }
@@ -2799,7 +2799,7 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
         }
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
       delete [] wrds;
       if ( (fileImageDim == 0) || (fileImageDim > m_NDims) )
@@ -2972,7 +2972,7 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
      
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
       delete [] wrds;
           
