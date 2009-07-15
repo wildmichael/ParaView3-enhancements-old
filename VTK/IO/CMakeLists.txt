@@ -80,6 +80,7 @@ vtkMoleculeReaderBase.cxx
 vtkNetCDFCOARDSReader.cxx
 vtkNetCDFReader.cxx
 vtkOBJReader.cxx
+vtkOggTheoraWriter.cxx
 vtkOutputStream.cxx
 vtkPDBReader.cxx
 vtkPLOT3DReader.cxx

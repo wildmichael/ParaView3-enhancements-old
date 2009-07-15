@@ -58,6 +58,7 @@ CREATE_TEST_SOURCELIST(Tests ${KIT}CxxTests.cxx
   TestXML.cxx
   TestCompress.cxx
   TestSQLDatabaseSchema.cxx
+  TestOggTheoraWriter.cxx
   ${ConditionalTests}
   EXTRA_INCLUDE vtkTestDriver.h
 )
@@ -110,6 +111,7 @@ IF (VTK_LARGE_DATA_ROOT)
   ENDIF (VTK_USE_DISPLAY AND VTK_USE_RENDERING)
 ENDIF (VTK_LARGE_DATA_ROOT)
 
+ADD_TEST(TestOggTheoraWriter ${CXX_TEST_PATH}/${KIT}CxxTests TestOggTheoraWriter)
 ADD_TEST(TestSQLDatabaseSchema ${CXX_TEST_PATH}/${KIT}CxxTests TestSQLDatabaseSchema)
 
 IF(WIN32 AND VTK_USE_VIDEO_FOR_WINDOWS)
