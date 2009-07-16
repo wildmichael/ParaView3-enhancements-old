@@ -20,7 +20,7 @@
 
 
 vtkStandardNewMacro(vtkUndoStack);
-vtkCxxRevisionMacro(vtkUndoStack, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkUndoStack, "$Revision: 1.8 $");
 //-----------------------------------------------------------------------------
 vtkUndoStack::vtkUndoStack()
 {
@@ -90,7 +90,8 @@ const char* vtkUndoStack::GetRedoSetLabel(unsigned int position)
     {
     return NULL;
     }
-  position = (this->Internal->RedoStack.size() - position) -1;
+  position = (static_cast<unsigned int>(
+      this->Internal->RedoStack.size()) - position) -1;
   return this->Internal->RedoStack[position].Label.c_str();
 }
 
