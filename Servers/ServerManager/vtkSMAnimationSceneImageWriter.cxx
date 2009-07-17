@@ -45,6 +45,7 @@
 #   include "vtkFFMPEGWriter.h"
 # endif
 #endif
+#include "vtkOggTheoraWriter.h"
 
 vtkStandardNewMacro(vtkSMAnimationSceneImageWriter);
 vtkCxxRevisionMacro(vtkSMAnimationSceneImageWriter, "$Revision: 1.13 $");
@@ -376,6 +377,14 @@ bool vtkSMAnimationSceneImageWriter::CreateWriter()
     mwriter = aviwriter;
     }
 # endif
+  else if (extension == ".ogv" || extension == ".ogg")
+    {
+    vtkOggTheoraWriter *ogvwriter = vtkOggTheoraWriter::New();
+    ogvwriter->SetQuality(this->Quality);
+    ogvwriter->SetRate(
+      static_cast<int>(this->GetFrameRate()));
+    mwriter = ogvwriter;
+    }
 #endif
   else
     {
