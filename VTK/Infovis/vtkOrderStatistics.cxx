@@ -37,7 +37,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <vtkstd/set>
 #include <vtksys/ios/sstream> 
 
-vtkCxxRevisionMacro(vtkOrderStatistics, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkOrderStatistics, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkOrderStatistics);
 
 // ----------------------------------------------------------------------
@@ -90,48 +90,6 @@ bool vtkOrderStatistics::SetParameter( const char* parameter,
                                        int vtkNotUsed( index ),
                                        vtkVariant value )
 {
-  if ( ! strcmp( parameter, "Learn" ) )
-    {
-    if ( value.ToInt() )
-      {
-      SetLearn( true );
-      }
-    else
-      {
-      SetLearn( false );
-      }
-
-    return true;
-    }
-
-  if ( ! strcmp( parameter, "Derive" ) )
-    {
-    if ( value.ToInt() )
-      {
-      SetDerive( true );
-      }
-    else
-      {
-      SetDerive( false );
-      }
-
-    return true;
-    }
-
-  if ( ! strcmp( parameter, "Assess" ) )
-    {
-    if ( value.ToInt() )
-      {
-      SetAssess( true );
-      }
-    else
-      {
-      SetAssess( false );
-      }
-
-    return true;
-    }
-
   if ( ! strcmp( parameter, "NumberOfIntervals" ) )
     {
     this->SetNumberOfIntervals( value.ToInt() );
@@ -160,22 +118,6 @@ void vtkOrderStatistics::ExecuteLearn( vtkTable* inData,
     return; 
     } 
 
-  if ( ! this->Internals->Selection.size() )
-    {
-    return;
-    }
-
-  vtkIdType n = inData->GetNumberOfRows();
-  if ( n <= 0 )
-    {
-    return;
-    }
-
-  if ( inData->GetNumberOfColumns() <= 0 )
-    {
-    return;
-    }
-  
   vtkStringArray* stringCol = vtkStringArray::New();
   stringCol->SetName( "Variable" );
   outMeta->AddColumn( stringCol );
@@ -186,6 +128,22 @@ void vtkOrderStatistics::ExecuteLearn( vtkTable* inData,
   outMeta->AddColumn( idTypeCol );
   idTypeCol->Delete();
 
+  vtkIdType n = inData->GetNumberOfRows();
+  if ( n <= 0 )
+    {
+    return;
+    }
+
+  if ( ! this->Internals->Selection.size() )
+    {
+    return;
+    }
+
+  if ( inData->GetNumberOfColumns() <= 0 )
+    {
+    return;
+    }
+  
   vtkVariantArray* variantCol;
   double dq = 1. / static_cast<double>( this->NumberOfIntervals );
   for ( int i = 0; i <= this->NumberOfIntervals; ++ i )

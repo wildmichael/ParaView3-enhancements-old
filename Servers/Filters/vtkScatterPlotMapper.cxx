@@ -42,6 +42,7 @@
 #include "vtkDataSet.h"
 #include "vtkPointSet.h"
 #include "vtkPolyData.h"
+#include "vtkCamera.h"
 
 #include "vtkgl.h"
 #include "vtkCompositeDataSet.h"
@@ -55,7 +56,7 @@
 
 #define PI 3.141592653589793
 
-vtkCxxRevisionMacro(vtkScatterPlotMapper, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkScatterPlotMapper, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkScatterPlotMapper);
 
 vtkInformationKeyMacro(vtkScatterPlotMapper, FIELD_ACTIVE_COMPONENT, Integer);
@@ -682,10 +683,12 @@ void vtkScatterPlotMapper::Render(vtkRenderer *ren, vtkActor *actor)
       this->GetMTime() > this->BuildTime ||
       ren->GetRenderWindow() != this->LastWindow.GetPointer();
     }
-//   cout << " ImmediateMode: " << immediateMode << endl;
-//   cout << " Create Display List: " << createDisplayList << endl;
+  //cout << " ImmediateMode: " << immediateMode << endl;
+  //cout << " this->ImmediateMode: " << this->ImmediateModeRendering << endl;
+  //cout << " Create Display List: " << createDisplayList << endl;
   if(immediateMode || createDisplayList)
     {
+    //cout << __FUNCTION__ << endl;
     this->PrepareForRendering(ren,actor);
     
     if(createDisplayList)
@@ -926,7 +929,8 @@ double *vtkScatterPlotMapper::GetBounds()
     double zScaleRange[2] = {1.0, 1.0};
     double x0ScaleRange[2] = {1.0, 1.0};
     double x1ScaleRange[2] = {1.0, 1.0};
-    double x2ScaleRange[2] = {1.0, 1.0};    
+    double x2ScaleRange[2] = {1.0, 1.0};
+    double range[3];
     switch(this->ScaleMode)
       {
       case SCALE_BY_MAGNITUDE:
@@ -939,27 +943,39 @@ double *vtkScatterPlotMapper::GetBounds()
               yScaleRange, this->GetArrayComponent(GLYPH_Y_SCALE));
             glyphZScaleArray->GetRange(
               zScaleRange, this->GetArrayComponent(GLYPH_Z_SCALE));
-            maxScale[0] = xScaleRange[1];
-            maxScale[1] = yScaleRange[1];
-            maxScale[2] = zScaleRange[1];
-            maxScale[0] = maxScale[1] = maxScale[2] = vtkMath::Norm(maxScale);
+            range[0] = xScaleRange[1];
+            range[1] = yScaleRange[1];
+            range[2] = zScaleRange[1];
+            maxScale[1] = vtkMath::Norm(range);
+            range[0] = xScaleRange[0];
+            range[1] = yScaleRange[0];
+            range[2] = zScaleRange[0];
+            maxScale[0] = vtkMath::Norm(range);
             break;
           case Xc0_Xc1_Xc2:
             glyphXScaleArray->GetRange(x0ScaleRange, 0);
             glyphXScaleArray->GetRange(x1ScaleRange, 1);
             glyphXScaleArray->GetRange(x2ScaleRange, 2);
-            maxScale[0] = x0ScaleRange[1];
-            maxScale[1] = x1ScaleRange[1];
-            maxScale[2] = x2ScaleRange[1];
-            maxScale[0] = maxScale[1] = maxScale[2] = vtkMath::Norm(maxScale, 3);
+            range[0] = x0ScaleRange[1];
+            range[1] = x1ScaleRange[1];
+            range[2] = x2ScaleRange[1];
+            maxScale[1] = vtkMath::Norm(range, 3);
+            range[0] = x0ScaleRange[0];
+            range[1] = x1ScaleRange[0];
+            range[2] = x2ScaleRange[0];
+            maxScale[0] = vtkMath::Norm(range, 3);
             break;
           case Xc_Xc_Xc:
             glyphXScaleArray->GetRange(
               xScaleRange, this->GetArrayComponent(GLYPH_X_SCALE));
-            maxScale[0] = xScaleRange[1];
-            maxScale[1] = xScaleRange[1];
-            maxScale[2] = xScaleRange[1];
-            maxScale[0] = maxScale[1] = maxScale[2] = vtkMath::Norm(maxScale, 3);
+            range[0] = xScaleRange[1];
+            range[1] = xScaleRange[1];
+            range[2] = xScaleRange[1];
+            maxScale[1] = vtkMath::Norm(range, 3);
+            range[0] = xScaleRange[0];
+            range[1] = xScaleRange[0];
+            range[2] = xScaleRange[0];
+            maxScale[0] = vtkMath::Norm(range, 3);
             break;
           default:
             vtkErrorMacro("Wrong ScalingArray mode");
@@ -976,24 +992,27 @@ double *vtkScatterPlotMapper::GetBounds()
               yScaleRange, this->GetArrayComponent(GLYPH_Y_SCALE));
             glyphZScaleArray->GetRange(
               zScaleRange, this->GetArrayComponent(GLYPH_Z_SCALE));
-            maxScale[0] = xScaleRange[1];
-            maxScale[1] = yScaleRange[1];
-            maxScale[2] = zScaleRange[1];
+            maxScale[0] = min(xScaleRange[0],yScaleRange[0]);
+            maxScale[0] = min(maxScale[0],zScaleRange[0]);
+            maxScale[1] = max(xScaleRange[1],yScaleRange[1]);
+            maxScale[1] = max(maxScale[1],zScaleRange[1]);
             break;
           case Xc0_Xc1_Xc2:
             glyphXScaleArray->GetRange(x0ScaleRange, 0);
             glyphXScaleArray->GetRange(x1ScaleRange, 1);
             glyphXScaleArray->GetRange(x2ScaleRange, 2);
-            maxScale[0] = x0ScaleRange[1];
-            maxScale[1] = x1ScaleRange[1];
-            maxScale[2] = x2ScaleRange[1];
+            maxScale[0] = min(x0ScaleRange[0], x1ScaleRange[0]);
+            maxScale[0] = min(maxScale[0], x2ScaleRange[0]);
+            maxScale[1] = max(x0ScaleRange[1], x1ScaleRange[1]);
+            maxScale[1] = max(maxScale[1], x2ScaleRange[1]);
             break;
           case Xc_Xc_Xc:
             glyphXScaleArray->GetRange(
               xScaleRange, this->GetArrayComponent(GLYPH_X_SCALE));
-            maxScale[0] = xScaleRange[1];
-            maxScale[1] = xScaleRange[1];
-            maxScale[2] = xScaleRange[1];
+            maxScale[0] = min(xScaleRange[0], xScaleRange[0]);
+            maxScale[0] = min(maxScale[0], xScaleRange[0]);
+            maxScale[1] = max(xScaleRange[1], xScaleRange[1]);
+            maxScale[1] = max(maxScale[1], xScaleRange[1]);
             break;
           default:
             vtkErrorMacro("Wrong ScalingArray mode");
@@ -1212,7 +1231,7 @@ void vtkScatterPlotMapper::RenderPoints(vtkRenderer *ren, vtkActor *actor)
   // COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR 
   //   COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR 
   //      COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR 
-  vtkUnsignedCharArray* colors = this->Colorize? this->GetColors(): NULL;
+  vtkUnsignedCharArray* colors = this->Colorize? this->GetColors() : NULL;
 
   bool multiplyWithAlpha = 
     this->ScalarsToColorsPainter->GetPremultiplyColorsWithAlpha(actor)==1;
@@ -1369,7 +1388,14 @@ void vtkScatterPlotMapper::RenderGlyphs(vtkRenderer *ren, vtkActor *actor)
   // COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR 
   //   COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR 
   //      COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR COLOR 
-  vtkUnsignedCharArray* colors = this->GetColors();
+  vtkUnsignedCharArray* colors = this->Colorize? this->GetColors() : NULL;
+
+  vtkCamera* cam = ren->GetActiveCamera();
+  double camRot[4];
+  cam->GetViewTransformObject()->GetOrientationWXYZ(camRot);
+  vtkTransform* camTrans = vtkTransform::New();
+  camTrans->RotateWXYZ(camRot[0], camRot[1], camRot[2], camRot[3]);
+  camTrans->Inverse();
 
   vtkTransform *trans = vtkTransform::New();
 
@@ -1560,8 +1586,15 @@ void vtkScatterPlotMapper::RenderGlyphs(vtkRenderer *ren, vtkActor *actor)
 
     // Now begin copying/transforming glyph
     trans->Identity();
+    
     // TRANSLATION
     trans->Translate(point);
+
+    // Get the 2D glyphs parallel to the camera
+    if(this->ThreeDMode)
+      {
+      trans->Concatenate(camTrans);
+      }
 
     // ORIENTATION
     if(this->GlyphMode & OrientedGlyph)
@@ -1642,8 +1675,9 @@ void vtkScatterPlotMapper::RenderGlyphs(vtkRenderer *ren, vtkActor *actor)
     glMatrixMode(GL_MODELVIEW);
     glPopMatrix();
     }
+
   trans->Delete();
-  
+  camTrans->Delete();
  }
 
 void vtkScatterPlotMapper::InitGlyphMappers(vtkRenderer* ren, vtkActor* actor, 

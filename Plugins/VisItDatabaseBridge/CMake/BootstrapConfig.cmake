@@ -11,7 +11,7 @@ configure_file(
 
 set(BOOTSTRAP_CONFIGURE_EXLUDES "${PROJECT_SOURCE_DIR}/PVDatabaseExcludes.txt")
 link_directories(${VISIT_LIB_PATH})
-include_directories(${VISIT_INCLUDE_PATH} ${PROJECT_SOURCE_DIR})
+include_directories(${VISIT_INCLUDE_PATH} ${PROJECT_BINARY_DIR})
 add_executable(BootstrapConfigure BootstrapConfigure.cpp)
 target_link_libraries(BootstrapConfigure ${VISIT_LIBS} vtkCommon vtkFiltering vtkIO vtkGraphics vtkRendering)
 
@@ -33,6 +33,9 @@ set(VISIT_RUN_TIME
   ${VISIT_LOCAL} 
   CACHE FILEPATH
   "Path that is used by the PluginManager to load database plugins at runtime.")
+  
+execute_process(
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/CMake")
 
 add_custom_command(
   OUTPUT ${_configOut}
@@ -42,6 +45,7 @@ add_custom_command(
     ${VISIT_LOCAL}
     ${VISIT_RUN_TIME}
     ${_configIn}
+    ${_configOut}
     ${BOOTSTRAP_CONFIGURE_EXLUDES}
   COMMENT "Configuring vtkVisItDatabaseBridge build.")
 

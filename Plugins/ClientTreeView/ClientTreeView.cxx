@@ -18,15 +18,18 @@
 #include <vtkIntArray.h>
 #include <vtkPVDataInformation.h>
 #include <vtkQtTreeView.h>
+#include <vtkScalarsToColors.h>
 #include <vtkSelection.h>
 #include <vtkSelectionNode.h>
 #include <vtkSmartPointer.h>
 #include <vtkSMPropertyHelper.h>
+#include <vtkSMProxyProperty.h>
 #include <vtkSMSelectionDeliveryRepresentationProxy.h>
 #include <vtkSMSourceProxy.h>
 #include <vtkSMViewProxy.h>
 #include <vtkTree.h>
 #include <vtkVariantArray.h>
+#include <vtkViewTheme.h>
 
 #include <pqDataRepresentation.h>
 #include <pqOutputPort.h>
@@ -68,6 +71,9 @@ public:
     layout->setContentsMargins(0,0,0,0);
     this->AttributeType = -1;
     this->LastSelectionMTime = 0;
+
+    this->Theme.TakeReference(vtkViewTheme::CreateNeonTheme());
+    this->View->ApplyViewTheme(this->Theme);
   }
 
   ~implementation()
@@ -79,6 +85,7 @@ public:
 
   unsigned long LastSelectionMTime;
   int AttributeType;
+  vtkSmartPointer<vtkViewTheme> Theme;
   vtkSmartPointer<vtkQtTreeView> View;
   QPointer<QWidget> Widget;
 };
@@ -272,6 +279,24 @@ void ClientTreeView::renderInternal()
     vtkSMPropertyHelper(this->getProxy(),"AlternatingRowColors").GetAsInt());
   this->Implementation->View->SetEnableDragDrop(
     vtkSMPropertyHelper(this->getProxy(),"EnableDragDrop").GetAsInt());
+
+  if(vtkSMPropertyHelper(proxy, "ColorByArray").GetAsInt())
+    {
+    this->Implementation->View->SetColorByArray(true);
+
+    this->Implementation->View->SetColorArrayName(
+      vtkSMPropertyHelper(proxy, "ColorArray").GetAsString());
+
+    vtkSMProxyProperty* lutProp = vtkSMProxyProperty::SafeDownCast(proxy->GetProperty("LookupTable"));
+    if (lutProp->GetNumberOfProxies() > 0)
+      {
+      vtkScalarsToColors* lut = vtkScalarsToColors::SafeDownCast(
+        lutProp->GetProxy(0)->GetClientSideObject());
+      vtkSmartPointer<vtkViewTheme> theme = vtkSmartPointer<vtkViewTheme>::New();
+      theme->SetPointLookupTable(lut);
+      this->Implementation->View->ApplyViewTheme(theme);
+      }
+    }
 
   this->Implementation->View->Update();
 

@@ -36,7 +36,7 @@
 #include <vtkstd/set>
 #include <vtksys/ios/sstream> 
 
-vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkDescriptiveStatistics, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkDescriptiveStatistics);
 
 // ----------------------------------------------------------------------
@@ -55,7 +55,6 @@ vtkDescriptiveStatistics::vtkDescriptiveStatistics()
 // ----------------------------------------------------------------------
 vtkDescriptiveStatistics::~vtkDescriptiveStatistics()
 {
-  this->AssessParameters->Delete();
 }
 
 // ----------------------------------------------------------------------
@@ -68,13 +67,13 @@ void vtkDescriptiveStatistics::PrintSelf( ostream &os, vtkIndent indent )
 // ----------------------------------------------------------------------
 void vtkDescriptiveStatistics::SetNominalParameter( const char* name ) 
 { 
-  this->SetAssessParameter( 0, name ); 
+  this->SetAssessOptionParameter( 0, name ); 
 }
 
 // ----------------------------------------------------------------------
 void vtkDescriptiveStatistics::SetDeviationParameter( const char* name ) 
 { 
-  this->SetAssessParameter( 1, name ); 
+  this->SetAssessOptionParameter( 1, name ); 
 }
 
 // ----------------------------------------------------------------------
@@ -88,23 +87,6 @@ void vtkDescriptiveStatistics::ExecuteLearn( vtkTable* inData,
     return; 
     } 
 
-  vtkIdType nRow = inData->GetNumberOfRows();
-  if ( ! nRow )
-    {
-    return;
-    }
-
-  if ( ! this->Internals->Selection.size() )
-    {
-    return;
-    }
-
-  vtkIdType nCol = inData->GetNumberOfColumns();
-  if ( ! nCol )
-    {
-    return;
-    }
-  
   vtkStringArray* stringCol = vtkStringArray::New();
   stringCol->SetName( "Variable" );
   outMeta->AddColumn( stringCol );
@@ -145,6 +127,23 @@ void vtkDescriptiveStatistics::ExecuteLearn( vtkTable* inData,
   outMeta->AddColumn( doubleCol );
   doubleCol->Delete();
 
+  vtkIdType nRow = inData->GetNumberOfRows();
+  if ( ! nRow )
+    {
+    return;
+    }
+
+  if ( ! this->Internals->Selection.size() )
+    {
+    return;
+    }
+
+  vtkIdType nCol = inData->GetNumberOfColumns();
+  if ( ! nCol )
+    {
+    return;
+    }
+  
   for ( vtkstd::set<vtkStdString>::iterator it = this->Internals->Selection.begin(); 
         it != this->Internals->Selection.end(); ++ it )
     {

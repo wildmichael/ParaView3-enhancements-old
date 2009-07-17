@@ -196,6 +196,21 @@
   
   <!-- FILTERS GROUP -->
   <ProxyGroup name="filters">
+    <SourceProxy name="SparseArrayToTable" class="vtkSparseArrayToTable">
+      <InputProperty name="Input" command="SetInputConnection">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources"/>
+          <Group name="filters"/>
+        </ProxyGroupDomain>
+        <DataTypeDomain name="input_type">
+          <DataType value="vtkArrayData"/>
+        </DataTypeDomain>
+      </InputProperty>
+
+      <StringVectorProperty name="ValueColumn" command="SetValueColumn" number_of_elements="1" default_values="index" label="Value Column"/>
+
+    </SourceProxy>
+
     <SourceProxy name="MergeTables" class="vtkMergeTables">
       <!-- Table 1 Input -->
       <InputProperty name="Input1" command="SetInputConnection" port_index="0">
@@ -365,6 +380,9 @@
       </IntVectorProperty>
 
       <StringVectorProperty name="ReferenceArrayName" command="SetReferenceArrayName" number_of_elements="1" default_values="" label="Reference Array Name"/>
+
+      <IntVectorProperty name="PedigreeID" command="SetPedigreeID" number_of_elements="1" default_values="0"/>
+
     </SourceProxy>
 
     <SourceProxy name="GroupLeafVertices" class="vtkGroupLeafVertices">
@@ -398,6 +416,53 @@
       <Hints>
         <View type="ClientGraphView"/>
       </Hints>
+    </SourceProxy>
+
+    <SourceProxy name="ArrayMap" class="vtkArrayMap">
+      <InputProperty name="Input" command="SetInputConnection">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources"/>
+          <Group name="filters"/>
+        </ProxyGroupDomain>
+        <DataTypeDomain name="input_type">
+          <DataType value="vtkDataObject"/>
+        </DataTypeDomain>
+      </InputProperty>
+
+      <IntVectorProperty name="FieldType" command="SetFieldType" number_of_elements="1" default_values="0">
+        <EnumerationDomain name="enum">
+          <Entry value="0" text="Point Data"/>
+          <Entry value="1" text="Cell Data"/>
+          <Entry value="2" text="Vertex Data"/>
+          <Entry value="3" text="Edge Data"/>
+          <Entry value="4" text="Row Data"/>
+        </EnumerationDomain>
+      </IntVectorProperty>
+      
+      <IntVectorProperty name="OutputArrayType" command="SetOutputArrayType" number_of_elements="1" default_values="6">
+      </IntVectorProperty>
+
+      <IntVectorProperty name="PassArray" command="SetPassArray" number_of_elements="1" default_values="0">
+        <BooleanDomain name="bool" />
+      </IntVectorProperty>
+
+      <DoubleVectorProperty name="FillValue" command="SetFillValue" number_of_elements="1" default_values="-1">
+      </DoubleVectorProperty>
+
+      <StringVectorProperty name="InputArrayName" command="SetInputArrayName" number_of_elements="1" default_values="">
+      </StringVectorProperty>
+
+      <StringVectorProperty name="OutputArrayName" command="SetOutputArrayName" number_of_elements="1" default_values="ArrayMap">
+      </StringVectorProperty>
+      
+      <StringVectorProperty
+        name="Map"
+        command="AddToMap"
+        repeat_command="1"
+        number_of_elements_per_command="2"
+        clean_command="ClearMap"
+        animateable="0">
+      </StringVectorProperty>
     </SourceProxy>
 
     <SourceProxy name="SplitTableField" class="vtkBoostSplitTableField">
@@ -637,8 +702,8 @@
      </StringVectorProperty>
 
       <IntVectorProperty 
-        name="Learn" 
-        command="SetLearn" 
+        name="LearnOption" 
+        command="SetLearnOption" 
         label="Learn Model" 
         number_of_elements="1" 
         default_values="1">
@@ -646,8 +711,8 @@
       </IntVectorProperty>
 
       <IntVectorProperty 
-        name="Assess" 
-        command="SetAssess" 
+        name="AssessOption" 
+        command="SetAssessOption" 
         label="Assess Data" 
         number_of_elements="1" 
         default_values="1">
@@ -742,7 +807,7 @@
 
       <IntVectorProperty 
         name="Learn" 
-        command="SetLearn" 
+        command="SetLearnOption" 
         label="Learn Model" 
         number_of_elements="1" 
         default_values="1">
@@ -751,7 +816,7 @@
 
       <IntVectorProperty 
         name="Assess" 
-        command="SetAssess" 
+        command="SetAssessOption" 
         label="Assess Data" 
         number_of_elements="1" 
         default_values="1">
@@ -829,7 +894,7 @@
 
       <IntVectorProperty 
         name="Learn" 
-        command="SetLearn" 
+        command="SetLearnOption" 
         label="Learn Model" 
         number_of_elements="1" 
         default_values="1">
@@ -838,7 +903,7 @@
 
       <IntVectorProperty 
         name="Assess" 
-        command="SetAssess" 
+        command="SetAssessOption" 
         label="Assess Data" 
         number_of_elements="1" 
         default_values="1">
@@ -898,7 +963,7 @@
 
         <CheckableArrayListInformationHelper list_domain_name="array_list" />
 
-        <ArrayListDomain name="array_list" 
+        <ArrayListDomain name="array_list"
           input_domain_name="row_arrays">
           <RequiredProperties>
             <Property name="Input" function="Input"/>
@@ -906,20 +971,20 @@
         </ArrayListDomain>
      </StringVectorProperty>
 
-      <IntVectorProperty 
-        name="Learn" 
-        command="SetLearn" 
-        label="Learn Model" 
+      <IntVectorProperty
+        name="Learn"
+        command="SetLearnOption"
+        label="Learn Model"
         number_of_elements="1" 
         default_values="1">
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
 
-      <IntVectorProperty 
-        name="Assess" 
-        command="SetAssess" 
-        label="Assess Data" 
-        number_of_elements="1" 
+      <IntVectorProperty
+        name="Assess"
+        command="SetAssessOption"
+        label="Assess Data"
+        number_of_elements="1"
         default_values="1">
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
@@ -960,7 +1025,7 @@
         repeat_command="1"
         number_of_elements_per_command="2"
         element_types="2 0"
-        information_property="ColumnInfo" >
+        information_property="ColumnInfo">
         <ArraySelectionDomain name="array_list" >
           <RequiredProperties>
              <Property name="ColumnInfo" function="ArrayList"/>
@@ -987,18 +1052,18 @@
 
       <IntVectorProperty 
         name="Learn" 
-        command="SetLearn" 
-        label="Learn Model" 
-        number_of_elements="1" 
+        command="SetLearnOption"
+        label="Learn Model"
+        number_of_elements="1"
         default_values="1">
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
 
       <IntVectorProperty 
-        name="Assess" 
-        command="SetAssess" 
-        label="Assess Data" 
-        number_of_elements="1" 
+        name="Assess"
+        command="SetAssessOption"
+        label="Assess Data"
+        number_of_elements="1"
         default_values="1">
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
@@ -1065,19 +1130,19 @@
      </StringVectorProperty>
 
       <IntVectorProperty 
-        name="Learn" 
-        command="SetLearn" 
-        label="Learn Model" 
-        number_of_elements="1" 
+        name="Learn"
+        command="SetLearnOption"
+        label="Learn Model"
+        number_of_elements="1"
         default_values="1">
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
 
-      <IntVectorProperty 
-        name="Assess" 
-        command="SetAssess" 
-        label="Assess Data" 
-        number_of_elements="1" 
+      <IntVectorProperty
+        name="Assess"
+        command="SetAssessOption"
+        label="Assess Data"
+        number_of_elements="1"
         default_values="1">
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
@@ -1096,11 +1161,11 @@
         </EnumerationDomain>
       </IntVectorProperty>
 
-      <IntVectorProperty 
-        name="BasisScheme" 
-        command="SetBasisScheme" 
-        label="Basis Scheme" 
-        number_of_elements="1" 
+      <IntVectorProperty
+        name="BasisScheme"
+        command="SetBasisScheme"
+        label="Basis Scheme"
+        number_of_elements="1"
         default_values="0">
         <EnumerationDomain name="enum">
           <Entry value="0" text="Full Basis"/>
@@ -1109,7 +1174,7 @@
         </EnumerationDomain>
       </IntVectorProperty>
 
-      <IntVectorProperty 
+      <IntVectorProperty
         name="FixedBasisSize"
         command="SetFixedBasisSize"
         label="Fixed Basis Size"
@@ -1167,6 +1232,44 @@
       <Hints>
         <View type="ClientGraphView"/>
       </Hints>
+    </SourceProxy>
+
+    <SourceProxy name="PassArrays" class="vtkPassArrays" label="Pass Arrays">
+      <InputProperty name="Input" command="SetInputConnection">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources"/>
+          <Group name="filters"/>
+        </ProxyGroupDomain>
+      </InputProperty>
+      <StringVectorProperty
+        name="Arrays"
+        command="AddArray"
+        clean_command="ClearArrays"
+        number_of_elements="2"
+        repeat_command="1"
+        element_types="0 2">
+      </StringVectorProperty>
+      <IntVectorProperty
+        name="FieldTypes"
+        command="AddFieldType"
+        clean_command="ClearFieldTypes"
+        number_of_elements="1"
+        repeat_command="1">
+      </IntVectorProperty>
+      <IntVectorProperty
+        name="UseFieldTypes"
+        command="SetUseFieldTypes"
+        number_of_elements="1"
+        default_values="0">
+        <BooleanDomain name="bool"/>
+      </IntVectorProperty>
+      <IntVectorProperty
+        name="RemoveArrays"
+        command="SetRemoveArrays"
+        number_of_elements="1"
+        default_values="0">
+        <BooleanDomain name="bool"/>
+      </IntVectorProperty>
     </SourceProxy>
 
   </ProxyGroup>

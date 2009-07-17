@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-07 20:02:09 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2009-07-15 11:32:13 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1261,8 +1261,9 @@ ReadStream(int _nDims,
         }
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
+      delete [] wrds;
       if ( (fileImageDim == 0) || (fileImageDim > m_NDims) )
         {
         // if optional file dimension size is not give or is larger than
@@ -1318,6 +1319,11 @@ ReadStream(int _nDims,
           }
         }
       delete readStreamTemp;
+      for(i=0; i<nWrds; i++)
+        {
+        delete [] wrds[i];
+        }
+      delete [] wrds;
       }
     else if(strstr(m_ElementDataFileName, "%"))
       {
@@ -2793,8 +2799,9 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
         }
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
+      delete [] wrds;
       if ( (fileImageDim == 0) || (fileImageDim > m_NDims) )
         {
         // if optional file dimension size is not give or is larger than
@@ -2965,8 +2972,9 @@ bool MetaImage::ReadROIStream(int * _indexMin, int * _indexMax,
      
       for(i=0; i<nWrds; i++)
         {
-        delete [] wrds[i++];
+        delete [] wrds[i];
         }
+      delete [] wrds;
           
       delete readStreamTemp;
       }

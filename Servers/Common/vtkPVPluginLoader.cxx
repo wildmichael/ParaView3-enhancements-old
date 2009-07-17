@@ -27,7 +27,7 @@ using vtkstd::string;
 #include <cstdlib>
 
 vtkStandardNewMacro(vtkPVPluginLoader);
-vtkCxxRevisionMacro(vtkPVPluginLoader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPVPluginLoader, "$Revision: 1.13 $");
 
 #ifdef _WIN32
 // __cdecl gives an unmangled name

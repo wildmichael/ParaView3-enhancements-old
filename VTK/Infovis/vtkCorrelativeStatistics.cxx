@@ -37,7 +37,7 @@
 
 #include <vtksys/ios/sstream>
 
-vtkCxxRevisionMacro(vtkCorrelativeStatistics, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkCorrelativeStatistics, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkCorrelativeStatistics);
 
 // ----------------------------------------------------------------------
@@ -58,7 +58,6 @@ vtkCorrelativeStatistics::vtkCorrelativeStatistics()
 // ----------------------------------------------------------------------
 vtkCorrelativeStatistics::~vtkCorrelativeStatistics()
 {
-  this->AssessParameters->Delete();
 }
 
 // ----------------------------------------------------------------------
@@ -77,17 +76,6 @@ void vtkCorrelativeStatistics::ExecuteLearn( vtkTable* inData,
     { 
     return; 
     } 
-
-  vtkIdType nRow = inData->GetNumberOfRows();
-  if ( ! nRow )
-    {
-    return;
-    }
-
-  if ( ! inData->GetNumberOfColumns() )
-    {
-    return;
-    }
 
   vtkIdTypeArray* idTypeCol = vtkIdTypeArray::New();
   idTypeCol->SetName( "Cardinality" );
@@ -128,6 +116,17 @@ void vtkCorrelativeStatistics::ExecuteLearn( vtkTable* inData,
   doubleCol->SetName( "M XY" );
   outMeta->AddColumn( doubleCol );
   doubleCol->Delete();
+
+  vtkIdType nRow = inData->GetNumberOfRows();
+  if ( ! nRow )
+    {
+    return;
+    }
+
+  if ( ! inData->GetNumberOfColumns() )
+    {
+    return;
+    }
 
   for ( vtkstd::set<vtkstd::pair<vtkStdString,vtkStdString> >::iterator it = this->Internals->Selection.begin(); 
         it != this->Internals->Selection.end(); ++ it )

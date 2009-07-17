@@ -20,10 +20,12 @@
 #include "vtkQtTreeModelAdapter.h"
 
 #include "vtkAdjacentVertexIterator.h"
+#include "vtkAnnotation.h"
 #include "vtkArrayIteratorIncludes.h"
 #include "vtkConvertSelection.h"
 #include "vtkIdList.h"
 #include "vtkIdTypeArray.h"
+#include "vtkInformation.h"
 #include "vtkPointData.h"
 #include "vtkSelection.h"
 #include "vtkSelectionNode.h"
@@ -32,6 +34,7 @@
 #include "vtkStringArray.h"
 #include "vtkTree.h"
 #include "vtkUnicodeStringArray.h"
+#include "vtkUnsignedCharArray.h"
 #include "vtkVariantArray.h"
 
 #include <vtkstd/algorithm>
@@ -281,11 +284,10 @@ QVariant vtkQtTreeModelAdapter::data(const QModelIndex &idx, int role) const
     return QVariant();
     }
 
-  if (role == Qt::DecorationRole)
-    {
-    return this->IndexToDecoration[idx];
-    }
-
+  //if (role == Qt::DecorationRole)
+  //  {
+  //  return this->IndexToDecoration[idx];
+  //  }
 
   vtkIdType vertex = static_cast<vtkIdType>(idx.internalId());
   int column = this->ModelColumnToFieldDataColumn(idx.column());
@@ -314,6 +316,40 @@ QVariant vtkQtTreeModelAdapter::data(const QModelIndex &idx, int role) const
   else if (role == Qt::UserRole)
     {
     return vtkQtTreeModelAdapterArrayValue(arr, vertex, 0);
+    }
+
+  if(this->ColorColumn >= 0)
+    {
+    int colorColumn = this->ModelColumnToFieldDataColumn(this->ColorColumn);
+    vtkUnsignedCharArray* colors = vtkUnsignedCharArray::SafeDownCast(this->Tree->GetVertexData()->GetAbstractArray(colorColumn));
+    if (!colors)
+      {
+      return QVariant();
+      }
+
+    const int nComponents = colors->GetNumberOfComponents();
+    if(nComponents < 3)
+      {
+      return QVariant();
+      }
+
+    unsigned char rgba[4];
+    colors->GetTupleValue(vertex, rgba);
+    int rgb[3];
+    rgb[0] = static_cast<int>(0x0ff & rgba[0]);
+    rgb[1] = static_cast<int>(0x0ff & rgba[1]);
+    rgb[2] = static_cast<int>(0x0ff & rgba[2]);
+
+    if(role == Qt::DecorationRole)
+      {
+      QPixmap pixmap(12, 12);
+      pixmap.fill(QColor(rgb[0],rgb[1],rgb[2]));
+      return QVariant(pixmap);
+      }
+    else if(role == Qt::TextColorRole)
+      {
+      //return QVariant(QColor(rgb[0],rgb[1],rgb[2]));
+      }
     }
 
   return QVariant();
@@ -504,23 +540,67 @@ int vtkQtTreeModelAdapter::columnCount(const QModelIndex & vtkNotUsed(parentIdx)
 QStringList vtkQtTreeModelAdapter::mimeTypes() const
 {
   QStringList types;
-  types << "vtk/selection";
+  types << "vtk/annotation";
   return types;
 }
 
 QMimeData *vtkQtTreeModelAdapter::mimeData(const QModelIndexList &indexes) const
 {
-  QMimeData *mime_data = new QMimeData();
+  // Only supports dragging single item right now ...
 
-  // First get the index selection using a helper method
-  vtkSmartPointer<vtkSelection> indexSelection = vtkSmartPointer<vtkSelection>::New();
-  indexSelection.TakeReference(this->QModelIndexListToVTKIndexSelection(indexes));
+  if(indexes.size() == 0)
+    {
+    return 0;
+    }
 
-  vtkSelection* pedigreeIdSelection = vtkConvertSelection::ToSelectionType(indexSelection, this->Tree, vtkSelectionNode::PEDIGREEIDS);
+  vtkIdType vertex = static_cast<vtkIdType>(indexes.at(0).internalId());
+
+  vtkSmartPointer<vtkSelection> indexSelection = vtkSmartPointer<vtkSelection>::New(); 
+  vtkSmartPointer<vtkSelectionNode> node =
+    vtkSmartPointer<vtkSelectionNode>::New();
+  node->SetContentType(vtkSelectionNode::INDICES);
+  node->SetFieldType(vtkSelectionNode::VERTEX);
+  vtkSmartPointer<vtkIdTypeArray> index_arr =
+    vtkSmartPointer<vtkIdTypeArray>::New();
+  node->SetSelectionList(index_arr);
+  indexSelection->AddNode(node);
+  
+  index_arr->InsertNextValue(vertex);
+
+  vtkSmartPointer<vtkSelection> pedigreeIdSelection = vtkSmartPointer<vtkSelection>::New();
+  pedigreeIdSelection.TakeReference(vtkConvertSelection::ToSelectionType(indexSelection, this->Tree, vtkSelectionNode::PEDIGREEIDS));
+
+  if(pedigreeIdSelection->GetNode(0) == 0 || pedigreeIdSelection->GetNode(0)->GetSelectionList()->GetNumberOfTuples() == 0)
+    {
+    return 0;
+    }
+
+  vtkAnnotation* a = vtkAnnotation::New();
+  vtkInformation* ainfo = a->GetInformation();
+  ainfo->Set(vtkAnnotation::LABEL(), pedigreeIdSelection->GetNode(0)->GetSelectionList()->GetVariantValue(0).ToString());
+  a->SetSelection(pedigreeIdSelection);
+
+  if(this->ColorColumn >= 0)
+    {
+    int colorColumn = this->ModelColumnToFieldDataColumn(this->ColorColumn);
+    vtkUnsignedCharArray* colors = vtkUnsignedCharArray::SafeDownCast(this->Tree->GetVertexData()->GetAbstractArray(colorColumn));
+    if (colors && colors->GetNumberOfComponents() >= 3)
+      {
+      unsigned char rgba[4];
+      colors->GetTupleValue(vertex, rgba);
+      double rgb[3];
+      rgb[0] = (0x0ff & rgba[0]);
+      rgb[1] = (0x0ff & rgba[1]);
+      rgb[2] = (0x0ff & rgba[2]);
+      ainfo->Set(vtkAnnotation::COLOR(),rgb,3);
+      }
+    }
 
   vtksys_ios::ostringstream buffer;
-  buffer << pedigreeIdSelection;
-  mime_data->setData("vtk/selection", buffer.str().c_str());
+  buffer << a;
+
+  QMimeData *mime_data = new QMimeData();
+  mime_data->setData("vtk/annotation", buffer.str().c_str());
 
   return mime_data;
 }

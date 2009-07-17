@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFortran.h,v 1.2 2009-05-20 20:19:45 kwleiter Exp $  */
-/*  Date : $Date: 2009-05-20 20:19:45 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfFortran.h,v 1.3 2009-07-14 19:20:33 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-14 19:20:33 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -46,7 +46,7 @@ public:
 	std::stack<XdmfGrid*> myCollections;
 	std::vector<XdmfAttribute*> myAttributes;
 	std::map<char*, int> myWrittenGrids;
-	char * myName;
+	std::string myName;
 	double currentTime;
 	bool inCollection;
 };

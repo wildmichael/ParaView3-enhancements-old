@@ -29,6 +29,7 @@
 #include "pqDataRepresentation.h"
 #include "pqDisplayPolicy.h"
 #include "pqObjectBuilder.h"
+#include "pqPendingDisplayManager.h"
 #include "pqPipelineSource.h"
 #include "pqSMAdaptor.h"
 #include "pqUndoStack.h"
@@ -45,7 +46,7 @@ pqSLACDataLoadManager::pqSLACDataLoadManager(QWidget *p,
   : QDialog(p, f)
 {
   pqSLACManager *manager = pqSLACManager::instance();
-  this->Server = manager->activeServer();
+  this->Server = manager->getActiveServer();
 
   this->ui = new pqSLACDataLoadManager::pqUI;
   this->ui->setupUi(this);
@@ -62,8 +63,8 @@ pqSLACDataLoadManager::pqSLACDataLoadManager(QWidget *p,
   this->ui->modeFile->setExtension("SLAC Mode Files (*.mod *.m?)");
   this->ui->particlesFile->setExtension("SLAC Particle Files (*.ncdf *.netcdf)");
 
-  pqPipelineSource *meshReader = manager->meshReader();
-  pqPipelineSource *particlesReader = manager->particlesReader();
+  pqPipelineSource *meshReader = manager->getMeshReader();
+  pqPipelineSource *particlesReader = manager->getParticlesReader();
   if (meshReader)
     {
     vtkSMProxy *meshReaderProxy = meshReader->getProxy();
@@ -119,19 +120,19 @@ void pqSLACDataLoadManager::setupPipeline()
 
   if (stack) stack->beginUndoSet("SLAC Data Load");
 
-  // Delete existing pipeline objects.  We will replace them.
-  pqPipelineSource *meshReader = manager->meshReader();
-  if (meshReader) builder->destroy(meshReader);
+  // Determine the views.  Do this before deleting existing pipeline objects.
+  pqView *meshView = manager->getMeshView();
 
-  pqPipelineSource *particlesReader = manager->particlesReader();
-  if (particlesReader) builder->destroy(particlesReader);
+  // Delete existing pipeline objects.  We will replace them.
+  manager->destroyPipelineSourceAndConsumers(manager->getMeshReader());
+  manager->destroyPipelineSourceAndConsumers(manager->getParticlesReader());
 
   QStringList meshFiles = this->ui->meshFile->filenames();
   // This should never really be not empty.
   if (!meshFiles.isEmpty())
     {
-    meshReader = builder->createReader("sources", "SLACReader",
-                                       meshFiles, this->Server);
+    pqPipelineSource *meshReader
+      = builder->createReader("sources", "SLACReader", meshFiles, this->Server);
 
     vtkSMProxy *meshReaderProxy = meshReader->getProxy();
 
@@ -145,36 +146,55 @@ void pqSLACDataLoadManager::setupPipeline()
     meshReaderProxy->UpdateVTKObjects();
 
     // Make representations.
-    pqView *view = manager->view3D();
     pqDataRepresentation *repr;
     repr = displayPolicy->createPreferredRepresentation(
-                                     meshReader->getOutputPort(0), view, false);
+                                 meshReader->getOutputPort(0), meshView, false);
     repr->setVisible(true);
     repr = displayPolicy->createPreferredRepresentation(
-                                     meshReader->getOutputPort(1), view, false);
+                                 meshReader->getOutputPort(1), meshView, false);
     repr->setVisible(false);
 
     // We have already made the representations and pushed everything to the
     // server manager.  Thus, there is no state left to be modified.
     meshReader->setModifiedState(pqProxy::UNMODIFIED);
+
+    // This is something of a hack to make the pending display manager to
+    // realize that I have already created all necessary displays.  This should
+    // go away soon.
+    pqPendingDisplayManager* pdmanager = qobject_cast<pqPendingDisplayManager*>(
+                                      core->manager("PENDING_DISPLAY_MANAGER"));
+    if (pdmanager)
+      {
+      pdmanager->removePendingDisplayForSource(meshReader);
+      }
     }
 
   QStringList particlesFiles = this->ui->particlesFile->filenames();
   if (!particlesFiles.isEmpty())
     {
-    particlesReader = builder->createReader("sources", "SLACParticleReader",
-                                            particlesFiles, this->Server);
+    pqPipelineSource *particlesReader
+      = builder->createReader("sources", "SLACParticleReader",
+                              particlesFiles, this->Server);
 
     // Make representations.
-    pqView *view = manager->view3D();
     pqDataRepresentation *repr
       = displayPolicy->createPreferredRepresentation(
-                                particlesReader->getOutputPort(0), view, false);
-    repr->setVisible(true);
+                            particlesReader->getOutputPort(0), meshView, false);
+    repr->setVisible(manager->actionShowParticles()->isChecked());
 
     // We have already made the representations and pushed everything to the
     // server manager.  Thus, there is no state left to be modified.
     particlesReader->setModifiedState(pqProxy::UNMODIFIED);
+
+    // This is something of a hack to make the pending display manager to
+    // realize that I have already created all necessary displays.  This should
+    // go away soon.
+    pqPendingDisplayManager* pdmanager = qobject_cast<pqPendingDisplayManager*>(
+                                      core->manager("PENDING_DISPLAY_MANAGER"));
+    if (pdmanager)
+      {
+      pdmanager->removePendingDisplayForSource(particlesReader);
+      }
     }
 
   if (stack) stack->endUndoSet();

@@ -23,7 +23,7 @@
 #include "vtkToolkits.h"
 
 vtkStandardNewMacro(vtkPVServerInformation);
-vtkCxxRevisionMacro(vtkPVServerInformation, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPVServerInformation, "$Revision: 1.16 $");
 
 //----------------------------------------------------------------------------
 vtkPVServerInformation::vtkPVServerInformation()
@@ -341,7 +341,8 @@ void vtkPVServerInformation::SetNumberOfMachines(unsigned int num)
 //----------------------------------------------------------------------------
 unsigned int vtkPVServerInformation::GetNumberOfMachines() const
 {
-  return this->MachinesInternals->MachineInformationVector.size();
+  return static_cast<unsigned int>(
+    this->MachinesInternals->MachineInformationVector.size());
 }
 
 //----------------------------------------------------------------------------

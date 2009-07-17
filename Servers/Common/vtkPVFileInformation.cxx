@@ -51,7 +51,7 @@
 #include <vtkstd/string>
 
 vtkStandardNewMacro(vtkPVFileInformation);
-vtkCxxRevisionMacro(vtkPVFileInformation, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkPVFileInformation, "$Revision: 1.34 $");
 
 inline void vtkPVFileInformationAddTerminatingSlash(vtkstd::string& name)
 {
@@ -170,7 +170,7 @@ static bool getNetworkSubdirs(const vtkstd::string& path,
     RESOURCEDISPLAYTYPE_SHARE
     };
 
-  int tokenIndex = pathtokens.size()-1;
+  int tokenIndex = static_cast<int>(pathtokens.size())-1;
 
   if(tokenIndex >= MaxTokens)
     return false;
@@ -436,7 +436,7 @@ void vtkPVFileInformation::CopyFromObject(vtkObject* object)
     path.replace(idx, 1, 1, '\\');
     }
   
-  int len = path.size();
+  int len = static_cast<int>(path.size());
   if(len > 4 && path.compare(len-4, 4, ".lnk") == 0)
     {
     WIN32_FIND_DATA data;

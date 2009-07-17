@@ -44,10 +44,6 @@ qt4_wrap_cpp(QVIS_MOC_SRCS
   
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Qvis)
 
-set(IFACES
-  pqPointSpriteDisplayPanelDecorator
-)
-
 set(UI_FORMS
   Resources/pqPointSpriteDisplayPanelDecorator.ui
   Resources/pqTransferFunctionEditor.ui
@@ -60,7 +56,6 @@ qt4_wrap_ui(UI_SRCS
    
 qt4_wrap_cpp(MOC_SRCS 
   pqPointSpriteDisplayPanelDecorator.h
-  pqPointSpriteDisplayPanelDecoratorImplementation.h
   pqDisplayArrayWidget.h
   pqTransferFunctionDialog.h
   pqTransferFunctionEditor.h
@@ -69,8 +64,6 @@ qt4_wrap_cpp(MOC_SRCS
   )
    
 set(Plugin_SRCS
-  vtkProxyManagerExtension.cxx
-  pqPointSpriteDisplayPanelDecoratorImplementation.cxx
   pqPointSpriteDisplayPanelDecorator.cxx
   pqDisplayArrayWidget.cxx
   pqTransferFunctionDialog.cxx
@@ -86,15 +79,11 @@ set(SM_SOURCES
 
 set(SM_XMLS_Rendering
   CSCS_PointSprite_Rendering.xml
+  CSCS_PointSpriteRepresentation.xml
   )
   
 set(SM_XMLS_Graphics
   CSCS_PointSprite_Graphics.xml
-  )
-
-generate_server_manager_xml_header(XML_EXTENSION_HEADERS
-  CSCS_PointSpriteRepresentation
-  CSCS_PointSpriteRepresentation.xml
   )
 
 set(PLUGIN_NAME CSCS_PointSprite_GUIPlugin)
@@ -116,6 +105,12 @@ include_directories(${QT_INCLUDES} ${PARAVIEW_GUI_INCLUDE_DIRS}
   ${CMAKE_CURRENT_BINARY_DIR}
 )
 
+add_paraview_display_panel_decorator(
+  IFACES
+  IFACE_SRCS
+  CLASS_NAME pqPointSpriteDisplayPanelDecorator
+  PANEL_TYPES pqDisplayProxyEditor)
+
 add_paraview_plugin(${PLUGIN_NAME} "1.0"
   SERVER_MANAGER_SOURCES 
     "${SM_SOURCES};${CS_WRAP_Rendering};${CS_WRAP_Graphics}"
@@ -128,7 +123,6 @@ add_paraview_plugin(${PLUGIN_NAME} "1.0"
     ${QVIS_SRCS} 
     ${QVIS_MOC_SRCS} 
     ${MOC_SRCS} 
-    ${XML_EXTENSION_HEADERS} 
     ${UI_SRCS} 
     ${IFACE_SRCS}
 )
