@@ -14,6 +14,7 @@ VTK_THIRD_PARTY_SUBDIR(DICOMParser DICOMParser)
 VTK_THIRD_PARTY_SUBDIR(MATERIALLIBRARY MaterialLibrary)
 VTK_THIRD_PARTY_SUBDIR(LIBPROJ4 vtklibproj4)
 VTK_THIRD_PARTY_SUBDIR(MRMPI mrmpi)
+VTK_THIRD_PARTY_SUBDIR(OGGTHEORA vtkoggtheora)
 
 # Force build options for verdict
 SET( VERDICT_USE_FLOAT OFF CACHE BOOL "VTK requires doubles" FORCE )
@@ -67,6 +68,7 @@ IF(NOT VTK_INSTALL_NO_DEVELOPMENT)
     vtk_tiff.h
     vtk_freetype.h
     vtk_libxml2.h
+    vtk_oggtheora.h
     DESTINATION ${VTK_INSTALL_INCLUDE_DIR_CM24}
     COMPONENT Development
     )

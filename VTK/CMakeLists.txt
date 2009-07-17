@@ -664,6 +664,7 @@ VTK_THIRD_PARTY_OPTION(EXPAT expat)
 VTK_THIRD_PARTY_OPTION(FREETYPE freetype)
 VTK_THIRD_PARTY_OPTION(LIBXML2 libxml2)
 VTK_THIRD_PARTY_OPTION(LIBPROJ4 proj4)
+VTK_THIRD_PARTY_OPTION(OGGTHEORA oggtheora)
 
 #-----------------------------------------------------------------------------
 # Configure OpenGL support.
