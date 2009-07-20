@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-15 11:32:13 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2009-07-20 15:32:06 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -1319,11 +1319,6 @@ ReadStream(int _nDims,
           }
         }
       delete readStreamTemp;
-      for(i=0; i<nWrds; i++)
-        {
-        delete [] wrds[i];
-        }
-      delete [] wrds;
       }
     else if(strstr(m_ElementDataFileName, "%"))
       {
@@ -1387,6 +1382,11 @@ ReadStream(int _nDims,
         readStreamTemp->close();
         }
       delete readStreamTemp;
+      for(i=0; i<nWrds; i++)
+        {
+        delete [] wrds[i];
+        }
+      delete [] wrds;
       }
     else
       {
