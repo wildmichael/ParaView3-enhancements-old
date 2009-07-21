@@ -48,6 +48,7 @@ PURPOSE.  See the above copyright notice for more information.
 
 #include "vtkTableAlgorithm.h"
 
+class vtkDataObjectCollection;
 class vtkStdString;
 class vtkStringArray;
 class vtkVariant;
@@ -226,6 +227,11 @@ public:
                              vtkVariant value );
 //ETX
 
+  // Description:
+  // Given a collection of models, calculate aggregate model
+  virtual void LearnAggregate( vtkDataObjectCollection*,
+                               vtkDataObject* ) { return; };
+
 protected:
   vtkStatisticsAlgorithm();
   ~vtkStatisticsAlgorithm();
@@ -239,15 +245,22 @@ protected:
     vtkInformationVector* );
 
   // Description:
-  // Execute the required calculations in the specified execution modes
-  virtual void ExecuteLearn( vtkTable*,
-                             vtkTable*,
-                             vtkDataObject* ) = 0;
-  virtual void ExecuteDerive( vtkDataObject* ) = 0;
-  virtual void ExecuteAssess( vtkTable*,
-                              vtkDataObject*,
-                              vtkTable*,
-                              vtkDataObject* ) = 0; 
+  // Execute the calculations required by the Learn option, given some input Data
+  // NB: input parameters are unused.
+  virtual void Learn( vtkTable*,
+                      vtkTable*,
+                      vtkDataObject* ) = 0;
+
+  // Description:
+  // Execute the calculations required by the Derive option.
+  virtual void Derive( vtkDataObject* ) = 0;
+
+  // Description:
+  // Execute the calculations required by the Assess option.
+  virtual void Assess( vtkTable*,
+                       vtkDataObject*,
+                       vtkTable*,
+                       vtkDataObject* ) = 0; 
 
   //BTX
   // Description:

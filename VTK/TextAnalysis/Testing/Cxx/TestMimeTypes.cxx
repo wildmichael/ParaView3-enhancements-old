@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestMimeTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-16 18:35:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2009-07-20 15:08:46 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2008 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -31,7 +31,7 @@
     } \
 }
 
-int TestMimeTypes(int argc, char* argv[])
+int TestMimeTypes(int vtkNotUsed(argc), char *vtkNotUsed(argv)[])
 {
   try
     {
