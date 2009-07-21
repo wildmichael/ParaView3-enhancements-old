@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-06-15 20:56:31 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2009-07-21 17:47:58 $
+  Version:   $Revision: 1.67 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -91,7 +91,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.67 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -3268,9 +3268,11 @@ int vtkXdmfReaderInternal::RequestGridData(
           vtkDebugWithObjectMacro(this->Reader,
                                   "Setting Grid Centered Values");
           tmpArray->CopyType( values );
-          tmpArray->SetNumberOfElements( dataSet->GetNumberOfPoints() );
-          tmpArray->Generate( values->GetValueAsFloat64(0), 
-                              values->GetValueAsFloat64(0) );
+          tmpArray->SetNumberOfElements( dataSet->GetNumberOfPoints() * Components);
+          for (int i=0; i<dataSet->GetNumberOfPoints(); i++)
+          {
+             tmpArray->SetValues(i * Components, vtkValues->GetTuple(0), Components, 1, 1);
+          }
           vtkValues->Delete();
           this->ArrayConverter->SetVtkArray( NULL );
           vtkValues=this->ArrayConverter->FromXdmfArray(tmpArray->GetTagName(), 1, 1, Components, 0);
