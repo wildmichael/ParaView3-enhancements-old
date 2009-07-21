@@ -29,11 +29,9 @@
 #include <vtkTable.h>
 #include <vtkUnicodeStringArray.h>
 
-#include <boost/algorithm/string.hpp>
-
 #include <stdexcept>
 
-vtkCxxRevisionMacro(vtkFoldCase, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkFoldCase, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkFoldCase);
 
 vtkFoldCase::vtkFoldCase() :
