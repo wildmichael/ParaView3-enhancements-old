@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.8 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.9 2009-07-21 17:46:38 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-21 17:46:38 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,7 @@
 #define XDMF_ATTRIBUTE_TYPE_VECTOR  2
 #define XDMF_ATTRIBUTE_TYPE_TENSOR  3
 #define XDMF_ATTRIBUTE_TYPE_MATRIX  4
+#define XDMF_ATTRIBUTE_TYPE_TENSOR6 5
 
 // Where Values are Assigned
 #define XDMF_ATTRIBUTE_CENTER_GRID  0
