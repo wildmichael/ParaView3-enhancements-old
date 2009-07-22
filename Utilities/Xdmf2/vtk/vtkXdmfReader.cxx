@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-21 20:06:37 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2009-07-22 19:48:58 $
+  Version:   $Revision: 1.69 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -91,7 +91,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.69 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -1641,7 +1641,7 @@ bool vtkXdmfReader::ParseXML()
       //Tell the parser what the working directory is.
       vtkstd::string directory =
         vtksys::SystemTools::GetFilenamePath(this->FileName) + "/";
-      if (directory == "")
+      if (directory == "/")
         {
         directory = vtksys::SystemTools::GetCurrentWorkingDirectory() + "/";
         }
