@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.8 2009-02-20 20:05:12 clarke Exp $  */
-/*  Date : $Date: 2009-02-20 20:05:12 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.9 2009-07-23 21:23:22 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-23 21:23:22 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -135,8 +135,8 @@ vtkDataArray *vtkXdmfDataArray::FromXdmfArray( char *ArrayName, int CopyShape,
     /// this breaks
     components = Components;
     tuples = array->GetNumberOfElements() / components;
-    // cout << "Tuples: " << tuples << " components: " << components << endl;
-    // cout << "Rank: " << rank << endl;
+     //cout << "Tuples: " << tuples << " components: " << components << endl;
+     //cout << "Rank: " << rank << endl;
     this->vtkArray->SetNumberOfComponents( components );
     if(MakeCopy) this->vtkArray->SetNumberOfTuples( tuples );
     } 
@@ -244,7 +244,7 @@ vtkDataArray *vtkXdmfDataArray::FromXdmfArray( char *ArrayName, int CopyShape,
         XdmfErrorMessage("Cannot downcast data array");
         return(0);
     }
-    shorta->SetArray((short *)array->GetDataPointer(), tuples, 0);
+    shorta->SetArray((short *)array->GetDataPointer(), components * tuples, 0);
     }
     break;
   case XDMF_UINT16_TYPE :
