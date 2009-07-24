@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkTermDictionary.cxx,v $
+  Module:    $RCSfile: vtkFeatureDictionary.cxx,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -25,19 +25,19 @@
 #include "vtkSmartPointer.h"
 #include "vtkStringArray.h"
 #include "vtkTable.h"
-#include "vtkTermDictionary.h"
+#include "vtkFeatureDictionary.h"
 #include "vtkUnicodeStringArray.h"
 
 #include <vtkstd/set>
 #include <vtkstd/stdexcept>
 
 ///////////////////////////////////////////////////////////////////////////////
-// vtkTermDictionary
+// vtkFeatureDictionary
 
-vtkCxxRevisionMacro(vtkTermDictionary, "$Revision: 1.2 $");
-vtkStandardNewMacro(vtkTermDictionary);
+vtkCxxRevisionMacro(vtkFeatureDictionary, "$Revision: 1.1 $");
+vtkStandardNewMacro(vtkFeatureDictionary);
 
-vtkTermDictionary::vtkTermDictionary()
+vtkFeatureDictionary::vtkFeatureDictionary()
 {
   this->SetInputArrayToProcess(0, 0, 0, 6, "type");
   this->SetInputArrayToProcess(1, 0, 0, 6, "text");
@@ -46,16 +46,16 @@ vtkTermDictionary::vtkTermDictionary()
   this->SetNumberOfOutputPorts(1);
 }
 
-vtkTermDictionary::~vtkTermDictionary()
+vtkFeatureDictionary::~vtkFeatureDictionary()
 {
 }
 
-void vtkTermDictionary::PrintSelf(ostream& os, vtkIndent indent)
+void vtkFeatureDictionary::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
 }
 
-int vtkTermDictionary::RequestData(
+int vtkFeatureDictionary::RequestData(
   vtkInformation*, 
   vtkInformationVector** inputVector, 
   vtkInformationVector* outputVector)
