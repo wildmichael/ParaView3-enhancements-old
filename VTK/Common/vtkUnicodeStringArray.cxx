@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnicodeStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-21 16:48:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2009-07-27 18:47:02 $
+  Version:   $Revision: 1.12 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -28,7 +28,7 @@ public:
   StorageT Storage;
 };
 
-vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkUnicodeStringArray, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkUnicodeStringArray);
 
 vtkUnicodeStringArray::vtkUnicodeStringArray(vtkIdType)
@@ -256,7 +256,7 @@ vtkIdType vtkUnicodeStringArray::LookupValue(vtkVariant value)
 {
   const vtkUnicodeString search_value = value.ToUnicodeString();
 
-  for(vtkIdType i = 0; i != this->Internal->Storage.size(); ++i)
+  for(Implementation::StorageT::size_type i = 0; i != this->Internal->Storage.size(); ++i)
     {
     if(this->Internal->Storage[i] == search_value)
       return i;
@@ -270,7 +270,7 @@ void vtkUnicodeStringArray::LookupValue(vtkVariant value, vtkIdList* ids)
   const vtkUnicodeString search_value = value.ToUnicodeString();
 
   ids->Reset();
-  for(vtkIdType i = 0; i != this->Internal->Storage.size(); ++i)
+  for(Implementation::StorageT::size_type i = 0; i != this->Internal->Storage.size(); ++i)
     {
     if(this->Internal->Storage[i] == search_value)
       ids->InsertNextId(i);
