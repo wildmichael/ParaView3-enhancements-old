@@ -354,6 +354,8 @@ SET(VTK_INCLUDE_DIR
   ${ParaView_BINARY_DIR}/VTK
   ${ParaView_SOURCE_DIR}/VTK/Utilities
   ${ParaView_BINARY_DIR}/VTK/Utilities
+  ${ParaView_SOURCE_DIR}/VTK/Wrapping
+  ${ParaView_BINARY_DIR}/VTK/Wrapping
   )
 SET(kits Common Filtering GenericFiltering IO Imaging Rendering Parallel Graphics Hybrid VolumeRendering Widgets)
 FOREACH(kit ${kits})
@@ -404,6 +406,18 @@ ELSE(VTK_USE_SYSTEM_ZLIB)
     )
 ENDIF(VTK_USE_SYSTEM_ZLIB)
 
+IF (VTK_USE_QT AND VTK_USE_GUISUPPORT)
+  SET(VTK_INCLUDE_DIR ${VTK_INCLUDE_DIR}
+    ${VTK_SOURCE_DIR}/GUISupport/Qt)
+  SET(VTK_INCLUDE_DIR ${VTK_INCLUDE_DIR}
+    ${VTK_DIR}/GUISupport/Qt)
+  SET(VTK_INCLUDE_DIR ${VTK_INCLUDE_DIR}
+    ${VTK_SOURCE_DIR}/GUISupport/Qt/Chart)
+  SET(VTK_INCLUDE_DIR ${VTK_INCLUDE_DIR}
+    ${VTK_DIR}/GUISupport/Qt/Chart)
+ENDIF (VTK_USE_QT AND VTK_USE_GUISUPPORT)
+
+
 #########################################################################
 # Configure Python wrapping
 IF(PARAVIEW_ENABLE_PYTHON)
@@ -422,9 +436,9 @@ ENDIF(PARAVIEW_ENABLE_PYTHON)
 
 #########################################################################
 # Configure mpi4py
-#IF(PARAVIEW_ENABLE_PYTHON AND PARAVIEW_USE_MPI)
-#  ADD_SUBDIRECTORY(Utilities/mpi4py)
-#ENDIF(PARAVIEW_ENABLE_PYTHON AND PARAVIEW_USE_MPI)
+IF(PARAVIEW_ENABLE_PYTHON AND PARAVIEW_USE_MPI)
+  ADD_SUBDIRECTORY(Utilities/mpi4py)
+ENDIF(PARAVIEW_ENABLE_PYTHON AND PARAVIEW_USE_MPI)
 
 #########################################################################
 # Configure HDF5
@@ -708,6 +722,11 @@ IF(PARAVIEW_ENABLE_PYTHON)
 ENDIF(PARAVIEW_ENABLE_PYTHON)
 
 #########################################################################
+# Configure Paraview Minimum Settings
+OPTION(PARAVIEW_MINIMAL_BUILD "Compile paraview for minimum image" OFF)
+MARK_AS_ADVANCED(PARAVIEW_MINIMAL_BUILD)
+
+#########################################################################
 # Configure Servers executables
 ADD_SUBDIRECTORY(Servers/Executables)
 
@@ -724,6 +743,8 @@ SET(PARAVIEW_INCLUDE_DIRS
   ${ParaView_SOURCE_DIR}/Servers/ServerManager
   ${ParaView_SOURCE_DIR}/Servers/Common
   ${ParaView_SOURCE_DIR}/Utilities/VTKPythonWrapping/Executable
+  ${ParaView_SOURCE_DIR}/VTK/Wrapping
+  ${ParaView_BINARY_DIR}/VTK/Wrapping
 #
   ${ParaView_BINARY_DIR}
   ${ParaView_BINARY_DIR}/Utilities/VTKClientServer

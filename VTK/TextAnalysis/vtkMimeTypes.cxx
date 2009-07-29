@@ -23,6 +23,8 @@
 #include <vtkObjectFactory.h>
 #include <vtkSmartPointer.h>
 
+#include <boost/algorithm/string.hpp>
+
 #include <vtkstd/algorithm>
 #include <vtkstd/vector>
 
@@ -38,7 +40,7 @@ public:
 ////////////////////////////////////////////////////////////////
 // vtkMimeTypes
 
-vtkCxxRevisionMacro(vtkMimeTypes, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkMimeTypes, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkMimeTypes);
 
 vtkMimeTypes::vtkMimeTypes() :
@@ -47,7 +49,9 @@ vtkMimeTypes::vtkMimeTypes() :
   // Add more sophisticated platform-specific strategies here ...
   
   // Last-but-not-least, our fallback strategy is to identify MIME type using file extensions
-  this->Internal->Strategies.push_back(vtkFileExtensionMimeTypeStrategy::New());
+  vtkFileExtensionMimeTypeStrategy *defaultStrategy = vtkFileExtensionMimeTypeStrategy::New();
+  this->PrependStrategy(defaultStrategy);
+  defaultStrategy->Delete();
 }
 
 vtkMimeTypes::~vtkMimeTypes()
@@ -70,7 +74,7 @@ void vtkMimeTypes::PrintSelf(ostream& os, vtkIndent indent)
 void vtkMimeTypes::ClearStrategies()
 {
   for(unsigned int i = 0; i != this->Internal->Strategies.size(); ++i)
-    this->Internal->Strategies[i]->Delete();
+    this->Internal->Strategies[i]->UnRegister(NULL);
 }
 
 void vtkMimeTypes::PrependStrategy(vtkMimeTypeStrategy* strategy)
@@ -81,11 +85,23 @@ void vtkMimeTypes::PrependStrategy(vtkMimeTypeStrategy* strategy)
     return;
     }
   
+  for (vtksys_stl::vector<vtkMimeTypeStrategy*>::size_type i = 0;
+       i < this->Internal->Strategies.size(); ++i)
+    {
+    if (this->Internal->Strategies[i] == strategy)
+      {
+      this->Internal->Strategies[i]->UnRegister(NULL);
+      }
+    }
+
   this->Internal->Strategies.erase(
-    vtkstd::remove(this->Internal->Strategies.begin(), this->Internal->Strategies.end(), strategy),
+    vtkstd::remove(this->Internal->Strategies.begin(), 
+                   this->Internal->Strategies.end(), 
+                   strategy),
     this->Internal->Strategies.end());
 
   this->Internal->Strategies.insert(this->Internal->Strategies.begin(), strategy);
+  strategy->Register(NULL);
 }
 
 void vtkMimeTypes::AppendStrategy(vtkMimeTypeStrategy* strategy)
@@ -95,12 +111,22 @@ void vtkMimeTypes::AppendStrategy(vtkMimeTypeStrategy* strategy)
     vtkErrorMacro(<< "Cannot add NULL strategy.");
     return;
     }
+
+  for (vtksys_stl::vector<vtkMimeTypeStrategy*>::size_type i = 0;
+       i < this->Internal->Strategies.size(); ++i)
+    {
+    if (this->Internal->Strategies[i] == strategy)
+      {
+      this->Internal->Strategies[i]->UnRegister(NULL);
+      }
+    }
   
   this->Internal->Strategies.erase(
     vtkstd::remove(this->Internal->Strategies.begin(), this->Internal->Strategies.end(), strategy),
     this->Internal->Strategies.end());
 
   this->Internal->Strategies.insert(this->Internal->Strategies.end(), strategy);
+  strategy->Register(NULL);
 }
 
 vtkStdString vtkMimeTypes::Lookup(const vtkStdString& uri)
@@ -132,5 +158,47 @@ vtkStdString vtkMimeTypes::Lookup(const vtkStdString& uri, const vtkTypeUInt8* b
       return mime_type;
     }
   return vtkStdString();
+}
+
+bool vtkMimeTypes::Match(const vtkStdString& pattern, const vtkStdString& type)
+{
+  vtkstd::vector<vtkstd::string> pattern_parts;
+  boost::algorithm::split(pattern_parts, pattern, boost::algorithm::is_any_of("/"));
+  if(pattern_parts.size() != 2)
+    {
+    vtkGenericWarningMacro(<< "Not a valid MIME pattern: " << pattern);
+    return false;
+    }
+
+  vtkstd::vector<vtkstd::string> type_parts;
+  // Special-case: we treat an empty string as-if it were "<empty>/</empty>"
+  if(type.empty())
+    {
+    type_parts.push_back("");
+    type_parts.push_back("");
+    }
+  else
+    {
+    boost::algorithm::split(type_parts, type, boost::algorithm::is_any_of("/"));
+    }
+  if(type_parts.size() != 2)
+    {
+    vtkGenericWarningMacro(<< "Not a valid MIME type: " << type);
+    return false;
+    }
+
+  if(pattern_parts[0] != "*")
+    {
+    if(pattern_parts[0] != type_parts[0])
+      return false;
+    }
+
+  if(pattern_parts[1] != "*")
+    {
+    if(pattern_parts[1] != type_parts[1])
+      return false;
+    }
+
+  return true;
 }
 

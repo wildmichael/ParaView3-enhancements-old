@@ -85,6 +85,10 @@ SET(Kit_SRCS
     vtkMPIMToNSocketConnection.cxx
     vtkMPIMToNSocketConnectionPortInformation.cxx
     vtkPVServerSocket.cxx )
+  
+IF (VTK_USE_N_WAY_ARRAYS)
+
+ENDIF (VTK_USE_N_WAY_ARRAYS)
 
 IF (VTK_USE_MPI)
   INCLUDE_DIRECTORIES(${MPI_INCLUDE_PATH})
@@ -109,7 +113,7 @@ SET_SOURCE_FILES_PROPERTIES(
 SET_SOURCE_FILES_PROPERTIES(
   vtkCommandOptionsXMLParser.cxx
   vtkConnectionIterator.cxx
-  vtkStringList.cxx
+  # vtkStringList.cxx
   vtkPVOptionsXMLParser.cxx
   vtkPVServerOptions.cxx
   vtkPVServerSocket.cxx
@@ -133,6 +137,12 @@ ENDIF (VTK_USE_X)
 
 SET(VTK_WRAP_HINTS ${CMAKE_CURRENT_SOURCE_DIR}/hints)
 
+# Include PVCommandOptions_SRCS in the Kit_SRCS -nix
+SET (Kit_SRCS
+      ${Kit_SRCS}
+      ${PVCommandOptions_SRCS} 
+    )
+  
 # Setup vtkInstantiator registration for this library's classes.
 INCLUDE(${ParaView_SOURCE_DIR}/VTK/CMake/vtkMakeInstantiator.cmake)
 VTK_MAKE_INSTANTIATOR3(vtk${KIT}Instantiator KitInstantiator_SRCS
@@ -186,10 +196,10 @@ ENDIF(MINGW)
 IF (PARAVIEW_ENABLE_PYTHON)
   SET(Kit_PYTHON_EXTRA_SRCS)
 
-  SET (Kit_SRCS
-      ${Kit_SRCS}
-      ${PVCommandOptions_SRCS} 
-    )
+#    SET (Kit_SRCS
+#       ${Kit_SRCS}
+#       ${PVCommandOptions_SRCS} 
+#     )
   SET(KIT_PYTHON_LIBS
     vtkCommonPythonD vtkFilteringPythonD vtkIOPythonD vtkPVServerCommon vtk${KIT}CS
     )

@@ -169,29 +169,35 @@ void vtkSparseArray<T>::Clear()
   this->Values.clear();
 }
 
+/// Predicate object for use with vtkstd::sort().  Given a vtkArraySort object that defines which array dimensions
+/// will be sorted in what order, SortCoordinates is used to establish a sorted order for the values stored in vtkSparseArray.
+/// Note that SortCoordinates never actually modifies its inputs.
 struct SortCoordinates
 {
-  SortCoordinates(const vtkArraySort& sort, vtkstd::vector<vtkstd::vector<vtkIdType> >& coordinates) :
-    Sort(sort),
-    Coordinates(coordinates)
+  SortCoordinates(const vtkArraySort& sort, const vtkstd::vector<vtkstd::vector<vtkIdType> >& coordinates) :
+    Sort(&sort),
+    Coordinates(&coordinates)
   {
   }
 
   bool operator()(const vtkIdType lhs, const vtkIdType rhs) const
   {
-    for(vtkIdType i = 0; i != this->Sort.GetDimensions(); ++i)
+    const vtkArraySort& sort = *this->Sort;
+    const vtkstd::vector<vtkstd::vector<vtkIdType> >& coordinates = *this->Coordinates;
+
+    for(vtkIdType i = 0; i != sort.GetDimensions(); ++i)
       {
-      if(Coordinates[this->Sort[i]][lhs] == Coordinates[this->Sort[i]][rhs])
+      if(coordinates[sort[i]][lhs] == coordinates[sort[i]][rhs])
         continue;
 
-      return Coordinates[this->Sort[i]][lhs] < Coordinates[this->Sort[i]][rhs];
+      return coordinates[sort[i]][lhs] < coordinates[sort[i]][rhs];
       }
       
     return false;
   }
-
-  const vtkArraySort& Sort;
-  vtkstd::vector<vtkstd::vector<vtkIdType > >& Coordinates;
+  
+  const vtkArraySort* Sort;
+  const vtkstd::vector<vtkstd::vector<vtkIdType > >* Coordinates;
 };
 
 template<typename T>

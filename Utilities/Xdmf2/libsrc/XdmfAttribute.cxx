@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.16 2009-01-26 21:15:21 clarke Exp $  */
-/*  Date : $Date: 2009-01-26 21:15:21 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.17 2009-07-21 17:46:25 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-21 17:46:25 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -95,14 +95,16 @@ XdmfAttribute::Build(){
 XdmfConstString
 XdmfAttribute::GetAttributeTypeAsString( void ){
   switch ( this->AttributeType ){
-    case XDMF_ATTRIBUTE_TYPE_SCALAR :
+    case XDMF_ATTRIBUTE_TYPE_SCALAR  :
       return("Scalar");
-    case XDMF_ATTRIBUTE_TYPE_VECTOR :
+    case XDMF_ATTRIBUTE_TYPE_VECTOR  :
       return("Vector");
-    case XDMF_ATTRIBUTE_TYPE_TENSOR :
+    case XDMF_ATTRIBUTE_TYPE_TENSOR  :
       return("Tensor");
-    case XDMF_ATTRIBUTE_TYPE_MATRIX :
+    case XDMF_ATTRIBUTE_TYPE_MATRIX  :
       return("Matrix");
+    case XDMF_ATTRIBUTE_TYPE_TENSOR6 :
+      return("Tensor6");
     default :
       break;
     }
@@ -129,6 +131,9 @@ if( XDMF_WORD_CMP( attributeType, "Scalar" ) ) {
   this->ShapeDesc->SetShape( 2, Dimensions );
 } else if( XDMF_WORD_CMP( attributeType, "Matrix" ) ) {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_MATRIX;
+} else if( XDMF_WORD_CMP( attributeType, "Tensor6" ) ) {
+  this->AttributeType = XDMF_ATTRIBUTE_TYPE_TENSOR6;
+  Dimensions[0] = 6;
 } else {
   XdmfErrorMessage("Unknown Attribute Type " << attributeType );
   return( XDMF_FAIL );

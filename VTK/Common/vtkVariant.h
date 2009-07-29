@@ -53,7 +53,11 @@ class vtkStdString;
 class vtkUnicodeString;
 class vtkObjectBase;
 class vtkAbstractArray;
+class vtkVariant;
 struct vtkVariantLessThan;
+
+VTK_COMMON_EXPORT ostream& operator << ( ostream& os, const vtkVariant& val );
+
 
 class VTK_COMMON_EXPORT vtkVariant
 {
@@ -346,7 +350,7 @@ public:
   bool operator<=(const vtkVariant &other) const;
   bool operator>=(const vtkVariant &other) const;
 
-
+  friend VTK_COMMON_EXPORT ostream& operator << ( ostream& os, const vtkVariant& val );
 
 
 private:

@@ -60,7 +60,13 @@
 // support the set of required extensions for using at least one of
 // the two implemented methods (nvidia or ati)
 //
-
+// .SECTION Thanks
+// Thanks to Alexandre Gouaillard at the Megason Lab, Department of Systems
+// Biology, Harvard Medical School
+// https://wiki.med.harvard.edu/SysBio/Megason/
+// for the idea and initial patch to speed-up rendering with compressed
+// textures.
+//
 // .SECTION see also
 // vtkVolumeMapper
 
@@ -147,7 +153,17 @@ public:
     { this->SetPreferredRenderMethod( vtkVolumeTextureMapper3D::NVIDIA_METHOD ); }
   vtkGetMacro(PreferredRenderMethod, int);
 
-
+  
+  // Description:
+  // Set/Get if the mapper use compressed textures (if supported by the
+  // hardware). Initial value is false.
+  // There are two reasons to use compressed textures: 1. rendering can be 4
+  // times faster. 2. It saves some VRAM.
+  // There is one reason to not use compressed textures: quality may be lower
+  // than with uncompressed textures.
+  vtkSetMacro(UseCompressedTexture,bool);
+  vtkGetMacro(UseCompressedTexture,bool);
+  
 protected:
   vtkVolumeTextureMapper3D();
   ~vtkVolumeTextureMapper3D();
@@ -195,6 +211,9 @@ protected:
 
   int                       RenderMethod;
   int                       PreferredRenderMethod;
+  bool                      UseCompressedTexture;
+  
+  bool                      SupportsNonPowerOfTwoTextures;
   
   // Description:
   // For the given viewing direction, compute the set of polygons.
@@ -209,7 +228,11 @@ protected:
   // Description:
   // Impemented in subclass - check is texture size is OK.
   //BTX
-  virtual int IsTextureSizeSupported( int [3] ) {return 0;};
+  virtual int IsTextureSizeSupported(int vtkNotUsed(size)[3],
+                                     int vtkNotUsed(components))
+    {
+      return 0;
+    }
   //ETX
   
 private:

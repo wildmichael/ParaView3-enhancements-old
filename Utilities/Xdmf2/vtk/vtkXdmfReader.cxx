@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-06-15 20:56:31 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2009-07-22 19:48:58 $
+  Version:   $Revision: 1.69 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -91,7 +91,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.69 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -1641,7 +1641,7 @@ bool vtkXdmfReader::ParseXML()
       //Tell the parser what the working directory is.
       vtkstd::string directory =
         vtksys::SystemTools::GetFilenamePath(this->FileName) + "/";
-      if (directory == "")
+      if (directory == "/")
         {
         directory = vtksys::SystemTools::GetCurrentWorkingDirectory() + "/";
         }
@@ -3156,6 +3156,9 @@ int vtkXdmfReaderInternal::RequestGridData(
       case XDMF_ATTRIBUTE_TYPE_TENSOR :
         Components = 9;
         break;
+      case XDMF_ATTRIBUTE_TYPE_TENSOR6:
+        Components = 6;
+        break; 	
       case XDMF_ATTRIBUTE_TYPE_VECTOR:
         Components = 3;
         break;
@@ -3260,7 +3263,36 @@ int vtkXdmfReaderInternal::RequestGridData(
         vtkValues->SetName(name);
         
         // Special Cases
-        if( AttributeCenter == XDMF_ATTRIBUTE_CENTER_GRID ) 
+       if( AttributeType == XDMF_ATTRIBUTE_TYPE_TENSOR6 )
+       {
+          XdmfArray *tmpArray = new XdmfArray;
+          vtkDebugWithObjectMacro(this->Reader,
+                                  "Converting Tensor6 to Tensor");
+          tmpArray->CopyType( values );
+          tmpArray->SetNumberOfElements( values->GetNumberOfElements() * 3/2);
+          // Copy Symmetrical Tensor Values to Correct Positions in 3x3 matrix
+          for (int i=0; i<(tmpArray->GetNumberOfElements()/9); i++)
+          {
+	     tmpArray->SetValues((i*9)   , vtkValues->GetTuple(i), 3, 1, 1);
+  	     tmpArray->SetValues((i*9)+3 , vtkValues->GetTuple(i)+1, 1, 1, 1);
+             tmpArray->SetValues((i*9)+4 , vtkValues->GetTuple(i)+3, 2, 1, 1);
+             tmpArray->SetValues((i*9)+6 , vtkValues->GetTuple(i)+2, 1, 1, 1);
+	     tmpArray->SetValues((i*9)+7 , vtkValues->GetTuple(i)+4, 1, 1, 1);
+	     tmpArray->SetValues((i*9)+8 , vtkValues->GetTuple(i)+5, 1, 1, 1);
+          }
+          Components = 9;
+          AttributeType == XDMF_ATTRIBUTE_TYPE_TENSOR;
+          vtkValues->Delete();
+          this->ArrayConverter->SetVtkArray( NULL );
+          vtkValues=this->ArrayConverter->FromXdmfArray(tmpArray->GetTagName(), 1, 1, Components, 0);
+          if( !name )
+          {
+            name = values->GetTagName();
+          }
+          vtkValues->SetName( name );
+          delete tmpArray;
+      }
+      if( AttributeCenter == XDMF_ATTRIBUTE_CENTER_GRID ) 
           {
           // Implement XDMF_ATTRIBUTE_CENTER_GRID as PointData
           XdmfArray *tmpArray = new XdmfArray;
@@ -3268,9 +3300,11 @@ int vtkXdmfReaderInternal::RequestGridData(
           vtkDebugWithObjectMacro(this->Reader,
                                   "Setting Grid Centered Values");
           tmpArray->CopyType( values );
-          tmpArray->SetNumberOfElements( dataSet->GetNumberOfPoints() );
-          tmpArray->Generate( values->GetValueAsFloat64(0), 
-                              values->GetValueAsFloat64(0) );
+          tmpArray->SetNumberOfElements( dataSet->GetNumberOfPoints() * Components);
+          for (int i=0; i<dataSet->GetNumberOfPoints(); i++)
+          {
+             tmpArray->SetValues(i * Components, vtkValues->GetTuple(0), Components, 1, 1);
+          }
           vtkValues->Delete();
           this->ArrayConverter->SetVtkArray( NULL );
           vtkValues=this->ArrayConverter->FromXdmfArray(tmpArray->GetTagName(), 1, 1, Components, 0);

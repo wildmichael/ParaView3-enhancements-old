@@ -19,13 +19,12 @@
 
 =========================================================================*/
 
-#include <vtkDocumentTextExtraction.h>
 #include <vtkFoldCase.h>
 #include <vtkIdTypeArray.h>
 #include <vtkSmartPointer.h>
 #include <vtkStringArray.h>
 #include <vtkTable.h>
-#include <vtkTermDictionary.h>
+#include <vtkFeatureDictionary.h>
 #include <vtkTokenizer.h>
 #include <vtkUnicodeStringArray.h>
 
@@ -77,7 +76,7 @@ int TestTermDictionary(int vtkNotUsed(argc), char *vtkNotUsed(argv)[])
 
     documents->Dump(20);
  
-    // Run it through to vtkTermDictionary ...
+    // Run it through to vtkFeatureDictionary ...
     vtkSmartPointer<vtkTokenizer> tokenizer = vtkSmartPointer<vtkTokenizer>::New();
     tokenizer->SetInputConnection(0, documents->GetProducerPort());
     tokenizer->AddDroppedDelimiters(vtkTokenizer::Whitespace());
@@ -86,7 +85,7 @@ int TestTermDictionary(int vtkNotUsed(argc), char *vtkNotUsed(argv)[])
     vtkSmartPointer<vtkFoldCase> fold_case = vtkSmartPointer<vtkFoldCase>::New();
     fold_case->SetInputConnection(0, tokenizer->GetOutputPort());
 
-    vtkSmartPointer<vtkTermDictionary> term_dictionary = vtkSmartPointer<vtkTermDictionary>::New();
+    vtkSmartPointer<vtkFeatureDictionary> term_dictionary = vtkSmartPointer<vtkFeatureDictionary>::New();
     term_dictionary->SetInputConnection(0, fold_case->GetOutputPort());
 
     // Test the results ...

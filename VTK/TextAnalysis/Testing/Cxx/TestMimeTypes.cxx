@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestMimeTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-20 15:08:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2009-07-21 18:59:44 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2008 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -41,6 +41,14 @@ int TestMimeTypes(int vtkNotUsed(argc), char *vtkNotUsed(argv)[])
     test_expression(mime_types->Lookup("file:///home/bob/b.txt") == "text/plain");
     test_expression(mime_types->Lookup("file:///home/bob/c.doc") == "application/msword");
     test_expression(mime_types->Lookup("file:///home/bob/d.pdf") == "application/pdf");
+
+    test_expression(mime_types->Match("*/*", ""));
+    test_expression(!mime_types->Match("*/*", "bleh"));
+    test_expression(mime_types->Match("*/*", "text/plain"));
+    test_expression(mime_types->Match("text/*", "text/plain"));
+    test_expression(!mime_types->Match("text/*", "application/pdf"));
+    test_expression(mime_types->Match("foo/bar", "foo/bar"));
+    test_expression(!mime_types->Match("foo/bar", "foo/baz"));
  
     return 0;
     }

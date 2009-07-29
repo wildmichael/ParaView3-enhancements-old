@@ -35,11 +35,11 @@ public:
     this->Target = target;
     }
 
-  virtual void Execute(vtkObject* vtkNotUsed(caller), unsigned long event, void* data)
+  virtual void Execute(vtkObject* vtkNotUsed(caller), unsigned long event, void*
+    vtkNotUsed(data))
     {
     if (this->Target)
       {
-      this->Target->InvokeEvent(event, data);
       if (event == vtkCommand::StartInteractionEvent)
         {
         this->Target->SetInteractiveRenderEnabled(1);
@@ -66,7 +66,7 @@ protected:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVGenericRenderWindowInteractor);
-vtkCxxRevisionMacro(vtkPVGenericRenderWindowInteractor, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPVGenericRenderWindowInteractor, "$Revision: 1.9 $");
 vtkCxxSetObjectMacro(vtkPVGenericRenderWindowInteractor,Renderer,vtkRenderer);
 
 //----------------------------------------------------------------------------
