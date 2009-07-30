@@ -39,7 +39,7 @@
 # define fmax(a,b) ( (a) >= (b) ? (a) : (b) )
 #endif
 
-vtkCxxRevisionMacro(vtkPolynomialSolversUnivariate, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkPolynomialSolversUnivariate, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPolynomialSolversUnivariate);
 
 static const double sqrt3 = sqrt( static_cast<double>( 3. ) );
@@ -130,22 +130,26 @@ inline bool IsZero( double x )
 // Double precision comparison
 inline bool AreEqual( double x, double y, double rTol )
 {
-  if ( fabs( x - y ) < absolute0 )
+  double delta = fabs( x - y );
+
+  // First, handle "absolute" zeros. This is to eliminate the
+  // case (x+t - -x ) / x = 2 + t/x even when both x and t are small.
+  if (  delta < absolute0 )
     {
     return true;
     }
   
-  double rErr;
-  if ( fabs( x ) > fabs( y ) )
+  // Second, handle "relative" equalities.
+  double absx = fabs( x );
+  double absy = fabs( y );
+  if ( absx > absy )
     {
-    rErr = fabs( ( y - x ) / x );
+    return delta > rTol * absx ? false : true;
     }
   else
     {
-    rErr = fabs( ( y - x ) / y );
+    return delta > rTol * absy ? false : true;
     }
-
-  return rErr > rTol ? false : true;
 }
 
 //----------------------------------------------------------------------------
@@ -304,9 +308,8 @@ static int polynomialEucliDivOppositeR(
 
 inline double vtkNormalizePolyCoeff( double d, double* div = 0 )
 {
-  static const double high = 18446744073709551616.; // 2**64
-  //const static double high = pow(2., 64);
-  if ( fabs( d ) < 1e300 && d == d )
+  static const double high = 18446744073709551616.; // 2^64
+  if ( fabs( d ) < 1e300 )
     {
     while ( fabs( d ) > 1e30 )
       {
@@ -317,7 +320,7 @@ inline double vtkNormalizePolyCoeff( double d, double* div = 0 )
         }
       }
     }
-  if ( fabs( d ) > 1e-300 && d == d )
+  if ( fabs( d ) > 1e-300 )
     {
     while(fabs( d ) < 1e-30)
       {
