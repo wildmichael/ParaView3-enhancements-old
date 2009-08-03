@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFortran.cc,v 1.6 2009-07-21 17:47:08 kwleiter Exp $  */
-/*  Date : $Date: 2009-07-21 17:47:08 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfFortran.cc,v 1.7 2009-07-31 16:45:45 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-31 16:45:45 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -166,8 +166,8 @@ void XdmfFortran::SetGridTopology(char * topologyType, int * numberOfElements, X
 	if (myTopology->GetTopologyType() != XDMF_POLYVERTEX)
 	{
 		XdmfArray * myConnections = myTopology->GetConnectivity();
-		myConnections->SetNumberOfElements(*numberOfElements * myTopology->GetNodesPerElement());
 		myConnections->SetNumberType(XDMF_INT32_TYPE);
+		myConnections->SetNumberOfElements(*numberOfElements * myTopology->GetNodesPerElement());
 		myConnections->SetValues(0, conns, *numberOfElements * myTopology->GetNodesPerElement());
 	}
 }

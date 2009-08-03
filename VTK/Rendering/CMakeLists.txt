@@ -8,8 +8,8 @@ IF (JAVA_AWT_LIBRARY)
   SET(KIT_JAVA_LIBS ${KIT_JAVA_LIBS} ${JAVA_AWT_LIBRARY})
 ENDIF (JAVA_AWT_LIBRARY)
 
-SET(KIT_LIBS vtkGraphics vtkImaging vtkIO
-  vtkftgl
+SET(KIT_INTERFACE_LIBRARIES vtkGraphics vtkImaging)
+SET(KIT_LIBS vtkIO vtkftgl
   ${VTK_FREETYPE_LIBRARIES}
 )
 #INCLUDE(${VTK_CMAKE_DIR}/vtkTestGL.cmake)
@@ -606,6 +606,7 @@ IF (VTK_WRAP_TCL AND VTK_USE_TK)
   IF(VTK_USE_X)
     SET(KitTCL_SRCS ${KitTCL_SRCS} vtkXRenderWindowTclInteractor.cxx)
   ENDIF(VTK_USE_X)
+  SET(KIT_TCL_LIBS ${KIT_TCL_LIBS} ${X11_LIBRARIES})
   SET(Kit_TCL_EXTRA_CMDS 
     vtkTkRenderWidget 
     vtkTkImageViewerWidget)
@@ -644,6 +645,12 @@ IF (VTK_WRAP_PYTHON AND VTK_USE_TK AND TK_FOUND)
   TARGET_LINK_LIBRARIES (vtkRenderingPythonTkWidgets
                         vtk${KIT}
                         ${VTK_TK_LIBRARIES})
+  IF(VTK_USE_CARBON)
+    #  "_GetWindowFromPort", referenced from:
+    # vtkTkRenderWidget_MakeRenderWindow(vtkTkRenderWidget*)      in vtkTkRenderWidgetPython.cxx.o
+    # vtkTkImageViewerWidget_MakeImageViewer(vtkTkImageViewerWidget*)      in vtkTkImageViewerWidgetPython.cxx.o
+    TARGET_LINK_LIBRARIES (vtkRenderingPythonTkWidgets "-framework Carbon")
+  ENDIF(VTK_USE_CARBON)
 
   # Apply user-defined properties to the library target.
   IF(VTK_LIBRARY_PROPERTIES)

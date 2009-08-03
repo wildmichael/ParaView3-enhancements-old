@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.28 2009-06-23 20:22:03 clarke Exp $  */
-/*  Date : $Date: 2009-06-23 20:22:03 $ */
-/*  Version : $Revision: 1.28 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.29 2009-07-31 16:27:33 kwleiter Exp $  */
+/*  Date : $Date: 2009-07-31 16:27:33 $ */
+/*  Version : $Revision: 1.29 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -58,7 +58,7 @@ XdmfDataItem::XdmfDataItem() {
 XdmfDataItem::~XdmfDataItem() {
     XdmfDebug(".... Deleteing DataItem " << this);
     if(this->Array && this->ArrayIsMine ){
-        XdmfDebug("Deleteing array " << this->Array);
+        XdmfDebug("Deleting array " << this->Array);
         delete this->Array;
         XdmfDebug("Done Deleteing array");
     }

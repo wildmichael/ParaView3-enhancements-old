@@ -99,10 +99,10 @@ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/TestFBOInclude.h.in
 ADD_EXECUTABLE(TestFBOImplementation
   TestFBOImplementation.cxx)
 TARGET_LINK_LIBRARIES(TestFBOImplementation
-  vtkRendering)
+  vtkRendering ${OPENGL_gl_LIBRARY})
 
 ADD_EXECUTABLE(${KIT}CxxTests ${Tests})
-TARGET_LINK_LIBRARIES(${KIT}CxxTests vtkRendering vtkIO)
+TARGET_LINK_LIBRARIES(${KIT}CxxTests vtkRendering vtkIO ${OPENGL_gl_LIBRARY})
 
 
 SET (TestsToRun ${Tests})
@@ -140,7 +140,7 @@ FOREACH (exe
     VTKBenchMark
     )
   ADD_EXECUTABLE(${exe} ${exe}.cxx)
-  TARGET_LINK_LIBRARIES(${exe} vtkRendering vtkIO)
+  TARGET_LINK_LIBRARIES(${exe} vtkRendering vtkIO ${OPENGL_gl_LIBRARY})
   IF (APPLE)
     TARGET_LINK_LIBRARIES(${exe} "-framework GLUT")
   ENDIF (APPLE)
