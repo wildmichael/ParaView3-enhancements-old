@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesXML.cxx,v 1.10 2009-08-05 20:45:36 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:45:36 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfValuesXML.cxx,v 1.11 2009-08-05 21:42:12 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-05 21:42:12 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -125,7 +125,6 @@ XdmfValuesXML::Write(XdmfArray *anArray, XdmfConstString /*HeavyDataSetName*/){
                 }
             }
         }
-	delete [] DataValues;
     }
     StringOutput << ends;
     XdmfString toReturn = StringOutput.str();
