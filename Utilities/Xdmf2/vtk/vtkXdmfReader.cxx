@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-07-22 19:48:58 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2009-08-05 16:22:21 $
+  Version:   $Revision: 1.70 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -91,7 +91,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.70 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -3281,7 +3281,7 @@ int vtkXdmfReaderInternal::RequestGridData(
 	     tmpArray->SetValues((i*9)+8 , vtkValues->GetTuple(i)+5, 1, 1, 1);
           }
           Components = 9;
-          AttributeType == XDMF_ATTRIBUTE_TYPE_TENSOR;
+          AttributeType = XDMF_ATTRIBUTE_TYPE_TENSOR;
           vtkValues->Delete();
           this->ArrayConverter->SetVtkArray( NULL );
           vtkValues=this->ArrayConverter->FromXdmfArray(tmpArray->GetTagName(), 1, 1, Components, 0);
