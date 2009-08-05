@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.9 2009-06-11 13:41:23 clarke Exp $  */
-/*  Date : $Date: 2009-06-11 13:41:23 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.10 2009-08-05 20:41:35 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-05 20:41:35 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -99,6 +99,11 @@ XDMF_GEOMETRY_ORIGIN_DXDYDZ : Xorigin, Yorigin, Zorigin, Dx, Dy, Dz
 //! Get the Geometry type
   XdmfGetValueMacro( GeometryType, XdmfInt32 );
 
+//! Set the number of values to be written to Light Data before switching to Heavy Data
+  XdmfSetValueMacro(LightDataLimit, XdmfInt32)
+//! Gets the number of values to be written to Light Data before switching to Heavy Data
+  XdmfGetValueMacro(LightDataLimit, XdmfInt32)
+
   XdmfString GetGeometryTypeAsString( void );
   XdmfInt32 SetGeometryTypeFromString( XdmfConstString GeometryType );
 
@@ -150,6 +155,7 @@ protected:
   XdmfInt32  GeometryType;
   XdmfInt32  PointsAreMine;
   XdmfInt64  NumberOfPoints;
+  XdmfInt32  LightDataLimit;
   XdmfArray  *Points;
   XdmfFloat64  Origin[3];
   XdmfFloat64  DxDyDz[3];
