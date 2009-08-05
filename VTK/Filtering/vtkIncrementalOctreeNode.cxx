@@ -19,8 +19,10 @@
 #include "vtkObjectFactory.h"
 #include "vtkIncrementalOctreeNode.h"
 
-vtkCxxRevisionMacro( vtkIncrementalOctreeNode, "$Revision: 1.2 $" );
+vtkCxxRevisionMacro( vtkIncrementalOctreeNode, "$Revision: 1.3 $" );
 vtkStandardNewMacro( vtkIncrementalOctreeNode );
+
+vtkCxxSetObjectMacro( vtkIncrementalOctreeNode, Parent, vtkIncrementalOctreeNode );
 
 // ---------------------------------------------------------------------------
 // ----------------------------- Helper functions ----------------------------
