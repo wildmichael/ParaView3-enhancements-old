@@ -114,6 +114,9 @@ vtkImplicitSelectionLoop.cxx
 vtkImplicitSum.cxx
 vtkImplicitVolume.cxx
 vtkImplicitWindowFunction.cxx
+vtkIncrementalOctreeNode.cxx
+vtkIncrementalOctreePointLocator.cxx
+vtkIncrementalPointLocator.cxx
 vtkInEdgeIterator.cxx
 vtkInformation.cxx
 vtkInformationExecutivePortKey.cxx
@@ -127,6 +130,7 @@ vtkLine.cxx
 vtkLocator.cxx
 vtkMapper2D.cxx
 vtkMergePoints.cxx
+vtkModifiedBSPTree.cxx
 vtkMultiBlockDataSetAlgorithm.cxx
 vtkMultiBlockDataSet.cxx
 vtkMultiPieceDataSet.cxx
@@ -271,6 +275,7 @@ vtkImageProgressIterator
 vtkImageSource
 vtkImageToImageFilter
 vtkImageTwoInputFilter
+vtkIncrementalPointLocator
 vtkInformationExecutivePortKey
 vtkInformationExecutivePortVectorKey
 vtkLocator

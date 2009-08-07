@@ -32,18 +32,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __pqScatterPlotView_h 
 #define __pqScatterPlotView_h
 
-#include "pqRenderView.h"
+#include "pqRenderViewBase.h"
 
-class vtkSMComparativeViewProxy;
+class vtkSMScatterPlotViewProxy;
+class ManipulatorType;
 
-/// RenderView used for comparative visualization (or film-strip visualization).
-class PQCORE_EXPORT pqScatterPlotView : public pqRenderView
+/// RenderView used for scatter plot visualization
+/// It only takes care of the camera manipulators that can be 2D or 3D
+/// depending if the Z-Array is enabled or not.
+class PQCORE_EXPORT pqScatterPlotView : public pqRenderViewBase
 {
   Q_OBJECT
-  typedef pqRenderView Superclass;
+  typedef pqRenderViewBase Superclass;
 public:
-  static QString scatterPlotViewType() { return "ScatterPlotView"; }
-  static QString scatterPlotViewTypeName() { return "Scatter Plot"; }
+  static QString scatterPlotViewType() { return "ScatterPlotRenderView"; }
+  static QString scatterPlotViewTypeName() { return "Scatter Plot View"; }
 
   // Constructor:
   // \c group :- SManager registration group name.
@@ -57,38 +60,43 @@ public:
                 pqServer* server, 
                 QObject* parent=NULL);
   virtual ~pqScatterPlotView();
-
+  
+  /// Returns the render view proxy associated with this object.
+  virtual vtkSMScatterPlotViewProxy* getScatterPlotViewProxy() const;
+    
   /// Returns a array of 9 ManipulatorType objects defining
   /// default set of camera manipulators used by this type of view.
+  /// The default camera manipulator is in 2D.
   static const ManipulatorType* getDefaultManipulatorTypes()
     { return pqScatterPlotView::TwoDManipulatorTypes; }
 
-  /// Returns the view proxy.
-  //vtkSMComparativeViewProxy* getScatterPlotViewProxy() const;
-  //vtkSMScatterPlotViewProxy* getScatterPlotViewProxy() const;
+  /// Resets the camera to include all visible data.
+  /// It is essential to call this resetCamera, to ensure that the reset camera
+  /// action gets pushed on the interaction undo stack.
+  virtual void resetCamera();
+  
+  /// Capture the view image into a new vtkImageData with the given magnification
+  /// and returns it.
+  virtual vtkImageData* captureImage(int magnification);
+  virtual vtkImageData* captureImage(const QSize& size)
+    { return this->Superclass::captureImage(size); }
+  
+  /// Change the camera mode into 2D or 3D
   void set3DMode(bool);
+  
+  /// Get the camera mode: 2D or 3D
   bool get3DMode()const;
 
-  /// Sets default values for the underlying proxy. 
-  /// This is during the initialization stage of the pqProxy 
-  /// for proxies created by the GUI itself i.e.
-  /// for proxies loaded through state or created by python client
-  /// this method won't be called. 
-  virtual void setDefaultPropertyValues();
-
-protected slots:
-  /// Called when the layout on the comparative vis changes.
-  //void onComparativeVisLayoutChanged();
-
 protected:
-  /// Creates a new instance of the QWidget subclass to be used to show this
-  /// view. Default implementation creates a QVTKWidget.
-  //virtual QWidget* createWidget();
+  /// Return the name of the group used for global settings (except interactor
+  /// style).
+  virtual const char* globalSettingsGroup() const
+    { return "renderModule"; }
 
-  /// Use this method to initialize the pqObject state using the
-  /// underlying vtkSMProxy. This needs to be done only once,
-  /// after the object has been created. 
-  //virtual void initialize();
+  /// Return the name of the group used for view-sepecific settings such as
+  /// background color, lighting.
+  virtual const char* viewSettingsGroup() const
+    { return "renderModule2D"; }
 
   /// Returns the name of the group in which to save the interactor style
   /// settings.
@@ -97,13 +105,13 @@ protected:
 
   /// Must be overridden to return the default manipulator types.
   virtual const ManipulatorType* getDefaultManipulatorTypesInternal();
-  //{ return pqScatterPlotView::getDefaultManipulatorTypes(); }
 
   /// Setups up RenderModule and QVTKWidget binding.
   /// This method is called for all pqRenderView objects irrespective
   /// of whether it is created from state/undo-redo/python or by the GUI. Hence
   /// don't change any render module properties here.
   virtual void initializeWidgets();
+
 private:
   pqScatterPlotView(const pqScatterPlotView&); // Not implemented.
   void operator=(const pqScatterPlotView&); // Not implemented.

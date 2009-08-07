@@ -46,6 +46,7 @@ class QSplitter;
 class PQCOMPONENTS_EXPORT pqMultiView : public QStackedWidget
 {
   Q_OBJECT
+  typedef QStackedWidget Superclass;
 public:
   class PQCOMPONENTS_EXPORT Index: public QList<int>
   {
@@ -108,6 +109,10 @@ public:
   /// Given the clientSize compute the size for this widget. This will take
   /// into consideration the padding around frames.
   QSize computeSize(QSize clientSize) const;
+
+  /// Overridden to handle full-screen mode.
+  virtual void setCurrentWidget(QWidget* widget);
+
 signals:
   /// signal for new frame added
   void frameAdded(pqMultiViewFrame*);
@@ -141,6 +146,9 @@ public slots:
   /// shows the frame decorations.
   void showDecorations();
 
+  /// Show the view as a fullscreen window.
+  void toggleFullScreen();
+
 protected slots:
   virtual void maximizeWidget(QWidget*);
   virtual void restoreWidget(QWidget*);
@@ -170,6 +178,9 @@ private:
   void restoreSplitter(QWidget *widget, vtkPVXMLElement *element);
   void cleanSplitter(QSplitter *splitter, QList<QWidget*> &removed);
   pqMultiViewFrame* CurrentMaximizedFrame;
+
+  QWidget* FullScreenParent;
+  QWidget* FullScreenWidget;
 };
 
 

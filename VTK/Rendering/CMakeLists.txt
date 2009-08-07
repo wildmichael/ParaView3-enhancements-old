@@ -95,7 +95,10 @@ SET( Kit_SRCS
   vtkLabelHierarchy.cxx
   vtkLabelHierarchyAlgorithm.cxx
   vtkLabelHierarchyIterator.cxx
+  vtkLabelHierarchyCompositeIterator.cxx
   vtkLabelPlacer.cxx
+  vtkLabelPlacementMapper.cxx
+  vtkLabelRenderStrategy.cxx
   vtkLabelSizeCalculator.cxx
   vtkLeaderActor2D.cxx
   vtkLightActor.cxx
@@ -263,6 +266,7 @@ SET_SOURCE_FILES_PROPERTIES(
   vtkImageProcessingPass
   vtkImporter
   vtkInteractorObserver
+  vtkLabelRenderStrategy
   vtkMapper
   vtkOpenGLRenderWindow
   vtkPainter
@@ -291,7 +295,10 @@ SET_SOURCE_FILES_PROPERTIES(
 
 # Freetype stuff
 
-SET(KitOpenGL_SRCS ${KitOpenGL_SRCS} vtkOpenGLFreeTypeTextMapper.cxx)
+SET(KitOpenGL_SRCS ${KitOpenGL_SRCS}
+  vtkFreeTypeLabelRenderStrategy.cxx
+  vtkOpenGLFreeTypeTextMapper.cxx
+  )
 
 SET(Kit_SRCS ${Kit_SRCS} vtkFreeTypeUtilities.cxx )
 SET_SOURCE_FILES_PROPERTIES(vtkFreeTypeUtilities WRAP_EXCLUDE)
@@ -322,6 +329,7 @@ IF(VTK_USE_QT)
   SET( Kit_SRCS ${Kit_SRCS}
     vtkQImageToImageSource.cxx
     vtkQtLabelMapper.cxx
+    vtkQtLabelRenderStrategy.cxx
     vtkQtLabelSizeCalculator.cxx
     vtkQtLabelSurface.cxx
     vtkQtTreeRingLabelMapper.cxx
@@ -497,6 +505,12 @@ ELSE (WIN32)
 
       SET_SOURCE_FILES_PROPERTIES(vtkCocoaGLView WRAP_EXCLUDE)
       SET (KIT_LIBS ${KIT_LIBS} ${OPENGL_gl_LIBRARY} "-framework Cocoa")
+      # This is to resolve a linker error that happens on older (?) OS X builds.
+      # If an executable links against vtkRendering, it would get the following
+      # error unless we add the objc to its link interface:
+      # ld: /usr/lib/crt1.o illegal reference to symbol: __objcInit defined in indirectly
+      # referenced dynamic library /usr/lib/libobjc.A.dylib
+      LIST(APPEND KIT_INTERFACE_LIBRARIES objc)
     ENDIF(VTK_USE_COCOA)
     IF(VTK_USE_CARBON)
       SET(KitOpenGL_SRCS ${KitOpenGL_SRCS}

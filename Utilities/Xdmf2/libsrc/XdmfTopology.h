@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.10 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.11 2009-08-05 20:44:48 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-05 20:44:48 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -61,6 +61,7 @@
 
 class XdmfArray;
 class XdmfDataDesc;
+class XdmfDataItem;
 
 //! Container class for base topologies
 /*!
@@ -237,6 +238,11 @@ public:
 */
   XdmfInt32  SetOrder( XdmfInt32 Length, XdmfInt32 *Order );
 
+//! Set the number of values to be written to Light Data before switching to Heavy Data
+  XdmfSetValueMacro(LightDataLimit, XdmfInt32)
+//! Gets the number of values to be written to Light Data before switching to Heavy Data
+  XdmfGetValueMacro(LightDataLimit, XdmfInt32)
+
 //! Set the number of Nodes in a Cell
 /*!
 	Some topologies like tetrahedron and hexahedron have a
@@ -302,6 +308,7 @@ public:
 */
 
 protected:
+  XdmfDataItem *GetDataItem();
 
   XdmfInt32  TopologyType;
   XdmfInt32  Order[ XDMF_MAX_ORDER ];
@@ -312,6 +319,7 @@ protected:
   XdmfInt32  ConnectivityIsMine;
   XdmfInt32  BaseOffset;
   XdmfDataDesc  *Shape;
+  XdmfInt32 LightDataLimit;
 };
 
 extern XDMF_EXPORT XdmfTopology *HandleToXdmfTopology( XdmfString Source );

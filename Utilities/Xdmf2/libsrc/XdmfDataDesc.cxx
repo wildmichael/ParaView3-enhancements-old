@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.10 2009-06-22 15:10:28 clarke Exp $  */
-/*  Date : $Date: 2009-06-22 15:10:28 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.11 2009-08-05 20:37:00 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-05 20:37:00 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,7 @@ XdmfDataDesc::XdmfDataDesc() {
   this->Rank = 1;
   this->Compression = 0;
   this->ShapeString = 0;
+  this->HeavyDataSetName = 0;
   this->DsmBuffer = NULL;
 }
 
@@ -47,7 +48,8 @@ H5E_BEGIN_TRY {
     this->DataSpace = H5I_BADID;
   }
 } H5E_END_TRY;
-  this->SetShapeString(0);
+  delete [] this->ShapeString;
+  delete [] this->HeavyDataSetName;
 }
 
 XdmfInt32

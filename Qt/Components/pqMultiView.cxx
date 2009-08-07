@@ -37,6 +37,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QBuffer>
 #include <QDataStream>
 #include <QLayout>
+#include <QShortcut>
 #include <QSignalMapper>
 #include <QSplitter>
 #include <QString>
@@ -131,8 +132,11 @@ void pqMultiView::Index::setFromString(const QString& str)
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 pqMultiView::pqMultiView(QWidget* p)
-  : QStackedWidget(p)
+  : Superclass(p)
 {
+  this->FullScreenParent = 0;
+  this->FullScreenWidget = 0;
+
   QObject::connect(this, SIGNAL(frameAdded(pqMultiViewFrame*)),
     this, SLOT(updateFrameNames()));
   QObject::connect(this, SIGNAL(frameRemoved(pqMultiViewFrame*)),
@@ -1143,3 +1147,62 @@ void pqMultiView::updateFrameNames()
       }
     }
 }
+
+//-----------------------------------------------------------------------------
+void pqMultiView::setCurrentWidget(QWidget* cur_widget)
+{
+  if (this->FullScreenParent && cur_widget)
+    {
+    this->Superclass::addWidget(this->FullScreenWidget);
+    this->FullScreenWidget = cur_widget;
+    
+    delete this->FullScreenParent->layout();
+    cur_widget->setParent(this->FullScreenParent);
+    QVBoxLayout* vbl = new QVBoxLayout(this->FullScreenParent);
+    vbl->setMargin(0);
+    vbl->setSpacing(0);
+    vbl->addWidget(cur_widget);
+    cur_widget->show();
+    }
+  else
+    {
+    this->Superclass::setCurrentWidget(cur_widget);
+    }
+}
+
+//-----------------------------------------------------------------------------
+void pqMultiView::toggleFullScreen()
+{
+  if (!this->FullScreenParent)
+    {
+    QWidget* cur_widget = this->Superclass::currentWidget();
+    this->Superclass::removeWidget(cur_widget);
+    this->FullScreenWidget = cur_widget;
+    this->FullScreenParent = new QWidget(this, Qt::Window);
+    cur_widget->setParent(this->FullScreenParent);
+    QVBoxLayout* vbl = new QVBoxLayout(this->FullScreenParent);
+    vbl->setMargin(0);
+    vbl->setSpacing(0);
+    vbl->addWidget(cur_widget);
+    cur_widget->show();
+
+    QShortcut *esc= new QShortcut(Qt::Key_Escape, this->FullScreenParent);
+    QObject::connect(esc, SIGNAL(activated()), this, SLOT(toggleFullScreen()));
+    QShortcut *f11= new QShortcut(Qt::Key_F11, this->FullScreenParent);
+    QObject::connect(f11, SIGNAL(activated()), this, SLOT(toggleFullScreen()));
+
+    this->FullScreenParent->showFullScreen();
+    this->FullScreenParent->show();
+    }
+  else
+    {
+    this->FullScreenParent->hide();
+    this->FullScreenWidget->hide();
+    this->Superclass::addWidget(this->FullScreenWidget);
+    this->Superclass::setCurrentWidget(this->FullScreenWidget);
+    delete this->FullScreenParent;
+    this->FullScreenParent = 0;
+    this->FullScreenWidget = 0;
+    }
+}
+

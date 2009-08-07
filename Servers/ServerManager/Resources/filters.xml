@@ -1882,7 +1882,7 @@ The Gradient (Unstructured) filter estimates the gradient vector at each point o
        <DataTypeDomain name="input_type">
          <DataType value="vtkPointSet"/>
        </DataTypeDomain>
-       <InputArrayDomain name="input_array" number_of_components="1">
+       <InputArrayDomain name="input_array">
          <RequiredProperties>
            <Property name="SelectInputScalars" function="FieldDataSelection"/>
          </RequiredProperties>
@@ -1931,6 +1931,16 @@ The Gradient (Unstructured) filter estimates the gradient vector at each point o
          smoothing of the output data and some possible errors on the
          boundary.  This parameter has no effect when performing the
          gradient of cell data.
+       </Documentation>
+     </IntVectorProperty>
+     <IntVectorProperty name="ComputeVorticity"
+                        command="SetComputeVorticity"
+                        number_of_elements="1"
+                        default_values="0">
+       <BooleanDomain name="bool"/>
+       <Documentation>
+         When this flag is on, the gradient filter will compute the 
+         vorticity/curl of a 3 component array.
        </Documentation>
      </IntVectorProperty>
    <!-- End UnstructuredGradient -->
@@ -6915,6 +6925,25 @@ Tessellate a higher-order dataset.
     <!-- End GeometryFilter -->
     </SourceProxy>
 
+   <!-- ==================================================================== -->
+    <SourceProxy name="FlattenFilter" class="vtkMergeCompositeDataSet">
+      <InputProperty
+        name="Input"
+        command="SetInputConnection">
+          <ProxyGroupDomain name="groups">
+            <Group name="sources"/>
+            <Group name="filters"/>
+          </ProxyGroupDomain>
+          <DataTypeDomain name="input_type">
+            <DataType value="vtkPointSet"/>
+            <DataType value="vtkGraph"/>
+            <DataType value="vtkCompositeDataSet"/>
+          </DataTypeDomain>
+          <Documentation>
+            Set the input to the Flatten Filter.
+          </Documentation>
+      </InputProperty>
+    </SourceProxy>
    <!-- ==================================================================== -->
     <SourceProxy name="OrderedCompositeDistributor"
                  class="vtkOrderedCompositeDistributor">

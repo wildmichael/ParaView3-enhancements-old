@@ -5,6 +5,7 @@ for {set i  0} {$i < [expr $argc - 1]} {incr i} {
 }
 
 package require vtk
+vtkTimerLog timer
 vtkObject a
 a GlobalWarningDisplayOff
 a Delete
@@ -77,6 +78,8 @@ proc TestOne {cname} {
       catch { b $SetMethod $tmp }
     }
   }
+  
+  
   # Test the PrintRevisions method.
   b PrintRevisions
   b Delete
@@ -104,13 +107,26 @@ set classExceptions {
 
 proc rtSetGetTest { fileid } { 
    global classExceptions
+   set totalTime 0.0
    # for every class
    set all [lsort [info command vtk*]]
    foreach a $all {
       if {[lsearch $classExceptions $a] == -1} {
          # test some set get methods
-         #puts "Testing -- $a"
+         timer StartTimer
+         
          TestOne $a
+         
+         timer StopTimer
+	     set elapsedTime [timer GetElapsedTime]
+	     set totalTime [expr $totalTime + $elapsedTime]
+	   
+	     if { $elapsedTime > 1.0 } {
+	       puts "Elapsed Time: $elapsedTime and took longer than 1 second."
+	     } else {
+	       puts "Elapsed Time: $elapsedTime"
+	     }
+         puts "Total Elapsed Time: $totalTime"
       }
    }
 }
@@ -119,5 +135,7 @@ proc rtSetGetTest { fileid } {
 
 puts "CTEST_FULL_OUTPUT (Avoid ctest truncation of output)"
 rtSetGetTest stdout
+
+timer Delete
 
 exit

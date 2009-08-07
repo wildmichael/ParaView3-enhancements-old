@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiff.h,v 1.1 2009-06-23 20:17:17 kwleiter Exp $  */
-/*  Date : $Date: 2009-06-23 20:17:17 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDiff.h,v 1.2 2009-08-04 20:42:46 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-04 20:42:46 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -99,6 +99,8 @@ private:
 	XdmfBoolean displayFailuresOnly;
 	XdmfBoolean areEquivalent;
 	XdmfBoolean diffRun;
+	XdmfBoolean refDOMIsMine;
+	XdmfBoolean newDOMIsMine;
 	std::set<std::string> includedGrids;
 	std::set<std::string> ignoredGrids;
 	std::set<std::string> includedAttributes;

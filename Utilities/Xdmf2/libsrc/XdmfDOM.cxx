@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.26 2009-04-06 13:15:56 utkarsh Exp $  */
-/*  Date : $Date: 2009-04-06 13:15:56 $ */
-/*  Version : $Revision: 1.26 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.27 2009-08-05 20:34:44 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-05 20:34:44 $ */
+/*  Version : $Revision: 1.27 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -53,7 +53,6 @@ return(NextElement);
 
 
 XdmfDOM::XdmfDOM(){
-  this->WorkingDirectory = 0;
   this->NdgmHost = 0;
   this->Tree = NULL;
   this->Output = &cout;
@@ -326,6 +325,7 @@ XdmfXmlNode
 XdmfDOM::Create(XdmfConstString RootElementName, XdmfConstString Version){
     XdmfInt32   Status;
     ostrstream  XmlString;
+    XdmfString  constructed;
     const xmlChar *XmlNs = XINCLUDE_NS;
 
     if(!Version) {
@@ -333,7 +333,9 @@ XdmfDOM::Create(XdmfConstString RootElementName, XdmfConstString Version){
     }
     XmlString << "<?xml version=\"1.0\" ?>";
     XmlString << "<" << RootElementName <<  " Version=\"" << Version << "\" xmlns:xi=\"" << XmlNs << "\" />" << ends;
-    Status = this->Parse(XmlString.str());
+    constructed = XmlString.str();
+    Status = this->Parse(constructed);
+    delete [] constructed;
     if(Status == XDMF_FAIL) return(NULL);
     return(this->GetRoot());
 }

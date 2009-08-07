@@ -23,7 +23,7 @@
 #include "vtkDataSet.h"
 #include "vtkMath.h"
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkAbstractCellLocator, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkAbstractCellLocator, "$Revision: 1.8 $");
 //----------------------------------------------------------------------------
 vtkAbstractCellLocator::vtkAbstractCellLocator()
 {

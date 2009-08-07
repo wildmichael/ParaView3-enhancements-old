@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.31 2009-05-22 13:26:39 clarke Exp $  */
-/*  Date : $Date: 2009-05-22 13:26:39 $ */
-/*  Version : $Revision: 1.31 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.32 2009-08-04 20:49:16 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-04 20:49:16 $ */
+/*  Version : $Revision: 1.32 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -64,6 +64,7 @@ XdmfGrid::XdmfGrid() {
   this->CollectionType = XDMF_GRID_COLLECTION_UNSET;
   this->NumberOfChildren = 0;
   this->Debug = 0;
+  this->BuildTime = 0;
   }
 
 XdmfGrid::~XdmfGrid() {
