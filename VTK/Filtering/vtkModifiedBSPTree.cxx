@@ -22,7 +22,7 @@
 #include "vtkGenericCell.h"
 //
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkModifiedBSPTree, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkModifiedBSPTree, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkModifiedBSPTree);
 //----------------------------------------------------------------------------
 //
@@ -186,7 +186,7 @@ void vtkModifiedBSPTree::BuildLocatorInternal()
   vtkDebugMacro( << "Beginning Subdivision" );
   //
   if (numCells>0) {
-    Subdivide(mRoot, lists, DataSet, numCells, 0, 
+    Subdivide(mRoot, lists, this->DataSet, numCells, 0, 
       this->MaxLevel, this->NumberOfCellsPerNode, this->Level);
   }
   delete lists;
@@ -204,7 +204,7 @@ void vtkModifiedBSPTree::BuildLocatorInternal()
 // The main BSP subdivision routine : The code which does the division is only
 // a small part of this, the rest is just bookkeeping - it looks worse than it is.
 //
-void vtkModifiedBSPTree::Subdivide(BSPNode *node, Sorted_cell_extents_Lists *lists, vtkDataSet *DataSet,
+void vtkModifiedBSPTree::Subdivide(BSPNode *node, Sorted_cell_extents_Lists *lists, vtkDataSet *dataset,
   vtkIdType nCells, int depth, int maxlevel, vtkIdType maxCells, int &MaxDepth) {
   //
   // We've got lists sorted on the axes, so we can easily get BBox
@@ -336,15 +336,15 @@ void vtkModifiedBSPTree::Subdivide(BSPNode *node, Sorted_cell_extents_Lists *lis
         //
         // And of course, we really ought to subdivide again - Hoorah!
         // NB: it is possible for a node to be empty now, so check and delete if necessary
-        if (Cmin_l[0]) Subdivide(node->mChild[0], left, DataSet, Cmin_l[0], depth+1, maxlevel, maxCells, MaxDepth);
+        if (Cmin_l[0]) Subdivide(node->mChild[0], left, dataset, Cmin_l[0], depth+1, maxlevel, maxCells, MaxDepth);
         else vtkWarningMacro(<< "Child 0 Empty ! - this shouldn't happen");
         delete left;
 
-        if (Cmin_m[0]) Subdivide(node->mChild[1], mid,  DataSet, Cmin_m[0], depth+1, maxlevel, maxCells, MaxDepth);
+        if (Cmin_m[0]) Subdivide(node->mChild[1], mid,  dataset, Cmin_m[0], depth+1, maxlevel, maxCells, MaxDepth);
         else { delete node->mChild[1]; node->mChild[1] = NULL; }
         delete mid;
 
-        if (Cmin_r[0]) Subdivide(node->mChild[2], right,DataSet, Cmin_r[0], depth+1, maxlevel, maxCells, MaxDepth);
+        if (Cmin_r[0]) Subdivide(node->mChild[2], right,dataset, Cmin_r[0], depth+1, maxlevel, maxCells, MaxDepth);
         else vtkWarningMacro(<< "Child 2 Empty ! - this shouldn't happen");
         delete right;
         //
@@ -467,17 +467,17 @@ int BSPNode::getDominantAxis(double dir[3]) {
 }
 //---------------------------------------------------------------------------
 int vtkModifiedBSPTree::IntersectWithLine(double p1[3], double p2[3], double tol,
-  double &t, double x[3], double pcoords[3], int &subId, vtkIdType &cID, vtkGenericCell *cell)
+  double &t, double x[3], double pcoords[3], int &subId, vtkIdType &cellId, vtkGenericCell *cell)
 {
-  int hit = this->IntersectWithLine(p1, p2, tol, t, x, pcoords, subId, cID);
+  int hit = this->IntersectWithLine(p1, p2, tol, t, x, pcoords, subId, cellId);
   if (hit) {
-    this->DataSet->GetCell(cID, cell);
+    this->DataSet->GetCell(cellId, cell);
   }
   return hit;
 }
 //---------------------------------------------------------------------------
 int vtkModifiedBSPTree::IntersectWithLine(double p1[3], double p2[3], double tol,
-  double &t, double x[3], double pcoords[3], int &subId, vtkIdType &cID)
+  double &t, double x[3], double pcoords[3], int &subId, vtkIdType &cellId)
 {
   //
   BSPNode  *node, *Near, *Mid, *Far;
@@ -561,7 +561,7 @@ int vtkModifiedBSPTree::IntersectWithLine(double p1[3], double p2[3], double tol
             if (t_hit<closest_intersection) {
               HIT = true;
               closest_intersection = t_hit;
-              cID = cell_ID;
+              cellId = cell_ID;
               x[0] = ipt[0];
               x[1] = ipt[1];
               x[2] = ipt[2];
