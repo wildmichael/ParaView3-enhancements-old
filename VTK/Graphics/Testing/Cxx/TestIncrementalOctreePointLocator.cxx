@@ -330,17 +330,24 @@ int TestIncrementalOctreePointLocator( int argc, char * argv[] )
     {
     int      nUniques = 4;
     int      nDuplics = 300;
-    int      numDupls = numbPnts + nUniques * nDuplics;
-    int      arrayIdx = numbPnts * 3;
+    int      numDupls = 0;
+    int      arrayIdx = 0;
     double   pntCoord[3];
     double * duplPnts = NULL;
     
+    arrayIdx    = numbPnts * 3;
+    numDupls    = numbPnts + nUniques * nDuplics;
+    pntCoord[0] = pntCoord[1] = pntCoord[2] = 0.0;
+    
+    #if 0 
     // allocate memory and inherit the points
     duplPnts = ( double * )
                realloc(  duplPnts, sizeof( double ) * 3 * numDupls  );  
     for ( i = 0; i < numbPnts * 3; i ++ ) duplPnts[i] = pDataPts[i];                                  
     //memcpy(  duplPnts,  pDataPts,  sizeof( double ) * 3 * numbPnts  );
+    #endif
   
+    #if 0
     // add a huge number of exactly duplicate points
     for ( j = 0; j < nUniques; j ++ )
       {
@@ -356,7 +363,9 @@ int TestIncrementalOctreePointLocator( int argc, char * argv[] )
         duplPnts[ arrayIdx + 2 ] = pntCoord[2];
         }
       }
-  
+    #endif
+      
+    #if 0
     // perform direct / check-free point insertion          
     for (  r = 0;  ( r < 3 ) && ( retValue == 0 );  r ++ ) // three resolutions
       {
@@ -373,6 +382,7 @@ int TestIncrementalOctreePointLocator( int argc, char * argv[] )
     
       retValue = ( insrtPts->GetNumberOfPoints() == numDupls ) ? 0 : 1;
       }
+    #endif
     
     if ( duplPnts ) free( duplPnts );  duplPnts = NULL;
     }
