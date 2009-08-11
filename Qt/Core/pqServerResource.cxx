@@ -201,7 +201,6 @@ pqServerResource::~pqServerResource()
 const QString pqServerResource::toURI() const
 {
   QString result;
-  
   result += this->Implementation->Scheme + ":";
   
   if(this->Implementation->Scheme == "builtin")
