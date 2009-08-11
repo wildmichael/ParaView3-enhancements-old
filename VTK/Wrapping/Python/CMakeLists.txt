@@ -51,14 +51,13 @@ ENDIF (APPLE)
 
 # Link against all the kit wrappers.
 SET(VTKPYTHON_LINK_LIBS 
-  ${VTK_PYTHON_LIBRARIES}
+  ${VTK_PYTHON_LIBRARIES} 
   vtksys
   vtkCommon 
   vtkFiltering
   vtkIO
   vtkGraphics
-  vtkImaging
-  vtkQtChart )
+  vtkImaging )
 
 SET (vtkpython_pyc_depends
     vtkCommonPython
