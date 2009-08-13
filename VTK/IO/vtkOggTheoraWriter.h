@@ -56,6 +56,12 @@ public:
   // Set/Get the frame rate, in frame/s.
   vtkSetClampMacro(Rate, int , 1, 5000);
   vtkGetMacro(Rate, int);
+
+  // Description:
+  // Is the video to be encoded using 4:2:0 subsampling?
+  vtkSetMacro(Subsampling, int);
+  vtkGetMacro(Subsampling, int);
+  vtkBooleanMacro(Subsampling, int);
 protected:
   vtkOggTheoraWriter();
   ~vtkOggTheoraWriter();
@@ -65,6 +71,7 @@ protected:
   int Initialized;
   int Quality;
   int Rate;
+  int Subsampling;
 
 private:
   vtkOggTheoraWriter(const vtkOggTheoraWriter&); // Not implemented

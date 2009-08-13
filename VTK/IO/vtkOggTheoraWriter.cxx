@@ -38,12 +38,12 @@ public:
 private:
 
   // Helper function to convert an RGB image into the Y'CbCr color space and
-  // into the data structure required by theora (i.e. 4:2:0 subsampling will be
-  // used, which is the only supported one).  Refer to
-  // http://www.theora.org/doc/Theora.pdf sections 4.3 and 4.3.2.  Actually,
-  // the equations are inverted. However, I'm not sure whether VTK uses
-  // gamma-corrected RGB or not. I assume they are not, which is what we need
-  // here. Assume that the width and height are even numbers.
+  // into the data structure required by theora (i.e. 4:4:4 or 4:2:0
+  // subsampling will be used). Refer to http://www.theora.org/doc/Theora.pdf
+  // sections 4.3 and 4.3.2. Actually, the equations are inverted. However, I'm
+  // not sure whether VTK uses gamma-corrected RGB or not. I assume they are
+  // not, which is what we need here. Assume that the width and height are even
+  // numbers.
   void RGB2YCbCr(vtkImageData *id, th_ycbcr_buffer ycbcr);
   // Write the ogg/theora header information
   int WriteHeader();
@@ -123,9 +123,15 @@ int vtkOggTheoraWriterInternal::Start()
   thInfo.pic_x = this->Off[0];
   thInfo.pic_y = this->Off[1];
   thInfo.colorspace = TH_CS_ITU_REC_470BG;
-  // 4:2:0 subsampling is the only implemented option in libtheora
-  // as of version 1.0.
-  thInfo.pixel_fmt = TH_PF_420;
+  if (this->Writer->GetSubsampling())
+    {
+    // 4:2:0 subsampling is the only implemented option in libtheora-1.0
+    thInfo.pixel_fmt = TH_PF_420;
+    }
+  else
+    {
+    thInfo.pixel_fmt = TH_PF_444;
+    }
   thInfo.target_bitrate = 0; // variable bitrate recording (default)
   // allow a variable quality/size tradeoff
   //! \todo still have to find appropriate quality parameters though...
@@ -164,7 +170,7 @@ int vtkOggTheoraWriterInternal::Start()
     {
     this->thImage[i].width  = thInfo.frame_width;
     this->thImage[i].height = thInfo.frame_height;
-    if (i>0)
+    if (this->Writer->GetSubsampling() && i>0)
       {
       // Chroma planes are subsampled by a factor of 2
       this->thImage[i].width  /= 2;
@@ -386,14 +392,22 @@ void vtkOggTheoraWriterInternal::RGB2YCbCr(vtkImageData *id,
   size_t x, y, yC;
   for (y = 0; y < this->Dim[1]; ++y)
     {
-    // reset x indicator and flip y indicator
-    isXCPlane = false;
-    isYCPlane = !isYCPlane;
+    if (this->Writer->GetSubsampling())
+      {
+      // reset x indicator and flip y indicator
+      isXCPlane = false;
+      isYCPlane = !isYCPlane;
+      }
     // compute pointers to the first pixel in row y,
     // flipping y coordinate
     rgb = rgbStart + (this->Dim[1]-y-1) * strideRGB;
     Y  = ycbcr[0].data + (y+this->Off[1]) * strideY + this->Off[0];
-    if (isYCPlane)
+    if (!this->Writer->GetSubsampling())
+      {
+      Cb = ycbcr[1].data + (y+this->Off[1]) * strideY + this->Off[0];
+      Cr = ycbcr[2].data + (y+this->Off[1]) * strideY + this->Off[0];
+      }
+    else if (isYCPlane)
       {
         // compute y on chroma planes
         yC = (y+this->Off[1])/2;
@@ -404,34 +418,54 @@ void vtkOggTheoraWriterInternal::RGB2YCbCr(vtkImageData *id,
     // loop over columns in row y
     for (x = 0; x < this->Dim[0]; ++x)
       {
-      // flip indicator
-      isXCPlane = !isXCPlane;
       // do the actual transformation
-      *Y  = uchar((Kr*rgb[0] + Kg*rgb[1] + Kb*rgb[2]) * ExcurY) + OffY;
-      if (isYCPlane && isXCPlane)
+      *Y  = uchar((Kr * rgb[0] + Kg * rgb[1] + Kb *rgb[2]) *ExcurY ) + OffY;
+      if (!this->Writer->GetSubsampling())
         {
-        /* REMARK: actually, interpolation seems to give worse results...
-         * just use the associated RGB pixel (a.k.a nearest neighbor).
-         */
-#       if 0
-        // interpolate surrounding rgb (subsampling)
-        // use double in order to not loose too much precision...
-        double irgb[3];
-        for (size_t i = 0; i < 3; ++i)
+        *Cb = uchar((Kr   * rgb[0] + Kg * rgb[1] + Kbm1 * rgb[2]) /
+            (2 * Kbm1) * ExcurCb) + OffCb;
+        *Cr = uchar((Krm1 * rgb[0] + Kg * rgb[1] + Kb   * rgb[2]) /
+            (2 * Krm1) * ExcurCr) + OffCr;
+        }
+      else
+        {
+        // flip indicator
+        isXCPlane = !isXCPlane;
+        if (isYCPlane && isXCPlane)
           {
-          irgb[i] = 0.25 * (rgb[i] + rgb[i+3] + rgb[i+strideRGB] + rgb[i+3+strideRGB]);
+          /* REMARK: actually, interpolation seems to give worse results...
+           * just use the associated RGB pixel (a.k.a nearest neighbor).
+           */
+#if 0
+          // interpolate surrounding rgb (subsampling)
+          // use double in order to not loose too much precision...
+          double irgb[3];
+          for (size_t i = 0; i < 3; ++i)
+            {
+            irgb[i] = 0.25 * (rgb[i]           + rgb[i+3] +
+                              rgb[i+strideRGB] + rgb[i+3+strideRGB]);
+            }
+          *Cb = uchar((Kr   * irgb[0] + Kg * irgb[1] + Kbm1 * irgb[2]) /
+              (2 * Kbm1) * ExcurCb) + OffCb;
+          *Cr = uchar((Krm1 * irgb[0] + Kg * irgb[1] + Kb   * irgb[2]) /
+              (2 * Krm1) * ExcurCr) + OffCr;
+#else
+          *Cb = uchar((Kr   * rgb[0] + Kg * rgb[1] + Kbm1 * rgb[2]) /
+              (2 * Kbm1) * ExcurCb) + OffCb;
+          *Cr = uchar((Krm1 * rgb[0] + Kg * rgb[1] + Kb   * rgb[2]) /
+              (2 * Krm1) * ExcurCr) + OffCr;
+#endif
           }
-        *Cb = uchar((Kr  *irgb[0]+Kg*irgb[1]+Kbm1*irgb[2])/(2*Kbm1)*ExcurCb)+OffCb;
-        *Cr = uchar((Krm1*irgb[0]+Kg*irgb[1]+Kb  *irgb[2])/(2*Krm1)*ExcurCr)+OffCr;
-#       else
-        *Cb = uchar((Kr  *rgb[0]+Kg*rgb[1]+Kbm1*rgb[2])/(2*Kbm1)*ExcurCb)+OffCb;
-        *Cr = uchar((Krm1*rgb[0]+Kg*rgb[1]+Kb  *rgb[2])/(2*Krm1)*ExcurCr)+OffCr;
-#       endif
         }
       // advance to next pixel in row y
-      ++Y;
       rgb += 3;
-      if (isYCPlane && isXCPlane)
+      ++Y;
+      if (!this->Writer->GetSubsampling())
+        {
+        ++Cb;
+        ++Cr;
+        }
+      else if (isYCPlane && isXCPlane)
         {
         ++Cb;
         ++Cr;
@@ -450,6 +484,7 @@ vtkOggTheoraWriter::vtkOggTheoraWriter()
   this->Internals = 0;
   this->Quality = 2;
   this->Rate = 25;
+  this->Subsampling = 0;
 }
 
 //---------------------------------------------------------------------------
@@ -563,4 +598,5 @@ void vtkOggTheoraWriter::PrintSelf(ostream& os, vtkIndent indent)
   this->Superclass::PrintSelf(os, indent);
   os << indent << "Quality: " << this->Quality << endl;
   os << indent << "Rate: " << this->Rate << endl;
+  os << indent << "Subsampling: " << this->Subsampling << endl;
 }
