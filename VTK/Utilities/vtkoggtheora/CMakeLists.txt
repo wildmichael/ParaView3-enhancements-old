@@ -1,6 +1,7 @@
 PROJECT(VTKOGGTHEORA)
 
-SET(THEORA_VERSION 1.1alpha2)
+SET(OGG_VERSION 1.1.4)
+SET(THEORA_VERSION 1.1beta2)
 
 # do some type checks
 INCLUDE(CheckTypeSize)
@@ -145,23 +146,23 @@ IF(NOT VTKOGGTHEORA_DISABLE_ASM)
   ENDIF(OC_X86_ASM OR OC_X86_64_ASM OR APPLE)
 ENDIF(NOT VTKOGGTHEORA_DISABLE_ASM)
 
-CONFIGURE_FILE(libogg-1.1.4/include/ogg/config_types.h.in
+CONFIGURE_FILE(libogg-${OGG_VERSION}/include/ogg/config_types.h.in
   ${VTKOGGTHEORA_BINARY_DIR}/include/ogg/config_types.h @ONLY)
 
-CONFIGURE_FILE(libtheora-1.1alpha2/config.h.in
-  ${VTKOGGTHEORA_BINARY_DIR}/include/config.h @ONLY)
+CONFIGURE_FILE(libtheora-${THEORA_VERSION}/config.h.in
+  ${VTKOGGTHEORA_BINARY_DIR}/include/theora/config.h @ONLY)
 
-CONFIGURE_FILE(libogg-1.1.4/include/ogg/ogg.h
+CONFIGURE_FILE(libogg-${OGG_VERSION}/include/ogg/ogg.h
   ${VTKOGGTHEORA_BINARY_DIR}/include/ogg/ogg.h COPYONLY)
-CONFIGURE_FILE(libogg-1.1.4/include/ogg/os_types.h
+CONFIGURE_FILE(libogg-${OGG_VERSION}/include/ogg/os_types.h
   ${VTKOGGTHEORA_BINARY_DIR}/include/ogg/os_types.h COPYONLY)
-CONFIGURE_FILE(libtheora-1.1alpha2/include/theora/codec.h
+CONFIGURE_FILE(libtheora-${THEORA_VERSION}/include/theora/codec.h
   ${VTKOGGTHEORA_BINARY_DIR}/include/theora/codec.h COPYONLY)
-CONFIGURE_FILE(libtheora-1.1alpha2/include/theora/theora.h
+CONFIGURE_FILE(libtheora-${THEORA_VERSION}/include/theora/theora.h
   ${VTKOGGTHEORA_BINARY_DIR}/include/theora/theora.h COPYONLY)
-CONFIGURE_FILE(libtheora-1.1alpha2/include/theora/theoradec.h
+CONFIGURE_FILE(libtheora-${THEORA_VERSION}/include/theora/theoradec.h
   ${VTKOGGTHEORA_BINARY_DIR}/include/theora/theoradec.h COPYONLY)
-CONFIGURE_FILE(libtheora-1.1alpha2/include/theora/theoraenc.h
+CONFIGURE_FILE(libtheora-${THEORA_VERSION}/include/theora/theoraenc.h
   ${VTKOGGTHEORA_BINARY_DIR}/include/theora/theoraenc.h COPYONLY)
 
 CONFIGURE_FILE(vtk_oggtheora_mangle.h
@@ -176,50 +177,57 @@ INCLUDE_DIRECTORIES(BEFORE
 
 SET(VTKOGGTHEORA_SRCS
   # ogg sources
-  libogg-1.1.4/src/framing.c libogg-1.1.4/src/bitwise.c
-  # theora encoder sources (general)
-  libtheora-1.1alpha2/lib/enc/dct.c libtheora-1.1alpha2/lib/enc/dct_decode.c
-  libtheora-1.1alpha2/lib/enc/dct_encode.c
-  libtheora-1.1alpha2/lib/enc/encfrag.c
-  libtheora-1.1alpha2/lib/enc/encapiwrapper.c
-  libtheora-1.1alpha2/lib/enc/encode.c
-  libtheora-1.1alpha2/lib/enc/encoder_toplevel.c
-  libtheora-1.1alpha2/lib/enc/encoder_quant.c
-  libtheora-1.1alpha2/lib/enc/frarray.c libtheora-1.1alpha2/lib/enc/frinit.c
-  libtheora-1.1alpha2/lib/enc/huffenc.c libtheora-1.1alpha2/lib/enc/mathops.c
-  libtheora-1.1alpha2/lib/enc/mcenc.c libtheora-1.1alpha2/lib/enc/mode.c
-  # theora decoder sources (general)
-  libtheora-1.1alpha2/lib/dec/apiwrapper.c
-  libtheora-1.1alpha2/lib/dec/fragment.c
-  libtheora-1.1alpha2/lib/dec/idct.c
-  libtheora-1.1alpha2/lib/dec/info.c
-  libtheora-1.1alpha2/lib/dec/internal.c
+  libogg-${OGG_VERSION}/src/framing.c libogg-${OGG_VERSION}/src/bitwise.c
+  # theora sources (general)
+  libtheora-${THEORA_VERSION}/lib/analyze.c
+  libtheora-${THEORA_VERSION}/lib/apiwrapper.c
+  libtheora-${THEORA_VERSION}/lib/bitpack.c
+  libtheora-${THEORA_VERSION}/lib/decapiwrapper.c
+  libtheora-${THEORA_VERSION}/lib/decinfo.c
+  libtheora-${THEORA_VERSION}/lib/decode.c
+  libtheora-${THEORA_VERSION}/lib/dequant.c
+  libtheora-${THEORA_VERSION}/lib/encapiwrapper.c
+  libtheora-${THEORA_VERSION}/lib/encfrag.c
+  libtheora-${THEORA_VERSION}/lib/encinfo.c
+  libtheora-${THEORA_VERSION}/lib/encode.c
+  libtheora-${THEORA_VERSION}/lib/enquant.c
+  libtheora-${THEORA_VERSION}/lib/fdct.c
+  libtheora-${THEORA_VERSION}/lib/fragment.c
+  libtheora-${THEORA_VERSION}/lib/huffdec.c
+  libtheora-${THEORA_VERSION}/lib/huffenc.c
+  libtheora-${THEORA_VERSION}/lib/idct.c
+  libtheora-${THEORA_VERSION}/lib/info.c
+  libtheora-${THEORA_VERSION}/lib/internal.c
+  libtheora-${THEORA_VERSION}/lib/mathops.c
+  libtheora-${THEORA_VERSION}/lib/mcenc.c
+  libtheora-${THEORA_VERSION}/lib/quant.c
+  libtheora-${THEORA_VERSION}/lib/rate.c
+  libtheora-${THEORA_VERSION}/lib/state.c
+  libtheora-${THEORA_VERSION}/lib/tokenize.c
   )
 IF(OC_X86_ASM OR OC_X86_64_ASM)
   SET(VTKOGGTHEORA_SRCS
     ${VTKOGGTHEORA_SRCS}
-    # x86/x86_64 encoder sources
-    libtheora-1.1alpha2/lib/enc/x86/mmxenc.c
-    libtheora-1.1alpha2/lib/enc/x86/mmxencfrag.c
-    libtheora-1.1alpha2/lib/enc/x86/mmxfdct.c
-    libtheora-1.1alpha2/lib/enc/x86/x86enc.c
-    # x86/x86_64 decoder sources
-    libtheora-1.1alpha2/lib/dec/x86/mmxfrag.c
-    libtheora-1.1alpha2/lib/dec/x86/mmxidct.c
+    # x86/x86_64 shared sources
+    libtheora-${THEORA_VERSION}/lib/x86/mmxencfrag.c
+    libtheora-${THEORA_VERSION}/lib/x86/mmxfdct.c
+    libtheora-${THEORA_VERSION}/lib/x86/mmxfrag.c
+    libtheora-${THEORA_VERSION}/lib/x86/mmxidct.c
+    libtheora-${THEORA_VERSION}/lib/x86/mmxstate.c
+    libtheora-${THEORA_VERSION}/lib/x86/x86enc.c
+    libtheora-${THEORA_VERSION}/lib/x86/x86state.c
     )
   IF(MSVC)
     SET(VTKOGGTHEORA_SRCS
       ${VTKOGGTHEORA_SRCS}
-      # MSVC specific x86 encoder sources
-      libtheora-1.1alpha2/lib/enc/x86_32_vs/dsp_mmx.c
-      libtheora-1.1alpha2/lib/enc/x86_32_vs/fdct_mmx.c
-      libtheora-1.1alpha2/lib/enc/x86_32_vs/recon_mmx.c
-      # MSVC specific x86 decoder sources
-      libtheora-1.1alpha2/lib/dec/x86_vc/mmxfrag.c
-      libtheora-1.1alpha2/lib/dec/x86_vc/mmxidct.c
-      libtheora-1.1alpha2/lib/dec/x86_vc/mmxloopfilter.c
-      libtheora-1.1alpha2/lib/dec/x86_vc/mmxstate.c
-      libtheora-1.1alpha2/lib/dec/x86_vc/x86state.c
+      # MSVC specific x86 sources
+      libtheora-${THEORA_VERSION}/lib/x86_vc/mmxencfrag.c
+      libtheora-${THEORA_VERSION}/lib/x86_vc/mmxfdct.c
+      libtheora-${THEORA_VERSION}/lib/x86_vc/mmxfrag.c
+      libtheora-${THEORA_VERSION}/lib/x86_vc/mmxidct.c
+      libtheora-${THEORA_VERSION}/lib/x86_vc/mmxstate.c
+      libtheora-${THEORA_VERSION}/lib/x86_vc/x86enc.c
+      libtheora-${THEORA_VERSION}/lib/x86_vc/x86state.c
       )
   ENDIF(MSVC)
 ENDIF(OC_X86_ASM OR OC_X86_64_ASM)
@@ -227,7 +235,7 @@ IF(OC_X86_ASM)
   SET(VTKOGGTHEORA_SRCS
     ${VTKOGGTHEORA_SRCS}
     # x86_64 encoder sources
-    libtheora-1.1alpha2/lib/enc/x86/sse2fdct.c
+    libtheora-${THEORA_VERSION}/lib/x86/sse2fdct.c
     )
 ENDIF(OC_X86_ASM)
 IF(MSVC)
@@ -257,17 +265,17 @@ IF(NOT VTK_INSTALL_NO_DEVELOPMENT)
     DESTINATION ${VTK_INSTALL_INCLUDE_DIR_CM24}/vtkoggtheora/include
     COMPONENT Development)
   INSTALL(FILES
-    ${VTKOGGTHEORA_SOURCE_DIR}/libogg-1.1.4/include/ogg/ogg.h
-    ${VTKOGGTHEORA_SOURCE_DIR}/libogg-1.1.4/include/ogg/os_types.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libogg-${OGG_VERSION}/include/ogg/ogg.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libogg-${OGG_VERSION}/include/ogg/os_types.h
     ${VTKOGGTHEORA_BINARY_DIR}/include/ogg/config_types.h
     DESTINATION ${VTK_INSTALL_INCLUDE_DIR_CM24}/vtkoggtheora/include/ogg
     COMPONENT Development)
   INSTALL(FILES
-    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-1.1alpha2/include/theora/codec.h
-    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-1.1alpha2/include/theora/theora.h
-    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-1.1alpha2/include/theora/theoradec.h
-    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-1.1alpha2/include/theora/theoraenc.h
-    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-1.1alpha2/include/theora/theoraenc.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-${THEORA_VERSION}/include/theora/codec.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-${THEORA_VERSION}/include/theora/theora.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-${THEORA_VERSION}/include/theora/theoradec.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-${THEORA_VERSION}/include/theora/theoraenc.h
+    ${VTKOGGTHEORA_SOURCE_DIR}/libtheora-${THEORA_VERSION}/include/theora/theoraenc.h
     DESTINATION ${VTK_INSTALL_INCLUDE_DIR_CM24}/vtkoggtheora/include/theora
     COMPONENT Development)
 ENDIF(NOT VTK_INSTALL_NO_DEVELOPMENT)

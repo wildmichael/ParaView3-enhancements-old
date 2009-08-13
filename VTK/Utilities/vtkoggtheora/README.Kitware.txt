@@ -1,7 +1,9 @@
-This directory contains a subset of the libogg-1.1.4 and libtheora-1.1alpha2
+This directory contains a subset of the libogg-1.1.4 and libtheora-1.1beta2
 libraries and some custom changes. The reason to choose the alpha version of
 the latter is that it features much better assembly code for x86 architectures,
-encoding is faster and shows no instabilities for our purposes.
+encoding is faster and shows no instabilities for our purposes. Further it
+supports 4:4:4 subsampling (i.e. no subsampling) of the chroma planes. Version
+1.0 requires 4.2.0 subsampling, resulting in reduced quality.
 
 We only include enough of the distribution to provide the functionalities
 required. Both libraries are compiled into the single vtkoggtheora library.
