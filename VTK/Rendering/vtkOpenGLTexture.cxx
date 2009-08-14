@@ -31,7 +31,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.81 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 
@@ -183,7 +183,6 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
     int size[3];
     vtkDataArray *scalars;
     unsigned char *dataPtr;
-    int rowLength;
     unsigned char *resultData=NULL;
     int xsize, ysize;
     unsigned int xs,ys;
@@ -299,37 +298,10 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
                                               bytesPerPixel);
       }
 
-    // format the data so that it can be sent to opengl
-    // each row must be a multiple of 4 bytes in length
-    // the best idea is to make your size a multiple of 4
-    // so that this conversion will never be done.
-    rowLength = ((xsize*bytesPerPixel +3 )/4)*4;
-    if (rowLength == xsize*bytesPerPixel)
-      {
-      if ( resultData == NULL )
+    if ( resultData == NULL )
         {
         resultData = dataPtr;
         }
-      }
-    else
-      {
-      int col;
-      unsigned char *src,*dest;
-      int srcLength;
-
-      srcLength = xsize*bytesPerPixel;
-      resultData = new unsigned char [rowLength*ysize];
-      
-      src = dataPtr;
-      dest = resultData;
-
-      for (col = 0; col < ysize; col++)
-        {
-        memcpy(dest,src,static_cast<size_t>(srcLength));
-        src += srcLength;
-        dest += rowLength;
-        }
-      }
 
     // free any old display lists (from the old context)
     if (this->RenderWindow)
@@ -484,6 +456,15 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
   glAlphaFunc (GL_GREATER, static_cast<GLclampf>(0));
   glEnable (GL_ALPHA_TEST);
 
+  if (this->PremultipliedAlpha)
+    {
+    // save the blend function.
+    glPushAttrib(GL_COLOR_BUFFER_BIT);
+
+    // make the blend function correct for textures premultiplied by alpha.
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    }
+
   // now bind it
   glEnable(GL_TEXTURE_2D);
 
@@ -529,6 +510,16 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
     uTexture=oRenderer->GetTextureUniformVariable();
     vtkgl::Uniform1i(uUseTexture,1);
     vtkgl::Uniform1i(uTexture,0); // active texture 0
+    }
+}
+
+// ----------------------------------------------------------------------------
+void vtkOpenGLTexture::PostRender(vtkRenderer *vtkNotUsed(ren))
+{
+  if (this->GetInput() && this->PremultipliedAlpha)
+    {
+    // restore the blend function
+    glPopAttrib();
     }
 }
 

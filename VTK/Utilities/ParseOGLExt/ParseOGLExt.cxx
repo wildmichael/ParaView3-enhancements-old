@@ -564,12 +564,23 @@ static void WriteClassDeclarationGuts(ostream &hfile, int type)
                                                            iconst->GetValue()))
              == ConstantsAlreadyWritten.end())
           {
+          if(strcmp(iconst->GetName().c_str(),"TIMEOUT_IGNORED")==0)
+            {
+            // BCC/VS6/VS70 cannot digest this C99 macro
+            hfile << "#if !defined(__BORLANDC__) && (!defined(_MSC_VER) || (defined(_MSC_VER) && _MSC_VER>=1310))" << endl;
+            }
+          
+          
           hfile << "  const GLenum " << iconst->GetName().c_str()
                 << " = static_cast<GLenum>(" << iconst->GetValue().c_str() << ");" << endl;
 
           ConstantsAlreadyWritten.insert(vtkstd::make_pair(iconst->GetName(), 
                                                            iconst->GetValue()));
-          
+          if(strcmp(iconst->GetName().c_str(),"TIMEOUT_IGNORED")==0)
+            {
+            // really special case for non C99 compilers like BCC
+            hfile << "#endif /* only for C99 compilers */" << endl;
+            }
           }
         else
           {
@@ -672,6 +683,11 @@ static void WriteCode(ostream &hfile, ostream &cxxfile)
   hfile << "  typedef vtkTypeInt32 int32_t;" << endl;
   hfile << "  typedef vtkTypeInt64 int64_t;" << endl;
   hfile << "  typedef vtkTypeUInt64 uint64_t;" << endl;
+  // OpenGL 3.2 typedefs
+  hfile << "  typedef int64_t GLint64;" << endl;
+  hfile << "  typedef uint64_t GLuint64;" << endl;
+  hfile << "  typedef struct __GLsync *GLsync;" << endl;
+  
   ConstantsAlreadyWritten.clear();
   WriteClassDeclarationGuts(hfile, Extension::GL);
   hfile << endl << "  // Method to load functions for a particular extension.";
