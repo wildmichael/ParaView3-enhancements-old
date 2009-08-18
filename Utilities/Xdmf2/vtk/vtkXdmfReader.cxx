@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-08-05 16:22:21 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2009-08-18 15:23:51 $
+  Version:   $Revision: 1.71 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -91,7 +91,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.71 $");
 
 //----------------------------------------------------------------------------
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
@@ -3209,10 +3209,10 @@ int vtkXdmfReaderInternal::RequestGridData(
       if ( AttributeCenter == XDMF_ATTRIBUTE_CENTER_NODE ||
            AttributeCenter == XDMF_ATTRIBUTE_CENTER_GRID )
         {
-        // Point count is 1 + cell extent
-        realcount[0] ++;
-        realcount[1] ++;
-        realcount[2] ++;
+        // Point count is 1 + cell extent if not a single layer
+        if (upext[5] - upext[4] > 0) realcount[0] ++;
+        if (upext[3] - upext[2] > 0) realcount[1] ++;
+        if (upext[1] - upext[0] > 0) realcount[2] ++;
         }
       /*
         XdmfArray *values = this->FormatMulti->ElementToArray( 
