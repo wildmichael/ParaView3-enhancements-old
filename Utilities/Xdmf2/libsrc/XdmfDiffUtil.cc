@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiffUtil.cc,v 1.1 2009-07-01 18:04:13 kwleiter Exp $  */
-/*  Date : $Date: 2009-07-01 18:04:13 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDiffUtil.cc,v 1.2 2009-08-19 20:07:45 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-19 20:07:45 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -51,8 +51,9 @@
  *		IGNORE_ATTRIBUTE attr1 attr2
  *		IGNORE_ALL_ATTRIBUTES
  *		DISPLAY_FAILURES_ONLY
+ *		VERBOSE_OUTPUT
  *
- *		Settings are commented out with #
+ *		Settings can be commented out with #
  *
  *	For code testing purposes run XdmfDiff::AreEquivalent().
  */
@@ -118,7 +119,7 @@ int main(int argc, char* argv[]) {
 	   }
    }
 
-   std::string output = diffFramework->GetDiffs();
+   std::string output = diffFramework->GetDiffsAsString();
    cout << output << endl;
    delete diffFramework;
    return 0;
