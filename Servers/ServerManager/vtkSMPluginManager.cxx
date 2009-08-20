@@ -32,6 +32,7 @@
 #include "vtkSMStringVectorProperty.h"
 #include "vtkSMXMLParser.h"
 #include <vtkstd/set>
+#include <vtkstd/vector>
 
 class vtkSMPluginManager::vtkSMPluginManagerInternals
 {
@@ -60,7 +61,7 @@ public:
 
 //*****************************************************************************
 vtkStandardNewMacro(vtkSMPluginManager);
-vtkCxxRevisionMacro(vtkSMPluginManager, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSMPluginManager, "$Revision: 1.5 $");
 //---------------------------------------------------------------------------
 vtkSMPluginManager::vtkSMPluginManager()
 {
@@ -74,7 +75,7 @@ vtkSMPluginManager::~vtkSMPluginManager()
 }
 
 //-----------------------------------------------------------------------------
-vtkPVPluginInformation* vtkSMPluginManager::LoadPlugin(const char* filename)
+vtkPVPluginInformation* vtkSMPluginManager::LoadLocalPlugin(const char* filename)
 {
   if(!filename || !(*filename))
     {
@@ -99,6 +100,12 @@ vtkPVPluginInformation* vtkSMPluginManager::LoadPlugin(const char* filename)
   if(localInfo->GetLoaded())
     {
     this->ProcessPluginInfo(loader);
+    }
+  else if(!localInfo->GetError())
+    {
+    vtkstd::string loadError = filename;
+    loadError.append(", is not a Paraview server manager plugin!");
+    localInfo->SetError(loadError.c_str());
     }
     
   this->UpdatePluginMap(serverURI, localInfo);   
@@ -148,6 +155,12 @@ vtkPVPluginInformation* vtkSMPluginManager::LoadPlugin(
       {
       this->ProcessPluginInfo(pxy);
       }
+    else if(!localInfo->GetError())
+      {
+      vtkstd::string loadError = filename;
+      loadError.append(", is not a Paraview server manager plugin!");
+      localInfo->SetError(loadError.c_str());
+      }
     this->UpdatePluginMap(serverURI, localInfo);
     pxy->UnRegister(NULL);
     this->InvokeEvent(vtkSMPluginManager::LoadPluginInvoked, localInfo);
@@ -155,6 +168,42 @@ vtkPVPluginInformation* vtkSMPluginManager::LoadPlugin(
     }
 
   return pluginInfo;
+}
+
+//---------------------------------------------------------------------------
+void vtkSMPluginManager::RemovePlugin(
+  const char* serverURI, const char* filename)
+{
+  if(!serverURI || !(*serverURI) || !filename || !(*filename))
+    {
+    return;
+    }
+
+  vtkSMPluginManagerInternals::ServerPluginsMap::iterator it = 
+     this->Internal->Server2PluginsMap.find(serverURI);
+  if( it != this->Internal->Server2PluginsMap.end())
+    {
+    if(filename && *filename)
+      {
+      bool found = false;
+      vtkstd::vector<vtkPVPluginInformation* >::iterator infoIt = 
+        it->second.begin();
+      for(; infoIt != it->second.end(); infoIt++)
+        {
+        if((*infoIt)->GetFileName() && !strcmp(filename, (*infoIt)->GetFileName()))
+          {
+          found = true;
+          break;
+          }
+        }
+
+      if(found)
+        {
+        (*infoIt)->Delete();
+        it->second.erase(infoIt);
+        }
+      }
+    }
 }
 
 //---------------------------------------------------------------------------

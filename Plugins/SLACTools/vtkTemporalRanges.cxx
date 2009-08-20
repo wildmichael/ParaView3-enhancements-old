@@ -27,8 +27,10 @@
 #include "vtkDataSet.h"
 #include "vtkDoubleArray.h"
 #include "vtkInformation.h"
+#include "vtkInformationVector.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
+#include "vtkStreamingDemandDrivenPipeline.h"
 #include "vtkStringArray.h"
 #include "vtkTable.h"
 #include "vtkTypeTraits.h"
@@ -42,6 +44,20 @@
 #include <vtksys/ios/sstream>
 
 #include <math.h>
+
+//=============================================================================
+// This is not super portable.  We really should be using vtkMath::IsNan.  The
+// only reason we are not is so that we can copy this code to the 3.6 branch of
+// ParaView where that method does not yet exist.  Once we move past that, this
+// section should go away and all instances of isnan should be replaced with
+// vtkMath::IsNan.
+#ifndef isnan
+// This is compiler specific not platform specific: MinGW doesn't need that.
+# if defined(_MSC_VER) || defined(__BORLANDC__)
+#  include <float.h>
+#  define isnan(x) _isnan(x)
+# endif
+#endif
 
 //=============================================================================
 namespace vtkTemporalRangesNamespace{
@@ -62,24 +78,21 @@ namespace vtkTemporalRangesNamespace{
     column->SetValue(COUNT_ROW,   0.0);
   }
 
-  inline void AccumulateValue(vtkDoubleArray *column, double value)
+  inline void AccumulateValue(double value, vtkDoubleArray *column)
   {
-    column->SetValue(AVERAGE_ROW, value + column->GetValue(AVERAGE_ROW));
-    // Note that the condition is set up such that a value of NAN never becomes
-    // minimum or maximum.
-    if (value < column->GetValue(MINIMUM_ROW))
+    if (!isnan(value))
       {
-      column->SetValue(MINIMUM_ROW, value);
+      column->SetValue(AVERAGE_ROW, value + column->GetValue(AVERAGE_ROW));
+      column->SetValue(MINIMUM_ROW, vtkstd::min(column->GetValue(MINIMUM_ROW),
+                                                value));
+      column->SetValue(MAXIMUM_ROW, vtkstd::max(column->GetValue(MAXIMUM_ROW),
+                                                value));
+      column->SetValue(COUNT_ROW, column->GetValue(COUNT_ROW) + 1);
       }
-    if (value > column->GetValue(MAXIMUM_ROW))
-      {
-      column->SetValue(MAXIMUM_ROW, value);
-      }
-    column->SetValue(COUNT_ROW, column->GetValue(COUNT_ROW) + 1);
   }
 
-  inline void AccumulateColumns(vtkDoubleArray *target,
-                                vtkDoubleArray *source)
+  inline void AccumulateColumn(vtkDoubleArray *source,
+                               vtkDoubleArray *target)
   {
     double targetCount = target->GetValue(COUNT_ROW);
     double sourceCount = source->GetValue(COUNT_ROW);
@@ -97,12 +110,13 @@ namespace vtkTemporalRangesNamespace{
 using namespace vtkTemporalRangesNamespace;
 
 //=============================================================================
-vtkCxxRevisionMacro(vtkTemporalRanges, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkTemporalRanges, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkTemporalRanges);
 
 //-----------------------------------------------------------------------------
 vtkTemporalRanges::vtkTemporalRanges()
 {
+  this->CurrentTimeIndex = 0;
 }
 
 vtkTemporalRanges::~vtkTemporalRanges()
@@ -129,32 +143,91 @@ int vtkTemporalRanges::FillInputPortInformation(int port, vtkInformation *info)
 }
 
 //-----------------------------------------------------------------------------
-int vtkTemporalRanges::RequestData(vtkInformation *vtkNotUsed(request),
+int vtkTemporalRanges::RequestInformation(
+                                 vtkInformation *vtkNotUsed(request),
+                                 vtkInformationVector **vtkNotUsed(inputVector),
+                                 vtkInformationVector *outputVector)
+{
+  vtkInformation *outInfo = outputVector->GetInformationObject(0);
+
+  // The output data of this filter has no time associated with it.  It is the
+  // result of computations that happen over all time.
+  outInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
+  outInfo->Remove(vtkStreamingDemandDrivenPipeline::TIME_RANGE());
+
+  return 1;
+}
+
+//-----------------------------------------------------------------------------
+int vtkTemporalRanges::RequestUpdateExtent(
+                                 vtkInformation *vtkNotUsed(request),
+                                 vtkInformationVector **inputVector,
+                                 vtkInformationVector *vtkNotUsed(outputVector))
+{
+  vtkInformation *inInfo = inputVector[0]->GetInformationObject(0);
+
+  // The RequestData method will tell the pipeline executive to iterate the
+  // upstream pipeline to get each time step in order.  The executive in turn
+  // will call this method to get the extent request for each iteration (in this
+  // case the time step).
+  double *inTimes = inInfo->Get(vtkStreamingDemandDrivenPipeline::TIME_STEPS());
+  if (inTimes)
+    {
+    inInfo->Set(vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS(),
+                &inTimes[this->CurrentTimeIndex], 1);
+    }
+
+  return 1;
+}
+
+//-----------------------------------------------------------------------------
+int vtkTemporalRanges::RequestData(vtkInformation *request,
                                    vtkInformationVector **inputVector,
                                    vtkInformationVector *outputVector)
 {
+  vtkInformation *inInfo = inputVector[0]->GetInformationObject(0);
   vtkTable *output = vtkTable::GetData(outputVector);
 
-  this->InitializeTable(output);
+  if (this->CurrentTimeIndex == 0)
+    {
+    // First execution.  Initialize table.
+    this->InitializeTable(output);
+    }
 
-  vtkCompositeDataSet *compositeInput
-    = vtkCompositeDataSet::GetData(inputVector[0]);
+  vtkCompositeDataSet *compositeInput = vtkCompositeDataSet::GetData(inInfo);
+  vtkDataSet *dsInput = vtkDataSet::GetData(inInfo);
+
   if (compositeInput)
     {
     this->AccumulateCompositeData(compositeInput, output);
-    return 1;
     }
-
-  vtkDataSet *dsInput = vtkDataSet::GetData(inputVector[0]);
-  if (dsInput)
+  else if (dsInput)
     {
     this->AccumulateDataSet(dsInput, output);
-    return 1;
+    }
+  else
+    {
+    vtkWarningMacro(<< "Unknown data type : "
+                    << vtkDataObject::GetData(inputVector[0])->GetClassName());
+    return 0;
     }
 
-  vtkWarningMacro(<< "Unknown data type : "
-                  << vtkDataObject::GetData(inputVector[0])->GetClassName());
-  return 0;
+  this->CurrentTimeIndex++;
+
+  if (  this->CurrentTimeIndex
+      < inInfo->Length(vtkStreamingDemandDrivenPipeline::TIME_STEPS()) )
+    {
+    // There is still more to do.
+    request->Set(vtkStreamingDemandDrivenPipeline::CONTINUE_EXECUTING(), 1);
+    }
+  else
+    {
+    // We are done.  Finish up.
+    request->Remove(vtkStreamingDemandDrivenPipeline::CONTINUE_EXECUTING());
+    this->CurrentTimeIndex = 0;
+    }
+
+  return 1;
 }
 
 //-----------------------------------------------------------------------------
@@ -252,12 +325,12 @@ void vtkTemporalRanges::AccumulateArray(vtkDataArray *field, vtkTable *output)
       {
       double value = field->GetComponent(i, j);
       mag += value*value;
-      AccumulateValue(componentAccumulate[j], value);
+      AccumulateValue(value, componentAccumulate[j]);
       }
     if (magnitudeColumn)
       {
       mag = sqrt(mag);
-      AccumulateValue(magnitudeAccumulate, mag);
+      AccumulateValue(mag, magnitudeAccumulate);
       }
     }
 
@@ -266,14 +339,28 @@ void vtkTemporalRanges::AccumulateArray(vtkDataArray *field, vtkTable *output)
     componentAccumulate[j]->SetValue(AVERAGE_ROW,
                               (  componentAccumulate[j]->GetValue(AVERAGE_ROW)
                                / componentAccumulate[j]->GetValue(COUNT_ROW) ));
-    AccumulateColumns(componentColumns[j], componentAccumulate[j]);
+    AccumulateColumn(componentAccumulate[j], componentColumns[j]);
     }
   if (magnitudeColumn)
     {
     magnitudeAccumulate->SetValue(AVERAGE_ROW,
                                   (  magnitudeAccumulate->GetValue(AVERAGE_ROW)
                                    / magnitudeAccumulate->GetValue(COUNT_ROW)));
-    AccumulateColumns(magnitudeColumn, magnitudeAccumulate);
+    AccumulateColumn(magnitudeAccumulate, magnitudeColumn);
+    }
+}
+
+//-----------------------------------------------------------------------------
+void vtkTemporalRanges::AccumulateTable(vtkTable *source, vtkTable *target)
+{
+  for (vtkIdType c = 0; c < source->GetNumberOfColumns(); c++)
+    {
+    vtkDoubleArray *sourceColumn
+      = vtkDoubleArray::SafeDownCast(source->GetColumn(c));
+    if (!sourceColumn) continue;
+    vtkDoubleArray *targetColumn
+      = this->GetColumn(target, sourceColumn->GetName());
+    AccumulateColumn(sourceColumn, targetColumn);
     }
 }
 

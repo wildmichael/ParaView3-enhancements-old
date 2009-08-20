@@ -48,7 +48,12 @@ public:
   vtkPVPluginInformation* LoadPlugin(
     const char* filename, vtkIdType connectionId, const char* serverURI,
     bool loadRemote = true );
-  vtkPVPluginInformation* LoadPlugin(const char* filename);
+  vtkPVPluginInformation* LoadLocalPlugin(const char* filename);
+  
+  // Description:
+  // Method to remove a plugin from server manager. This is only removing
+  // the plugin from an internal list, not unloading the plugin
+  void RemovePlugin(const char* serverURI, const char* filename);
   
   // Description:
   // Get the plugin path that specified through some environmental varaibles.
