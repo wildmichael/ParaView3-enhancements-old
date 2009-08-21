@@ -111,6 +111,17 @@ if(FFMPEG_avcodec_LIBRARY)
   set(libs_path ${libs_path} ${ffmpeg_lib_path})
 endif()
 
+set(QT_QTCLUCENE_LIBRARY "@QT_QTCLUCENE_LIBRARY@")
+if(QT_QTCLUCENE_LIBRARY)
+  foreach(i ${QT_QTCLUCENE_LIBRARY})
+    if(i MATCHES ".*\\.dylib$")
+      get_filename_component(qtlucene_lib_path "${i}" PATH)
+      set(libs_path ${libs_path} ${qtlucene_lib_path})
+    endif()
+  endforeach(i)
+endif()
+
+list(REMOVE_DUPLICATES libs_path)
 
 # Fix it!
 #
