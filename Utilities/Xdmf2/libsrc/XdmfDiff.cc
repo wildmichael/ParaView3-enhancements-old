@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiff.cc,v 1.7 2009-08-21 20:21:51 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-21 20:21:51 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDiff.cc,v 1.8 2009-08-24 14:02:25 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-24 14:02:25 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -779,9 +779,6 @@ void XdmfDiff::CompareValues(XdmfDiffReport & errorReport, XdmfArray * refArray,
 		{
 			XdmfUInt16 * refVals = (XdmfUInt16*)refArray->GetDataPointer(startIndex);
 			XdmfUInt16 * newVals = (XdmfUInt16*)newArray->GetDataPointer(startIndex);
-
-			refArray->GetValues(startIndex, refVals, numValues, 1, 1);
-			newArray->GetValues(startIndex, newVals, numValues, 1, 1);
 
 			for (int i=0; i<numValues; i++)
 			{
