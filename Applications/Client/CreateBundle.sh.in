@@ -36,6 +36,7 @@ LibrariesDir="$ParaView_App/Contents/Libraries"
 PluginsDir="$ParaView_App/Contents/Plugins"
 PythonDir="$ParaView_App/Contents/Python"
 SupportDir="$ParaView_App/Contents/Support"
+ResourcesDir="$ParaView_App/Contents/Resources"
 
 
 # Create directories in the install tree bundle
@@ -45,6 +46,7 @@ mkdir -p "$LibrariesDir"
 mkdir -p "$PluginsDir"
 mkdir -p "$PythonDir"
 mkdir -p "$SupportDir"
+mkdir -p "$ResourcesDir"
 
 
 # Copy the documentation into the Support directory
@@ -61,3 +63,7 @@ cp -Rp "${ParaViewBinaryDir}/Utilities/VTKPythonWrapping/paraview" "$PythonDir/"
 # above recursive directory copies:
 #
 rm -rf "$PythonDir/paraview/pv_compile_complete"
+
+# Add an empty qt.conf to prevent the loading of imageformats plugins
+#
+touch "$ResourcesDir/qt.conf"
