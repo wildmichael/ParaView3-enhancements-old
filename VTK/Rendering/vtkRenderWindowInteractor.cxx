@@ -27,7 +27,7 @@
 #include "vtkObserverMediator.h"
 #include <vtkstd/map>
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.121 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.123 $");
 
 // PIMPL'd class to keep track of timers. It maps the ids returned by CreateTimer()
 // to the platform-specific representation for timer ids.
@@ -108,6 +108,8 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
   this->TimerDuration = 10;
   this->ObserverMediator = 0;
   this->HandleEventLoop = false;
+  
+  this->UseTDx=false; // 3DConnexion device.
 }
 
 //----------------------------------------------------------------------
@@ -619,6 +621,7 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "TimerEventType: " << this->TimerEventType << "\n";
   os << indent << "TimerEventDuration: " << this->TimerEventDuration << "\n";
   os << indent << "TimerEventPlatformId: " << this->TimerEventPlatformId << "\n";
+  os << indent << "UseTDx: " << this->UseTDx << endl;
 }
 
 //----------------------------------------------------------------------------

@@ -44,7 +44,7 @@
 #include "vtkTree.h"
 #include "vtkViewTheme.h"
 
-vtkCxxRevisionMacro(vtkQtTreeView, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkQtTreeView, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkQtTreeView);
 
 //----------------------------------------------------------------------------
@@ -74,7 +74,6 @@ vtkQtTreeView::vtkQtTreeView()
   this->SetUseColumnView(false);
   this->SetAlternatingRowColors(false);
   this->SetShowRootNode(false);
-  this->Selecting = false;
   this->CurrentSelectionMTime = 0;
   this->ColorArrayNameInternal = 0;
   double defCol[3] = {0.827,0.827,0.827};
@@ -212,14 +211,25 @@ void vtkQtTreeView::SetShowRootNode(bool state)
 void vtkQtTreeView::HideColumn(int i) 
 {
   this->TreeView->hideColumn(i);
+  this->HiddenColumns << i;
+}
+
+//----------------------------------------------------------------------------
+void vtkQtTreeView::ShowColumn(int i)
+{
+  this->TreeView->showColumn(i);
+  this->HiddenColumns.removeAll(i);
 }
 
 //----------------------------------------------------------------------------
 void vtkQtTreeView::HideAllButFirstColumn()
 {
+  this->HiddenColumns.clear();
+  this->TreeView->showColumn(0);
   for(int j=1; j<this->TreeAdapter->columnCount(); ++j)
     {
     this->TreeView->hideColumn(j);
+    this->HiddenColumns << j;
     }
 }
 
@@ -300,8 +310,6 @@ void vtkQtTreeView::slotQtSelectionChanged(const QItemSelection& vtkNotUsed(s1),
   
   // Store the selection mtime
   this->CurrentSelectionMTime = rep->GetAnnotationLink()->GetCurrentSelection()->GetMTime();
-
-  this->Selecting = true;
 }
 
 //----------------------------------------------------------------------------
@@ -349,13 +357,6 @@ void vtkQtTreeView::SetVTKSelection()
 //----------------------------------------------------------------------------
 void vtkQtTreeView::Update()
 {  
-  // If we initiated the selection, do nothing.
-  if(this->Selecting)
-    {
-    this->Selecting = false;
-    return;
-    }
-
   vtkDataRepresentation* rep = this->GetRepresentation();
   if (!rep)
     {
@@ -390,8 +391,16 @@ void vtkQtTreeView::Update()
   if((annConn && (atime > this->CurrentSelectionMTime)) || 
     (tree->GetMTime() > this->LastInputMTime))
     {
+    // Reset the model
     this->TreeAdapter->SetVTKDataObject(0);
     this->TreeAdapter->SetVTKDataObject(this->ApplyColors->GetOutput());
+
+    // Re-hide the hidden columns
+    int col;
+    foreach (col, this->HiddenColumns)
+      {
+      this->TreeView->hideColumn(col);
+      }
 
     if(this->ApplyColors->GetUsePointLookupTable())
       {
@@ -438,6 +447,8 @@ void vtkQtTreeView::ApplyViewTheme(vtkViewTheme* theme)
   this->ApplyColors->SetSelectedPointOpacity(theme->GetSelectedPointOpacity());
   this->ApplyColors->SetSelectedCellColor(theme->GetSelectedCellColor());
   this->ApplyColors->SetSelectedCellOpacity(theme->GetSelectedCellOpacity());
+  this->ApplyColors->SetScalePointLookupTable(theme->GetScalePointLookupTable());
+  this->ApplyColors->SetScaleCellLookupTable(theme->GetScaleCellLookupTable());
 }
 
 //----------------------------------------------------------------------------

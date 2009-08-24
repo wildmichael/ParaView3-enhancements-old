@@ -46,6 +46,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSmartPointer.h"
 #include "vtkSMDoubleVectorProperty.h"
 #include "vtkSMNewWidgetRepresentationProxy.h"
+#include "vtkSMPropertyHelper.h"
 #include "vtkSMProxyManager.h"
 #include "vtkSMProxyProperty.h"
 
@@ -55,7 +56,6 @@ class pqContourWidget::pqInternals : public Ui::ContourWidget
 {
 public:
   pqPropertyLinks Links;
-//  pqSignalAdaptorTreeWidget* PointsAdaptor;
 };
 
 //-----------------------------------------------------------------------------
@@ -65,8 +65,6 @@ pqContourWidget::pqContourWidget(
 {
   this->Internals = new pqInternals();
   this->Internals->setupUi(this);
-  //this->Internals->PointsAdaptor = new pqSignalAdaptorTreeWidget(
-  //  this->Internals->NodePositions, true);
 
   this->Internals->Visibility->setChecked(this->widgetVisible());
   QObject::connect(this, SIGNAL(widgetVisibilityChanged(bool)),
@@ -83,8 +81,6 @@ pqContourWidget::pqContourWidget(
     SIGNAL(qtWidgetChanged()),
     this, SLOT(render()));
 
-  //QObject::connect(this->Internals->AddPoint, SIGNAL(clicked()),
-  //  this, SLOT(addPoint()));
   QObject::connect(this->Internals->Delete, SIGNAL(clicked()),
     this, SLOT(removeAllNodes()));
 
@@ -116,10 +112,6 @@ void pqContourWidget::createWidget(pqServer* server)
     SIGNAL(toggled(bool)),
     widget, widget->GetProperty("ClosedLoop"));
 
-  //this->Internals->Links.addPropertyLink(
-  //  this->Internals->PointsAdaptor, "values",
-  //  SIGNAL(valuesChanged()),
-  //  widget, widget->GetProperty("NodePositions"));
 }
 
 //-----------------------------------------------------------------------------
@@ -135,17 +127,38 @@ void pqContourWidget::cleanupWidget()
   this->setWidgetProxy(0);
 }
 
-/*
 //-----------------------------------------------------------------------------
-void pqContourWidget::addPoint()
+void pqContourWidget::select()
+  {
+  this->setWidgetVisible(true);
+  this->setVisible(true);
+  this->setLineColor(QColor::fromRgbF(1.0,0.0,1.0));
+  this->Superclass::select();
+  this->Superclass::updatePickShortcut(true);
+  }
+
+//-----------------------------------------------------------------------------
+void pqContourWidget::getBounds(double bounds[6]) const
+  {
+  this->getWidgetProxy()->GetBounds(bounds);
+  }
+
+//-----------------------------------------------------------------------------
+void pqContourWidget::deselect()
+  {
+  // this->Superclass::deselect();
+  this->setVisible(0);
+  this->setLineColor(QColor::fromRgbF(1.0,1.0,1.0));
+  this->Superclass::updatePickShortcut(false);
+  }
+
+//-----------------------------------------------------------------------------
+void pqContourWidget::updateWidgetVisibility()
 {
-  QTreeWidgetItem* newItem = this->Internals->PointsAdaptor->growTable();
-  QTreeWidget* tree = this->Internals->NodePositions;
-  tree->setCurrentItem(newItem);
-  // edit the first column.
-  tree->editItem(newItem, 0);
+  const bool widget_visible = this->widgetVisible();
+  const bool widget_enabled = this->widgetSelected();
+  this->updateWidgetState(widget_visible,  widget_enabled);
 }
-*/
 
 //-----------------------------------------------------------------------------
 void pqContourWidget::removeAllNodes()
@@ -169,6 +182,19 @@ void pqContourWidget::setPointPlacer(vtkSMProxy* placerProxy)
 void pqContourWidget::setLineInterpolator(vtkSMProxy* interpProxy)
 {
   this->updateRepProperty(interpProxy, "LineInterpolator");
+}
+
+//-----------------------------------------------------------------------------
+void pqContourWidget::setLineColor(const QColor& color)
+{
+  vtkSMProxy* widget = this->getWidgetProxy();
+  vtkSMPropertyHelper(widget,
+    "LineColor").Set(0, color.redF());
+  vtkSMPropertyHelper(widget,
+    "LineColor").Set(1,color.greenF());
+  vtkSMPropertyHelper(widget,
+    "LineColor").Set(2 , color.blueF());
+  widget->UpdateVTKObjects(); 
 }
 
 //-----------------------------------------------------------------------------
