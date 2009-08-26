@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.14 2009-06-23 16:41:47 clarke Exp $  */
-/*  Date : $Date: 2009-06-23 16:41:47 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.15 2009-08-26 15:37:59 clarke Exp $  */
+/*  Date : $Date: 2009-08-26 15:37:59 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,6 +34,7 @@ class XdmfValues;
 #define XDMF_FORMAT_XML 0
 #define XDMF_FORMAT_HDF 1
 #define XDMF_FORMAT_MYSQL 2
+#define XDMF_FORMAT_BINARY 3
 
 // Organizations
 #define XDMF_ITEM_UNIFORM        0x00
