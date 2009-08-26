@@ -2,11 +2,11 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesBinary.cxx,v 1.1 2009-08-26 15:37:59 clarke Exp $ */ 
-/*  Date : $Date: 2009-08-26 15:37:59 $ */
-/*  Version : $Revision: 1.1 $  */
+/*  Id : $Id: XdmfValuesBinary.cxx,v 1.2 2009-08-26 15:41:31 clarke Exp $ */ 
+/*  Date : $Date: 2009-08-26 15:41:31 $ */
+/*  Version : $Revision: 1.2 $  */
 /*                                                                 */
-/*  Author:                                                        */
+/*  Author:Kenji Takizawa (Team for Advanced Flow Simulation and Modeling) */
 /*                                                                 */
 /*     Copyright @ 2008 US Army Research Laboratory                */
 /*     All Rights Reserved                                         */
