@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.21 2009-08-05 20:41:34 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:41:34 $ */
-/*  Version : $Revision: 1.21 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.22 2009-08-28 11:39:25 dave.demarle Exp $  */
+/*  Date : $Date: 2009-08-28 11:39:25 $ */
+/*  Version : $Revision: 1.22 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -170,6 +170,8 @@ XdmfGeometry::Build(){
             array->SetValues(0, this->DxDyDz, 2);
             di->Build();
         break;
+      case XDMF_GEOMETRY_NONE:
+        break;
       default :
         if(this->Points){
             di = this->GetDataItem(0, this->GetElement());
@@ -280,6 +282,11 @@ if( XDMF_WORD_CMP( geometryType, "VXVY" ) ){
   this->GeometryType = XDMF_GEOMETRY_VXVY;
   return(XDMF_SUCCESS);
   }
+if( XDMF_WORD_CMP( geometryType, "NONE" ) ){
+  this->GeometryType = XDMF_GEOMETRY_NONE;
+  return(XDMF_SUCCESS);
+  }
+
 return( XDMF_FAIL );
 }
 
@@ -308,6 +315,9 @@ switch( this->GeometryType ){
     break;
   case XDMF_GEOMETRY_XY :
     strcpy( Value, "XY" );
+    break;
+  case XDMF_GEOMETRY_NONE :
+    strcpy( Value, "NONE");
     break;
   default :
     strcpy( Value, "XYZ" );
