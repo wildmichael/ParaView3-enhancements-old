@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.18 2009-08-05 20:28:39 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:28:39 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.19 2009-08-28 11:40:36 dave.demarle Exp $  */
+/*  Date : $Date: 2009-08-28 11:40:36 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -83,6 +83,10 @@ XdmfDataItem * XdmfAttribute::GetDataItem(){
 XdmfInt32
 XdmfAttribute::Build(){
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
+    if (this->GetActive())
+      {
+      this->Set("Active", "1");
+      }
     this->Set("AttributeType", this->GetAttributeTypeAsString());
     this->Set("Center", this->GetAttributeCenterAsString());
     if(this->BuildFromDataXml() == XDMF_SUCCESS) return(XDMF_SUCCESS);
@@ -109,6 +113,8 @@ XdmfAttribute::GetAttributeTypeAsString( void ){
       return("Matrix");
     case XDMF_ATTRIBUTE_TYPE_TENSOR6 :
       return("Tensor6");
+    case XDMF_ATTRIBUTE_TYPE_GLOBALID :
+      return("GlobalId");
     default :
       break;
     }
@@ -138,6 +144,9 @@ if( XDMF_WORD_CMP( attributeType, "Scalar" ) ) {
 } else if( XDMF_WORD_CMP( attributeType, "Tensor6" ) ) {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_TENSOR6;
   Dimensions[0] = 6;
+} else if( XDMF_WORD_CMP( attributeType, "GlobalId" ) ) {
+  this->AttributeType = XDMF_ATTRIBUTE_TYPE_GLOBALID;
+  Dimensions[0] = 1;
 } else {
   XdmfErrorMessage("Unknown Attribute Type " << attributeType );
   return( XDMF_FAIL );
