@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestDocumentReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-08-26 16:10:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2009-08-28 14:43:56 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2008 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -37,7 +37,7 @@
     } \
 }
 
-int TestDocumentReader(int argc, char* argv[])
+int TestDocumentReader(int, char*[])
 {
   try
     {
