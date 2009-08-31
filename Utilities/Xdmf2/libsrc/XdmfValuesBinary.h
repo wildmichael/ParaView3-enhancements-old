@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesBinary.h,v 1.3 2009-08-26 19:00:07 clarke Exp $ */ 
-/*  Date : $Date: 2009-08-26 19:00:07 $ */
-/*  Version : $Revision: 1.3 $  */
+/*  Id : $Id: XdmfValuesBinary.h,v 1.4 2009-08-31 14:46:54 clarke Exp $ */ 
+/*  Date : $Date: 2009-08-31 14:46:54 $ */
+/*  Version : $Revision: 1.4 $  */
 /*                                                                 */
 /*  Author:Kenji Takizawa (Team for Advanced Flow Simulation and Modeling) */
 /*                                                                 */
@@ -37,11 +37,14 @@ A Binary XdmfDataItem Node Looks like :
   Precision="4"
   DataType="Float"
   Format="Binary"
+  Seek="2"
+  Compression="BZip2"
   Endian="Little"
   >
 </DataItem>
 \endverbatim
 Endian: Little, Big, otherwise Native
+Seak: unit is byte
 Putting "<" in the CDATA, it may cause an error in the XML parser. 
 Here's an example of using "<" in the CDATA :
 
@@ -72,11 +75,27 @@ public :
   //! Set Endian Name
   XdmfSetStringMacro(Endian);
 
+  //! Get Seek
+  XdmfGetStringMacro(Seek);
+  //! Set Seek
+  XdmfSetStringMacro(Seek);
+
+  //! Get Compression
+  XdmfGetStringMacro(Compression);
+  //! Set Compression
+  XdmfSetStringMacro(Compression);
+
+
 protected :
   bool needByteSwap();
   XdmfString  Endian;
+  XdmfString  Seek;
+  XdmfString  Compression;
 private:
   void byteSwap(XdmfArray * RetArray);
+  size_t getSeek();
+  enum CompressionType {Raw, Zlib, BZip2};
+  enum CompressionType getCompressionType();
 };
 
 #endif
