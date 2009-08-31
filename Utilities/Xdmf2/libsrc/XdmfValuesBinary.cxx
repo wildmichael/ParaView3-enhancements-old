@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesBinary.cxx,v 1.5 2009-08-31 15:54:28 clarke Exp $ */ 
-/*  Date : $Date: 2009-08-31 15:54:28 $ */
-/*  Version : $Revision: 1.5 $  */
+/*  Id : $Id: XdmfValuesBinary.cxx,v 1.6 2009-08-31 16:36:08 clarke Exp $ */ 
+/*  Date : $Date: 2009-08-31 16:36:08 $ */
+/*  Version : $Revision: 1.6 $  */
 /*                                                                 */
 /*  Author:Kenji Takizawa (Team for Advanced Flow Simulation and Modeling) */
 /*                                                                 */
@@ -252,9 +252,9 @@ XdmfValuesBinary::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
         return(XDMF_FAIL);
     }
     char* hds;
-    this->Set("CDATA", hds);
     XDMF_STRING_DUPLICATE(hds, aHeavyDataSetName);
     XDMF_WORD_TRIM( hds );
+    this->Set("CDATA", hds);
     byteSwap(anArray);
     ostream * fs = NULL;
     try{
