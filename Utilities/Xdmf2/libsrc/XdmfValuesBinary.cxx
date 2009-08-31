@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesBinary.cxx,v 1.6 2009-08-31 16:36:08 clarke Exp $ */ 
-/*  Date : $Date: 2009-08-31 16:36:08 $ */
-/*  Version : $Revision: 1.6 $  */
+/*  Id : $Id: XdmfValuesBinary.cxx,v 1.7 2009-08-31 18:27:50 clarke Exp $ */ 
+/*  Date : $Date: 2009-08-31 18:27:50 $ */
+/*  Version : $Revision: 1.7 $  */
 /*                                                                 */
 /*  Author:Kenji Takizawa (Team for Advanced Flow Simulation and Modeling) */
 /*                                                                 */
@@ -185,7 +185,7 @@ XdmfValuesBinary::Read(XdmfArray *anArray){
         switch(getCompressionType()){
         case Zlib:
             XdmfDebug("Compression: Zlib");
-#ifdef XDMF_USE_BZIP2
+#ifdef XDMF_USE_GZIP
             //fs = gzip(fs);
             fs = new igzstream(DataSetName, std::ios::binary|std::ios::in);
             if(seek!=0){
