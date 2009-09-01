@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.9 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfObject.h,v 1.10 2009-09-01 15:01:05 clarke Exp $  */
+/*  Date : $Date: 2009-09-01 15:01:05 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -366,7 +366,7 @@ need to make sure ....
   }
 
 #define XDMF_WORD_TRIM( a ) { \
-  int             StringLength; \
+  size_t          StringLength; \
   char            *fp; \
   char            *st; \
   char            *ed; \
