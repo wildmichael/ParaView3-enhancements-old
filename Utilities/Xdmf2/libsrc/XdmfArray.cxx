@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.15 2009-07-07 20:06:50 kwleiter Exp $  */
-/*  Date : $Date: 2009-07-07 20:06:50 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.16 2009-09-07 14:45:58 biddisco Exp $  */
+/*  Date : $Date: 2009-09-07 14:45:58 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -87,6 +87,10 @@ XdmfArrayListClass::~XdmfArrayListClass()
       }
     delete [] this->List;
     this->List = 0;
+    }
+  if ( XdmfArrayListClassInstance ) 
+    {
+    delete XdmfArrayListClassInstance;
     }
 }
 

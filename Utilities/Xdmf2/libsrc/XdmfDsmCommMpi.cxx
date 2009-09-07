@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.8 2008-04-04 19:30:21 clarke Exp $  */
-/*  Date : $Date: 2008-04-04 19:30:21 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfDsmCommMpi.cxx,v 1.9 2009-09-07 14:46:08 biddisco Exp $  */
+/*  Date : $Date: 2009-09-07 14:46:08 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -122,3 +122,11 @@ XdmfDsmCommMpi::Send(XdmfDsmMsg *Msg){
     XdmfDebug("::::: (" << this->Id << ") Sent " << Msg->Length << " bytes to " << Msg->Dest);
     return(XDMF_SUCCESS);
 }
+
+XdmfInt32
+XdmfDsmCommMpi::Barrier() {
+  MPI_Barrier(this->Comm);
+
+  return XDMF_SUCCESS;
+}
+

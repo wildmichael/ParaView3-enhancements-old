@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.h,v 1.5 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDsmComm.h,v 1.6 2009-09-07 14:46:08 biddisco Exp $  */
+/*  Date : $Date: 2009-09-07 14:46:08 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -59,6 +59,7 @@ public:
     virtual XdmfInt32   Send(XdmfDsmMsg *Msg);
     virtual XdmfInt32   Receive(XdmfDsmMsg *Msg);
     virtual XdmfInt32   Check(XdmfDsmMsg *Msg);
+    virtual XdmfInt32   Barrier();
 
     // XdmfInt32   Send() { return(this->Send(this->Msg)); };
     // XdmfInt32   Receive() { return(this->Receive(this->Msg)); };

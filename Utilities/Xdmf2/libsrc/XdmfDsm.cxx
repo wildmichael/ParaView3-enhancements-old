@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.cxx,v 1.9 2008-04-04 19:30:21 clarke Exp $  */
-/*  Date : $Date: 2008-04-04 19:30:21 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfDsm.cxx,v 1.10 2009-09-07 14:46:01 biddisco Exp $  */
+/*  Date : $Date: 2009-09-07 14:46:01 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,11 +55,13 @@ XdmfDsm::XdmfDsm() {
 
 XdmfDsm::~XdmfDsm() {
     if(this->Storage && this->StorageIsMine) delete this->Storage;
+    if(this->Msg) delete this->Msg;
 }
 
 XdmfInt32
 XdmfDsm::Copy(XdmfDsm *Source){
     this->DsmType = Source->DsmType;
+    if (this->Storage) delete this->Storage;
     this->Storage = Source->GetStorage();
     this->StorageIsMine = 0;
     this->DataPointer = (XdmfByte *)this->Storage->GetDataPointer();
@@ -71,7 +73,8 @@ XdmfDsm::Copy(XdmfDsm *Source){
     this->StartServerId = Source->StartServerId;
     this->EndServerId = Source->EndServerId;
     this->Locks = Source->Locks;
-    // Alway make a new Message so there os no contention
+    // Always make a new Message so there is no contention
+    if (this->Msg) delete this->Msg;
     this->Msg = new XdmfDsmMsg;
     return(XDMF_SUCCESS);
 }
