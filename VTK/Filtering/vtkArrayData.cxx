@@ -32,7 +32,7 @@
 // Standard functions
 //
 
-vtkCxxRevisionMacro(vtkArrayData, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkArrayData, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkArrayData);
 
 class vtkArrayData::implementation
@@ -108,6 +108,8 @@ void vtkArrayData::AddArray(vtkArray* array)
 
   this->Implementation->Arrays.push_back(array);
   array->Register(0);
+
+  this->Modified();
 }
 
 void vtkArrayData::ClearArrays()
@@ -118,6 +120,8 @@ void vtkArrayData::ClearArrays()
     }
 
   this->Implementation->Arrays.clear();
+
+  this->Modified();
 }
 
 vtkIdType vtkArrayData::GetNumberOfArrays()
