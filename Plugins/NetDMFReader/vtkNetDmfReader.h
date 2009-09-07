@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNetDmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2009-08-26 20:23:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2009-09-07 19:03:20 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -83,6 +83,19 @@ public:
 
   vtkSetMacro(ShowMovements, bool);
   vtkGetMacro(ShowMovements, bool);
+
+  vtkSetMacro(ShowScenarios, bool);
+  vtkGetMacro(ShowScenarios, bool);
+
+  vtkSetMacro(ShowResults, bool);
+  vtkGetMacro(ShowResults, bool);
+
+  vtkSetMacro(ShowNodes, bool);
+  vtkGetMacro(ShowNodes, bool);
+
+  vtkSetMacro(ShowAddresses, bool);
+  vtkGetMacro(ShowAddresses, bool);
+
 protected:
   vtkNetDmfReader();
   ~vtkNetDmfReader();
@@ -99,18 +112,17 @@ protected:
                         NetDMFElement* element, 
                         vtkIdType parent = -1);
 
-  //virtual int RequestDataObject(vtkInformation *request,
-  //                              vtkInformationVector **inputVector,
-  //                              vtkInformationVector *outputVector);
+  virtual int RequestDataObject(vtkInformation *request,
+                                vtkInformationVector **inputVector,
+                                vtkInformationVector *outputVector);
 
   virtual int RequestData(vtkInformation *, vtkInformationVector **,
                           vtkInformationVector *);
-  //virtual int RequestInformation(vtkInformation *, vtkInformationVector **,
-  //                               vtkInformationVector *);
+  virtual int RequestInformation(vtkInformation *, vtkInformationVector **,
+                                 vtkInformationVector *);
   //virtual int FillOutputPortInformation(int port, vtkInformation *info);
 
   vtkNetDmfReaderInternal* Internal;
-  NetDMFDOM     *DOM;
 
   unsigned int   ActualTimeStep;
   int            TimeStep;
@@ -123,6 +135,10 @@ protected:
   bool           ShowEvents;
   bool           ShowConversations;
   bool           ShowMovements;
+  bool           ShowScenarios;
+  bool           ShowResults;
+  bool           ShowNodes;
+  bool           ShowAddresses;
 
 private:
   vtkNetDmfReader(const vtkNetDmfReader&); // Not implemented
