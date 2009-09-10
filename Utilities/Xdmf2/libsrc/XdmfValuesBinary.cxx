@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesBinary.cxx,v 1.8 2009-09-03 18:28:38 clarke Exp $ */ 
-/*  Date : $Date: 2009-09-03 18:28:38 $ */
-/*  Version : $Revision: 1.8 $  */
+/*  Id : $Id: XdmfValuesBinary.cxx,v 1.9 2009-09-10 20:02:34 clarke Exp $ */ 
+/*  Date : $Date: 2009-09-10 20:02:34 $ */
+/*  Version : $Revision: 1.9 $  */
 /*                                                                 */
 /*  Author:Kenji Takizawa (Team for Advanced Flow Simulation and Modeling) */
 /*                                                                 */
@@ -27,9 +27,9 @@
 
 
 #include <exception>
-//#ifdef XDMF_USE_GZIP
+#ifdef XDMF_USE_GZIP
 #include "gzstream.h"
-//#endif
+#endif
 
 #ifdef XDMF_USE_BZIP2
 #include "bz2stream.h"
@@ -189,15 +189,15 @@ XdmfValuesBinary::Read(XdmfArray *anArray){
         switch(getCompressionType()){
         case Zlib:
             XdmfDebug("Compression: Zlib");
-            //#ifdef XDMF_USE_GZIP
+            #ifdef XDMF_USE_GZIP
             fs = new igzstream(path, std::ios::binary|std::ios::in);
             if(seek!=0){
                 XdmfDebug("Seek has not supported with Zlib.");
             }
             break;
-            //#else
-            //            XdmfDebug("GZip Lib is needed.");
-            //#endif
+            #else
+                        XdmfDebug("GZip Lib is needed.");
+            #endif
         case BZip2:
             XdmfDebug("Compression: Bzip2");
 #ifdef XDMF_USE_BZIP2
@@ -270,13 +270,13 @@ XdmfValuesBinary::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
         switch(getCompressionType()){
         case Zlib:
             XdmfDebug("Compression: ZLIB");
-            //#ifdef XDMF_USE_GZIP
-            //fs = gzip(fs);
+            #ifdef XDMF_USE_GZIP
+            // fs = gzip(fs);
             fs = new ogzstream(path, std::ios::binary|std::ios::out);
             break;
-            //#else
-            //                XdmfDebug("GZIP LIBRARY IS NEEDED.");
-            //#endif
+            #else
+                            XdmfDebug("GZIP LIBRARY IS NEEDED.");
+            #endif
         case BZip2:
             XdmfDebug("Compression: BZIP2");
 #ifdef XDMF_USE_BZIP2
