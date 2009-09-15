@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNetDmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2009-09-07 19:03:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2009-09-15 17:17:11 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -120,7 +120,10 @@ protected:
                           vtkInformationVector *);
   virtual int RequestInformation(vtkInformation *, vtkInformationVector **,
                                  vtkInformationVector *);
-  //virtual int FillOutputPortInformation(int port, vtkInformation *info);
+  virtual int FillOutputPortInformation(int port, vtkInformation *info);
+  virtual int ProcessRequest( vtkInformation *request,
+                              vtkInformationVector **inputVector,
+                              vtkInformationVector *outputVector);
 
   vtkNetDmfReaderInternal* Internal;
 
