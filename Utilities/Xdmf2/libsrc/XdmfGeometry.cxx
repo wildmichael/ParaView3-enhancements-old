@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.22 2009-08-28 11:39:25 dave.demarle Exp $  */
-/*  Date : $Date: 2009-08-28 11:39:25 $ */
-/*  Version : $Revision: 1.22 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.23 2009-09-16 16:48:21 dave.demarle Exp $  */
+/*  Date : $Date: 2009-09-16 16:48:21 $ */
+/*  Version : $Revision: 1.23 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -95,7 +95,7 @@ XdmfGeometry::Build(){
     XdmfDataItem    *di = NULL;
     XdmfArray       *array;
 
-    cout << "Building Geometry" << endl;
+    //cout << "Building Geometry" << endl;
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     this->Set("GeometryType", this->GetGeometryTypeAsString());
     // Build Children from String , if provided
