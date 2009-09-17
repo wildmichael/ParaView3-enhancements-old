@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.33 2009-09-11 14:59:43 kwleiter Exp $  */
-/*  Date : $Date: 2009-09-11 14:59:43 $ */
-/*  Version : $Revision: 1.33 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.34 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.34 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -214,6 +214,12 @@ XdmfGrid::Build(){
     }
     */
     if(this->BuildTime && this->Time){
+            if(!this->Time->GetDOM()){
+                if(this->Insert(this->Time) != XDMF_SUCCESS){
+                    XdmfErrorMessage("Grid Cannot Insert current XdmfTime");
+                    return(XDMF_FAIL);
+                }
+            }
             if(this->Time->Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     }
     return(XDMF_SUCCESS);

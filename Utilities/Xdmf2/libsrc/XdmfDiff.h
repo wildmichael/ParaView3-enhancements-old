@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiff.h,v 1.3 2009-08-19 20:07:45 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-19 20:07:45 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDiff.h,v 1.4 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -68,7 +68,23 @@
 #include <set>
 #include <vector>
 
-class XdmfDiff{
+#if defined(WIN32) && !defined(XDMFSTATIC)
+
+// Windows and DLL configuration
+#if defined(XdmfUtils_EXPORTS)
+    #define XDMF_UTILS_DLL __declspec(dllexport)
+#else
+    #define XDMF_UTILS_DLL __declspec(dllimport)
+#endif
+
+#else
+
+// Linux or static configuration
+#define XDMF_UTILS_DLL 
+
+#endif
+
+class XDMF_UTILS_DLL XdmfDiff{
 public:
 
 	class XdmfDiffReport{

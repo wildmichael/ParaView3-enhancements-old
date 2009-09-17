@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.cxx,v 1.12 2009-09-07 14:46:03 biddisco Exp $  */
-/*  Date : $Date: 2009-09-07 14:46:03 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfDsmBuffer.cxx,v 1.13 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,6 +26,7 @@
 #include "XdmfDsmComm.h"
 #include "XdmfDsmMsg.h"
 #include "XdmfArray.h"
+#include "XdmfExport.h"
 
 #define XDMF_DSM_OPCODE_PUT     0x01
 #define XDMF_DSM_OPCODE_GET     0x02
@@ -34,7 +35,7 @@
 
 
 extern "C"{
-void *
+XDMF_EXPORT void *
 XdmfDsmBufferServiceThread(void *DsmObj){
     XdmfDsmBuffer *Dsm = (XdmfDsmBuffer *)DsmObj;
     return(Dsm->ServiceThread());

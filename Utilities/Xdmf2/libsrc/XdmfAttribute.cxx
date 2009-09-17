@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.19 2009-08-28 11:40:36 dave.demarle Exp $  */
-/*  Date : $Date: 2009-08-28 11:40:36 $ */
-/*  Version : $Revision: 1.19 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.20 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -37,11 +37,13 @@ XdmfAttribute::XdmfAttribute() {
   this->ShapeDesc = new XdmfDataDesc();
   this->Active = 0;
   this->LightDataLimit = 100;
+  this->Units = NULL;    // Ian Curington, HR Wallingford Ltd.
   }
 
 XdmfAttribute::~XdmfAttribute() {
   if( this->ValuesAreMine && this->Values )  delete this->Values;
   delete this->ShapeDesc;
+  if(this->Units) delete [] this->Units;  // Ian Curington, HR Wallingford Ltd.
 }
 
 XdmfInt32
@@ -97,6 +99,13 @@ XdmfAttribute::Build(){
         di->Build();
 
     }
+// PATCH September 09, Ian Curington, HR Wallingford Ltd.
+	if(this->Units)
+	{
+		this->Set("Units", this->GetUnits());
+	}
+// end patch
+
     return(XDMF_SUCCESS);
 }
 
@@ -229,6 +238,16 @@ if( Attribute ){
 } else {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_SCALAR;
 }
+
+// PATCH September 09, Ian Curinton HR Wallingford Ltd.
+Attribute = this->Get( "Units" );
+if( Attribute ){
+  this->SetUnits( Attribute );
+} else {
+  if(this->Units) delete [] this->Units;
+  this->Units = NULL;
+}
+// end patch
 
 Attribute = this->Get( "Active" );
 this->Active = 0;

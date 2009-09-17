@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.h,v 1.10 2008-04-04 19:30:21 clarke Exp $  */
-/*  Date : $Date: 2008-04-04 19:30:21 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDsmBuffer.h,v 1.11 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,7 +31,7 @@
 
 //! Helper for pthread_create()
 extern "C" {
-void *
+XDMF_EXPORT void *
 XdmfDsmBufferServiceThread(void *DsmObj);
 }
 

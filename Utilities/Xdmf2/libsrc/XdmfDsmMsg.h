@@ -2,7 +2,7 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmMsg.h,v 1.4 2009-01-23 20:31:39 clarke Exp $  */
+/*  Id : $Id: XdmfDsmMsg.h,v 1.5 2009-09-17 14:12:11 clarke Exp $  */
 /*  Date : $Date $ */
 /*  Version : $Revision $ */
 /*                                                                 */
@@ -38,7 +38,7 @@
 
 #define XDMF_DSM_ANY_SOURCE     -1
 
-class XdmfDsmMsg : public XdmfObject {
+class XDMF_EXPORT XdmfDsmMsg : public XdmfObject {
 
     public :
         XdmfDsmMsg();

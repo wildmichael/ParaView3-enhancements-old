@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.11 2009-08-28 11:40:36 dave.demarle Exp $  */
-/*  Date : $Date: 2009-08-28 11:40:36 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.12 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -119,6 +119,13 @@ public:
 //! Returns the Center of the Attribute
   XdmfGetValueMacro( AttributeCenter, XdmfInt32 );
 
+// PATCH September 09, Ian Curington, HR Wallingford Ltd.
+//! Get the Units
+    XdmfGetStringMacro(Units);
+//! Set the Units
+    XdmfSetStringMacro(Units);
+// end patch
+
 //! Returns the Shape of the attribute
   XdmfDataDesc *GetShapeDesc( void ) { return( this->ShapeDesc ); };
 
@@ -145,6 +152,7 @@ protected:
   XdmfArray  *Values;
   XdmfInt32  Active;
   XdmfInt32  LightDataLimit;
+  XdmfString Units;      // Ian Curington, HR Wallingford Ltd.
 };
 
 #endif // __XdmfAttribute_h
