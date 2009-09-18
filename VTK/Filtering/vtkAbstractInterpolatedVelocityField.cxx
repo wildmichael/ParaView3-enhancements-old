@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro( vtkAbstractInterpolatedVelocityField, "$Revision: 1.5 $" );
+vtkCxxRevisionMacro( vtkAbstractInterpolatedVelocityField, "$Revision: 1.6 $" );
 
 //----------------------------------------------------------------------------
 const double vtkAbstractInterpolatedVelocityField::TOLERANCE_SCALE = 1.0E-8;
@@ -82,18 +82,7 @@ vtkAbstractInterpolatedVelocityField::~vtkAbstractInterpolatedVelocityField()
     }
   
   if ( this->DataSets )
-    {
-    // Ungister datasets from this velocity field interpolator
-    //for ( DataSetsTypeBase::iterator dsIt  = this->DataSets->begin(); 
-    //      dsIt != this->DataSets->end(); dsIt ++ )
-    //  {
-    //  if ( *dsIt )
-    //    {
-    //    ( *dsIt )->UnRegister( this );
-    //    ( *dsIt ) = NULL;
-    //    }
-    //  }
-    
+    {    
     delete this->DataSets;
     this->DataSets = NULL;
     }

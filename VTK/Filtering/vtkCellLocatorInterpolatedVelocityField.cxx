@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkModifiedBSPTree.h"
 
-vtkCxxRevisionMacro ( vtkCellLocatorInterpolatedVelocityField, "$Revision: 1.6 $" );
+vtkCxxRevisionMacro ( vtkCellLocatorInterpolatedVelocityField, "$Revision: 1.7 $" );
 vtkStandardNewMacro ( vtkCellLocatorInterpolatedVelocityField ); 
 vtkCxxSetObjectMacro( vtkCellLocatorInterpolatedVelocityField, CellLocatorPrototype, vtkAbstractCellLocator );
 
@@ -230,9 +230,8 @@ void vtkCellLocatorInterpolatedVelocityField::AddDataSet( vtkDataSet * dataset )
     return;
     }
 
-  // insert the dataset
+  // insert the dataset (do NOT register the dataset to 'this')
   this->DataSets->push_back( dataset );
-  //dataset->Register( this );
   
   // We need to attach a valid vtkAbstractCellLocator to any vtkPointSet for
   // robust cell location as vtkPointSet::FindCell() may incur failures. For 
