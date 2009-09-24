@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.34 2009-09-17 14:12:11 clarke Exp $  */
-/*  Date : $Date: 2009-09-17 14:12:11 $ */
-/*  Version : $Revision: 1.34 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.35 2009-09-24 14:44:04 dave.demarle Exp $  */
+/*  Date : $Date: 2009-09-24 14:44:04 $ */
+/*  Version : $Revision: 1.35 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -156,7 +156,7 @@ XdmfGrid::Insert( XdmfElement *Child){
             }
             this->Sets[this->NumberOfSets - 1] = ChildSet;
             }
-	if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Information")){
+        if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Information")){
             XdmfInformation *ChildInfo = (XdmfInformation *)Child;
             this->NumberOfInformations++;
             this->Informations = ( XdmfInformation **)realloc( this->Informations,
@@ -581,7 +581,7 @@ this->NumberOfSets = this->DOM->FindNumberOfElements("Set", this->Element );
 if( this->NumberOfSets > 0 ){
   XdmfInt32  Index;
   XdmfSet  *iSet;
-  XdmfXmlNode    SetElement;
+  XdmfXmlNode    lSetElement;
 
   for ( Index = 0; Index < OldNumberOfSets; Index ++ )
     {
@@ -594,12 +594,12 @@ if( this->NumberOfSets > 0 ){
 
     this->Sets[Index] = iSet;
     if (Index==0) {
-      SetElement = this->DOM->FindElement( "Set", Index, this->Element );
+      lSetElement = this->DOM->FindElement( "Set", Index, this->Element );
     } else {
-      SetElement = this->DOM->FindNextElement( "Set", SetElement);
+      lSetElement = this->DOM->FindNextElement( "Set", lSetElement);
     }
     iSet->SetDOM( this->DOM );    
-    iSet->SetElement( SetElement );
+    iSet->SetElement( lSetElement );
     iSet->UpdateInformation();
     }
 }
