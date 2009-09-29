@@ -50,7 +50,7 @@
 
 //=============================================================================
 vtkStandardNewMacro(vtkFileSeriesReader);
-vtkCxxRevisionMacro(vtkFileSeriesReader, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkFileSeriesReader, "$Revision: 1.19 $");
 
 vtkCxxSetObjectMacro(vtkFileSeriesReader,Reader,vtkAlgorithm);
 
@@ -761,6 +761,8 @@ void vtkFileSeriesReader::UpdateMetaData()
       {
       this->AddFileName(dataFiles->GetValue(i).c_str());
       }
+
+    this->MetaFileReadTime.Modified();
     }
 }
 
