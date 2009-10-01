@@ -59,7 +59,7 @@
 #include <vtkstd/string>
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.97 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.98 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 vtkCxxSetObjectMacro(vtkPVGeometryFilter, Controller, vtkMultiProcessController);
@@ -379,7 +379,7 @@ vtkCompositeDataSet* vtkPVGeometryFilter::FillPartialArrays(
 
 //----------------------------------------------------------------------------
 int vtkPVGeometryFilter::RequestInformation(
-  vtkInformation*, vtkInformationVector** inVectors, vtkInformationVector* outputVector)
+  vtkInformation*, vtkInformationVector** vtkNotUsed(inVectors), vtkInformationVector* outputVector)
 {
   vtkInformation* outInfo = outputVector->GetInformationObject(0);
 
