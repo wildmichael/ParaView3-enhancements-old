@@ -2,13 +2,13 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfSTLConverter.txx,v 1.3 2009-10-07 19:52:35 kwleiter Exp $  */
-/*  Date : $Date: 2009-10-07 19:52:35 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfSTLConverter.txx,v 1.4 2009-10-07 19:58:01 kwleiter Exp $  */
+/*  Date : $Date: 2009-10-07 19:58:01 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter
-/*     kleiter@arl.army.mil                                         */
+/*     kenneth.leiter@arl.army.mil                                         */
 /*     US Army Research Laboratory                                 */
 /*     Aberdeen Proving Ground, MD                                 */
 /*                                                                 */
