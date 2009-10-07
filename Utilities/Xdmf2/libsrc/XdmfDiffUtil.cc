@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiffUtil.cc,v 1.4 2009-08-24 14:02:25 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-24 14:02:25 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDiffUtil.cc,v 1.5 2009-10-07 19:56:34 kwleiter Exp $  */
+/*  Date : $Date: 2009-10-07 19:56:34 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -119,7 +119,8 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	std::string output = diffFramework->GetDiffsAsString();
+	//diffFramework->SetCreateDiffFile(true);
+	std::string output = diffFramework->GetDiffs();
 	cout << output << endl;
 	delete diffFramework;
 	return 0;
