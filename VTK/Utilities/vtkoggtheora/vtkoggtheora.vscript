@@ -1,4 +1,4 @@
-VER_1.0alpha2 {
+VER_1.0 {
   global:
     vtk_oggtheora_ogg_stream_clear;
     vtk_oggtheora_ogg_stream_flush;
