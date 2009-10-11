@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.18 2009-08-05 20:28:39 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:28:39 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.20 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -37,11 +37,13 @@ XdmfAttribute::XdmfAttribute() {
   this->ShapeDesc = new XdmfDataDesc();
   this->Active = 0;
   this->LightDataLimit = 100;
+  this->Units = NULL;    // Ian Curington, HR Wallingford Ltd.
   }
 
 XdmfAttribute::~XdmfAttribute() {
   if( this->ValuesAreMine && this->Values )  delete this->Values;
   delete this->ShapeDesc;
+  if(this->Units) delete [] this->Units;  // Ian Curington, HR Wallingford Ltd.
 }
 
 XdmfInt32
@@ -83,6 +85,10 @@ XdmfDataItem * XdmfAttribute::GetDataItem(){
 XdmfInt32
 XdmfAttribute::Build(){
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
+    if (this->GetActive())
+      {
+      this->Set("Active", "1");
+      }
     this->Set("AttributeType", this->GetAttributeTypeAsString());
     this->Set("Center", this->GetAttributeCenterAsString());
     if(this->BuildFromDataXml() == XDMF_SUCCESS) return(XDMF_SUCCESS);
@@ -93,6 +99,13 @@ XdmfAttribute::Build(){
         di->Build();
 
     }
+// PATCH September 09, Ian Curington, HR Wallingford Ltd.
+	if(this->Units)
+	{
+		this->Set("Units", this->GetUnits());
+	}
+// end patch
+
     return(XDMF_SUCCESS);
 }
 
@@ -109,6 +122,8 @@ XdmfAttribute::GetAttributeTypeAsString( void ){
       return("Matrix");
     case XDMF_ATTRIBUTE_TYPE_TENSOR6 :
       return("Tensor6");
+    case XDMF_ATTRIBUTE_TYPE_GLOBALID :
+      return("GlobalId");
     default :
       break;
     }
@@ -138,6 +153,9 @@ if( XDMF_WORD_CMP( attributeType, "Scalar" ) ) {
 } else if( XDMF_WORD_CMP( attributeType, "Tensor6" ) ) {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_TENSOR6;
   Dimensions[0] = 6;
+} else if( XDMF_WORD_CMP( attributeType, "GlobalId" ) ) {
+  this->AttributeType = XDMF_ATTRIBUTE_TYPE_GLOBALID;
+  Dimensions[0] = 1;
 } else {
   XdmfErrorMessage("Unknown Attribute Type " << attributeType );
   return( XDMF_FAIL );
@@ -220,6 +238,16 @@ if( Attribute ){
 } else {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_SCALAR;
 }
+
+// PATCH September 09, Ian Curinton HR Wallingford Ltd.
+Attribute = this->Get( "Units" );
+if( Attribute ){
+  this->SetUnits( Attribute );
+} else {
+  if(this->Units) delete [] this->Units;
+  this->Units = NULL;
+}
+// end patch
 
 Attribute = this->Get( "Active" );
 this->Active = 0;

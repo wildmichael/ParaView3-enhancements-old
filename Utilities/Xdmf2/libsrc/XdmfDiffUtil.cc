@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDiffUtil.cc,v 1.3 2009-08-21 20:21:51 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-21 20:21:51 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDiffUtil.cc,v 1.5 2009-10-07 19:56:34 kwleiter Exp $  */
+/*  Date : $Date: 2009-10-07 19:56:34 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -41,8 +41,8 @@
  * 			specified in the settingsFile.  All settings options are outlined below:
  *
  * Settings Options:
- *		WITH_RELATIVE_ERROR .15
- *		WITH_ABSOLUTE_ERROR 1
+ *		RELATIVE_ERROR .15
+ *		ABSOLUTE_ERROR 1
  *		INCLUDE_GRID grid1 grid2
  *		IGNORE_GRID grid1 grid2
  *		IGNORE_GEOMETRY
@@ -119,7 +119,8 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	std::string output = diffFramework->GetDiffsAsString();
+	//diffFramework->SetCreateDiffFile(true);
+	std::string output = diffFramework->GetDiffs();
 	cout << output << endl;
 	delete diffFramework;
 	return 0;

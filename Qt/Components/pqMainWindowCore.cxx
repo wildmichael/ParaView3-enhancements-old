@@ -1975,6 +1975,13 @@ void pqMainWindowCore::onFileSaveScreenshot()
   QFileInfo fileInfo = QFileInfo( file );
   this->ScreenshotExtension = QString("*.") + fileInfo.suffix();
 
+  int stereo = ssDialog.getStereoMode();
+  QList<pqView*> views;
+  if (stereo)
+    {
+    pqRenderViewBase::setStereo(stereo);
+    }
+
   if (ssDialog.saveAllViews())
     {
     img.TakeReference(this->multiViewManager().captureImage( 
@@ -1992,6 +1999,12 @@ void pqMainWindowCore::onFileSaveScreenshot()
   else
     {
     pqImageUtil::saveImage(img, file, ssDialog.quality());
+    }
+
+  if (stereo)
+    {
+    pqRenderViewBase::setStereo(0);
+    core->render();
     }
 
   // restore palette.
@@ -3490,6 +3503,20 @@ void pqMainWindowCore::resetCenterOfRotationToCenterOfCurrentData()
     rm->setCenterOfRotation(center);
     rm->render();
     }
+}
+
+//-----------------------------------------------------------------------------
+void pqMainWindowCore::setOrientationAxesVisibility(bool visible)
+{
+  pqRenderView* rm = qobject_cast<pqRenderView*>(
+    pqActiveView::instance().current());
+  if (!rm)
+    {
+    qDebug() << "No active render module. setOrientationAxesVisibility failed.";
+    return;
+    }
+  rm->setOrientationAxesVisibility(visible);
+  rm->render();
 }
 
 //-----------------------------------------------------------------------------

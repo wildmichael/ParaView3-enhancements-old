@@ -1,16 +1,14 @@
-/*=========================================================================
+/*============================================================================
+  KWSys - Kitware System Library
+  Copyright 2000-2009 Kitware, Inc., Insight Software Consortium
 
-  Program:   KWSys - Kitware System Library
-  Module:    $RCSfile: Glob.cxx,v $
+  Distributed under the OSI-approved BSD License (the "License");
+  see accompanying file Copyright.txt for details.
 
-  Copyright (c) Kitware, Inc., Insight Consortium.  All rights reserved.
-  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
-
-     This software is distributed WITHOUT ANY WARRANTY; without even
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-     PURPOSE.  See the above copyright notices for more information.
-
-=========================================================================*/
+  This software is distributed WITHOUT ANY WARRANTY; without even the
+  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the License for more information.
+============================================================================*/
 #include "kwsysPrivate.h"
 #include KWSYS_HEADER(Glob.hxx)
 
@@ -84,7 +82,8 @@ kwsys_stl::vector<kwsys_stl::string>& Glob::GetFiles()
 
 //----------------------------------------------------------------------------
 kwsys_stl::string Glob::PatternToRegex(const kwsys_stl::string& pattern,
-                                       bool require_whole_string)
+                                       bool require_whole_string,
+                                       bool preserve_case)
 {
   // Incrementally build the regular expression from the pattern.
   kwsys_stl::string regex = require_whole_string? "^" : "";
@@ -195,10 +194,13 @@ kwsys_stl::string Glob::PatternToRegex(const kwsys_stl::string& pattern,
         {
         // On case-insensitive systems file names are converted to lower
         // case before matching.
-        ch = tolower(ch);
+        if(!preserve_case)
+          {
+          ch = tolower(ch);
+          }
         }
 #endif
-
+      (void)preserve_case;
       // Store the character.
       regex.append(1, static_cast<char>(ch));
       }

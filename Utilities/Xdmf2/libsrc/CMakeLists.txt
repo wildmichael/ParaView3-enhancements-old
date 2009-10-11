@@ -29,6 +29,7 @@ SET( XdmfFormatSource
   XdmfValues
   XdmfValuesXML
   XdmfValuesHDF
+  XdmfValuesBinary
   XdmfHeavyData
   XdmfHDF
   XdmfHDFSupport
@@ -64,6 +65,65 @@ SET( XdmfModelSource
   XdmfDsmMsg
   )
 
+SET(CSHARP_SOURCES 
+	SWIGTYPE_p_double.cs
+	SWIGTYPE_p_float.cs
+	SWIGTYPE_p_hid_t.cs
+	SWIGTYPE_p_int.cs
+	SWIGTYPE_p_istream.cs
+	SWIGTYPE_p_long_long.cs
+	SWIGTYPE_p_ostream.cs
+	SWIGTYPE_p_p__xmlDoc.cs
+	SWIGTYPE_p_void.cs
+	SWIGTYPE_p__xmlNode.cs
+	XdmfArray.cs
+	XdmfArrayList.cs
+	XdmfAttribute.cs
+	XdmfCSharp.cs
+	XdmfCSharpPINVOKE.cs
+	XdmfDataDesc.cs
+	XdmfDataItem.cs
+	XdmfDataStructure.cs
+	XdmfDomain.cs
+	XdmfDOM.cs
+	XdmfDsmComm.cs
+	XdmfDsmCommMpi.cs
+	XdmfDsm.cs
+	XdmfElement.cs
+	XdmfGeometry.cs
+	XdmfGrid.cs
+	XdmfHDF.cs
+	XdmfHeavyData.cs
+	XdmfInformation.cs
+	XdmfLightData.cs
+	XdmfMap.cs
+	XdmfObject.cs
+	XdmfRegion.cs
+	XdmfRoot.cs
+	XdmfSet.cs
+	XdmfTime.cs
+	XdmfTopology.cs
+	XdmfValues.cs
+	XdmfValuesHDF.cs
+	XdmfValuesXML.cs
+ 	XdmfDsmBuffer.cs
+	XdmfDsmMsg.cs
+	XdmfOpenCallback.cs
+	XdmfCloseCallback.cs
+	XdmfReadCallback.cs
+	XdmfWriteCallback.cs 
+	)
+
+SET( XdmfGzipSource
+  gzstream
+   )
+
+IF(XDMF_BUILD_VTK)
+  IF(NOT VTK_USE_SYSTEM_ZLIB)
+    ADD_DEFINITIONS(-DXDMF_USE_VTK_ZLIB)
+  ENDIF(NOT VTK_USE_SYSTEM_ZLIB)
+ENDIF(XDMF_BUILD_VTK)
+
 # IF(XDMF_BUILD_MPI)
 #     SET(XdmfModelSource ${XdmfModelSource} XdmfH5Driver)
 # ENDIF(XDMF_BUILD_MPI) 
@@ -88,6 +148,19 @@ SET( XdmfMySQLSource
 SET( XdmfPythonSource
   XdmfPython
   )
+
+SET( XdmfPythonSourceNoMpi
+  XdmfPythonNoMpi
+  )
+
+OPTION(XDMF_BUILD_UTILS "Build Xdmf Utilities" OFF)
+IF(XDMF_BUILD_UTILS)
+   SET(swig_extra_args ${swig_extra_args} "-DXDMF_BUILD_UTILS")
+   ADD_LIBRARY(XdmfUtils ${LIBTYPE} ${XdmfUtilSource})
+   TARGET_LINK_LIBRARIES(XdmfUtils Xdmf)
+   ADD_EXECUTABLE(XdmfDiff XdmfDiffUtil)
+   TARGET_LINK_LIBRARIES(XdmfDiff XdmfUtils)
+ENDIF(XDMF_BUILD_UTILS)
 
 SET(XDMF_PYTHON_FILE ${Xdmf_SOURCE_DIR}/libsrc/Xdmf.py)
 OPTION(XDMF_REGENERATE_WRAPPERS
@@ -121,14 +194,16 @@ IF(XDMF_REGENERATE_WRAPPERS)
     ENDIF(EXISTS "${SWIG_LIB_PATH}")
     FOREACH(LANGUAGE Python)
       STRING(TOLOWER ${LANGUAGE} lang)
-      SET(swigtarget ${Xdmf_BINARY_DIR}/libsrc/Xdmf${LANGUAGE}.cxx)
+#      SET(swigtarget ${Xdmf_BINARY_DIR}/libsrc/Xdmf${LANGUAGE}.cxx)
       IF(XDMF_BUILD_MPI)
+        SET(swigtarget ${Xdmf_BINARY_DIR}/libsrc/Xdmf${LANGUAGE}.cxx)
         ADD_CUSTOM_COMMAND(
          OUTPUT ${swigtarget}
          DEPENDS ${Xdmf_SOURCE_DIR}/libsrc/Xdmf.i
          COMMAND ${SWIG_EXECUTABLE}
          ARGS -v -c++ -make_default -includeall "-${lang}" ${swig_extra_args} ${XDMF_SWIG_INCLUDES} -o "${swigtarget}" Xdmf.i)
       ELSE(XDMF_BUILD_MPI) 
+        SET(swigtarget ${Xdmf_BINARY_DIR}/libsrc/Xdmf${LANGUAGE}NoMpi.cxx)
         ADD_CUSTOM_COMMAND(
          OUTPUT ${swigtarget}
          DEPENDS ${Xdmf_SOURCE_DIR}/libsrc/Xdmf.i
@@ -324,6 +399,21 @@ IF(XDMF_USE_MYSQL)
     ADD_DEFINITIONS("-DXDMF_USE_MYSQL")
     INCLUDE_DIRECTORIES(${MYSQL_INCLUDE_PATH})
 ENDIF(XDMF_USE_MYSQL)
+# gzip
+OPTION(XDMF_USE_GZIP "Build GZip Compression" OFF)
+IF(XDMF_USE_GZIP)
+SET(XdmfSources ${XdmfSources} ${XdmfGzipSource})
+    ADD_DEFINITIONS("-DXDMF_USE_GZIP")
+ENDIF(XDMF_USE_GZIP)
+# bz2lib
+OPTION(XDMF_USE_BZIP2 "Use bzip2" OFF)
+IF(XDMF_USE_BZIP2)
+  FIND_PACKAGE(BZip2)
+  SET(XDMF_BZIP2_LIBRARIES ${BZIP2_LIBRARIES})
+  SET(XDMF_BZIP2_INCLUDE_DIR ${BZIP2_INCLUDE_DIR})
+  INCLUDE_DIRECTORIES(${BZIP2_INCLUDE_DIR})
+  ADD_DEFINITIONS("-DXDMF_USE_BZIP2")
+ENDIF(XDMF_USE_BZIP2)
 
 OPTION(XDMF_USE_STLCONVERTER "Build Special STL Converter" OFF)
 MARK_AS_ADVANCED(XDMF_USE_STLCONVERTER)
@@ -365,15 +455,8 @@ TARGET_LINK_LIBRARIES(Xdmf
   ${HDF5_LIBRARY} 
   ${XDMF_MPI_LIBRARIES} 
   ${LIBXML2_LIBRARY} 
-  ${XDMF_ZLIB_LIBRARIES})
-
-OPTION(XDMF_BUILD_UTILS "Build Xdmf Utilities" OFF)
-IF(XDMF_BUILD_UTILS)
-   ADD_LIBRARY(XdmfUtils ${LIBTYPE} ${XdmfUtilSource})
-   TARGET_LINK_LIBRARIES(XdmfUtils Xdmf)
-   ADD_EXECUTABLE(XdmfDiff XdmfDiffUtil)
-   TARGET_LINK_LIBRARIES(XdmfDiff XdmfUtils)
-ENDIF(XDMF_BUILD_UTILS)
+  ${XDMF_ZLIB_LIBRARIES}
+  ${XDMF_BZIP2_LIBRARIES})
 
 OPTION(XDMF_WRAP_PYTHON "Build a Python wrapping interface" OFF)
 SET (temp_VTK_PYTHON FALSE)
@@ -391,8 +474,16 @@ IF(XDMF_WRAP_PYTHON)
     MESSAGE("Python wrapping only works on shared libraries")
   ENDIF(NOT BUILD_SHARED_LIBS)
   INCLUDE_DIRECTORIES(${PYTHON_INCLUDE_PATH})
-  ADD_LIBRARY(_Xdmf MODULE ${XdmfPythonSource})
-  TARGET_LINK_LIBRARIES(_Xdmf Xdmf ${HDF5_LIBRARY} ${XDMF_ZLIB_LIBRARIES})
+  ADD_DEFINITIONS(-DSWIG_TYPE_TABLE=Xdmf)
+  IF(XDMF_BUILD_MPI)
+    ADD_LIBRARY(_Xdmf MODULE ${XdmfPythonSource})
+  ELSE(XDMF_BUILD_MPI)
+    ADD_LIBRARY(_Xdmf MODULE ${XdmfPythonSourceNoMpi})
+  ENDIF(XDMF_BUILD_MPI)
+  TARGET_LINK_LIBRARIES(_Xdmf Xdmf ${HDF5_LIBRARY} ${XDMF_ZLIB_LIBRARIES} ${XDMF_BZIP2_LIBRARIES})
+  IF(XDMF_BUILD_UTILS)
+  TARGET_LINK_LIBRARIES(_Xdmf XdmfUtils)
+  ENDIF(XDMF_BUILD_UTILS)
   IF(WIN32 OR APPLE)
     TARGET_LINK_LIBRARIES(_Xdmf ${PYTHON_LIBRARY})
   ENDIF(WIN32 OR APPLE)
@@ -410,6 +501,66 @@ IF(XDMF_WRAP_PYTHON)
         COMPONENT Runtime
         )
 ENDIF(XDMF_WRAP_PYTHON)
+
+OPTION(XDMF_WRAP_CSHARP "Build a C# wrapping interface" OFF)
+IF(XDMF_WRAP_CSHARP)
+  IF(NOT BUILD_SHARED_LIBS)
+    MESSAGE("C# wrapping only works on shared libraries")
+  ENDIF(NOT BUILD_SHARED_LIBS)
+
+  FIND_PROGRAM(SWIG_EXECUTABLE 
+    NAMES swig-1.3 swig
+    PATHS /usr/bin
+    DOC "Swig executable for generating wrapped files")
+  MARK_AS_ADVANCED(SWIG_EXECUTABLE)
+  SET(SWIG_WRAPPER_CXX ${Xdmf_BINARY_DIR}/libsrc/XdmfCSharp.cxx)
+  IF(SWIG_EXECUTABLE)
+    SET(XDMF_SWIG_INCLUDES 
+      -I${Xdmf_SOURCE_DIR} 
+      -I${Xdmf_SOURCE_DIR}/libsrc 
+      -I${Xdmf_BINARY_DIR}/libsrc 
+      -I${Xdmf_SOURCE_DIR}/Ice/libsrc
+      -I${Xdmf_BINARY_DIR}/Ice/libsrc
+      )
+    GET_FILENAME_COMPONENT(SWIG_EXE_PATH ${SWIG_EXECUTABLE}
+      PATH)
+    SET(SWIG_LIB_PATH "${SWIG_EXE_PATH}/Lib")
+    IF(EXISTS "${SWIG_LIB_PATH}")
+      SET(XDMF_SWIG_INCLUDES
+        ${XDMF_SWIG_INCLUDES}
+        -I${SWIG_LIB_PATH}
+        )
+    ENDIF(EXISTS "${SWIG_LIB_PATH}")
+	IF(XDMF_BUILD_MPI)
+	  ADD_CUSTOM_COMMAND(
+	   OUTPUT ${SWIG_WRAPPER_CXX}
+	   DEPENDS ${Xdmf_SOURCE_DIR}/libsrc/Xdmf.i
+	   COMMAND ${SWIG_EXECUTABLE}
+	   ARGS -module XdmfCSharp -namespace Xdmf  -v -c++ -make_default -includeall "-csharp" ${swig_extra_args} ${XDMF_SWIG_INCLUDES} -o "${SWIG_WRAPPER_CXX}"  Xdmf.i)
+	ELSE(XDMF_BUILD_MPI) 
+	  ADD_CUSTOM_COMMAND(
+	   OUTPUT ${SWIG_WRAPPER_CXX}
+	   DEPENDS ${Xdmf_SOURCE_DIR}/libsrc/Xdmf.i
+	   COMMAND ${SWIG_EXECUTABLE}
+	   ARGS -module XdmfCSharp -namespace Xdmf   -v -c++ -DXDMF_NO_MPI -make_default -includeall "-csharp" ${swig_extra_args} ${XDMF_SWIG_INCLUDES} -o "${SWIG_WRAPPER_CXX}" Xdmf.i)
+	ENDIF(XDMF_BUILD_MPI) 
+	
+    ADD_CUSTOM_TARGET(RerunSwigCSharp DEPENDS 
+      ${SWIG_WRAPPER_CXX}
+      )
+
+  ELSE(SWIG_EXECUTABLE)
+    MESSAGE("Wrappers generation is disabled, because SWIG executable is not found")
+  ENDIF(SWIG_EXECUTABLE)
+
+  ADD_LIBRARY(XdmfCSharp SHARED ${SWIG_WRAPPER_CXX})
+  TARGET_LINK_LIBRARIES(XdmfCSharp Xdmf ${HDF5_LIBRARY} ${XDMF_ZLIB_LIBRARIES})
+  ADD_CUSTOM_COMMAND (TARGET XdmfCSharp
+										  POST_BUILD
+										 COMMAND csc -target:library -out:../bin/XmdfCSharpBindings.dll ${CSHARP_SOURCES}
+										 WORKING_DIRECTORY ${XDMF_INSTALL_DIR})
+  ADD_DEPENDENCIES(XdmfCSharp Xdmf)
+ENDIF(XDMF_WRAP_CSHARP)
 
 IF(XDMF_BUILD_TESTING)
   SUBDIRS(Testing)
@@ -436,13 +587,13 @@ IF(NOT XDMF_INSTALL_NO_LIBRARIES)
     INSTALL(
         TARGETS _Xdmf
         DESTINATION
-	${XDMF_WRAP_PYTHON_INSTALL_LIB_DIR})
+        ${XDMF_WRAP_PYTHON_INSTALL_LIB_DIR})
   ENDIF(XDMF_WRAP_PYTHON)
   IF(XDMF_BUILD_UTILS)
   INSTALL(TARGETS XdmfDiff XdmfUtils
     RUNTIME DESTINATION ${XDMF_INSTALL_BIN_DIR_CM24} COMPONENT Runtime
     LIBRARY DESTINATION ${XDMF_INSTALL_LIB_DIR_CM24} COMPONENT Runtime
-    ARCHIVE DESTINATION ${XDMF_INSTALL_LIB_DIR_CM24} COMPONENT Developmeint)
+    ARCHIVE DESTINATION ${XDMF_INSTALL_LIB_DIR_CM24} COMPONENT Development)
   ENDIF(XDMF_BUILD_UTILS)
 ENDIF(NOT XDMF_INSTALL_NO_LIBRARIES)
 

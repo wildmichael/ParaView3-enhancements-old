@@ -58,6 +58,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "pqOutputPort.h"
 #include "pqPipelineSource.h"
 #include "pqServer.h"
+#include "pqServerManagerModel.h"
 #include "pqSettings.h"
 #include "pqSMAdaptor.h"
 
@@ -187,7 +188,13 @@ void pqRenderViewBase::setDefaultPropertyValues()
   pqSMAdaptor::setElementProperty(proxy->GetProperty("LODThreshold"), 5);
   pqSMAdaptor::setElementProperty(proxy->GetProperty("RemoteRenderThreshold"), 3);
   pqSMAdaptor::setElementProperty(proxy->GetProperty("TileDisplayCompositeThreshold"), 3);
-  pqSMAdaptor::setElementProperty(proxy->GetProperty("SquirtLevel"), 3);
+
+  // Compressor setting to pull from application wide settings cache.
+  pqSMAdaptor::setElementProperty(proxy->GetProperty("CompressorConfig"),"NULL");
+  // pqSMAdaptor::setElementProperty(proxy->GetProperty("CompressionEnabled"),-1);
+  pqSMAdaptor::setElementProperty(proxy->GetProperty("CompressorConfig"),"vtkSquirtCompressor 0 3");
+  // pqSMAdaptor::setElementProperty(proxy->GetProperty("CompressionEnabled"),1);
+
   // when PV_NO_OFFSCREEN_SCREENSHOTS is set, by default, we disable offscreen
   // screenshots.
   if (getenv("PV_NO_OFFSCREEN_SCREENSHOTS"))
@@ -357,7 +364,8 @@ static const char* pqGlobalRenderViewModuleMiscSettings [] = {
   "RemoteRenderThreshold",
   "TileDisplayCompositeThreshold",
   "ImageReductionFactor",
-  "SquirtLevel",
+  "CompressorConfig",
+  "CompressionEnabled",
   "OrderedCompositing",
   "StillRenderImageReductionFactor",
   "CollectGeometryThreshold",
@@ -694,4 +702,23 @@ bool pqRenderViewBase::saveImage(int width, int height, const QString& filename)
     this->render();
     }
   return (error_code == vtkErrorCode::NoError);
+}
+
+//-----------------------------------------------------------------------------
+void pqRenderViewBase::setStereo(int mode)
+{
+  QList<pqView*> views =
+    pqApplicationCore::instance()->getServerManagerModel()->findItems<pqView*>();
+  foreach (pqView* view, views)
+    {
+    vtkSMProxy* viewProxy = view->getProxy();
+    pqSMAdaptor::setElementProperty(viewProxy->GetProperty("StereoRender"),
+      mode != 0);
+    if (mode)
+      {
+      pqSMAdaptor::setElementProperty(viewProxy->GetProperty("StereoType"),
+        mode);
+      }
+    viewProxy->UpdateVTKObjects();
+    }
 }

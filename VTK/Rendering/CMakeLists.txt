@@ -32,7 +32,7 @@ SET( Kit_SRCS
   vtkActorCollection.cxx
   vtkActor.cxx
   vtkAreaPicker.cxx
-  vtkArrayMap.cxx
+  vtkMapArrayValues.cxx
   vtkAssembly.cxx
   vtkAxisActor2D.cxx
   vtkCamera.cxx
@@ -118,6 +118,7 @@ SET( Kit_SRCS
   vtkPainterDeviceAdapter.cxx
   vtkPainterPolyDataMapper.cxx
   vtkParallelCoordinatesActor.cxx
+  vtkParallelCoordinatesInteractorStyle.cxx
   vtkPicker.cxx
   vtkPixelBufferObject.cxx
   vtkPointPicker.cxx
@@ -155,6 +156,9 @@ SET( Kit_SRCS
   vtkShaderDeviceAdapter.cxx
   vtkShaderProgram.cxx
   vtkStandardPolyDataPainter.cxx
+  vtkTDxInteractorStyle.cxx
+  vtkTDxInteractorStyleCamera.cxx
+  vtkTDxInteractorStyleSettings.cxx
   vtkTesting.cxx
   # vtkTextActor2D.cxx
   vtkTextActor3D.cxx
@@ -279,6 +283,7 @@ SET_SOURCE_FILES_PROPERTIES(
   vtkShader
   vtkShaderDeviceAdapter
   vtkShaderProgram
+  vtkTDxInteractorStyle
   vtkVisibilitySort.cxx
   ABSTRACT
   )
@@ -356,10 +361,7 @@ IF(VTK_USE_QT)
 
   SET( Kit_SRCS ${Kit_SRCS}
     vtkQImageToImageSource.cxx
-    vtkQtLabelMapper.cxx
     vtkQtLabelRenderStrategy.cxx
-    vtkQtLabelSizeCalculator.cxx
-    vtkQtLabelSurface.cxx
     vtkQtTreeRingLabelMapper.cxx
     )
   # On the Mac, make the QT_LIBRARIES KIT_INTERFACE_LIBRARIES. This is a
@@ -663,8 +665,11 @@ IF (VTK_WRAP_TCL AND VTK_USE_TK)
   # Use special interactor for X and Tk.
   IF(VTK_USE_X)
     SET(KitTCL_SRCS ${KitTCL_SRCS} vtkXRenderWindowTclInteractor.cxx)
+    SET(KIT_TCL_LIBS ${KIT_TCL_LIBS} ${X11_LIBRARIES})
   ENDIF(VTK_USE_X)
-  SET(KIT_TCL_LIBS ${KIT_TCL_LIBS} ${X11_LIBRARIES})
+  IF(VTK_USE_CARBON)
+    SET(KIT_TCL_LIBS ${KIT_TCL_LIBS} "-framework Carbon")
+  ENDIF(VTK_USE_CARBON)
   SET(Kit_TCL_EXTRA_CMDS 
     vtkTkRenderWidget 
     vtkTkImageViewerWidget)
@@ -700,15 +705,17 @@ IF (VTK_WRAP_PYTHON AND VTK_USE_TK AND TK_FOUND)
     )
   ADD_LIBRARY(vtkRenderingPythonTkWidgets SHARED
               ${RenderingPythonTkWidgets_SRCS})
+  SET(VTK_PYTHONTK_LIBRARIES ${VTK_TK_LIBRARIES})
+  IF(VTK_USE_X)
+    SET(VTK_PYTHONTK_LIBRARIES ${VTK_PYTHONTK_LIBRARIES} ${X11_LIBRARIES})
+  ENDIF(VTK_USE_X)
+  IF(VTK_USE_CARBON)
+    SET(VTK_PYTHONTK_LIBRARIES ${VTK_PYTHONTK_LIBRARIES} "-framework Carbon")
+  ENDIF(VTK_USE_CARBON)
+ 
   TARGET_LINK_LIBRARIES (vtkRenderingPythonTkWidgets
                         vtk${KIT}
-                        ${VTK_TK_LIBRARIES})
-  IF(VTK_USE_CARBON)
-    #  "_GetWindowFromPort", referenced from:
-    # vtkTkRenderWidget_MakeRenderWindow(vtkTkRenderWidget*)      in vtkTkRenderWidgetPython.cxx.o
-    # vtkTkImageViewerWidget_MakeImageViewer(vtkTkImageViewerWidget*)      in vtkTkImageViewerWidgetPython.cxx.o
-    TARGET_LINK_LIBRARIES (vtkRenderingPythonTkWidgets "-framework Carbon")
-  ENDIF(VTK_USE_CARBON)
+                        ${VTK_PYTHONTK_LIBRARIES})
 
   # Apply user-defined properties to the library target.
   IF(VTK_LIBRARY_PROPERTIES)
@@ -763,11 +770,12 @@ IF(VTK_USE_X)
 ENDIF(VTK_USE_X)
 
 IF(NOT VTK_INSTALL_NO_DEVELOPMENT)
-  INSTALL(FILES
+  SET(__inst_files
     ${VTK_SOURCE_DIR}/${KIT}/Testing/Cxx/vtkRegressionTestImage.h
+    ${VTK_BINARY_DIR}/Rendering/vtkTDxConfigure.h)
+  INSTALL(FILES ${__inst_files}
     DESTINATION ${VTK_INSTALL_INCLUDE_DIR_CM24}
-    COMPONENT Development
-    )
+    COMPONENT Development)
 ENDIF(NOT VTK_INSTALL_NO_DEVELOPMENT)
 
 IF(NOT CMAKE_CROSSCOMPILING)

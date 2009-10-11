@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmCommMpi.h,v 1.4 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDsmCommMpi.h,v 1.5 2009-09-07 14:46:08 biddisco Exp $  */
+/*  Date : $Date: 2009-09-07 14:46:08 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -60,7 +60,7 @@ public:
     XdmfInt32   Send(XdmfDsmMsg *Msg);
     XdmfInt32   Receive(XdmfDsmMsg *Msg);
     XdmfInt32   Check(XdmfDsmMsg *Msg);
-
+    XdmfInt32   Barrier();
 
 protected:
     MPI_Comm    Comm;

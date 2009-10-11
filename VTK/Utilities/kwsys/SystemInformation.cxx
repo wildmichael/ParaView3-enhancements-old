@@ -1,18 +1,14 @@
-/*=========================================================================
+/*============================================================================
+  KWSys - Kitware System Library
+  Copyright 2000-2009 Kitware, Inc., Insight Software Consortium
 
-  Program:   BatchMake
-  Module:    $RCSfile: SystemInformation.cxx,v $
-  Language:  C++
-  Date:      $Date: 2009-05-20 13:50:20 $
-  Version:   $Revision: 1.45 $
-  Copyright (c) 2005 Insight Consortium. All rights reserved.
-  See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
+  Distributed under the OSI-approved BSD License (the "License");
+  see accompanying file Copyright.txt for details.
 
-
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
-     PURPOSE.  See the above copyright notices for more information.
-=========================================================================*/
+  This software is distributed WITHOUT ANY WARRANTY; without even the
+  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the License for more information.
+============================================================================*/
 #ifdef _WIN32
 # include <winsock.h> // WSADATA, include before sys/types.h
 #endif
@@ -246,6 +242,8 @@ protected:
 
   // For Mac
   bool ParseSysCtl();
+  void CallSwVers();
+  void TrimNewline(kwsys_stl::string&);
   kwsys_stl::string ExtractValueFromSysCtl(const char* word);
   kwsys_stl::string SysCtlBuffer;
 
@@ -3010,13 +3008,13 @@ kwsys_stl::string SystemInformationImplementation::ParseValueFromKStat(const cha
     if(buffer[i] == ' ' || buffer[i] == '\t')
       {
       break;
-      }   
+      }
     if(buffer[i] != '\n' && buffer[i] != '\r')
       {
       kwsys_stl::string val = value;
       value = buffer[i];
       value += val;
-      }          
+      }
     }
   return value;
 }
@@ -3360,6 +3358,12 @@ bool SystemInformationImplementation::QueryOSInformation()
     WSACleanup( );
     }
   this->Hostname = name;
+  
+  const char* arch = getenv("PROCESSOR_ARCHITECTURE");
+  if(arch)
+    {
+    this->OSPlatform = arch;
+    }
 
 #else
 
@@ -3373,10 +3377,62 @@ bool SystemInformationImplementation::QueryOSInformation()
     this->OSVersion = unameInfo.version;
     this->OSPlatform = unameInfo.machine;
     }
+#ifdef __APPLE__
+  this->CallSwVers();
+#endif
 #endif
 
   return true;
 
+}
+
+void SystemInformationImplementation::CallSwVers()
+{
+#ifdef __APPLE__
+  kwsys_stl::string output;
+  kwsys_stl::vector<const char*> args;
+  args.clear();
+  
+  args.push_back("sw_vers");
+  args.push_back("-productName");
+  args.push_back(0);
+  output = this->RunProcess(args);
+  this->TrimNewline(output);
+  this->OSName = output;
+  args.clear();
+
+  args.push_back("sw_vers");
+  args.push_back("-productVersion");
+  args.push_back(0);
+  output = this->RunProcess(args);
+  this->TrimNewline(output);
+  this->OSRelease = output;
+  args.clear();
+
+  args.push_back("sw_vers");
+  args.push_back("-buildVersion");
+  args.push_back(0);
+  output = this->RunProcess(args);
+  this->TrimNewline(output);
+  this->OSVersion = output;
+#endif
+}
+
+void SystemInformationImplementation::TrimNewline(kwsys_stl::string& output)
+{  
+  // remove \r
+  kwsys_stl::string::size_type pos=0;
+  while((pos = output.find("\r", pos)) != kwsys_stl::string::npos)
+    {
+    output.erase(pos);
+    }
+
+  // remove \n
+  pos = 0;
+  while((pos = output.find("\n", pos)) != kwsys_stl::string::npos)
+    {
+    output.erase(pos);
+    }
 }
 
 /** Return true if the machine is 64 bits */

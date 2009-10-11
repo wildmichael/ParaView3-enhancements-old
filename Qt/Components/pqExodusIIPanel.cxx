@@ -269,7 +269,7 @@ void pqExodusIIPanel::linkServerManagerProperties()
   this->propertyManager()->registerLink(
     this->UI->Blocks->model(), "values", SIGNAL(valuesChanged()),
     this->proxy(),
-    this->proxy()->GetProperty("ElementBlockArrayStatus"));
+    this->proxy()->GetProperty("ElementBlocks"));
 
   // parent class hooks up some of our widgets in the ui
   this->Superclass::linkServerManagerProperties();
@@ -285,20 +285,23 @@ void pqExodusIIPanel::linkServerManagerProperties()
   this->addSelectionToTreeWidget("Global Element Ids", "GlobalElementId", this->UI->Variables,
                    PM_ELEMBLK, "GenerateGlobalElementIdArray");
 
+  this->addSelectionToTreeWidget("Implicit Element Ids", "ImplicitElementId", this->UI->Variables,
+                   PM_ELEMBLK, "GenerateImplicitElementIdArray");
+
   // integer array indicating file id (number in file name or position in sequence)
   this->addSelectionToTreeWidget("File Ids", "FileId", this->UI->Variables,
                    PM_ELEMBLK, "GenerateFileIdArray");
   
   // do the cell variables
-  this->addSelectionsToTreeWidget("ElementResultArrayStatus",
+  this->addSelectionsToTreeWidget("ElementVariables",
                                   this->UI->Variables, PM_ELEMBLK);
   
   // do the face variables
-  this->addSelectionsToTreeWidget("FaceResultArrayStatus",
+  this->addSelectionsToTreeWidget("FaceVariables",
                                   this->UI->Variables, PM_FACEBLK);
   
   // do the edge variables
-  this->addSelectionsToTreeWidget("EdgeResultArrayStatus",
+  this->addSelectionsToTreeWidget("EdgeVariables",
                                   this->UI->Variables, PM_EDGEBLK);
 
   // do the set results variables
@@ -317,10 +320,13 @@ void pqExodusIIPanel::linkServerManagerProperties()
   this->addSelectionToTreeWidget("Global Node Ids", "GlobalNodeId", this->UI->Variables,
                    PM_NODE, "GenerateGlobalNodeIdArray");
 
+  this->addSelectionToTreeWidget("Implicit Node Ids", "ImplicitNodeId", this->UI->Variables,
+                   PM_NODE, "GenerateImplicitNodeIdArray");
+
   int numBef = this->UI->Variables->topLevelItemCount();
   
   // do the node variables
-  this->addSelectionsToTreeWidget("PointResultArrayStatus",
+  this->addSelectionsToTreeWidget("PointVariables",
                                   this->UI->Variables, PM_NODE);
   
   int numAft = this->UI->Variables->topLevelItemCount();
@@ -356,7 +362,7 @@ void pqExodusIIPanel::linkServerManagerProperties()
     }
 
   // do the global variables
-  this->addSelectionsToTreeWidget("GlobalResultArrayStatus",
+  this->addSelectionsToTreeWidget("GlobalVariables",
                                   this->UI->Variables, PM_GLOBAL);
 
   // we hook up the sideset/nodeset 
@@ -364,9 +370,9 @@ void pqExodusIIPanel::linkServerManagerProperties()
 
 
   // blocks
-  this->addSelectionsToTreeWidget("EdgeBlockArrayStatus",
+  this->addSelectionsToTreeWidget("EdgeBlocks",
                                   this->UI->EdgeBlockArrays, PM_EDGEBLK);
-  this->addSelectionsToTreeWidget("FaceBlockArrayStatus",
+  this->addSelectionsToTreeWidget("FaceBlocks",
                                   this->UI->FaceBlockArrays, PM_FACEBLK);
 
   // sets
@@ -408,8 +414,10 @@ void pqExodusIIPanel::linkServerManagerProperties()
                                         this->proxy(),
                                         this->proxy()->
                                         GetProperty("HasModeShapes"));
-  this->UI->ModeSelectSlider->setMaximum(this->UI->TimestepValues.size()-1);
-  this->UI->ModeSelectSlider->setMaximum(this->UI->TimestepValues.size()-1);
+  this->UI->ModeSelectSlider->setMinimum(1);
+  this->UI->ModeSelectSlider->setMaximum(this->UI->TimestepValues.size());
+  this->UI->ModeSelectSpinBox->setMinimum(1);
+  this->UI->ModeSelectSpinBox->setMaximum(this->UI->TimestepValues.size());
   if (this->UI->TimestepValues.size() > 0)
     {
     this->UI->ModeLabel->setText(
@@ -425,8 +433,7 @@ void pqExodusIIPanel::linkServerManagerProperties()
                                         "value",
                                         SIGNAL(valueChanged(int)),
                                         this->proxy(),
-                                        this->proxy()
-                                        ->GetProperty("ModeShape"));
+                                        this->proxy()->GetProperty("ModeShape"));
   QObject::connect(this->UI->HasModeShapes, SIGNAL(toggled(bool)),
                    this->UI->ModeShapeOptions, SLOT(setEnabled(bool)));
   QObject::connect(this->UI->ModeSelectSlider, SIGNAL(sliderMoved(int)),
@@ -501,10 +508,10 @@ QString pqExodusIIPanel::formatDataFor(vtkPVArrayInformation* ai)
 
 void pqExodusIIPanel::modeChanged(int value)
 {
-  if ((value >= 0) && (value < this->UI->TimestepValues.size()))
+  if ((value > 0) && (value <= this->UI->TimestepValues.size()))
     {
     this->UI->ModeLabel->setText(
-                            QString("%1").arg(this->UI->TimestepValues[value]));
+      QString("%1").arg(this->UI->TimestepValues[value-1]));
     }
 }
 

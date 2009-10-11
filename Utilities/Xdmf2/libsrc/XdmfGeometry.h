@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.10 2009-08-05 20:41:35 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:41:35 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.11 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -104,6 +104,13 @@ XDMF_GEOMETRY_ORIGIN_DXDYDZ : Xorigin, Yorigin, Zorigin, Dx, Dy, Dz
 //! Gets the number of values to be written to Light Data before switching to Heavy Data
   XdmfGetValueMacro(LightDataLimit, XdmfInt32)
 
+// PATCH September 09, Ian Curington, HR Wallingford Ltd.
+//! Get the Units
+    XdmfGetStringMacro(Units);
+//! Set the Units
+    XdmfSetStringMacro(Units);
+// end patch
+
   XdmfString GetGeometryTypeAsString( void );
   XdmfInt32 SetGeometryTypeFromString( XdmfConstString GeometryType );
 
@@ -162,6 +169,7 @@ protected:
   XdmfArray  *VectorX;
   XdmfArray  *VectorY;
   XdmfArray  *VectorZ;
+  XdmfString Units;     // Ian Curington, HR Wallingford Ltd.
 };
 
 extern XDMF_EXPORT XdmfGeometry *GetXdmfGeometryHandle( void *Pointer );

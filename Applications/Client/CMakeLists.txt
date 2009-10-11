@@ -215,6 +215,9 @@ IF(BUILD_TESTING)
           ToolBarPlugin
           ObjectPanelPlugin
           )
+      IF (PARAVIEW_BUILD_PLUGIN_pvblot)
+        SET(PLUGIN_TESTS ${PLUGIN_TESTS} PVBlotTest1)
+      ENDIF (PARAVIEW_BUILD_PLUGIN_pvblot)
 
       FOREACH(test ${PLUGIN_TESTS})
         ADD_TEST(pqClient${test}
@@ -252,6 +255,7 @@ IF(BUILD_TESTING)
 #    ExodusWriter -- ENABLE WHEN WRITER IS ADDED
     ExodusXML
     ExTimeseries
+    ExTimeseries2
     ExtractBlock
     ExtractLevel
     FFTOverTime
@@ -305,6 +309,7 @@ IF(BUILD_TESTING)
     XdmfReadRectilinearGridCollection
     XdmfReadStructuredGrid
     XdmfReadStructuredGridCollection
+    XdmfGridAttributes
   )
 
   # Add image threshold overrides for tests.
@@ -495,7 +500,7 @@ EXECUTE_PROCESS (WORKING_DIRECTORY ${FFMPEG_LIB_DIR_tmp}
   ENDIF(FFMPEG_${fmpglib}_LIBRARY)
 ENDFOREACH(fmpglib)
 
-SET (QTLIBLIST QTCORE QTGUI QTNETWORK QTXML QTTEST QTSQL QTOPENGL QTHELP)
+SET (QTLIBLIST QTCORE QTGUI QTNETWORK QTXML QTTEST QTSQL QTOPENGL QTHELP QTCLUCENE)
 
 IF (VTK_USE_QVTK_QTOPENGL)
   SET (QTLIBLIST ${QTLIBLIST} QTOPENGL)
@@ -542,7 +547,6 @@ IF(Q_WS_MAC)
   SET(OSX_MAKE_STANDALONE_BUNDLE_BASH_SCRIPT "${ParaView_BINARY_DIR}/${PV_EXE_NAME}_OSX_MakeStandAloneBundle.sh")
 
   SET (QT_SQLLITE_PLUGINS_DIR ${QT_PLUGINS_DIR}/sqldrivers)
-  MESSAGE("QT_SQLLITE_PLUGINS_DIR ${QT_SQLLITE_PLUGINS_DIR}")
 
   CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/CompleteBundle.cmake.in"
     "${OSX_MAKE_STANDALONE_BUNDLE_CMAKE_SCRIPT}" @ONLY IMMEDIATE)

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.21 2009-08-05 20:41:34 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:41:34 $ */
-/*  Version : $Revision: 1.21 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.24 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.24 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -46,11 +46,14 @@ XdmfGeometry::XdmfGeometry() {
   this->SetOrigin( 0, 0, 0 );
   this->SetDxDyDz( 0, 0, 0 );
   this->LightDataLimit = 100;
+  this->Units = NULL;       // Ian Curington, HR Wallingford Ltd.
   }
 
-XdmfGeometry::~XdmfGeometry() {
+XdmfGeometry::~XdmfGeometry() 
+{
   if( this->PointsAreMine && this->Points )  delete this->Points;
-  }
+  if(this->Units) delete [] this->Units;    // Ian Curington, HR Wallingford Ltd.
+}
 
 XdmfInt32
 XdmfGeometry::Release()
@@ -95,7 +98,7 @@ XdmfGeometry::Build(){
     XdmfDataItem    *di = NULL;
     XdmfArray       *array;
 
-    cout << "Building Geometry" << endl;
+    //cout << "Building Geometry" << endl;
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     this->Set("GeometryType", this->GetGeometryTypeAsString());
     // Build Children from String , if provided
@@ -170,6 +173,8 @@ XdmfGeometry::Build(){
             array->SetValues(0, this->DxDyDz, 2);
             di->Build();
         break;
+      case XDMF_GEOMETRY_NONE:
+        break;
       default :
         if(this->Points){
             di = this->GetDataItem(0, this->GetElement());
@@ -182,6 +187,14 @@ XdmfGeometry::Build(){
         }
         break;
     }
+
+// PATCH September 09,  Ian Curington, HR Wallingford Ltd.
+	if(this->Units)
+	{
+		this->Set("Units", this->GetUnits());
+	}
+// end patch
+
     return(XDMF_SUCCESS);
 }
 
@@ -280,6 +293,11 @@ if( XDMF_WORD_CMP( geometryType, "VXVY" ) ){
   this->GeometryType = XDMF_GEOMETRY_VXVY;
   return(XDMF_SUCCESS);
   }
+if( XDMF_WORD_CMP( geometryType, "NONE" ) ){
+  this->GeometryType = XDMF_GEOMETRY_NONE;
+  return(XDMF_SUCCESS);
+  }
+
 return( XDMF_FAIL );
 }
 
@@ -309,6 +327,9 @@ switch( this->GeometryType ){
   case XDMF_GEOMETRY_XY :
     strcpy( Value, "XY" );
     break;
+  case XDMF_GEOMETRY_NONE :
+    strcpy( Value, "NONE");
+    break;
   default :
     strcpy( Value, "XYZ" );
     break;
@@ -325,6 +346,17 @@ if( XDMF_WORD_CMP(this->GetElementType(), "Geometry") == 0){
     XdmfErrorMessage("Element type" << this->GetElementType() << " is not of type 'Geometry'");
     return(XDMF_FAIL);
 }
+
+// PATCH September 09, Ian Curington, HR Wallingford Ltd.
+Attribute = this->Get( "Units" );
+if( Attribute ){
+  this->SetUnits( Attribute );
+} else {
+  if(this->Units) delete [] this->Units;
+  this->Units = NULL;
+}
+// end patch
+
 Attribute = this->Get( "GeometryType" );
 if(!Attribute){
     Attribute = this->Get( "Type" );

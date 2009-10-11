@@ -13,6 +13,7 @@
 #include "vtkSMProxy.h"
 #include "pqNamedObjectPanel.h"
 
+class QItemSelection;
 
 
 
@@ -45,7 +46,9 @@ protected:
  // void setupLogScaling();
   void updateXThresholds();
   void setupXThresholds();
-
+  void setupConversions();
+  void updateConversionsLabels();
+ void updateConversions();
   void updateYThresholds();
   void setupYThresholds();
 
@@ -65,6 +68,31 @@ protected slots:
 
   void useXLogScaling(bool);
   void useYLogScaling(bool);
+  void useZLogScaling(bool);
+
+  void onSamplesChanged();
+
+  void onSelectionChanged(const QItemSelection&, const QItemSelection&);
+  void onRangeChanged();
+
+  void onDelete();
+  void onDeleteAll();
+  void onNewValue();
+  void onNewRange();
+  void onSelectAll();
+  void onScientificNotation(bool);
+  void onConversionFileButton();
+  void onConversionTypeChanged(int);
+  void onDensityConversionChanged(const QString & text);
+  void onTemperatureConversionChanged(const QString & text);
+  void onPressureConversionChanged(const QString & text);
+  void onEnergyConversionChanged(const QString & text);
+
+private:
+      bool eventFilter(QObject *object, QEvent *e);
+  bool getRange(double& range_min, double& range_max);
+
+
 
 };
 

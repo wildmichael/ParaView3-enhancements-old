@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.cxx,v 1.5 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDsmComm.cxx,v 1.6 2009-09-07 14:46:07 biddisco Exp $  */
+/*  Date : $Date: 2009-09-07 14:46:07 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -70,3 +70,9 @@ XdmfDsmComm::Send(XdmfDsmMsg *Msg){
     }
     return(XDMF_SUCCESS);
 }
+
+XdmfInt32
+XdmfDsmComm::Barrier(){
+    return(XDMF_SUCCESS);
+}
+

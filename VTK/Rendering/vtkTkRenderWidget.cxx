@@ -28,7 +28,7 @@
 #else
 #include "vtkXOpenGLRenderWindow.h"
 #endif
-#endif 
+#endif
 
 #include <stdlib.h>
 
@@ -662,17 +662,24 @@ extern "C"
 // VTK_USE_CARBON: Do not call SetSize or SetPosition until we're
 // mapped and if we aren't mapped, clear the AGL_BUFFER_RECT.
 #ifdef VTK_USE_CARBON
-  if (Tk_IsMapped(self->TkWin))
-    {
-    TkWindow *winPtr = (TkWindow *)self->TkWin;
-    self->RenderWindow->SetPosition(winPtr->privatePtr->xOff,
-            winPtr->privatePtr->yOff);
-    self->RenderWindow->SetSize(self->Width, self->Height);
-    }
-  else
-    {
-    self->RenderWindow->SetSize(0, 0);
-    }
+        if (Tk_IsMapped(self->TkWin))
+          {
+          int x = Tk_X(self->TkWin);
+          int y = Tk_Y(self->TkWin);
+          for (TkWindow *curPtr = ((TkWindow *)self->TkWin)->parentPtr;
+               (NULL != curPtr) && !(curPtr->flags & TK_TOP_LEVEL);
+               curPtr = curPtr->parentPtr)
+            {
+            x += Tk_X(curPtr);
+            y += Tk_Y(curPtr);
+            }
+          self->RenderWindow->SetPosition(x, y);
+          self->RenderWindow->SetSize(self->Width, self->Height);
+          }
+        else
+          {
+          self->RenderWindow->SetSize(0, 0);
+          }
 #else
         self->RenderWindow->SetPosition(Tk_X(self->TkWin),Tk_Y(self->TkWin));
         self->RenderWindow->SetSize(self->Width, self->Height);
@@ -686,9 +693,16 @@ extern "C"
 // VTK_USE_CARBON: we need to update the current AGL_BUFFER_RECT by
 // calling vtkCarbonRenderWindow::SetSize and vtkCarbonRenderWindow::SetPosition
 #ifdef VTK_USE_CARBON
-      TkWindow *winPtr = (TkWindow *)self->TkWin;
-      self->RenderWindow->SetPosition(winPtr->privatePtr->xOff,
-                                      winPtr->privatePtr->yOff);
+      int x = Tk_X(self->TkWin);
+      int y = Tk_Y(self->TkWin);
+      for (TkWindow *curPtr = ((TkWindow *)self->TkWin)->parentPtr;
+           (NULL != curPtr) && !(curPtr->flags & TK_TOP_LEVEL);
+           curPtr = curPtr->parentPtr)
+        {
+        x += Tk_X(curPtr);
+        y += Tk_Y(curPtr);
+        }
+      self->RenderWindow->SetPosition(x, y);
       self->RenderWindow->SetSize(self->Width, self->Height);
 #endif
       break;
@@ -1149,8 +1163,8 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
         vtkGenericWarningMacro("Could not find the TK_TOP_LEVEL. This is bad.");
         }
       }
-    
-    parentWin = GetWindowFromPort(TkMacOSXGetDrawablePort(
+
+    parentWin = GetWindowFromPort((CGrafPtr)TkMacOSXGetDrawablePort(
                                   Tk_WindowId(winPtr->parentPtr)));
     // Carbon does not have 'sub-windows', so the ParentId is used more
     // as a flag to indicate that the renderwindow is being used as a sub-

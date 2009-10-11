@@ -867,8 +867,9 @@ void vtkQtChartAxis::layoutAxis(const QRectF &area)
       this->Options->getAxisScale() == vtkQtChartAxisOptions::Logarithmic &&
       !this->Internal->Scale.LogAvailable)
     {
-    qWarning() << "Warning: Invalid range for a logarithmic scale."
-               << "Please select a range greater than zero.";
+    qWarning() << "Warning: Invalid range for a logarithmic scale. "
+               << "Please specify a range with minimum value greater than 0 "
+               << "for this axis.";
     }
 
   // Signal the chart layers if the pixel-value map changed.
@@ -1908,9 +1909,21 @@ void vtkQtChartAxis::generateLabels(const QRectF &contents)
 
         // Fill in the data based on the interval.
         rangeMaximum += interval / 2; // Account for round-off error.
-        for( ; value < rangeMaximum; value += interval)
+        if ( minimum.toDouble() != HUGE_VAL &&
+          minimum.toDouble() != -HUGE_VAL &&
+          maximum.toDouble() != HUGE_VAL &&
+          maximum.toDouble() != -HUGE_VAL)
           {
-          this->Model->addLabel(QVariant(value));
+          for( ; value < rangeMaximum; value += interval)
+            {
+            this->Model->addLabel(QVariant(value));
+            }
+          }
+        else
+          {
+          qWarning("Range has infinity. Axes may not show up correctly.");
+          this->Model->addLabel(minimum);
+          this->Model->addLabel(maximum);
           }
         }
       }

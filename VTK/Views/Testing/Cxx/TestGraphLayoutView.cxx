@@ -24,6 +24,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkInteractorEventRecorder.h"
 #include "vtkRegressionTestImage.h"
+#include "vtkRenderedGraphRepresentation.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
@@ -1116,6 +1117,7 @@ int TestGraphLayoutView(int argc, char* argv[])
   
   // Graph layout view
   VTK_CREATE(vtkGraphLayoutView, view);
+  view->DisplayHoverTextOn();
   view->SetLayoutStrategyToCircular();
   view->SetVertexLabelArrayName("name");
   view->VertexLabelVisibilityOn();
@@ -1126,6 +1128,9 @@ int TestGraphLayoutView(int argc, char* argv[])
   view->ColorEdgesOn();
   view->SetEdgeLabelArrayName("edge label");
   view->EdgeLabelVisibilityOn();
+  vtkRenderedGraphRepresentation* rep = vtkRenderedGraphRepresentation::SafeDownCast(view->GetRepresentation());
+  rep->SetVertexHoverArrayName("name");
+  rep->SetEdgeHoverArrayName("edge label");
 
   view->ResetCamera();
 

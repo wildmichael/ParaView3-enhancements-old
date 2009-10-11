@@ -35,6 +35,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "pqApplicationCore.h"
 #include "pqColorScaleToolbar.h"
 #include "pqComboBoxDomain.h"
+#include "pqComboBoxDomain.h"
 #include "pqCubeAxesEditorDialog.h"
 #include "pqDataRepresentation.h"
 #include "pqOutputPort.h"
@@ -245,10 +246,7 @@ public:
     this->GlyphMultiSourceArrayAdaptor = 0;
     this->GlyphOrientationArrayDomain = 0;
     this->GlyphOrientationArrayAdaptor = 0;
-    
-    this->AttributeModeAdaptor = 0;
-    this->InChange = false;
-    this->CompositeIndexAdaptor = 0;
+    this->CompositeTreeAdaptor = 0;
     }
 
   ~pqInternal()
@@ -267,9 +265,7 @@ public:
     delete this->GlyphMultiSourceArrayAdaptor;
     delete this->GlyphOrientationArrayDomain;
     delete this->GlyphOrientationArrayAdaptor;
-    
-    delete this->AttributeModeAdaptor;
-    delete this->CompositeIndexAdaptor;
+    delete this->CompositeTreeAdaptor;
     }
 
   pqPropertyLinks Links;
@@ -281,7 +277,6 @@ public:
   pqSignalAdaptorComboBox* GlyphScalingArrayAdaptor;
   pqSignalAdaptorComboBox* GlyphMultiSourceArrayAdaptor;
   pqSignalAdaptorComboBox* GlyphOrientationArrayAdaptor;
-  pqSignalAdaptorComboBox* AttributeModeAdaptor;
 
   pqComboBoxDecoratedDomain* XAxisArrayDomain;
   pqComboBoxDecoratedDomain* YAxisArrayDomain;
@@ -291,12 +286,10 @@ public:
   pqComboBoxDecoratedDomain* GlyphMultiSourceArrayDomain;
   pqComboBoxDecoratedDomain* GlyphOrientationArrayDomain;
 
-  pqSignalAdaptorCompositeTreeWidget* CompositeIndexAdaptor;
   pqSignalAdaptorCompositeTreeWidget* CompositeTreeAdaptor;
   vtkWeakPointer<vtkSMScatterPlotRepresentationProxy> ScatterPlotRepresentation;
   QPointer<pqScatterPlotRepresentation> Representation;
 
-  bool InChange;
 };
 
 //-----------------------------------------------------------------------------
@@ -557,18 +550,31 @@ void pqScatterPlotDisplayPanel::setDisplay(pqRepresentation* disp)
     proxy, proxy->GetProperty("GlyphOrientationArrayName"));
   
   // setup for ThreeDMode
-   this->Internal->Links.addPropertyLink(
-     this->Internal->ZCoordsCheckBox, "checked", SIGNAL(stateChanged(int)),
-     proxy, proxy->GetProperty("ThreeDMode"));
-
+  this->Internal->Links.addPropertyLink(
+    this->Internal->ZCoordsCheckBox, "checked", SIGNAL(stateChanged(int)),
+    proxy, proxy->GetProperty("ThreeDMode"));
+  // setup for Colorize
   this->Internal->Links.addPropertyLink(
     this->Internal->ColorCheckBox, "checked", SIGNAL(stateChanged(int)),
     proxy, proxy->GetProperty("Colorize"));
-
+  
   vtkSMProperty* colorizeProperty = proxy->GetProperty("Colorize");
   this->Internal->ColorCheckBox->setChecked(
     pqSMAdaptor::getElementProperty(colorizeProperty).toInt());
 
+  // setup for scale factor
+  if ((prop = proxy->GetProperty("ScaleFactor")) != 0)
+    {
+    this->Internal->Links.addPropertyLink(this->Internal->GlyphScaleFactorSpinBox,
+      "value", SIGNAL(valueChanged(double)),
+      proxy, proxy->GetProperty("ScaleFactor"));
+    this->Internal->GlyphScaleFactorSpinBox->setEnabled(true);
+    }
+  else
+    {
+    this->Internal->GlyphScaleFactorSpinBox->setEnabled(false);
+    }
+  
   vtkSMProperty* glyphModeProperty = proxy->GetProperty("GlyphMode");
 
   int glyphMode = pqSMAdaptor::getElementProperty(glyphModeProperty).toInt();
@@ -584,6 +590,14 @@ void pqScatterPlotDisplayPanel::setDisplay(pqRepresentation* disp)
     this, SLOT(updateAllViews()), Qt::QueuedConnection);
 
   this->update3DMode();
+
+  // The defaults glyphs are used here. As they are 2D glyphs, we force them to
+  // be parallel to the camera at all time.
+  vtkSMIntVectorProperty* parallelProperty = 
+    vtkSMIntVectorProperty::SafeDownCast(
+      this->Internal->ScatterPlotRepresentation->GetProperty("ParallelToCamera"));
+  parallelProperty->SetElement(0, 1);
+  this->Internal->ScatterPlotRepresentation->UpdateProperty("ParallelToCamera");
 }
 
 //-----------------------------------------------------------------------------

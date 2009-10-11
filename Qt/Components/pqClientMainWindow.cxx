@@ -65,6 +65,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <pqViewManager.h>
 #include <pqViewMenu.h>
 #include <pqHelpWindow.h>
+#include <pqCoreTestUtility.h>
 
 
 // Include pqPythonManager when compiled with python support
@@ -752,6 +753,9 @@ void pqClientMainWindow::constructorHelper()
 
   // Set up Center Axes toolbar.
   QObject::connect(
+    this->Implementation->UI.actionShowOrientationAxes, SIGNAL(toggled(bool)),
+    this->Implementation->Core, SLOT(setOrientationAxesVisibility(bool)));
+  QObject::connect(
     this->Implementation->UI.actionShowCenterAxes, SIGNAL(toggled(bool)),
     this->Implementation->Core, SLOT(setCenterAxesVisibility(bool)));
   QObject::connect(
@@ -905,12 +909,25 @@ void pqClientMainWindow::onSettingsModified()
 }
 
 //-----------------------------------------------------------------------------
+QString pqClientMainWindow::getTestDirectory()
+{
+  return pqCoreTestUtility::TestDirectory();
+}
+
+//-----------------------------------------------------------------------------
 void pqClientMainWindow::onShowCenterAxisChanged(bool enabled)
 {
-  this->Implementation->UI.actionShowCenterAxes->setEnabled(enabled);
-  this->Implementation->UI.actionShowCenterAxes->blockSignals(true);
   pqRenderView* renView = qobject_cast<pqRenderView*>(
     pqActiveView::instance().current());
+
+  this->Implementation->UI.actionShowOrientationAxes->setEnabled(enabled);
+  this->Implementation->UI.actionShowOrientationAxes->blockSignals(true);
+  this->Implementation->UI.actionShowOrientationAxes->setChecked(
+    renView? renView->getOrientationAxesVisibility() : false);
+  this->Implementation->UI.actionShowOrientationAxes->blockSignals(false);
+
+  this->Implementation->UI.actionShowCenterAxes->setEnabled(enabled);
+  this->Implementation->UI.actionShowCenterAxes->blockSignals(true);
   this->Implementation->UI.actionShowCenterAxes->setChecked(
     renView ? renView->getCenterAxesVisibility() : false);
   this->Implementation->UI.actionShowCenterAxes->blockSignals(false);

@@ -23,9 +23,72 @@
 #include "vtkInformationVector.h"
 #include "vtkMultiBlockDataSet.h"
 #include "vtkObjectFactory.h"
+#include "vtkXMLParser.h"
+
+//============================================================================
+class vtkXdmfReader2Tester : public vtkXMLParser
+{
+public:
+  vtkTypeMacro(vtkXdmfReader2Tester, vtkXMLParser);
+  static vtkXdmfReader2Tester* New();
+  int TestReadFile()
+    {
+      this->Valid = 0;
+      if(!this->FileName)
+        {
+        return 0;
+        }
+
+      ifstream inFile(this->FileName);
+      if(!inFile)
+        {
+        return 0;
+        }
+
+      this->SetStream(&inFile);
+      this->Done = 0;
+
+      this->Parse();
+
+      if(this->Done && this->Valid )
+        {
+        return 1;
+        }
+      return 0;
+    }
+  void StartElement(const char* name, const char**)
+    {
+      this->Done = 1;
+      if(strcmp(name, "Xdmf") == 0)
+        {
+        this->Valid = 1;
+        }
+    }
+
+protected:
+  vtkXdmfReader2Tester()
+    {
+      this->Valid = 0;
+      this->Done = 0;
+    }
+
+private:
+  void ReportStrayAttribute(const char*, const char*, const char*) {}
+  void ReportMissingAttribute(const char*, const char*) {}
+  void ReportBadAttribute(const char*, const char*, const char*) {}
+  void ReportUnknownElement(const char*) {}
+  void ReportXmlParseError() {}
+
+  int ParsingComplete() { return this->Done; }
+  int Valid;
+  int Done;
+  vtkXdmfReader2Tester(const vtkXdmfReader2Tester&); // Not implemented
+  void operator=(const vtkXdmfReader2Tester&); // Not implemented
+};
+vtkStandardNewMacro(vtkXdmfReader2Tester);
 
 vtkStandardNewMacro(vtkXdmfReader2);
-vtkCxxRevisionMacro(vtkXdmfReader2, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXdmfReader2, "$Revision: 1.9 $");
 //----------------------------------------------------------------------------
 vtkXdmfReader2::vtkXdmfReader2()
 {
@@ -47,8 +110,11 @@ vtkXdmfReader2::~vtkXdmfReader2()
 //----------------------------------------------------------------------------
 int vtkXdmfReader2::CanReadFile(const char* filename)
 {
-  vtkXdmfDocument doc;
-  return doc.Parse(filename)? 1 : 0;
+  vtkXdmfReader2Tester* tester = vtkXdmfReader2Tester::New();
+  tester->SetFileName(filename);
+  int res = tester->TestReadFile();
+  tester->Delete();
+  return res;
 }
 
 //----------------------------------------------------------------------------
@@ -140,7 +206,13 @@ bool vtkXdmfReader2::PrepareDocument()
     {
     this->XdmfDocument->SetActiveDomain(static_cast<int>(0));
     }
-  this->SILUpdateStamp++;
+
+  if (this->XdmfDocument->GetActiveDomain() &&
+    this->XdmfDocument->GetActiveDomain()->GetSIL()->GetMTime() >
+    this->GetMTime())
+    {
+    this->SILUpdateStamp++;
+    }
 
   this->LastTimeIndex = 0; // reset time index when the file changes.
   return (this->XdmfDocument->GetActiveDomain() != 0);
@@ -155,6 +227,12 @@ int vtkXdmfReader2::RequestDataObject(vtkInformationVector *outputVector)
     }
 
   int vtk_type = this->XdmfDocument->GetActiveDomain()->GetVTKDataType();
+  if (this->XdmfDocument->GetActiveDomain()->GetSetsSelection()->
+     GetNumberOfArrays() > 0)
+    {
+    // if the data has any sets, then we are forced to using multiblock.
+    vtk_type = VTK_MULTIBLOCK_DATA_SET;
+    }
 
   vtkDataObject* output = vtkDataObject::GetData(outputVector, 0);
   if (!output || output->GetDataObjectType() != vtk_type)
@@ -191,7 +269,8 @@ int vtkXdmfReader2::RequestInformation(vtkInformation *, vtkInformationVector **
 
   // * If producing structured dataset put information about whole extents etc.
   if (domain->GetNumberOfGrids() == 1 &&
-    domain->IsStructured(domain->GetGrid(0)))
+    domain->IsStructured(domain->GetGrid(0)) &&
+    domain->GetSetsSelection()->GetNumberOfArrays() == 0)
     {
     XdmfGrid* xmfGrid = domain->GetGrid(0);
     // just in the case the top-level grid is a temporal collection, then pick
@@ -231,7 +310,7 @@ int vtkXdmfReader2::RequestInformation(vtkInformation *, vtkInformationVector **
   if (time_steps.size() > 0)
     {
     outInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_STEPS(), 
-      &time_steps[0], time_steps.size());
+      &time_steps[0], static_cast<int>(time_steps.size()));
     double timeRange[2];
     timeRange[0] = time_steps.front();
     timeRange[1] = time_steps.back();
@@ -281,7 +360,7 @@ int vtkXdmfReader2::RequestData(vtkInformation *, vtkInformationVector **,
 
   this->LastTimeIndex = this->ChooseTimeStep(outInfo);
 
-  vtkXdmfHeavyData dataReader(this->XdmfDocument->GetActiveDomain());
+  vtkXdmfHeavyData dataReader(this->XdmfDocument->GetActiveDomain(), this);
   dataReader.Piece = updatePiece;
   dataReader.NumberOfPieces = updateNumPieces;
   dataReader.GhostLevels = ghost_levels;
@@ -335,17 +414,125 @@ int vtkXdmfReader2::ChooseTimeStep(vtkInformation* outInfo)
 }
 
 //----------------------------------------------------------------------------
+int vtkXdmfReader2::GetNumberOfGrids()
+{
+  return
+    this->XdmfDocument->GetActiveDomain()->GetGridSelection()->
+    GetNumberOfArrays();
+}
+
+//----------------------------------------------------------------------------
 void vtkXdmfReader2::SetGridStatus(const char* gridname, int status)
 {
-  if (status)
-    {
-    this->XdmfDocument->GetActiveDomain()->GetGridSelection()->EnableArray(gridname);
-    }
-  else
-    {
-    this->XdmfDocument->GetActiveDomain()->GetGridSelection()->DisableArray(gridname);
-    }
+  this->XdmfDocument->GetActiveDomain()->GetGridSelection()->SetArrayStatus(
+    gridname, status !=0);
   this->Modified();
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetGridStatus(const char* arrayname)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetGridSelection()->
+    GetArraySetting(arrayname);
+}
+
+
+//----------------------------------------------------------------------------
+const char* vtkXdmfReader2::GetGridName(int index)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetGridSelection()->
+    GetArrayName(index);
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetNumberOfPointArrays()
+{
+  return
+    this->XdmfDocument->GetActiveDomain()->GetPointArraySelection()->
+    GetNumberOfArrays();
+}
+
+//----------------------------------------------------------------------------
+void vtkXdmfReader2::SetPointArrayStatus(const char* arrayname, int status)
+{
+  this->XdmfDocument->GetActiveDomain()->GetPointArraySelection()->
+    SetArrayStatus(arrayname, status != 0);
+  this->Modified();
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetPointArrayStatus(const char* arrayname)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetPointArraySelection()->
+    GetArraySetting(arrayname);
+}
+
+
+//----------------------------------------------------------------------------
+const char* vtkXdmfReader2::GetPointArrayName(int index)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetPointArraySelection()->
+    GetArrayName(index);
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetNumberOfCellArrays()
+{
+  return
+    this->XdmfDocument->GetActiveDomain()->GetCellArraySelection()->
+    GetNumberOfArrays();
+}
+
+//----------------------------------------------------------------------------
+void vtkXdmfReader2::SetCellArrayStatus(const char* arrayname, int status)
+{
+  this->XdmfDocument->GetActiveDomain()->GetCellArraySelection()->
+    SetArrayStatus(arrayname, status != 0);
+  this->Modified();
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetCellArrayStatus(const char* arrayname)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetCellArraySelection()->
+    GetArraySetting(arrayname);
+}
+
+//----------------------------------------------------------------------------
+const char* vtkXdmfReader2::GetCellArrayName(int index)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetCellArraySelection()->
+    GetArrayName(index);
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetNumberOfSets()
+{
+  return
+    this->XdmfDocument->GetActiveDomain()->GetSetsSelection()->
+    GetNumberOfArrays();
+}
+
+//----------------------------------------------------------------------------
+void vtkXdmfReader2::SetSetStatus(const char* arrayname, int status)
+{
+  this->XdmfDocument->GetActiveDomain()->GetSetsSelection()->
+    SetArrayStatus(arrayname, status != 0);
+  this->Modified();
+}
+
+//----------------------------------------------------------------------------
+int vtkXdmfReader2::GetSetStatus(const char* arrayname)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetSetsSelection()->
+    GetArraySetting(arrayname);
+}
+
+//----------------------------------------------------------------------------
+const char* vtkXdmfReader2::GetSetName(int index)
+{
+  return this->XdmfDocument->GetActiveDomain()->GetSetsSelection()->
+    GetArrayName(index);
 }
 
 //----------------------------------------------------------------------------

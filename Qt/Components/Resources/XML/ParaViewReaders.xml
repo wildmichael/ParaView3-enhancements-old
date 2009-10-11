@@ -69,7 +69,7 @@
           file_description="Legacy VTK Files (partitioned)">
   </Reader>
   <Reader name="ensight"
-          extensions="case CASE Case"
+          extensions="case CASE Case encas ENCAS Encas EnCas"
           file_description="EnSight Files">
   </Reader>
   <Reader name="ensightMS"
@@ -84,7 +84,7 @@
           extensions="g"
           file_description="BYU Files">
   </Reader>
-  <Reader name="XdmfReader"
+  <Reader name="XdmfReader2"
           extensions="xmf xdmf"
           file_description="Xdmf Reader">
   </Reader>
@@ -167,7 +167,7 @@
           file_description="Phasta Files">
   </Reader>
   <Reader name="SESAMEReader"
-          extensions="sesame"
+          extensions="sesame asc"
           file_description="SESAME">
   </Reader>
 
@@ -219,6 +219,11 @@
   <Reader name="SLACParticleReader"
           extensions="ncdf netcdf"
           file_description="SLAC Particle Files">
+  </Reader>
+
+  <Reader name="ParticleReader"
+          extensions="particles"
+          file_description="VTK Particle Files">
   </Reader>
 
 </ParaViewReaders>

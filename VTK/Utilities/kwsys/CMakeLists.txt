@@ -1,15 +1,13 @@
 #=============================================================================
+# KWSys - Kitware System Library
+# Copyright 2000-2009 Kitware, Inc., Insight Software Consortium
 #
-#  Program:   KWSys - Kitware System Library
-#  Module:    $RCSfile: CMakeLists.txt,v $
+# Distributed under the OSI-approved BSD License (the "License");
+# see accompanying file Copyright.txt for details.
 #
-#  Copyright (c) Kitware, Inc., Insight Consortium.  All rights reserved.
-#  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
-#
-#     This software is distributed WITHOUT ANY WARRANTY; without even
-#     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-#     PURPOSE.  See the above copyright notices for more information.
-#
+# This software is distributed WITHOUT ANY WARRANTY; without even the
+# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the License for more information.
 #=============================================================================
 
 # The Kitware System Library is intended to be included in other
@@ -55,6 +53,8 @@
 #  KWSYS_INSTALL_INCLUDE_DIR   kwsys should be installed by a "make install".
 #                              The values should be specified relative to
 #                              the installation prefix and NOT start with '/'.
+#  KWSYS_INSTALL_DOC_DIR     = The installation target directory for documentation
+#                              such as copyright information.
 #
 #  KWSYS_INSTALL_COMPONENT_NAME_RUNTIME     = Name of runtime and development
 #  KWSYS_INSTALL_COMPONENT_NAME_DEVELOPMENT   installation components.
@@ -139,11 +139,16 @@ IF(COMMAND SET_PROPERTY)
     "KWSYS_HEADER(%)=<${KWSYS_NAMESPACE}/%>"
     )
 ENDIF(COMMAND SET_PROPERTY)
+# add option to disable memory cleanup at exit of putenv memory
+IF(DEFINED KWSYS_DO_NOT_CLEAN_PUTENV)
+  SET(KWSYS_DO_NOT_CLEAN_PUTENV 1)
+ELSE(DEFINED KWSYS_DO_NOT_CLEAN_PUTENV)
+  SET(KWSYS_DO_NOT_CLEAN_PUTENV 0)
+ENDIF(DEFINED KWSYS_DO_NOT_CLEAN_PUTENV)
 
 # Select library components.
 IF(KWSYS_STANDALONE OR CMake_SOURCE_DIR)
   SET(KWSYS_ENABLE_C 1)
-
   # Enable all components.
   SET(KWSYS_USE_Base64 1)
   SET(KWSYS_USE_Directory 1)
@@ -447,6 +452,11 @@ ELSE(KWSYS_IOS_USE_ANSI AND NOT WATCOM)
   KWSYS_PLATFORM_CXX_TEST(KWSYS_STL_STRING_HAVE_ISTREAM
     "Checking whether stl string has istream operator>>" DIRECT)
 ENDIF(KWSYS_IOS_USE_ANSI AND NOT WATCOM)
+SET(KWSYS_PLATFORM_CXX_TEST_DEFINES
+  -DKWSYS_IOS_USE_ANSI=${KWSYS_IOS_USE_ANSI}
+  -DKWSYS_IOS_HAVE_STD=${KWSYS_IOS_HAVE_STD})
+KWSYS_PLATFORM_CXX_TEST(KWSYS_IOS_HAVE_BINARY
+  "Checking whether ios has binary openmode" DIRECT)
 SET(KWSYS_PLATFORM_CXX_TEST_DEFINES)
 
 KWSYS_PLATFORM_CXX_TEST(KWSYS_CXX_HAS_NULL_TEMPLATE_ARGS
@@ -562,6 +572,22 @@ IF(NOT KWSYS_HEADER_ROOT)
 ENDIF(NOT KWSYS_HEADER_ROOT)
 SET(KWSYS_HEADER_DIR "${KWSYS_HEADER_ROOT}/${KWSYS_NAMESPACE}")
 INCLUDE_DIRECTORIES(${KWSYS_HEADER_ROOT})
+
+#-----------------------------------------------------------------------------
+IF(KWSYS_INSTALL_DOC_DIR)
+  # Assign the license to the runtime component since it must be
+  # distributed with binary forms of this software.
+  IF(KWSYS_INSTALL_COMPONENT_NAME_RUNTIME)
+    SET(KWSYS_INSTALL_LICENSE_OPTIONS ${KWSYS_INSTALL_LICENSE_OPTIONS}
+      COMPONENT ${KWSYS_INSTALL_COMPONENT_NAME_RUNTIME}
+      )
+  ENDIF(KWSYS_INSTALL_COMPONENT_NAME_RUNTIME)
+
+  # Install the license under the documentation directory.
+  INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/Copyright.txt
+    DESTINATION ${KWSYS_INSTALL_DOC_DIR}/${KWSYS_NAMESPACE}
+    ${KWSYS_INSTALL_LICENSE_OPTIONS})
+ENDIF(KWSYS_INSTALL_DOC_DIR)
 
 #-----------------------------------------------------------------------------
 # Create STL header wrappers to block warnings in the STL headers and

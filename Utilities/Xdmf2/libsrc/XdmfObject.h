@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.9 2009-01-23 20:31:39 clarke Exp $  */
-/*  Date : $Date: 2009-01-23 20:31:39 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfObject.h,v 1.11 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -291,6 +291,16 @@ need to make sure ....
 //  }
 #endif /* SWIGTCL */
 
+#ifdef SWIGCSHARP
+%echo "Applying Special C# Typemaps .... "
+%typemap(cscode) XdmfObject %{
+  // Ensure that the GC doesn't collect any inserted XdmfElement instance set from C#
+  public void setCMemOwn(bool val) {
+    swigCMemOwn = val;
+  }
+%}
+#endif
+
 #ifdef SWIGPYTHON
 %echo "Applying Python Typemaps ..... "
 %include typemaps.i
@@ -366,7 +376,7 @@ need to make sure ....
   }
 
 #define XDMF_WORD_TRIM( a ) { \
-  int             StringLength; \
+  size_t          StringLength; \
   char            *fp; \
   char            *st; \
   char            *ed; \

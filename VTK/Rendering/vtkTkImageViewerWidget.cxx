@@ -369,13 +369,19 @@ extern "C"
           //Tk_GeometryRequest(self->TkWin,self->Width,self->Height);
           if (self->ImageViewer)
             {
+            int x = Tk_X(self->TkWin);
+            int y = Tk_Y(self->TkWin);
 #ifdef VTK_USE_CARBON
-            TkWindow *winPtr = (TkWindow *)self->TkWin;
-            self->ImageViewer->SetPosition(winPtr->privatePtr->xOff,
-                                           winPtr->privatePtr->yOff);
-#else
-            self->ImageViewer->SetPosition(Tk_X(self->TkWin),Tk_Y(self->TkWin));
+            // need to get position relative to top level window
+            for (TkWindow *curPtr = ((TkWindow *)self->TkWin)->parentPtr;
+                 (NULL != curPtr) && !(curPtr->flags & TK_TOP_LEVEL);
+                 curPtr = curPtr->parentPtr)
+              {
+              x += Tk_X(curPtr);
+              y += Tk_Y(curPtr);
+              }
 #endif
+            self->ImageViewer->SetPosition(x, y);
             self->ImageViewer->SetSize(self->Width, self->Height);
             }
           
@@ -819,7 +825,7 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
           }
         }
 
-      parentWin = GetWindowFromPort(TkMacOSXGetDrawablePort(
+      parentWin = GetWindowFromPort((CGrafPtr)TkMacOSXGetDrawablePort(
                                     Tk_WindowId(winPtr->parentPtr)));
       // Carbon does not have 'sub-windows', so the ParentId is used more
       // as a flag to indicate that the renderwindow is being used as a sub-

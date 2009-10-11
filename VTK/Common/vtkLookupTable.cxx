@@ -18,7 +18,7 @@
 #include "vtkMath.h"
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.108 $");
+vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.110 $");
 vtkStandardNewMacro(vtkLookupTable);
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 

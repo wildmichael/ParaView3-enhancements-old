@@ -101,6 +101,14 @@ public:
   void SetPassThroughPointIds(int);
   vtkGetMacro(PassThroughPointIds,int);
   vtkBooleanMacro(PassThroughPointIds,int);
+  
+  // Description:
+  // If off, which is the default, extracts the surface of the data fed 
+  // into the geometry filter. If on, it produces a bounding box for the 
+  // input to the filter that is producing that data instead.
+  vtkSetMacro(MakeOutlineOfInput,int);
+  vtkGetMacro(MakeOutlineOfInput,int);
+  vtkBooleanMacro(MakeOutlineOfInput,int);
 
 //BTX
 protected:
@@ -172,11 +180,15 @@ protected:
 
   virtual void ReportReferences(vtkGarbageCollector*);
 
+  // Convenience method to purge ghost cells.
+  void RemoveGhostCells(vtkPolyData*);
+
   int PassThroughCellIds;
   int PassThroughPointIds;
   int ForceUseStrips;
   vtkTimeStamp     StripSettingMTime;
   int StripModFirstPass;
+  int MakeOutlineOfInput;
 
 private:
   vtkPVGeometryFilter(const vtkPVGeometryFilter&); // Not implemented

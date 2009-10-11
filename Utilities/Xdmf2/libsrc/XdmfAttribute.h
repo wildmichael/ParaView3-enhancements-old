@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.10 2009-08-05 20:28:39 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:28:39 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.12 2009-09-17 14:12:11 clarke Exp $  */
+/*  Date : $Date: 2009-09-17 14:12:11 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,6 +34,7 @@
 #define XDMF_ATTRIBUTE_TYPE_TENSOR  3
 #define XDMF_ATTRIBUTE_TYPE_MATRIX  4
 #define XDMF_ATTRIBUTE_TYPE_TENSOR6 5
+#define XDMF_ATTRIBUTE_TYPE_GLOBALID 6
 
 // Where Values are Assigned
 #define XDMF_ATTRIBUTE_CENTER_GRID  0
@@ -57,7 +58,7 @@ class XdmfArray;
     \verbatim
     XML Element Name : Attribute
     XML Attribute : Name
-    XML Attribute : AttributeType = Scalar* | Vector | Tensor | Tensor6 | Matrix
+    XML Attribute : AttributeType = Scalar* | Vector | Tensor | Tensor6 | Matrix | GlobalId
     XML Attribute : Center = Node* | Cell | Grid | Face | Edge
 
     Example :
@@ -92,6 +93,8 @@ public:
 //! Gets the number of values to be written to Light Data before switching to Heavy Data
   XdmfGetValueMacro(LightDataLimit, XdmfInt32)
 
+//! Sets if the Attribute is Active
+  XdmfSetValueMacro( Active, XdmfInt32 );
 //! Return the if the Attribute is Active
   XdmfGetValueMacro( Active, XdmfInt32 );
 
@@ -115,6 +118,13 @@ public:
   XdmfSetValueMacro( AttributeCenter, XdmfInt32 );
 //! Returns the Center of the Attribute
   XdmfGetValueMacro( AttributeCenter, XdmfInt32 );
+
+// PATCH September 09, Ian Curington, HR Wallingford Ltd.
+//! Get the Units
+    XdmfGetStringMacro(Units);
+//! Set the Units
+    XdmfSetStringMacro(Units);
+// end patch
 
 //! Returns the Shape of the attribute
   XdmfDataDesc *GetShapeDesc( void ) { return( this->ShapeDesc ); };
@@ -142,6 +152,7 @@ protected:
   XdmfArray  *Values;
   XdmfInt32  Active;
   XdmfInt32  LightDataLimit;
+  XdmfString Units;      // Ian Curington, HR Wallingford Ltd.
 };
 
 #endif // __XdmfAttribute_h

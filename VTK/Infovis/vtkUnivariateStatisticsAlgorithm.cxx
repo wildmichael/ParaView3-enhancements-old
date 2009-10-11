@@ -28,15 +28,16 @@
 #include "vtkTable.h"
 #include "vtkVariantArray.h"
 
-#include <vtkstd/set>
+#include <vtksys/stl/set>
 #include <vtksys/ios/sstream>
 
-vtkCxxRevisionMacro(vtkUnivariateStatisticsAlgorithm, "$Revision: 1.28 $");
+#define VTK_STATISTICS_NUMBER_OF_VARIABLES 1
+
+vtkCxxRevisionMacro(vtkUnivariateStatisticsAlgorithm, "$Revision: 1.31 $");
 
 // ----------------------------------------------------------------------
 vtkUnivariateStatisticsAlgorithm::vtkUnivariateStatisticsAlgorithm()
 {
-  this->NumberOfVariables = 1;
 }
 
 // ----------------------------------------------------------------------
@@ -48,15 +49,21 @@ vtkUnivariateStatisticsAlgorithm::~vtkUnivariateStatisticsAlgorithm()
 void vtkUnivariateStatisticsAlgorithm::PrintSelf( ostream &os, vtkIndent indent )
 {
   this->Superclass::PrintSelf( os, indent );
-  os << indent << "NumberOfVariables: " << this->NumberOfVariables << endl;
 }
 
 // ----------------------------------------------------------------------
 void vtkUnivariateStatisticsAlgorithm::AddColumn( const char* namCol )
 {
-  this->Internals->ResetBuffer();
-  this->SetColumnStatus( namCol, true );
-  this->RequestSelectedColumns();
+  if ( this->Internals->SetBufferColumnStatus( namCol, 1 ) )
+    {
+    this->Modified();
+    }
+}
+
+// ----------------------------------------------------------------------
+int vtkUnivariateStatisticsAlgorithm::RequestSelectedColumns()
+{
+  return this->Internals->AddBufferEntriesToRequests();
 }
 
 // ----------------------------------------------------------------------
@@ -86,10 +93,10 @@ void vtkUnivariateStatisticsAlgorithm::Assess( vtkTable* inData,
   if ( this->AssessParameters )
     {
     nColP = this->AssessParameters->GetNumberOfValues();
-    if ( inMeta->GetNumberOfColumns() - this->NumberOfVariables < nColP )
+    if ( inMeta->GetNumberOfColumns() - VTK_STATISTICS_NUMBER_OF_VARIABLES < nColP )
       {
       vtkWarningMacro( "Parameter table has " 
-                       << inMeta->GetNumberOfColumns() - this->NumberOfVariables
+                       << inMeta->GetNumberOfColumns() - VTK_STATISTICS_NUMBER_OF_VARIABLES
                        << " parameters < "
                        << nColP
                        << " columns. Doing nothing." );
@@ -103,11 +110,11 @@ void vtkUnivariateStatisticsAlgorithm::Assess( vtkTable* inData,
     }
 
   // Loop over requests
-  for ( vtkstd::set<vtkstd::set<vtkStdString> >::iterator rit = this->Internals->Requests.begin(); 
+  for ( vtksys_stl::set<vtksys_stl::set<vtkStdString> >::const_iterator rit = this->Internals->Requests.begin(); 
         rit != this->Internals->Requests.end(); ++ rit )
     {
     // Each request contains only one column of interest (if there are others, they are ignored)
-    vtkstd::set<vtkStdString>::iterator it = rit->begin();
+    vtksys_stl::set<vtkStdString>::const_iterator it = rit->begin();
     vtkStdString varName = *it;
     if ( ! inData->GetColumnByName( varName ) )
       {
@@ -118,7 +125,7 @@ void vtkUnivariateStatisticsAlgorithm::Assess( vtkTable* inData,
       }
 
     vtkStringArray* varNames = vtkStringArray::New();
-    varNames->SetNumberOfValues( this->NumberOfVariables );
+    varNames->SetNumberOfValues( VTK_STATISTICS_NUMBER_OF_VARIABLES );
     varNames->SetValue( 0, varName );
 
     // Store names to be able to use SetValueByName, and create the outData columns

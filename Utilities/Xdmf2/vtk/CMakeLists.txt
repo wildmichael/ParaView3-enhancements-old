@@ -31,9 +31,19 @@ SET( Xdmf_SRCS
   vtkXdmfWriter2.cxx
   vtkXdmfDataArray.cxx
 #vtkXdmfOpenGLCamera.cxx
+  vtkXdmfReader2.cxx
+  vtkXdmfReader2Internal.cxx
+  vtkXdmfHeavyData.cxx
+  vtkSILBuilder.cxx
 #${Xdmf_BINARY_DIR}/vtk/vtkXdmfRenderWindowInteractor.cxx
 #vtkXdmfDataSetWriter.cxx
   )
+SET_SOURCE_FILES_PROPERTIES(
+  vtkXdmfReader2Internal
+  vtkXdmfHeavyData
+  WRAP_EXCLUDE
+)
+
 
 SET(USE_RENDER_WINDOW_INTERACTOR 1)
 IF (OSMESA_LIBRARY AND NOT OPENGL_gl_LIBRARY)

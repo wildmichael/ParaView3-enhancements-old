@@ -55,9 +55,9 @@ def Connect(ds_host=None, ds_port=11111, rs_host=None, rs_port=11111):
 
     return cid
 
-def CreateRenderView():
+def _create_view(view_xml_name):
     "Creates and returns a 3D render view."
-    view = servermanager.CreateRenderView()
+    view = servermanager._create_view(view_xml_name)
     servermanager.ProxyManager().RegisterProxy("views", \
       "my_view%d" % _funcs_internals.view_counter, view)
     active_objects.view = view
@@ -69,6 +69,15 @@ def CreateRenderView():
         views.append(view)
 
     return view
+
+def CreateRenderView():
+    return _create_view("RenderView")
+
+def CreateXYPlotView():
+    return _create_view("XYPlotView")
+
+def CreateBarChartView():
+    return _create_view("BarChart")
 
 def GetRenderView():
     "Returns the active view if there is one. Else creates and returns a new view."
@@ -107,7 +116,7 @@ def Show(proxy=None, view=None, **params):
         proxy = GetActiveSource()
     if proxy == None:
         raise RuntimeError, "Show() needs a proxy argument or that an active source is set."
-    if not view and len(GetRenderViews()) == 0:
+    if not view and not active_objects.view:
         CreateRenderView()
     rep = GetDisplayProperties(proxy, view)
     if rep == None:
@@ -129,8 +138,11 @@ def Render(view=None):
         view = active_objects.view
     view.StillRender()
     if _funcs_internals.first_render:
-        view.ResetCamera()
-        view.StillRender()
+        # Not all views have a ResetCamera method
+        try:
+            view.ResetCamera()
+            view.StillRender()
+        except AttributeError: pass
         _funcs_internals.first_render = False
     return view
         
@@ -262,6 +274,7 @@ def Delete(proxy=None):
                     SetActiveSource(proxy.Input)
                 else:
                     SetActiveSource(proxy.Input[0])
+            else: SetActiveSource(None)
         for rep in GetRepresentations().values():
             if rep.Input == proxy:
                 Delete(rep)
@@ -281,6 +294,15 @@ def CreateLookupTable(**params):
     servermanager.Register(lt)
     SetProperties(lt, **params)
     return lt
+
+def CreatePiecewiseFunction(**params):
+    """Create and return a piecewise function.  Optionally, parameters can be
+    given to assign to the piecewise function.
+    """
+    pfunc = servermanager.piecewise_functions.PiecewiseFunction()
+    servermanager.Register(pfunc)
+    SetProperties(pfunc, **params)
+    return pfunc
 
 def CreateScalarBar(**params):
     """Create and return a scalar bar widget.  The returned widget may
@@ -326,7 +348,7 @@ def _find_writer(filename):
     elif extension == 'bmp':
         return 'vtkBMPWriter'
     elif extension == 'ppm':
-        return vtkPNMWriter
+        return 'vtkPNMWriter'
     elif extension == 'tif' or extension == 'tiff':
         return 'vtkTIFFWriter'
     elif extension == 'jpg' or extension == 'jpeg':

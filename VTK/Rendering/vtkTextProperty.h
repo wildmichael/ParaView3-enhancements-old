@@ -49,15 +49,16 @@ public:
   vtkGetMacro(Opacity,double);
 
   // Description:
-  // Set/Get the font family. Three font types are allowed: Arial (VTK_ARIAL),
-  // Courier (VTK_COURIER), and Times (VTK_TIMES).
-  vtkSetClampMacro(FontFamily,int,VTK_ARIAL,VTK_TIMES);
-  vtkGetMacro(FontFamily, int);
-  void SetFontFamilyToArial()   { this->SetFontFamily(VTK_ARIAL);  };
-  void SetFontFamilyToCourier() { this->SetFontFamily(VTK_COURIER);};
-  void SetFontFamilyToTimes()   { this->SetFontFamily(VTK_TIMES);  };
+  // Set/Get the font family. Supports legacy three font family system.
+  vtkGetStringMacro(FontFamilyAsString);
+  vtkSetStringMacro(FontFamilyAsString);
+  void SetFontFamily(int t);
+  int GetFontFamily();
+  int GetFontFamilyMinValue() { return VTK_ARIAL; };
+  void SetFontFamilyToArial();
+  void SetFontFamilyToCourier();
+  void SetFontFamilyToTimes();
   static int GetFontFamilyFromString( const char *f ); 
-  const char *GetFontFamilyAsString();
   static const char *GetFontFamilyAsString( int f );
 
   // Description:
@@ -141,11 +142,11 @@ public:
 
 protected:
   vtkTextProperty();
-  ~vtkTextProperty() {};
+  ~vtkTextProperty();
 
   double Color[3];
   double Opacity;
-  int   FontFamily;
+  char* FontFamilyAsString;
   int   FontSize;
   int   Bold;
   int   Italic;
@@ -179,6 +180,26 @@ inline const char *vtkTextProperty::GetFontFamilyAsString( int f )
   return "Unknown";
 }
 
+inline void vtkTextProperty::SetFontFamily( int t )
+{
+  this->SetFontFamilyAsString( this->GetFontFamilyAsString( t ) );
+}
+
+inline void vtkTextProperty::SetFontFamilyToArial()
+{
+  this->SetFontFamily(VTK_ARIAL);
+}
+
+inline void vtkTextProperty::SetFontFamilyToCourier()
+{
+  this->SetFontFamily(VTK_COURIER);
+}
+
+inline void vtkTextProperty::SetFontFamilyToTimes()
+{
+  this->SetFontFamily(VTK_TIMES);
+}
+
 inline int vtkTextProperty::GetFontFamilyFromString( const char *f )
 {
   if ( strcmp( f, GetFontFamilyAsString( VTK_ARIAL ) ) == 0 ) 
@@ -196,9 +217,9 @@ inline int vtkTextProperty::GetFontFamilyFromString( const char *f )
   return VTK_UNKNOWN_FONT; 
 }
 
-inline const char *vtkTextProperty::GetFontFamilyAsString(void)
+inline int vtkTextProperty::GetFontFamily()
 {
-  return vtkTextProperty::GetFontFamilyAsString( this->GetFontFamily() );
+  return GetFontFamilyFromString( this->FontFamilyAsString );
 }
 
 inline const char *vtkTextProperty::GetJustificationAsString(void)

@@ -48,7 +48,7 @@
 #include "vtkOggTheoraWriter.h"
 
 vtkStandardNewMacro(vtkSMAnimationSceneImageWriter);
-vtkCxxRevisionMacro(vtkSMAnimationSceneImageWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkSMAnimationSceneImageWriter, "$Revision: 1.14 $");
 vtkCxxSetObjectMacro(vtkSMAnimationSceneImageWriter,
   ImageWriter, vtkImageWriter);
 vtkCxxSetObjectMacro(vtkSMAnimationSceneImageWriter,
@@ -58,7 +58,7 @@ vtkSMAnimationSceneImageWriter::vtkSMAnimationSceneImageWriter()
 {
   this->Magnification = 1;
   this->ErrorCode = 0;
-  this->Quality = 1;
+  this->Quality = 2; // 0 = low, 1 = medium, 2 = high
   this->Subsampling = 0;
   this->ActualSize[0] = this->ActualSize[1] = 0;
 

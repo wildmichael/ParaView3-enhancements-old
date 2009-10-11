@@ -418,6 +418,23 @@
         <BooleanDomain name="bool"/>
       </IntVectorProperty>
 
+      <IntVectorProperty name="StereoType"
+        command="SetStereoType"
+        number_of_elements="1"
+        default_values="2">
+        <EnumerationDomain name="enum">
+          <Entry value="1" text="Crystal Eyes" />
+          <Entry value="2" text="Red-Blue" />
+          <Entry value="3" text="Interlaced" />
+          <Entry value="4" text="Left" />
+          <Entry value="5" text="Right" />
+          <Entry value="6" text="Dresden" />
+          <Entry value="7" text="Anaglyph" />
+          <Entry value="8" text="Checkerboard" />
+        </EnumerationDomain>
+      </IntVectorProperty>
+
+
       <IntVectorProperty
         name="NumberOfLayers"
         command="SetNumberOfLayers"
@@ -1050,15 +1067,19 @@
       <InputProperty
         name="Input"
         command="SetInputConnection"
-        multiple_input="1">
+        multiple_input="1"
+         port_index="0">
         <DataTypeDomain name="input_type">
           <DataType value="vtkDataSet"/>
+          <DataType value="vtkGraph"/>
         </DataTypeDomain>
       </InputProperty>
+
       <InputProperty
-        name="GlyphSource"
-        command="SetGlyphSourceConnection"
-        multiple_input="1">
+        name="GlyphInput"
+        command="SetInputConnection"
+        multiple_input="1"
+         port_index="1">
         <DataTypeDomain name="input_type">
           <DataType value="vtkPolyData"/>
         </DataTypeDomain>
@@ -1249,6 +1270,13 @@
         <BooleanDomain name="bool" />
       </IntVectorProperty>
 
+      <IntVectorProperty name="ParallelToCamera"
+        command="SetParallelToCamera"
+        number_of_elements="1"
+        default_values="0"
+        animateable="0">
+        <BooleanDomain name="bool" />
+      </IntVectorProperty>
       
     </SourceProxy>
 
@@ -2365,6 +2393,15 @@
         <BooleanDomain name="bool" />
       </IntVectorProperty>
       
+      <IntVectorProperty
+         name="ClosedLoopInfo"
+         command="GetClosedLoop"
+         number_of_elements="1"
+         information_only="1"
+         default_values="0">
+        <SimpleIntInformationHelper/>
+      </IntVectorProperty>
+
       <ProxyProperty
         name="PointPlacer"
         command="SetPointPlacer">
@@ -2380,7 +2417,28 @@
           <Group name="contour_line_interpolators" />
         </ProxyGroupDomain>
       </ProxyProperty>
+
+      <DoubleVectorProperty
+        name="NodePositions"
+        command="AddNodeAtWorldPosition"
+        repeat_command="1"
+        number_of_elements_per_command="3">
+      </DoubleVectorProperty>
       
+      <IntVectorProperty
+        name="SelectNodes"
+        command="SetNthNodeSelected"
+        repeat_command="1"
+        number_of_elements_per_command="1">
+      </IntVectorProperty>
+
+      <IntVectorProperty name="ShowSelectedNodes"
+        command="SetShowSelectedNodes"
+        number_of_elements="1"
+        default_values="1">
+        <BooleanDomain name="bool" />
+      </IntVectorProperty>
+
       <Property name="ClearAllNodes" command="ClearAllNodes" />
 
       <!-- End of ContourRepresentationBase -->
@@ -2401,7 +2459,13 @@
         default_values="1.0 1.0 1.0">
         <DoubleRangeDomain name="range" min="0 0 0" max="1 1 1" />
       </DoubleVectorProperty>
-
+      
+      <IntVectorProperty name="AlwaysOnTop"
+        command="SetAlwaysOnTop"
+        number_of_elements="1"
+        default_values="0">
+        <BooleanDomain name="bool" />
+      </IntVectorProperty>      
       <!-- End of OrientedGlyphContourRepresentation -->
     </Proxy>
 
@@ -2892,7 +2956,7 @@
       <DoubleVectorProperty name="PointSize"
         command="SetPointSize"
         number_of_elements="1"
-        default_values="5.0"
+        default_values="2.0"
         animateable="0">
         <DoubleRangeDomain name="range" min="0" />
       </DoubleVectorProperty>
@@ -3239,7 +3303,10 @@
     </Proxy>
   </ProxyGroup>
 
+  
+  
   <ProxyGroup name="composite_managers">
+    <!-- =================================================================== -->
     <Proxy name="DesktopDeliveryClient" class="vtkPVDesktopDeliveryClient">
       <ProxyProperty name="RenderWindow"
                      command="SetRenderWindow">
@@ -3265,12 +3332,7 @@
                          default_values="0">
         <BooleanDomain name="bool" />
       </IntVectorProperty>
-      <IntVectorProperty name="SquirtLevel"
-                         command="SetSquirtLevel"
-                         number_of_elements="1"
-                         default_values="0">
-        <IntRangeDomain name="range" min="0" max="7" />
-      </IntVectorProperty>
+
       <IntVectorProperty name="SyncRenderWindowRenderers"
                          command="SetSyncRenderWindowRenderers"
                          number_of_elements="1"
@@ -3306,15 +3368,37 @@
         </Documentation>
       </IntVectorProperty>
 
+      <IntVectorProperty
+        name="CompressionEnabled"
+        command="SetCompressionEnabled"
+        number_of_elements="1"
+        default_values="1">
+      <IntRangeDomain name="range" min="0" max="1"/>
+      </IntVectorProperty>
+
+      <StringVectorProperty
+        name="CompressorConfig"
+        command="ConfigureCompressor"
+        number_of_elements="1"
+        default_values="vtkSquirtCompressor 0 3"/>
+
+      <IntVectorProperty
+        name="LossLessCompression"
+        command="SetLossLessCompression"
+        number_of_elements="1"
+        default_values="0">
+      <IntRangeDomain name="range" min="0" max="1"/>
+      </IntVectorProperty>
       <!-- End of DesktopDeliveryClient -->
     </Proxy>
 
+    <!-- =================================================================== -->
     <Proxy name="DesktopDeliveryServer" class="vtkPVDesktopDeliveryServer"
            base_proxygroup="composite_managers" 
            base_proxyname="DesktopDeliveryClient">
-      <!-- End of DesktopDeliveryServer -->
     </Proxy>
     
+    <!-- =================================================================== -->
     <Proxy name="IceTRenderManager" class="vtkIceTRenderManager">
       <ProxyProperty name="RenderWindow"
                      command="SetRenderWindow">
@@ -4686,6 +4770,8 @@
         <ExposedProperties>
           <Property name="RenderWindowSize" exposed_name="ViewSize" />
           <Property name="RenderWindowSizeInfo" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
         </ExposedProperties>
       </SubProxy>
 
@@ -4766,6 +4852,8 @@
         </Proxy>
         <ExposedProperties>
           <Property name="RenderWindowSizeInfo" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
         </ExposedProperties>
       </SubProxy>
 
@@ -4803,6 +4891,18 @@
         IceT Render View with compositing and client delivery mechanisms.
       </Documentation>
 
+      <IntVectorProperty
+        name="ViewSize"
+        command="SetViewSize"
+        number_of_elements="2"
+        update_self="1"
+        default_values="400 400">
+        <IntRangeDomain name="range" min="1 1" />
+        <Documentation>
+          Set the view size for this view module.
+        </Documentation>
+      </IntVectorProperty>
+
       <DoubleVectorProperty
         name="RemoteRenderThreshold"
         command="SetRemoteRenderThreshold"
@@ -4828,19 +4928,6 @@
         <Documentation>
           The image reduction factor used for compositing parallel images in
           InteractiveRender. ImageReductionFactor=1 implies no reduction at all.
-        </Documentation>
-      </IntVectorProperty>
-
-      <IntVectorProperty
-        name="SquirtLevel"
-        command="SetSquirtLevel"
-        number_of_elements="1"
-        default_values="0"
-        update_self="1">
-        <IntRangeDomain name="range" min="0" max="7" />
-        <Documentation>
-          Set the level for squirt compression to use when delivering rendered
-          image to the client during interactive rendering.
         </Documentation>
       </IntVectorProperty>
 
@@ -4873,14 +4960,20 @@
         </Proxy>
         <ExposedProperties>
           <Property name="RenderWindowSizeInfo" />
-          <Property name="RenderWindowSize" exposed_name="ViewSize" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
         </ExposedProperties>
       </SubProxy>
-
       <SubProxy>
-        <Proxy name="RenderSyncManager" proxygroup="composite_managers"
+        <Proxy 
+          name="RenderSyncManager" 
+          proxygroup="composite_managers"
           proxyname="DesktopDeliveryClient">
         </Proxy>
+        <ExposedProperties>
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
+        </ExposedProperties>
       </SubProxy>
 
       <SubProxy>
@@ -5011,19 +5104,6 @@
            server.
         </Documentation>
       </DoubleVectorProperty>
-     
-      <IntVectorProperty
-        name="SquirtLevel"
-        command="SetSquirtLevel"
-        number_of_elements="1"
-        default_values="0"
-        update_self="1">
-        <IntRangeDomain name="range" min="0" max="7" />
-        <Documentation>
-          Set the level for squirt compression to use when delivering rendered
-          image to the client during interactive rendering.
-        </Documentation>
-      </IntVectorProperty>
 
       <SubProxy>
         <Proxy name="Renderer" proxyname="Renderer" proxygroup="renderers">
@@ -5041,13 +5121,21 @@
         <ExposedProperties>
           <Property name="RenderWindowSizeInfo" />
           <Property name="RenderWindowSize" exposed_name="ViewSize" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
         </ExposedProperties>
       </SubProxy>
 
-      <SubProxy>
-        <Proxy name="RenderSyncManager" proxygroup="composite_managers"
+     <SubProxy>
+        <Proxy 
+          name="RenderSyncManager" 
+          proxygroup="composite_managers"
           proxyname="DesktopDeliveryClient">
         </Proxy>
+        <ExposedProperties>
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
+        </ExposedProperties>
       </SubProxy>
 
       <!-- End of ClientServerRenderView-->
@@ -5229,6 +5317,8 @@
           <Property name="CenterOfRotation" />
           <!-- Renderer -->
           <Property name="Background" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
           <!-- RenderWindow -->
         </ExposedProperties>
         <!-- End of "RootView" subproxy -->
@@ -5298,11 +5388,15 @@
           <Property name="CenterOfRotation" />
           <!-- Renderer -->
           <Property name="Background" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
           <!-- RenderWindow -->
           <Property name="ImageReductionFactor" />
-          <Property name="SquirtLevel" />
           <Property name="DisableOrderedCompositing" />
           <Property name="RemoteRenderThreshold" />
+          <!-- Image Delivery Compressor -->
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
         </ExposedProperties>
         <!-- End of "RootView" subproxy -->
       </SubProxy>
@@ -5371,14 +5465,19 @@
           <Property name="CenterOfRotation" />
           <!-- Renderer -->
           <Property name="Background" />
+          <!-- RenderWindow-->
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
           <!-- Tiles -->
           <Property name="CollectGeometryThreshold" />
           <Property name="StillRenderImageReductionFactor" />
           <Property name="TileDisplayCompositeThreshold" />
           <Property name="ImageReductionFactor" />
-          <Property name="SquirtLevel" />
           <Property name="DisableOrderedCompositing" />
           <Property name="RemoteRenderThreshold" />
+          <!-- Image Delivery Compressor -->
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
         </ExposedProperties>
         <!-- End of "RootView" subproxy -->
       </SubProxy>
@@ -5449,6 +5548,8 @@
           <Property name="Background" />
           <!-- RenderWindow -->
           <Property name="RemoteRenderThreshold" />
+          <Property name="StereoRender" />
+          <Property name="StereoType" />
         </ExposedProperties>
         <!-- End of "RootView" subproxy -->
       </SubProxy>
@@ -5777,9 +5878,11 @@
           <Property name="Background" />
           <!-- RenderWindow -->
           <Property name="ImageReductionFactor" />
-          <Property name="SquirtLevel" />
           <Property name="DisableOrderedCompositing" />
           <Property name="RemoteRenderThreshold" />
+          <!-- Image Delivery Compressor -->
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
         </ExposedProperties>
         <!-- End of "RenderView" subproxy -->
       </SubProxy>
@@ -5852,9 +5955,11 @@
           <Property name="StillRenderImageReductionFactor" />
           <Property name="TileDisplayCompositeThreshold" />
           <Property name="ImageReductionFactor" />
-          <Property name="SquirtLevel" />
           <Property name="DisableOrderedCompositing" />
           <Property name="RemoteRenderThreshold" />
+          <!-- Image Delivery Compressor -->
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
         </ExposedProperties>
         <!-- End of "RenderView" subproxy -->
       </SubProxy>
@@ -5935,30 +6040,8 @@
       <Documentation>
         Defines base API for ScatterPlotView and subtypes. Don't use directly.
       </Documentation>
-      <SubProxy>
-        <!-- SubProxy used to axes annotation -->
-        <Proxy name="CubeAxesActor"
-          proxygroup="props" proxyname="CubeAxesActor" />
-        <ExposedProperties>
-          <Property name="Visibility" exposed_name="AxesVisibility" />
-        </ExposedProperties>
-      </SubProxy>
-      <SubProxy>
-        <!-- SubProxy used to axes annotation -->
-        <Proxy name="LegendScaleActor"
-          proxygroup="props" proxyname="LegendScaleActor" />
-        <ExposedProperties>
-          <Property name="Visibility" exposed_name="LegendScaleAxesVisibility" />
-          <Property name="LegendVisibility" />
-          <Property name="LabelMode" />
-          <Property name="RightAxisVisibility" />
-          <Property name="TopAxisVisibility" />
-          <Property name="LeftAxisVisibility" />
-          <Property name="BottomAxisVisibility" />
-        </ExposedProperties>
-      </SubProxy>
+      <!-- End of ScatterPlotView -->
     </ScatterPlotViewProxy>
-
 
     <ScatterPlotViewProxy name="ScatterPlotRenderView"
       base_proxygroup="views" base_proxyname="ScatterPlotRenderViewBase">
@@ -6159,9 +6242,11 @@
           <Property name="Background" />
           <!-- RenderWindow -->
           <Property name="ImageReductionFactor" />
-          <Property name="SquirtLevel" />
           <Property name="DisableOrderedCompositing" />
           <Property name="RemoteRenderThreshold" />
+          <!-- Image Delivery Compressor -->
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
         </ExposedProperties>
         <!-- End of "RenderView" subproxy -->
       </SubProxy>
@@ -6234,9 +6319,11 @@
           <Property name="StillRenderImageReductionFactor" />
           <Property name="TileDisplayCompositeThreshold" />
           <Property name="ImageReductionFactor" />
-          <Property name="SquirtLevel" />
           <Property name="DisableOrderedCompositing" />
           <Property name="RemoteRenderThreshold" />
+          <!-- Image Delivery Compressor -->
+          <Property name="CompressionEnabled" />
+          <Property name="CompressorConfig" />
         </ExposedProperties>
         <!-- End of "RenderView" subproxy -->
       </SubProxy>
@@ -6937,6 +7024,9 @@
         -->
         <Proxy name="OutlineFilter"
           proxygroup="filters" proxyname="GeometryFilter" />
+        <ExposedProperties>
+          <Property name="MakeOutlineOfInput" />
+        </ExposedProperties>
       </SubProxy>
   
       <SubProxy>
@@ -8736,9 +8826,13 @@
           <Property name="Visibility" />
           <Property name="PointPlacer" />
           <Property name="LineInterpolator" />
-          <Property name="ClosedLoop" />
           <Property name="ClearAllNodes" />
           <Property name="LineColor" />
+          <Property name="AlwaysOnTop" />
+          <Property name="NodePositions" />
+          <Property name="ShowSelectedNodes" />
+          <Property name="SelectNodes" />
+          <Property name="ClosedLoop" />
         </ExposedProperties>
       </SubProxy>
 
@@ -8748,6 +8842,10 @@
         </Proxy>
         <ExposedProperties>
           <Property name="Enabled" />
+          <Property name="CloseLoop" />
+          <Property name="AllowNodePicking" />
+          <Property name="Initialize" />
+          <Property name="ProcessEvents"/>
         </ExposedProperties>
       </SubProxy>
 
@@ -9126,7 +9224,7 @@
       </DoubleVectorProperty>
 
       <SubProxy>
-        <SourceProxy name="OutlineFilter" class="vtkPOutlineFilter">
+        <SourceProxy name="OutlineFilter" class="vtkPVGeometryFilter">
           <!-- 
             Outline filter generates a partial outline on all processes.
           -->
@@ -9136,6 +9234,11 @@
                  <DataType value="vtkDataSet"/>
                </DataTypeDomain>
           </InputProperty>
+          <IntVectorProperty name="UseOutline"
+            command="SetUseOutline"
+            number_of_elements="1"
+            default_values="1">
+          </IntVectorProperty>
         </SourceProxy>
       </SubProxy>
 
@@ -9183,14 +9286,28 @@
       </Documentation>
 
       <InputProperty name="Input" 
-        command="not-used">
+        command="not-used"
+        port_index="0">
         <Documentation>
           Set the input to the representation. Can be any vtkDataObject producer.
         </Documentation>
         <DataTypeDomain name="input_type">
           <DataType value="vtkDataSet" />
+          <DataType value="vtkGraph" />
         </DataTypeDomain>
       </InputProperty>
+
+      <InputProperty name="GlyphInput" 
+        command="not-used"
+        port_index="1">
+        <Documentation>
+          Set the input to the representation. Can be any vtkPointSet producer.
+        </Documentation>
+        <DataTypeDomain name="input_type">
+          <DataType value="vtkPolyData" />
+        </DataTypeDomain>
+      </InputProperty>
+
 
       <DoubleVectorProperty name="UpdateTime"
         command="SetUpdateTime"
@@ -9357,26 +9474,6 @@
         </Documentation>
       </IntVectorProperty>
 
-
-<!--
-      <IntVectorProperty name="ColorAttributeType"
-        command="SetColorAttributeType"
-        number_of_elements="1"
-        default_values="1"
-        update_self="1">
-        <Documentation>
-          Select the attribute type from where the scalars array is used. The
-          scalar array name is specified using ColorArrayName. Note that if the
-          indicated scalar array is not available, then the image data scalars
-          are used.
-        </Documentation>
-        <EnumerationDomain name="enum">
-          <Entry value="0" text="POINT_DATA" />
-          <Entry value="1" text="CELL_DATA" />
-          <Entry value="2" text="FIELD_DATA" />
-        </EnumerationDomain>
-      </IntVectorProperty>
--->
       <StringVectorProperty name="ColorArrayName"
         command="SetColorArrayName"
         number_of_elements="1"
@@ -9394,20 +9491,6 @@
           </RequiredProperties>
         </ArrayListDomain>
       </StringVectorProperty>
-      
-      <!--
-      <SubProxy>
-        <SourceProxy name="ScatterPlot" class="vtkScatterPlotFilter">
-          <InputProperty
-            name="Input"
-            command="SetInputConnection">
-            <DataTypeDomain name="input_type">
-              <DataType value="vtkDataSet"/>
-            </DataTypeDomain>
-          </InputProperty>
-        </SourceProxy>
-      </SubProxy>
-      -->
 
       <SubProxy>
         <!-- Mapper for high-res image -->
@@ -9424,6 +9507,12 @@
           <Property name="ThreeDMode" />
           <Property name="Colorize" />
           <Property name="GlyphMode" />
+          <Property name="ScaleFactor" />
+          <Property name="OrientationMode" />
+          <Property name="ParallelToCamera" />
+          <Property name="GlyphXOrientationArray" />
+          <Property name="GlyphYOrientationArray" />
+          <Property name="GlyphZOrientationArray" />
         </ExposedProperties>
 
       </SubProxy>

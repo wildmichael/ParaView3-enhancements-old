@@ -18,7 +18,9 @@ def reset_trace_globals():
   trace_globals.last_registered_proxies = []
   trace_globals.registered_proxies = []
   trace_globals.trace_output = ["try: paraview.simple\nexcept: from paraview.simple import *\n"]
+  trace_globals.trace_output_endblock = "Render()"
   trace_globals.traced_proxy_groups = ["sources", "representations", "views", \
+                                       "implicit_functions", "piecewise_functions",
                                        "lookup_tables", "scalar_bars"]
   trace_globals.ignored_view_properties = ["ViewSize", "GUISize", "ViewPosition", \
                                            "ViewTime", "Representations"]
@@ -203,22 +205,14 @@ def vector_smproperty_tostring(proxyInfo, propInfo):
   pythonProp = servermanager._wrap_property(proxy, prop)
   return str(pythonProp)
 
-def input_smproperty_tostring(proxyInfo, propInfo):
-  proxy = proxyInfo.Proxy
-  prop = propInfo.Prop
-  # Create a list of the python variables used for each input proxy
-  nameList = []
-  for i in xrange(prop.GetNumberOfProxies()):
-    input_proxy = prop.GetProxy(i)
-    input_proxy_info = get_proxy_info(input_proxy)
-    if input_proxy_info: nameList.append(input_proxy_info.PyVariable)
-  if len(nameList) == 0: return "[]"
-  if len(nameList) == 1: return nameList[0]
-  if len(nameList) > 1:
-    nameListStr = make_comma_separated_string(nameList)
-    return "[%s]" % nameListStr
 
-def proxy_smproperty_tostring(proxyInfo, propInfo):
+def get_property_value_from_list_domain(proxyInfo, propInfo):
+  """Given a proxy and one of its proxyproperties (or inputproperty),
+  get the value of the property as a string IF the property has a
+  proxy list domain, else return None.  For more information see the class
+  method servermanager.ProxyProperty.GetAvailable.  As a side effect of
+  calling this method, the current property value (which is another proxy)
+  may be tracked by adding it to trace_globals.registered_proxies."""
   proxy = proxyInfo.Proxy
   prop = propInfo.Prop
   pythonProp = servermanager._wrap_property(proxy, prop)
@@ -228,31 +222,56 @@ def proxy_smproperty_tostring(proxyInfo, propInfo):
     if listdomain:
       for i in xrange(listdomain.GetNumberOfProxies()):
         if listdomain.GetProxy(i) == proxyPropertyValue:
-
-          info = proxy_trace_info(proxyPropertyValue, "helpers", pythonProp.Available[i])
+          info = get_proxy_info(proxyPropertyValue)
+          if not info:
+            info = proxy_trace_info(proxyPropertyValue, "helpers", pythonProp.Available[i])
           info.PyVariable = "%s.%s" % (proxyInfo.PyVariable, propInfo.PyVariable)
           trace_globals.registered_proxies.append(info)
 
+          # If capture_all_properties, record all the properties of this proxy
+          if trace_globals.capture_all_properties:
+            itr = servermanager.PropertyIterator(proxyPropertyValue)
+            for prop in itr:
+              if prop.GetInformationOnly() or prop.GetIsInternal(): continue
+              trace_property_modified(info, prop)
+
+
           return "\"%s\"" % pythonProp.Available[i]
+  return None
 
 
-  # Create a list of the python variables used for each proxy
+def proxy_smproperty_tostring(proxyInfo, propInfo):
+  """Given a proxy_trace_info and a prop_trace_info for one of the
+  proxy's proxy properties, return the property value as a string."""
+  strValue = get_property_value_from_list_domain(proxyInfo, propInfo)
+  if strValue: return strValue
+  proxy = proxyInfo.Proxy
+  prop = propInfo.Prop
+  # Create a list of the python variables for each proxy in the property vector
   nameList = []
   for i in xrange(prop.GetNumberOfProxies()):
     inputProxy = prop.GetProxy(i)
     info = get_proxy_info(inputProxy)
-    if info != None and info.PyVariable != None: nameList.append(info.PyVariable)
+    if info and info.PyVariable: nameList.append(info.PyVariable)
   if len(nameList) == 0: return "[]"
   if len(nameList) == 1: return nameList[0]
   if len(nameList) > 1:
     nameListStr = make_comma_separated_string(nameList)
     return "[%s]" % nameListStr
 
+def input_smproperty_tostring(proxyInfo, propInfo):
+  """Get the value of an servermanager.InputProperty as a string.
+  Currently this is handled in the same way as the base class
+  servermanager.ProxyProperty.  This method calls
+  proxy_smproperty_tostring."""
+  return proxy_smproperty_tostring(proxyInfo, propInfo)
+
 def trace_proxy_rename(proxy_info, new_name):
   """ Handle renaming an existing source proxy."""
   if not proxy_info or proxy_info.Group != "sources": return
   old_pyvariable = proxy_info.PyVariable
   proxy_info.PyVariable = pyvariable_from_proxy_name(new_name)
+  if proxy_info.PyVariable == old_pyvariable: return
   proxy_info.ignore_next_unregister = True
   name_to_set = new_name.replace("\"", "")
   trace_globals.trace_output.append("RenameSource(\"%s\", %s)" % (name_to_set, old_pyvariable))
@@ -367,28 +386,24 @@ def append_trace():
 
       if info.Group == "scalar_bars":
         ctorMethod = "CreateScalarBar"
-
-        # Lookup the view for the scalar bar widget
-        viewForRep = None
-        for p in trace_globals.registered_proxies + trace_globals.last_registered_proxies:
-          if p.Group == "views" and "Representations" in p.CurrentProps:
-            if p.CurrentProps["Representations"].find(info.PyVariable) >= 0:
-              viewForRep = p.PyVariable
-        if not viewForRep:
-          pass
-          #print "smtrace: error looking up view for representation '%s'" % info.ProxyName
-
-        # If a view was found, use extraCtorCommands to add the scalar bar to the view
-        if viewForRep:
-          extraCtorCommands = "%s.Representations.append(%s)\n" % (viewForRep, info.PyVariable)
+        extraCtorCommands = "GetRenderView().Representations.append(%s)" % info.PyVariable
 
       if info.Group == "views":
-        ctorMethod = "CreateRenderView"
+        if info.Proxy.GetXMLLabel() == "XYPlotView":
+          ctorMethod = "CreateXYPlotView"
+        elif info.Proxy.GetXMLLabel() == "BarChartView":
+          ctorMethod = "CreateBarChartView"
+        else:
+          ctorMethod = "CreateRenderView"
+
         # Now track it as the last active view
         trace_globals.last_active_view = info.Proxy
         setPropertiesInCtor = False
       if info.Group == "lookup_tables":
         ctorMethod = "CreateLookupTable"
+
+      if info.Group == "piecewise_functions":
+        ctorMethod = "CreatePiecewiseFunction"
 
 
       if setPropertiesInCtor:
@@ -416,6 +431,7 @@ def get_trace_string():
   s = str()
   for line in trace_globals.trace_output:
     s += line + "\n"
+  s += trace_globals.trace_output_endblock + "\n"
   return s
 
 def save_trace(fileName):
@@ -424,12 +440,14 @@ def save_trace(fileName):
   for line in trace_globals.trace_output:
     outFile.write(line)
     outFile.write("\n")
+  outFile.write(trace_globals.trace_output_endblock + "\n")
   outFile.close()
 
 def print_trace():
   append_trace()
   for line in trace_globals.trace_output:
     print line
+  print trace_globals.trace_output_endblock
 
 def on_proxy_registered(o, e):
   '''Called when a proxy is registered with the proxy manager'''

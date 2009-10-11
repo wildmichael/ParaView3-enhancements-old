@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: Xdmf.h,v 1.3 2008-05-02 15:21:07 clarke Exp $  */
-/*  Date : $Date: 2008-05-02 15:21:07 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: Xdmf.h,v 1.4 2009-08-31 18:20:35 kwleiter Exp $  */
+/*  Date : $Date: 2009-08-31 18:20:35 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -50,5 +50,7 @@
 #include "XdmfRoot.h"
 #include "XdmfTopology.h"
 #include "XdmfValues.h"
+#include "XdmfValuesBinary.h"
 #include "XdmfValuesHDF.h"
+#include "XdmfValuesMySQL.h"
 #include "XdmfValuesXML.h"

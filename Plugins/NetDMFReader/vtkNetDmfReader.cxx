@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNetDmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2009-08-20 21:27:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2009-09-16 22:46:30 $
+  Version:   $Revision: 1.5 $
 
 
   Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -41,15 +41,22 @@
   =========================================================================*/
 #include "vtkNetDmfReader.h"
 
-#include "vtkSmartPointer.h"
+#include "vtkCharArray.h"
+#include "vtkDataObject.h"
+#include "vtkDataSetAttributes.h"
+#include "vtkFloatArray.h"
+#include "vtkInformation.h"
+#include "vtkInformationVector.h"
+#include "vtkIntArray.h"
+#include "vtkMath.h"
 #include "vtkMutableDirectedGraph.h"
 #include "vtkObjectFactory.h"
-#include "vtkXMLParser.h"
-#include "vtkDataObject.h"
-#include "vtkInformation.h"
-#include "vtkCharArray.h"
-#include "vtkInformationVector.h"
+#include "vtkPLYReader.h"
+#include "vtkSmartPointer.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
+#include "vtkStringArray.h"
+#include "vtkVariantArray.h"
+#include "vtkXMLParser.h"
 
 #include "XdmfArray.h"
 #include "XdmfAttribute.h"
@@ -66,33 +73,39 @@
 #include <vtkstd/set>
 #include <vtkstd/map>
 #include <vtkstd/string>
+#include <vtksys/ios/sstream>
 #include <vtkstd/vector>
 #include <vtksys/SystemTools.hxx>
 #include <assert.h>
 #include <functional>
 #include <algorithm>
 
-#include "NetDMFScenario.h"
+#include "NetDMFAddressItem.h"
+#include "NetDMFConversation.h"
+#include "NetDMFEvent.h"
 #include "NetDMFNode.h"
+#include "NetDMFResult.h"
+#include "NetDMFScenario.h"
+#include "NetDMFRoot.h"
+#include "NetDMFMovement.h"
 
-#define USE_IMAGE_DATA // otherwise uniformgrid
+#define VTK_CREATE(type,name) \
+  vtkSmartPointer<type> name = vtkSmartPointer<type>::New()
+
+#ifdef MIN
+#  undef MIN
+#endif
+#define MIN(A,B) ((A) < (B)) ? (A) : (B)
+
+#ifdef MAX
+#  undef MAX
+#endif
+#define MAX(A,B) ((A) > (B)) ? (A) : (B)
+
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkNetDmfReader);
-vtkCxxRevisionMacro(vtkNetDmfReader, "$Revision: 1.1 $");
-
-#if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
-#  include <direct.h>
-#  define GETCWD _getcwd
-#else
-#include <unistd.h>
-#  define GETCWD getcwd
-#endif
-
-#define vtkMAX(x, y) (((x)>(y))?(x):(y))
-#define vtkMIN(x, y) (((x)<(y))?(x):(y))
-
-#define PRINT_EXTENT(x) "[" << (x)[0] << " " << (x)[1] << " " << (x)[2] << " " << (x)[3] << " " << (x)[4] << " " << (x)[5] << "]" 
+vtkCxxRevisionMacro(vtkNetDmfReader, "$Revision: 1.5 $");
 
 //============================================================================
 class vtkNetDmfReaderInternal
@@ -100,48 +113,24 @@ class vtkNetDmfReaderInternal
 public:
   vtkNetDmfReaderInternal()
   {
-    this->DataItem = NULL;
-    this->DsmBuffer = NULL;
-    this->InputString = 0;
-    this->InputStringLength = 0;
-    // this->ParallelLevel = 0;
-    this->ParallelLevels.clear();
-    this->UpdatePiece     = 0;
-    this->UpdateNumPieces = 1;
-    this->mostChildren = 0;
+    this->DOM = 0;
+    this->TimeRange[0] = 0.;
+    this->TimeRange[1] = 0.;
+    
+    this->NameProperties = 0;
+    this->TypeProperties = 0;
+    this->ClassProperties = 0;
+    this->NodeIdProperties = 0;
+    this->DirectionProperties = 0;
   }
 
   ~vtkNetDmfReaderInternal()
   {
-    if ( this->DataItem )
+    if ( this->DOM )
       {
-      delete this->DataItem;
-      this->DataItem = 0;
+      delete this->DOM;
       }
-    delete [] this->InputString;
-    this->InputString = 0;
   }
-
-
-  // Returns the domain node for the domain with given name. If none such domain
-  // exists, returns the 1st domain, if any.
-  XdmfXmlNode GetDomain(const char* domainName)
-    {
-    if (domainName)
-      {
-      vtkstd::map<vtkstd::string, XdmfXmlNode>::iterator iter =
-        this->DomainMap.find(domainName);
-      if (iter != this->DomainMap.end())
-        {
-        return iter->second;
-        }
-      }
-    if (this->DomainList.size() > 0)
-      {
-      return this->GetDomain(this->DomainList[0].c_str());
-      }
-    return 0;
-    }
 
   vtkNetDmfReaderGrid* GetGrid(const char* gridName);
   vtkNetDmfReaderGrid* GetGrid(int idx);
@@ -161,24 +150,128 @@ public:
     int timeIndex,
     int isSubBlock,
     double progressS, double progressE);
-  
+  void UpdateTimeRange(NetDMFEvent* event);
+  // Should probably part of the NetDMF library (class methods ?)
+  void GetEventTimeRange(NetDMFEvent* event, double timeRange[2]);
+  double GetMovementEndTime(NetDMFMovement* movement, double startTime);
+  void GetMovementTimeRange(NetDMFMovement* movement, double timeRange[2]);
+
+  vtkstd::map<vtkStdString, int> ElementCount;
  
-  vtkstd::vector<XdmfFloat64> TimeValues;
-  vtkstd::vector<vtkstd::string> DomainList;
-  vtkstd::map<vtkstd::string, XdmfXmlNode> DomainMap;
   // vtkNetDmfReaderGrid *ParallelLevel;
   vtkstd::vector<vtkNetDmfReaderGrid*> ParallelLevels;
+  NetDMFDOM*       DOM;
   vtkNetDmfReader* Reader;
-  XdmfDataItem *DataItem;
-  XdmfDsmBuffer *DsmBuffer;
-  char *InputString;
-  unsigned int InputStringLength;
-  unsigned int mostChildren;
+
+  vtkStringArray*  NameProperties;
+  vtkStringArray*  TypeProperties;
+  vtkStringArray*  ClassProperties;
+  vtkIntArray*     NodeIdProperties;
+  vtkFloatArray*   DirectionProperties;
+
+  double       TimeRange[2];
 
   unsigned int UpdatePiece;
   unsigned int UpdateNumPieces;
 
 };
+
+//============================================================================
+void vtkNetDmfReaderInternal::UpdateTimeRange(NetDMFEvent* event)
+{
+  double timeRange[2];
+  this->GetEventTimeRange(event, timeRange);
+
+  if (this->TimeRange[0] == 0.0)
+    {
+    this->TimeRange[0] = timeRange[0];
+    }
+  else if (timeRange[0] != 0.0)
+    {
+    this->TimeRange[0] = 
+      MIN(this->TimeRange[0], timeRange[0]);
+    }
+  
+  if (this->TimeRange[1] == 0.0)
+    {
+    this->TimeRange[1] = timeRange[1];
+    }
+  else if (timeRange[1] != 0.0)
+    {
+    this->TimeRange[1] = 
+      MAX(this->TimeRange[1], timeRange[1]);
+    }
+}
+
+//============================================================================
+void vtkNetDmfReaderInternal::GetEventTimeRange(NetDMFEvent* event, double timeRange[2])
+{
+  timeRange[0] = 0.;
+  timeRange[1] = 0.;
+
+  timeRange[0] = event->GetStartTime();
+  if (event->GetEndTime() != 0.)
+    {
+    timeRange[1] =event->GetEndTime();
+    }
+  else
+   {
+   int numberOfMovements = event->GetNumberOfMovements();
+   for (int i = 0; i < numberOfMovements; ++i)
+     {
+     double movementEndTime = 
+       this->GetMovementEndTime(event->GetMovement(i), timeRange[0]);
+     timeRange[1] = MAX(timeRange[1], movementEndTime);
+     }
+   // TODO: get the starttime/endtime from conversation/traffic
+   }
+}
+
+//==============================================================================
+double vtkNetDmfReaderInternal::GetMovementEndTime(NetDMFMovement* movement, 
+                                                   double startTime)
+{
+  // TODO: Support more than Path movement type
+  XdmfDataItem* pathData = 
+    (movement->GetMovementType() == NETDMF_MOVEMENT_TYPE_PATH)? 
+    movement->GetPathData(): 0;
+  // warning we need to call UPDATE() here. Would be nice if we don't 
+  // have to.
+  if (!pathData)
+    {
+    return startTime;
+    }
+  pathData->Update();
+  double endTime = 
+    startTime + movement->GetMovementInterval() * pathData->GetDataDesc()->GetDimension(0);
+  return endTime;
+}
+
+//============================================================================
+void vtkNetDmfReaderInternal::GetMovementTimeRange(NetDMFMovement* movement, double timeRange[2])
+{
+  timeRange[0] = 0.;
+  timeRange[1] = 0.;
+  XdmfXmlNode movementNode = movement->GetElement();
+  // Get Parent Event
+  // TODO: cache all the NetDMFElement for a faster access,
+  XdmfXmlNode eventNode = this->DOM->GetParentNode(movementNode);
+
+  NetDMFEvent e;
+  while (timeRange[0] == 0. && eventNode && 
+         XDMF_WORD_CMP(e.GetElementName(), 
+                       this->DOM->GetName(eventNode)))
+    {
+    NetDMFEvent* event = new NetDMFEvent;
+    event->SetDOM(this->DOM);
+    event->SetElement(eventNode);
+    event->UpdateInformation();
+    timeRange[0] = event->GetStartTime();
+    eventNode = this->DOM->GetParentNode(eventNode);
+    delete event;
+    }
+  timeRange[1] = this->GetMovementEndTime(movement, timeRange[0]);
+}
 
 //============================================================================
 class vtkNetDmfReaderTester : public vtkXMLParser
@@ -214,7 +307,10 @@ public:
   void StartElement(const char* name, const char**)
     {
       this->Done = 1;
-      if(strcmp(name, "Xdenf") == 0)
+      vtkstd::string nameString(name);
+      if (nameString == "Xdenf" || 
+          nameString == "NetDMF" || 
+          nameString == "Xmn")
         {
         this->Valid = 1;
         }
@@ -246,34 +342,35 @@ vtkStandardNewMacro(vtkNetDmfReaderTester);
 //============================================================================
 vtkNetDmfReader::vtkNetDmfReader()
 {  
-  this->Internals = new vtkNetDmfReaderInternal;
-  this->Internals->Reader = this;
+  this->Internal = new vtkNetDmfReaderInternal;
+  this->Internal->Reader = this;
 
-  this->DOM = 0;
-
-  // Setup the selection callback to modify this object when an array
-  // selection is changed.
-  this->TimeStep       = 0;
-  this->ActualTimeStep = 0;
-  this->TimeStepRange[0] = 0;
-  this->TimeStepRange[1] = 0;
-  // this->DebugOn();
+  this->SetNumberOfInputPorts(0);
+  this->SetNumberOfOutputPorts(1);
+  
+  this->CurrentTimeStep = 0;
 }
 
 //----------------------------------------------------------------------------
 vtkNetDmfReader::~vtkNetDmfReader()
 {
-  delete this->Internals;
-
-  if ( this->DOM )
-    {
-    delete this->DOM;
-    }
+  delete this->Internal;
 
   H5garbage_collect();
 }
 
+//----------------------------------------------------------------------------
+void vtkNetDmfReader::SetFileName(const vtkStdString& fileName)
+{
+  this->FileName = fileName;
+  this->Modified();
+}
 
+//----------------------------------------------------------------------------
+const char* vtkNetDmfReader::GetFileName()const
+{
+  return this->FileName.c_str();
+}
 
 //----------------------------------------------------------------------------
 int vtkNetDmfReader::CanReadFile(const char* fname)
@@ -283,34 +380,7 @@ int vtkNetDmfReader::CanReadFile(const char* fname)
   int res = tester->TestReadFile();
   tester->Delete();
 
-
-  XdmfDOM* Dom = new XdmfDOM();
-  Dom->Parse(fname);
-  cout << "Parsed XML" << endl;
-  XdmfXmlNode scennode = Dom->FindElement("Scenario");
-  NetDMFScenario* scenario = new NetDMFScenario();
-  scenario->SetDOM(Dom);
-  scenario->SetElement(scennode);
-  scenario->UpdateInformation();
-  int nnodes = scenario->GetNumberOfNodes();
-  for( int i = 0 ; i < nnodes ; ++i)
-    {
-    cout << scenario->GetNode(i)->GetName() << " has "
-              << scenario->GetNode(i)->GetNumberOfDevices() << " devices" 
-              << endl;
-    }
-  cout << "Found " << nnodes << " Nodes" << endl;
-
   return res;
-}
-
-//----------------------------------------------------------------------------
-
-int vtkNetDmfReader::FillOutputPortInformation(int,
-                                             vtkInformation *info)
-{ 
-  info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkGraph");
-  return 1;
 }
 
 //----------------------------------------------------------------------------
@@ -322,133 +392,46 @@ void vtkNetDmfReader::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 bool vtkNetDmfReader::ParseXML()
 {
-  cout << "Begin Parsing" << endl;
   // * Ensure that the required objects have been instantiated.
-  if (!this->DOM)
+  if (!this->Internal->DOM)
     {
-    this->DOM = new XdmfDOM();
-    }
-  if ( !this->Internals->DataItem )
-    {
-    this->Internals->DataItem = new XdmfDataItem();
-    this->Internals->DataItem->SetDOM(this->DOM);
+    this->Internal->DOM = new NetDMFDOM();
     }
 
-  // * Check if the XML file needs to be re-read.
-  bool modified = true;
-  if (this->GetReadFromInputString())
+  // * Check if the XML needs to be re-read.
+  bool modified = false;
+  // Parse the file...
+  // First make sure the file exists.  This prevents an empty file
+  // from being created on older compilers.
+  if (this->FileName.empty() || 
+      !vtksys::SystemTools::FileExists(this->FileName))
     {
-    const char* data=0;
-    unsigned int data_length=0;
-    if (this->InputArray)
-      {
-      vtkDebugMacro(<< "Reading from InputArray");
-      data = this->InputArray->GetPointer(0);
-      data_length = static_cast<unsigned int>(
-        this->InputArray->GetNumberOfTuples()*
-        this->InputArray->GetNumberOfComponents());
-      }
-    else if (this->InputString)
-      {
-      data = this->InputString;
-      data_length = this->InputStringLength;
-      }
-    else
-      {
-      vtkErrorMacro("No input string specified");
-      return false;
-      }
-    vtkDebugMacro("Input Text Changed ...  re-parseing");
-    delete [] this->Internals->InputString;
-    this->Internals->InputString = new char[data_length+1];
-    memcpy(this->Internals->InputString, data, data_length);
-    this->Internals->InputString[data_length] = 0; 
-    this->Internals->InputStringLength = data_length;
-
-    this->DOM->SetInputFileName(0);
-    this->DOM->Parse(this->Internals->InputString);
+    vtkErrorMacro("Can't read file: \"" << this->FileName.c_str() << "\"");
+    return false;
     }
-  else
-    {
-    // Parse the file...
-    if (!this->FileName )
-      {
-      vtkErrorMacro("File name not set");
-      return false;
-      }
-
-    // First make sure the file exists.  This prevents an empty file
-    // from being created on older compilers.
-    if (!vtksys::SystemTools::FileExists(this->FileName))
-      {
-      vtkErrorMacro("Error opening file " << this->FileName);
-      return false;
-      }
-
-
-    if (this->DOM->GetInputFileName() &&
-      STRCASECMP(this->DOM->GetInputFileName(), this->FileName) == 0)
-      {
-      vtkDebugMacro("Filename Unchanged ... skipping re-parse()");
-      modified = false;
-      }
-    else
-      {
-      vtkDebugMacro("Parsing file: " << this->FileName);
-
-      //Tell the parser what the working directory is.
-      vtkstd::string directory =
-        vtksys::SystemTools::GetFilenamePath(this->FileName) + "/";
-      if (directory == "/")
-        {
-        directory = vtksys::SystemTools::GetCurrentWorkingDirectory() + "/";
-        }
-      //    directory = vtksys::SystemTools::ConvertToOutputPath(directory.c_str());
-      this->DOM->SetWorkingDirectory(directory.c_str());
-      this->DOM->SetInputFileName(this->FileName);
-      this->DOM->Parse(this->FileName);
-      }
-    }
-  cout << "Done Parsing" << endl;
-
+  
+  modified = this->FileName != this->Internal->DOM->GetInputFileName() ||
+    vtksys::SystemTools::ModifiedTime(this->FileName) > this->FileParseTime;
+     
   if (modified)
     {
-    cout << "ParseXML" << endl;
-    // Since the DOM was re-parsed we need to update the cache for domains
-    // and re-populate the grids.
-    //this->UpdateDomains();
-    //this->UpdateRootGrid();
+    //Tell the parser what the working directory is.
+    vtkstd::string directory =
+      vtksys::SystemTools::GetFilenamePath(this->FileName) + "/";
+    if (directory == "/")
+      {
+      directory = vtksys::SystemTools::GetCurrentWorkingDirectory() + "/";
+      }
+    //    directory = vtksys::SystemTools::ConvertToOutputPath(directory.c_str());
+    this->Internal->DOM->SetWorkingDirectory(directory.c_str());
+    this->Internal->DOM->SetInputFileName(this->FileName);
+    this->Internal->DOM->Parse(this->FileName);
+    this->FileParseTime = vtksys::SystemTools::ModifiedTime(this->FileName);
+    this->ParseTime.Modified();
     }
   return true;
 }
 
-//----------------------------------------------------------------------------
-int vtkNetDmfReader::RequestDataObject(vtkInformation *vtkNotUsed(request),
-                                       vtkInformationVector **vtkNotUsed(inputVector),
-                                       vtkInformationVector *outputVector)
-{
-  cout << "RequestDataObject: " << endl;
-  if (!this->ParseXML())
-    {
-    return 0;
-    }
-
-  //Look at the in memory structures and create an empty vtkDataObject of the
-  //proper type for RequestData to fill in later, if needed.
-
-  vtkDataObject *output= vtkDataObject::GetData(outputVector, 0);
-  if (!output)
-    {
-    vtkInformation *outInfo = outputVector->GetInformationObject(0);
-    output = vtkMutableDirectedGraph::New();
-    output->SetPipelineInformation(outInfo);
-    outInfo->Set(vtkDataObject::DATA_EXTENT_TYPE(), output->GetExtentType());
-    outInfo->Set(vtkDataObject::DATA_OBJECT(), output);
-    output->Delete();
-    }
-
-  return 1;
-}
 
 //-----------------------------------------------------------------------------
 int vtkNetDmfReader::RequestInformation(
@@ -458,26 +441,32 @@ int vtkNetDmfReader::RequestInformation(
 {
   vtkDebugMacro("RequestInformation");
   
+  if (!this->ParseXML())
+    {
+    return 0;
+    }
+  
+  for (XdmfXmlNode eventNode = this->Internal->DOM->FindNextRecursiveElement("Event");
+       eventNode; 
+       eventNode = this->Internal->DOM->FindNextRecursiveElement("Event", eventNode))
+    {
+    NetDMFEvent* event = new NetDMFEvent();
+    event->SetDOM(this->Internal->DOM);
+    event->SetElement(eventNode);
+    event->UpdateInformation();
+    this->Internal->UpdateTimeRange(event);
+    }
+
   vtkInformation *outInfo = outputVector->GetInformationObject(0);
   //say we can produce as many pieces are are desired
   outInfo->Set(
     vtkStreamingDemandDrivenPipeline::MAXIMUM_NUMBER_OF_PIECES(),-1);
-  /// missing things...
-  this->ActualTimeStep = this->TimeStep;
-
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::TIME_RANGE(), 
+               this->Internal->TimeRange, 2);
+           
   return 1;
 }
 
-//----------------------------------------------------------------------------
-class WithinTolerance: public vtkstd::binary_function<double, double, bool>
-{
-public:
-    result_type operator()(first_argument_type a, second_argument_type b) const
-    {
-      bool result = (fabs(a-b)<=(a*1E-6));
-      return (result_type)result;
-    }
-};
 
 //----------------------------------------------------------------------------
 int vtkNetDmfReader::RequestData(
@@ -485,17 +474,9 @@ int vtkNetDmfReader::RequestData(
   vtkInformationVector **vtkNotUsed(inputVector),
   vtkInformationVector *outputVector)
 {
-  if ( !this->GetReadFromInputString() && !this->FileName )
-    {
-    vtkErrorMacro("Not Reading from String and File name not set");
-    return 0;
-    }
-  if ( !this->DOM )
-    {
-    return 0;
-    }
-  
-  //long int starttime = this->GetMTime();
+  // The file has been read in the RequestDataObject method.
+  // Here we create the graph based on the parsed XML.
+  this->ParseXML();
 
   vtkInformation *outInfo = outputVector->GetInformationObject(0);
   vtkDataObject *outStructure = outInfo->Get(vtkDataObject::DATA_OBJECT());
@@ -505,34 +486,219 @@ int vtkNetDmfReader::RequestData(
     return VTK_ERROR;
     }
 
-  this->Internals->UpdatePiece     = 0;
-  this->Internals->UpdateNumPieces = 1;
+  this->Internal->UpdatePiece     = 0;
+  this->Internal->UpdateNumPieces = 1;
 
   if (outInfo->Has(
         vtkStreamingDemandDrivenPipeline::UPDATE_PIECE_NUMBER()))
     {
-    this->Internals->UpdatePiece = 
+    this->Internal->UpdatePiece = 
       outInfo->Get(
         vtkStreamingDemandDrivenPipeline::UPDATE_PIECE_NUMBER());
     }
   if (outInfo->Has(
         vtkStreamingDemandDrivenPipeline::UPDATE_NUMBER_OF_PIECES()))
     {
-    this->Internals->UpdateNumPieces =
+    this->Internal->UpdateNumPieces =
       outInfo->Get(
         vtkStreamingDemandDrivenPipeline::UPDATE_NUMBER_OF_PIECES());
     }
   
-  vtkDebugMacro( << "UpdatePiece " << this->Internals->UpdatePiece << " : UpdateNumPieces " << this->Internals->UpdateNumPieces);
+  vtkDebugMacro( << "UpdatePiece " << this->Internal->UpdatePiece 
+                 << " : UpdateNumPieces " << this->Internal->UpdateNumPieces
+                 );
 
-  //
-  // Find the correct time step
-  //
-  this->ActualTimeStep = this->TimeStep;
+  vtkMutableDirectedGraph* output = vtkMutableDirectedGraph::New();
+  // Vertex Attribute Data Set
+  vtkStringArray* names = vtkStringArray::New();
+  names->SetName("Name");
+  output->GetVertexData()->SetPedigreeIds(names);
+  names->Delete();
+  this->Internal->NameProperties = names;
 
-  this->Internals->FindParallelism();
+  vtkStringArray* types = vtkStringArray::New();
+  types->SetName("Type");
+  output->GetVertexData()->AddArray(types);
+  types->Delete();
+  this->Internal->TypeProperties = types;
+
+  vtkStringArray* classes = vtkStringArray::New();
+  classes->SetName("Class");
+  output->GetVertexData()->AddArray(classes);
+  classes->Delete();
+  this->Internal->ClassProperties = classes;
+
+  // Vertex Attribute Data Set
+  vtkIntArray* nodeIds = vtkIntArray::New();
+  nodeIds->SetName("Id");
+  output->GetVertexData()->AddArray(nodeIds);
+  nodeIds->Delete();
+  this->Internal->NodeIdProperties = nodeIds;
+
+  vtkFloatArray* directions = vtkFloatArray::New();
+  directions->SetName("Direction");
+  directions->SetNumberOfComponents(3);
+  output->GetVertexData()->AddArray(directions);
+  directions->Delete();
+  this->Internal->DirectionProperties = directions;
+
+  vtkPoints* points = vtkPoints::New();
+  output->SetPoints(points);
+  points->Delete();
+
+  // Edge Attribute Data Set
+  vtkStringArray* conversationType = vtkStringArray::New();
+  conversationType->SetName("ConversationType");
+  output->GetEdgeData()->AddArray(conversationType);
+  conversationType->Delete();
+
+  // Get the requested time step. We only supprt requests of a single time
+  // step in this reader right now
+  this->CurrentTimeStep = 0.;  
+  if (outInfo->Get(vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS()))
+    {
+    double *requestedTimeSteps = 
+      outInfo->Get(vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS());
+    int numReqTimeSteps = 
+      outInfo->Length(vtkStreamingDemandDrivenPipeline::UPDATE_TIME_STEPS());
+    this->CurrentTimeStep = (requestedTimeSteps && numReqTimeSteps)? 
+      requestedTimeSteps[0] : 0;
+    }
+
+  this->Internal->ElementCount.clear();
+  for (XdmfXmlNode nodeNode = this->Internal->DOM->FindRecursiveElement("Node");
+       nodeNode; 
+       nodeNode = this->Internal->DOM->FindNextRecursiveElement("Node", nodeNode))
+    {
+    NetDMFNode* node = new NetDMFNode();
+    node->SetDOM(this->Internal->DOM);
+    node->SetElement(nodeNode);
+    node->UpdateInformation();
+
+    // make sure the name is not already added
+    vtkStdString nodeName = this->GetElementName(node);
+    vtkIdType elementVertexId = output->FindVertex(nodeName);
+    if (elementVertexId == -1)
+      {
+      vtksys_ios::stringstream nodeId;
+      nodeId << node->GetNodeId();
+      vtkStdString nodeType(nodeId.str());
+        
+      this->Internal->NameProperties->InsertNextValue(nodeName);          // name
+      this->Internal->TypeProperties->InsertNextValue(nodeType);             // type
+      this->Internal->ClassProperties->InsertNextValue(node->GetClassName()); // class
+      this->Internal->NodeIdProperties->InsertNextValue(node->GetNodeId());  // nodeId
+      this->Internal->DirectionProperties->InsertNextTuple3(0., 0., 0.);     // directions
+      points->InsertNextPoint(0., 0., 0.);
+      elementVertexId = output->AddVertex();
+      }
+
+    delete node;
+    }
+
+  for (XdmfXmlNode movementNode = this->Internal->DOM->FindRecursiveElement("Movement");
+       movementNode; 
+       movementNode = this->Internal->DOM->FindNextRecursiveElement("Movement", movementNode))
+    {
+    NetDMFMovement* movement = new NetDMFMovement();
+    movement->SetDOM(this->Internal->DOM);
+    movement->SetElement(movementNode);
+    movement->UpdateInformation();
+    // a movement node can be a nodeId ( == "1" ) or an element description
+    // ( == "/NetDMF/Scenario/Node[@Name='foo']" )
+    vtkIdType nodeVertexId = 
+      this->Internal->NodeIdProperties->LookupValue(movement->GetNodeId());
+    if (nodeVertexId == -1)
+      {
+      NetDMFNode* node = new NetDMFNode;
+      node->SetDOM(this->Internal->DOM);
+      node->SetElement(this->Internal->DOM->FindElementByPath(movement->GetNodeId()));
+      node->UpdateInformation();
+      nodeVertexId = this->Internal->NodeIdProperties->LookupValue(node->GetNodeId());
+      }
+    // TODO: support more than NETDMF_MOVEMENT_TYPE_PATH
+    if (movement->GetMovementType() == NETDMF_MOVEMENT_TYPE_PATH)
+      {
+      XdmfDataItem* pathData = movement->GetPathData();
+      pathData->Update();
+      XdmfArray* dataArray = pathData->GetArray();
+      int numberOfTuples = pathData->GetDataDesc()->GetDimension(0);
+      int numberOfComponents = pathData->GetDataDesc()->GetDimension(1);
+      double timeRange[2];
+      this->Internal->GetMovementTimeRange(movement, timeRange);
+      double index = static_cast<double>(numberOfTuples) * 
+        ((this->CurrentTimeStep - timeRange[0]) / (timeRange[1] - timeRange[0]));
+      index = MAX(index, 0.);
+      index = MIN(index, numberOfTuples-1);
+      // TODO: interpolate the position between floor(index) and ceil(index)
+      int offset[3] = {0, 1, 2};
+      double position[3];
+      position[0] = dataArray->GetValueAsFloat32(
+        static_cast<int>(index) * numberOfComponents + offset[0]);
+      position[1] = dataArray->GetValueAsFloat32(
+        static_cast<int>(index) * numberOfComponents + offset[1]);
+      position[2] = dataArray->GetValueAsFloat32(
+        static_cast<int>(index) * numberOfComponents + offset[2]);
+      if (nodeVertexId != -1)
+        {
+        points->SetPoint(nodeVertexId, position);
+        }
+      double direction[3];
+      if (index < numberOfTuples-2)
+        {
+        direction[0] = dataArray->GetValueAsFloat32(
+          static_cast<int>(index+1) * numberOfComponents + offset[0]) - position[0];
+        direction[1] = dataArray->GetValueAsFloat32(
+          static_cast<int>(index+1) * numberOfComponents + offset[1]) - position[1];
+        direction[2] = dataArray->GetValueAsFloat32(
+          static_cast<int>(index+1) * numberOfComponents + offset[2]) - position[2];
+        }
+      else
+        {
+        direction[0] = position[0] - dataArray->GetValueAsFloat32(
+          static_cast<int>(index-1) * numberOfComponents + offset[0]);
+        direction[1] = position[1] - dataArray->GetValueAsFloat32(
+          static_cast<int>(index-1) * numberOfComponents + offset[1]);
+        direction[2] = position[2] - dataArray->GetValueAsFloat32(
+          static_cast<int>(index-1) * numberOfComponents + offset[2]);
+        }
+      if (nodeVertexId != -1)
+        {
+        vtkMath::Normalize(direction);
+        /* From v5.py (doesn't work)
+        double degX = -4.5;
+        double degY = -vtkMath::DegreesFromRadians(asin(direction[2]))- 2.2;
+        double degZ = vtkMath::DegreesFromRadians(acos(direction[1]));
+        if (direction[0] < 0)
+          {
+          degZ = -degZ;
+          }
+        directions->SetTuple3(nodeVertexId, degX, degY, degZ);
+        */
+        // Rotations are in the order: RotateZ, RotateX and RotateY.
+        directions->SetTuple3(nodeVertexId, 0., 0.,
+                              vtkMath::DegreesFromRadians(atan2(direction[1],direction[0])));
+        }
+      }
+    
+    delete movement;
+    }
 
   //long int endtime = this->GetMTime();
-
+  vtkDirectedGraph::SafeDownCast(outStructure)->ShallowCopy(output);
+  output->Delete();
+  
   return 1;
+}
+
+vtkStdString vtkNetDmfReader::GetElementName(NetDMFElement* element)
+{
+  int index = this->Internal->ElementCount[element->GetClassName()]++;
+  if (element->GetName())
+    {
+    return element->GetName();
+    }
+  vtksys_ios::stringstream uid;
+  uid << element->GetElementName() << index;
+  return uid.str();
 }

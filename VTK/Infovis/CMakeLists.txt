@@ -28,6 +28,7 @@ vtkAreaLayout.cxx
 vtkAreaLayoutStrategy.cxx
 vtkAssignCoordinates.cxx
 vtkAssignCoordinatesLayoutStrategy.cxx
+vtkBivariateLinearTableThreshold.cxx
 vtkBivariateStatisticsAlgorithm.cxx
 vtkBoxLayoutStrategy.cxx
 vtkChacoGraphReader.cxx
@@ -64,6 +65,7 @@ vtkISIReader.cxx
 vtkKMeansStatistics.cxx
 vtkKMeansDistanceFunctor.cxx
 vtkMergeColumns.cxx
+vtkMergeGraphs.cxx
 vtkMergeTables.cxx
 vtkMultiCorrelativeStatistics.cxx
 vtkMutableGraphHelper.cxx
@@ -81,6 +83,7 @@ vtkRandomGraphSource.cxx
 vtkRandomLayoutStrategy.cxx
 vtkRemoveIsolatedVertices.cxx
 vtkRemoveHiddenData.cxx
+vtkSCurveSpline.cxx
 vtkSimple2DLayoutStrategy.cxx
 vtkSliceAndDiceLayoutStrategy.cxx
 vtkSplineGraphEdges.cxx
@@ -173,11 +176,14 @@ IF(VTK_USE_N_WAY_ARRAYS)
     vtkAdjacencyMatrixToEdgeTable.cxx
     vtkArrayNorm.cxx
     vtkArrayToTable.cxx
-    vtkCosineSimilarity.cxx
+    vtkComputeHistogram2DOutliers.cxx
     vtkDiagonalMatrixSource.cxx
+    vtkDotProductSimilarity.cxx
     vtkExtractArray.cxx
+    vtkExtractHistogram2D.cxx
     vtkMatricizeArray.cxx
     vtkNormalizeMatrixVectors.cxx
+    vtkPairwiseExtractHistogram2D.cxx
     vtkSparseArrayToTable.cxx
     vtkTableToSparseArray.cxx
     vtkTransposeMatrix.cxx
@@ -197,6 +203,7 @@ ENDIF(VTK_USE_N_WAY_ARRAYS)
 # Add these classes only if PARALLEL is turned ON
 IF(VTK_USE_PARALLEL)
   SET(Kit_SRCS ${Kit_SRCS}
+    vtkPBivariateLinearTableThreshold.cxx
     vtkPCorrelativeStatistics.cxx
     vtkPContingencyStatistics.cxx
     vtkPDescriptiveStatistics.cxx
@@ -204,6 +211,15 @@ IF(VTK_USE_PARALLEL)
     vtkPMultiCorrelativeStatistics.cxx
     vtkPPCAStatistics.cxx
     )
+
+    IF(VTK_USE_N_WAY_ARRAYS)
+      SET(Kit_SRCS ${Kit_SRCS}
+        vtkPComputeHistogram2DOutliers.cxx
+        vtkPExtractHistogram2D.cxx
+        vtkPPairwiseExtractHistogram2D.cxx
+        )
+    ENDIF(VTK_USE_N_WAY_ARRAYS)
+
   SET(KIT_INTERFACE_LIBRARIES ${KIT_INTERFACE_LIBRARIES} vtkParallel)
 ENDIF(VTK_USE_PARALLEL)
 

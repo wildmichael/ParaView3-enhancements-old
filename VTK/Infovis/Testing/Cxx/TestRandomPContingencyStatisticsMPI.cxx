@@ -39,14 +39,10 @@ PURPOSE.  See the above copyright notice for more information.
 #include "vtkTimerLog.h"
 #include "vtkVariantArray.h"
 
-// For debugging purposes, output contingency table, which may be huge: it has the size O(span^2).
-#define DEBUG_CONTINGENCY_TABLE 0
-#define CONTINGENCY_BIG_CASE 1
-
 struct RandomContingencyStatisticsArgs
 {
   int nVals;
-  double span;
+  double stdev;
   double absTol;
   int* retVal;
   int ioRank;
@@ -71,11 +67,10 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
   vtkMath::RandomSeed( static_cast<int>( vtkTimerLog::GetUniversalTime() ) * ( myRank + 1 ) );
 
   // Generate an input table that contains samples of mutually independent discrete random variables
-  int nVariables = 3;
-  vtkIntArray* intArray[3];
+  int nVariables = 2;
+  vtkIntArray* intArray[2];
   vtkStdString columnNames[] = { "Rounded Normal 0", 
-                                 "Rounded Normal 1",
-                                 "Rounded Normal 2" };
+                                 "Rounded Normal 1" };
   
   vtkTable* inputData = vtkTable::New();
   // Discrete rounded normal samples
@@ -87,7 +82,7 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
 
     for ( int r = 0; r < args->nVals; ++ r )
       {
-      intArray[c]->InsertNextValue( static_cast<int>( vtkMath::Round( vtkMath::Gaussian() * args->span ) ) );
+      intArray[c]->InsertNextValue( static_cast<int>( vtkMath::Round( vtkMath::Gaussian() * args->stdev ) ) );
       }
     
     inputData->AddColumn( intArray[c] );
@@ -117,10 +112,6 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
 
   // Select column pairs (uniform vs. uniform, normal vs. normal)
   pcs->AddColumnPair( columnNames[0], columnNames[1] );
-#if CONTINGENCY_BIG_CASE
-#else // CONTINGENCY_BIG_CASE
-  pcs->AddColumnPair( columnNames[0], columnNames[2] );
-#endif // CONTINGENCY_BIG_CASE
 
   // Test (in parallel) with Learn, Derive, and Assess options turned on
   pcs->SetLearnOption( true );
@@ -146,13 +137,14 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
 
   vtkIdType nRowSumm = outputSummary->GetNumberOfRows();
   int testIntValue;
-  double testDoubleValue;
+  double testDoubleValue1;
+  double testDoubleValue2;
   int numProcs = controller->GetNumberOfProcesses();
 
-  // Verify that all processes have the same grand total
+  // Verify that all processes have the same grand total and contingency tables size
   if ( com->GetLocalProcessId() == args->ioRank )
     {
-    cout << "\n## Verifying that all processes have the same grand total.\n";
+    cout << "\n## Verifying that all processes have the same grand total and contingency tables size.\n";
     }
 
   // Gather all grand totals
@@ -174,6 +166,8 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
            << i
            << ", grand total = "
            << GT_g[i]
+           << ", contingency table size = "
+           << outputContingency->GetNumberOfRows()
            << "\n";
       
       if ( GT_g[i] != testIntValue )
@@ -245,14 +239,14 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
           cout << "\n";
           
           // Make sure that H(X,Y) >= H(Y|X)+ H(X|Y)
-          testDoubleValue = H_g[nEntropies * i + 1] + H_g[nEntropies * i + 2]; // H(Y|X)+ H(X|Y)
+          testDoubleValue1 = H_g[nEntropies * i + 1] + H_g[nEntropies * i + 2]; // H(Y|X)+ H(X|Y)
           
-          if ( testDoubleValue > H_g[nEntropies * i] )
+          if ( testDoubleValue1 > H_g[nEntropies * i] )
             {
             vtkGenericWarningMacro("Reported inconsistent information entropies: H(X,Y) = " 
                                    << H_g[nEntropies * i]
                                    << " < " 
-                                   << testDoubleValue 
+                                   << testDoubleValue1 
                                    << " = H(Y|X)+ H(X|Y).");
             *(args->retVal) = 1;
             }
@@ -265,10 +259,12 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
       }
     }
 
-  // Verify that the broadcasted reduced contingency tables all result in a CDF value of 1
+  // Verify that the local and global CDFs sum to 1 within presribed relative tolerance
   if ( com->GetLocalProcessId() == args->ioRank )
     {
-    cout << "\n## Verifying that broadcasted CDF sum to 1 on all processes.\n";
+    cout << "\n## Verifying that local and global CDFs sum to 1 (within "
+         << args->absTol
+         << " relative tolerance).\n";
     }
   
   vtkIdTypeArray* keys = vtkIdTypeArray::SafeDownCast( outputContingency->GetColumnByName( "Key" ) );
@@ -313,7 +309,7 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
                   cdf_g, 
                   nRowSumm );
 
-  // Print out all CDFs
+  // Print out all local and global CDFs
   if ( com->GetLocalProcessId() == args->ioRank )
     {
     for ( vtkIdType k = 0; k < nRowSumm; ++ k )
@@ -327,28 +323,34 @@ void RandomContingencyStatistics( vtkMultiProcessController* controller, void* a
         
       for ( int i = 0; i < numProcs; ++ i )
         {
-        testDoubleValue = cdf_g[i * nRowSumm + k];
+        testDoubleValue1 = cdf_l[k];
+        testDoubleValue2 = cdf_g[i * nRowSumm + k];
 
         cout << "     On process "
              << i
-             << ", CDF = "
-             << testDoubleValue
+             << ", local CDF = "
+             << testDoubleValue1
+             << ", global CDF = "
+             << testDoubleValue2
              << "\n";
 
-        // Verify that CDF = 1 (within absTol)
-        if ( fabs ( 1. - testDoubleValue ) > args->absTol )
+        // Verify that local CDF = 1 (within absTol)
+        if ( fabs ( 1. - testDoubleValue1 ) > args->absTol )
           {
-          vtkGenericWarningMacro("Incorrect CDF.");
+          vtkGenericWarningMacro("Incorrect local CDF.");
+          *(args->retVal) = 1;
+          }
+
+        // Verify that global CDF = 1 (within absTol)
+        if ( fabs ( 1. - testDoubleValue2 ) > args->absTol )
+          {
+          vtkGenericWarningMacro("Incorrect global CDF.");
           *(args->retVal) = 1;
           }
         }
       }
     }
   
-#if DEBUG_CONTINGENCY_TABLE
-  outputContingency->Dump();
-#endif // DEBUG_CONTINGENCY_TABLE
-
   // Clean up
   delete [] cdf_l;
   delete [] cdf_g;
@@ -422,32 +424,29 @@ int main( int argc, char** argv )
          << " will be the I/O node.\n";
     }
       
+
+  // Parameters for regression test.
+  int testValue = 0;
+  RandomContingencyStatisticsArgs args;
+
+  args.nVals = 1000000;
+  args.stdev = 5.;
+  args.absTol = 1.e-6;
+  args.retVal = &testValue;
+  args.ioRank = ioRank;
+  args.argc = argc;
+  args.argv = argv;
+
   // Check how many processes have been made available
   int numProcs = controller->GetNumberOfProcesses();
   if ( controller->GetLocalProcessId() == ioRank )
     {
     cout << "\n# Running test with "
          << numProcs
-         << " processes...\n";
+         << " processes and standard deviation = "
+         << args.stdev
+         << ".\n";
     }
-
-  // Parameters for regression test.
-  int testValue = 0;
-  RandomContingencyStatisticsArgs args;
-
-#if CONTINGENCY_BIG_CASE
-  args.nVals = 1000000;
-  args.span = 50.;
-#else // CONTINGENCY_BIG_CASE
-  args.nVals = 10;
-  args.span = 3.;
-#endif // CONTINGENCY_BIG_CASE
-
-  args.absTol = 1.e-6;
-  args.retVal = &testValue;
-  args.ioRank = ioRank;
-  args.argc = argc;
-  args.argv = argv;
 
   // Execute the function named "process" on both processes
   controller->SetSingleMethod( RandomContingencyStatistics, &args );

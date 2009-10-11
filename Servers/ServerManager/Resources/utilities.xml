@@ -73,7 +73,7 @@
 
     </LookupTableProxy>
 
-    <PVLookupTableProxy name="PVLookupTable" class="vtkPVLookupTable">
+    <PVLookupTableProxy name="PVLookupTable" class="vtkDiscretizableColorTransferFunction">
       <IntVectorProperty
         name="LockScalarRange"
         number_of_elements="1"
@@ -281,13 +281,30 @@
       </IntVectorProperty>
     </Proxy>
     
-    <!--
-    <Proxy name="NoMergePoints" class="vtkNoMergePoints">
+    <Proxy name="NonMergingPointLocator" class="vtkNonMergingPointLocator" label="Don't Merge Points" >
       <Documentation>
         Perform direct / check-free point insertion (any point is inserted to a vtkPoints object) and therefore there can be duplicate points.
       </Documentation>  
+      
+      <IntVectorProperty name="Divisions"
+        command="SetDivisions"
+        number_of_elements="3"
+        default_values="50 50 50" >
+        <Documentation>
+          Specify the number of divisions in each axis / direction (x, y, z) for creating a search structure of uniform fixed-resolution bins / buckets.
+        </Documentation>
+      </IntVectorProperty>
+        
+      <IntVectorProperty name="NumberOfPointsPerBucket"
+        command="SetNumberOfPointsPerBucket"
+        label="Number of points per bucket"
+        number_of_elements="1"
+        default_values="8" >
+        <Documentation>
+          Specify the average number of points in each bin / bucket that determines the initial and growing sizes (in terms of number of points) of each bin / bucket.
+        </Documentation>
+      </IntVectorProperty>
     </Proxy>
-    -->
       
     <Proxy name="IncrementalOctreePointLocator" class="vtkIncrementalOctreePointLocator">
       <Documentation>
@@ -702,6 +719,23 @@
     
     <Proxy name="ContourWidget" class="vtkContourWidget"
       base_proxygroup="3d_widgets" base_proxyname="WidgetBase">
+      
+      <Property name="CloseLoop" command="CloseLoop" />
+      <Property name="Initialize" command="Initialize" />
+
+      <IntVectorProperty name="AllowNodePicking"
+        command="SetAllowNodePicking"
+        number_of_elements="1"
+        default_values="1">
+        <BooleanDomain name="bool" />
+      </IntVectorProperty>
+      <IntVectorProperty name="ProcessEvents"
+        command="SetProcessEvents"
+        number_of_elements="1"
+        default_values="1">
+        <BooleanDomain/>
+      </IntVectorProperty>
+
     </Proxy>
 
     <Proxy name="ScalarBarWidget" class="vtkScalarBarWidget"
@@ -1863,6 +1897,10 @@
           <DataType value="vtkTable"/>
         </DataTypeDomain>
       </InputProperty>
+
+      <ProxyProperty 
+        name="Annotations" command="SetAnnotations">
+      </ProxyProperty>
 
       <OutputPort name="Annotations" index="0"/>
       <OutputPort name="Domain Maps" index="1"/>
@@ -3076,12 +3114,31 @@
     </Proxy>
     <Proxy name="BoundedPlanePointPlacer" class="vtkBoundedPlanePointPlacer"
       base_proxygroup="point_placers" base_proxyname="PointPlacerBase">
+      
+      <IntVectorProperty
+         name="ProjectionNormal"
+         command="SetProjectionNormal"
+         number_of_elements="1"
+         default_values="2">
+        <EnumerationDomain name="enum">
+          <Entry value="0" text="XAxis" />
+          <Entry value="1" text="YAxis" />
+          <Entry value="2" text="ZAxis" />
+          <Entry value="3" text="Oblique" />
+        </EnumerationDomain>
+      </IntVectorProperty>
+      <DoubleVectorProperty
+         name="ProjectionPosition"
+         command="SetProjectionPosition"
+         number_of_elements="1"
+         default_values="0.0">
+      </DoubleVectorProperty>
 
       <ProxyProperty name="BoundingPlanes"
         command="AddBoundingPlane"
-        clean_command="RemoveAllBoundingPlanes"
         repeat_command="1"
-        update_self="1">
+        number_of_elements_per_command="1"
+        clean_command="RemoveAllBoundingPlanes">
         <ProxyGroupDomain name="groups">
           <Group name="implicit_functions" />
         </ProxyGroupDomain>
@@ -3090,7 +3147,6 @@
           <Proxy group="implicit_functions" name="Box" />
         </ProxyListDomain>
       </ProxyProperty>
-
     </Proxy>
     <Proxy name="PolygonalSurfacePointPlacer" class="vtkPolygonalSurfacePointPlacer"
       base_proxygroup="point_placers" base_proxyname="PointPlacerBase">

@@ -24,10 +24,22 @@
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkTDxWinDevice,"$Revision: 1.1 $");
+#include <vtkstd/map>
+
+vtkCxxRevisionMacro(vtkTDxWinDevice,"$Revision: 1.8 $");
 vtkStandardNewMacro(vtkTDxWinDevice);
 
-#include "atlbase.h" // for CComPtr<> (a smart pointer)
+// On Visual Studio, older than VS9, CoInitializeEx() is not automatically
+// defined if the minimum compatibility OS is not specified.
+// The Spacenavigator is supported on Windows 2000, XP, Vista
+// Setting the minimum requirement to Windows 2000 (code 0x500) is
+// a reasonable value.
+#if defined(_MSC_VER) && (_MSC_VER<1500) // 1500=VS9(2008)
+# define _WIN32_WINNT 0x500 // aka Windows 2000, for CoInitializeEx()
+#endif
+#include <atlbase.h> // for CComPtr<> (a smart pointer)
+
+#include <BaseTsd.h> // for UINT_PTR
 
 // for ISensor and IKeyboard
 #import "progid:TDxInput.Device.1" no_namespace
@@ -37,21 +49,34 @@ VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND hwnd,
                                        UINT_PTR idEvent,
                                        DWORD dwTime);
 
+class vtkLessThanWindowHandle
+{
+public:
+  bool operator()(const HWND &h1, const HWND &h2) const
+    {
+      return h1<h2;
+    }
+};
+
+
 // It would be better to have the following variables as member of variable
 // but the SetTimer on windows is only initialized with a function pointer
 // without calldata.
+vtkstd::map<HWND,vtkTDxWinDevice *,vtkLessThanWindowHandle> vtkWindowHandleToDeviceObject;
 
 class vtkTDxWinDevicePrivate
 {
 public:
   vtkTDxWinDevicePrivate()
     {
+      this->TimerId=0;
       this->Sensor=0;
       this->Keyboard=0;
       this->KeyStates=0;
       this->LastTimeStamp=0;
       this->Interactor=0;
     }
+  UINT_PTR TimerId;
   CComPtr<ISensor> Sensor;
   CComPtr<IKeyboard> Keyboard;
   __int64 KeyStates;
@@ -61,14 +86,71 @@ public:
 
 vtkTDxWinDevicePrivate vtkTDxWinDevicePrivateObject;
 
+HRESULT HresultCodes[13]={S_OK,
+                          REGDB_E_CLASSNOTREG,
+                          CLASS_E_NOAGGREGATION,
+                          E_NOINTERFACE,
+                          E_POINTER,
+                          E_ABORT,
+                          E_ACCESSDENIED,
+                          E_FAIL,
+                          E_HANDLE,
+                          E_INVALIDARG,
+                          E_NOTIMPL,
+                          E_OUTOFMEMORY,
+                          E_UNEXPECTED};
+
+const char *HresultStrings[13]={"S_OK",
+                                "REGDB_E_CLASSNOTREG",
+                                "CLASS_E_NOAGGREGATION",
+                                "E_NOINTERFACE",
+                                "E_POINTER",
+                                "E_ABORT",
+                                "E_ACCESSDENIED",
+                                "E_FAIL",
+                                "E_HANDLE",
+                                "E_INVALIDARG",
+                                "E_NOTIMPL",
+                                "E_OUTOFMEMORY",
+                                "E_UNEXPECTED"};
+
+const UINT_PTR VTK_IDT_TDX_TIMER=1664; // Random beer.
+
+// ----------------------------------------------------------------------------
+// Description:
+// Return a human readable version of an HRESULT.
+const char *HresultCodeToString(HRESULT hr)
+{
+  int i=0;
+  bool found=false;
+  while(!found && i<13)
+    {
+    found=HresultCodes[i]==hr;
+    ++i;
+    }
+  const char *result;
+  if(found)
+    {
+    result=HresultStrings[i-1];
+    }
+  else
+    {
+    result="unknown";
+    }
+  return result;
+}
+
 // ----------------------------------------------------------------------------
 // Description:
 // Default constructor.
 vtkTDxWinDevice::vtkTDxWinDevice()
 {
-//  this->DebugOn();
+  this->WindowHandle=0;
+  this->Private=new vtkTDxWinDevicePrivate;
+  this->IsListening=false;
+  //  this->DebugOn();
 }
-  
+
 // ----------------------------------------------------------------------------
 // Description:
 // Destructor. If the device is not initialized, do nothing. If the device
@@ -79,8 +161,31 @@ vtkTDxWinDevice::~vtkTDxWinDevice()
     {
     this->Close();
     }
+  delete this->Private;
 }
-  
+
+// ----------------------------------------------------------------------------
+// Description:
+// Get the handle of the window. Initial value is 0.
+HWND vtkTDxWinDevice::GetWindowHandle() const
+{
+  return this->WindowHandle;
+}
+
+// ----------------------------------------------------------------------------
+// Description:
+// Set the handle of the window.
+// \pre not_yet_initialized: !GetInitialized()
+void vtkTDxWinDevice::SetWindowHandle(HWND hWnd)
+{
+  assert("pre: not_yet_initialized" && !this->GetInitialized());
+  if(this->WindowHandle!=hWnd)
+    {
+    this->WindowHandle=hWnd;
+    this->Modified();
+    }
+}
+
 // ----------------------------------------------------------------------------
 // Description:
 // Initialize the device with the current display and window ids.
@@ -94,9 +199,17 @@ void vtkTDxWinDevice::Initialize()
   
   bool status=false;
   
-  HRESULT hr;
+  HRESULT hr=0;
   CComPtr<IUnknown> device;
-
+  
+  hr=::CoInitializeEx(NULL, COINIT_APARTMENTTHREADED );
+  if (!SUCCEEDED(hr))
+    {
+    vtkWarningMacro( << "CoInitializeEx failed. hresult=0x" << hex << hr << dec << HresultCodeToString(hr));
+    this->Initialized=status;
+    return;
+    }
+  
   // Create the device object
   hr=device.CoCreateInstance(__uuidof(Device));
   status=SUCCEEDED(hr);
@@ -108,7 +221,7 @@ void vtkTDxWinDevice::Initialize()
     status=SUCCEEDED(hr);
     if(status)
       {
-      vtkTDxWinDevicePrivate *o=&vtkTDxWinDevicePrivateObject;
+      vtkTDxWinDevicePrivate *o= this->Private;
       
       // Get the interfaces to the sensor and the keyboard;
       o->Sensor=d->Sensor;
@@ -117,20 +230,71 @@ void vtkTDxWinDevice::Initialize()
       
       // Connect to the driver
       d->Connect();
-      // Create timer used to poll the 3dconnexion device
-      this->TimerId =::SetTimer(NULL,0,25,vtkTDxWinDeviceTimerProc);
+      
       vtkDebugMacro(<< "Connected to COM-object for 3dConnexion device.");
       }
     else
       {
-      vtkWarningMacro(<<"Could not get the device interface.");
+      vtkWarningMacro(<<"Could not get the device interface. hresult=0x" << hex << hr << dec << HresultCodeToString(hr));
       }
     }
   else
     {
-    vtkWarningMacro( << "CoCreateInstance failed");
+    vtkWarningMacro( << "CoCreateInstance failed. hresult=0x" << hex << hr << dec << HresultCodeToString(hr));
     }
   this->Initialized=status;
+}
+
+// ----------------------------------------------------------------------------
+bool vtkTDxWinDevice::GetIsListening() const
+{
+  return this->IsListening;
+}
+
+// ----------------------------------------------------------------------------
+// \pre initialized: GetInitialized()
+// \pre not_yet: !GetIsListening()
+void vtkTDxWinDevice::StartListening()
+{
+  assert("pre: initialized" && this->GetInitialized());
+  assert("pre: not_yet" && !this->GetIsListening());
+  
+  // Create timer used to poll the 3dconnexion device
+  this->Private->TimerId =::SetTimer(this->WindowHandle,VTK_IDT_TDX_TIMER,25,
+                                     vtkTDxWinDeviceTimerProc);
+  
+  vtkWindowHandleToDeviceObject.insert(
+    vtkstd::pair<const HWND,vtkTDxWinDevice *>(this->WindowHandle,this));
+  
+  this->IsListening=true;
+  
+  vtkDebugMacro(<< "Start listening");
+}
+
+// ----------------------------------------------------------------------------
+// \pre initialized: GetInitialized()
+// \pre is_listening: GetIsListening()
+void vtkTDxWinDevice::StopListening()
+{
+  assert("pre: initialized" && this->GetInitialized());
+  assert("pre: is_listening" && this->GetIsListening());
+  
+  // Kill the timer used to poll the sensor and keyboard
+  ::KillTimer(this->WindowHandle,VTK_IDT_TDX_TIMER);
+  this->Private->TimerId=0;
+  this->IsListening=false;
+  
+  vtkstd::map<HWND,vtkTDxWinDevice *,vtkLessThanWindowHandle>::iterator it=vtkWindowHandleToDeviceObject.find(this->WindowHandle);
+  
+  if(it==vtkWindowHandleToDeviceObject.end())
+    {
+    vtkErrorMacro(<< "No matching vtkTDxWinDevice object for window hwnd=" << this->WindowHandle);
+    }
+  else
+    {
+    vtkWindowHandleToDeviceObject.erase(it);
+    }
+  vtkDebugMacro(<< "Stop listening");
 }
 
 // ----------------------------------------------------------------------------
@@ -148,15 +312,13 @@ void vtkTDxWinDevice::Close()
   
   CComPtr<ISimpleDevice> d;
   
-  // Kill the timer used to poll the sensor and keyboard
-  if(this->TimerId!=0)
+  if(this->IsListening)
     {
-    ::KillTimer(NULL,this->TimerId);
-    this->TimerId=0;
+    this->StopListening();
     }
   
   // Release the sensor and keyboard interfaces
-  vtkTDxWinDevicePrivate *o=&vtkTDxWinDevicePrivateObject;
+  vtkTDxWinDevicePrivate *o=this->Private;
   if(o->Sensor!=0)
     {
     o->Sensor->get_Device(reinterpret_cast<IDispatch**>(&d));
@@ -187,15 +349,9 @@ void vtkTDxWinDevice::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 // ----------------------------------------------------------------------------
-// The timer callback is used to poll the 3d input device for change of
-// keystates and the cap displacement values.
-VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND vtkNotUsed(hwnd),
-                                       UINT vtkNotUsed(uMsg),
-                                       UINT_PTR vtkNotUsed(idEvent),
-                                       DWORD vtkNotUsed(dwTime))
-{ 
-  vtkTDxWinDevicePrivate *o=&vtkTDxWinDevicePrivateObject;
-  
+void vtkTDxWinDevice::ProcessEvent(void)
+{
+  vtkTDxWinDevicePrivate *o=this->Private;
   if(o->Keyboard!=0)
     {
     // Check if any change to the keyboard state
@@ -215,8 +371,9 @@ VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND vtkNotUsed(hwnd),
             {
             o->KeyStates |= mask;
             int buttonInfo=static_cast<int>(i);
+            vtkDebugMacro(<<"button press event:"<< buttonInfo);
             o->Interactor->InvokeEvent(vtkCommand::TDxButtonPressEvent,
-                                          &buttonInfo);
+                                       &buttonInfo);
             }
           }
         else
@@ -236,8 +393,9 @@ VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND vtkNotUsed(hwnd),
             {
             o->KeyStates |= mask;
             int buttonInfo=static_cast<int>(i);
+            vtkDebugMacro(<<"button press event (special):"<< buttonInfo);
             o->Interactor->InvokeEvent(vtkCommand::TDxButtonPressEvent,
-                                          &buttonInfo);
+                                       &buttonInfo);
             }
           }
         else
@@ -274,41 +432,14 @@ VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND vtkNotUsed(hwnd),
           }
         o->LastTimeStamp=currentTime;
         
-        double ScaleRotation=1024.0;
-        double ScaleTranslation=512.0;
-        double Sensitivity=1.0;
-        
-        t->Length /= ScaleTranslation*Sensitivity;
-        r->Angle /= ScaleRotation*Sensitivity;
-        
-#if 0
-        MathFrame FrameTransRot;
-        MathFrameTranslation(&FrameTransRot, pTranslation->X, pTranslation->Y, pTranslation->Z);
-        
-        
-        MathFrameRotation( &FrameTransRot, 
-                           pRotation->X * pRotation->Angle, 
-                           pRotation->Y * pRotation->Angle,
-                           pRotation->Z * pRotation->Angle );
-        
-        MathFrameMultiplication( &FrameTransRot, &FrameCube, &FrameCube );
-        if ( FrameCube.MathTranslation[2] > NearPosition )
-          {
-          FrameCube.MathTranslation[2] = NearPosition;
-          }
-        
-        if (MainhWnd)
-          {
-          DisplayCube( MainhWnd, &FrameCube, &VGAVideo );
-          }
-#endif
         vtkTDxMotionEventInfo motionInfo;
         motionInfo.X=t->X;
         motionInfo.Y=t->Y;
         motionInfo.Z=t->Z;
-        motionInfo.A=r->Angle*r->X; // yes, this is wrong, TODO
-        motionInfo.B=100.0*r->Angle*r->Y;
-        motionInfo.C=r->Angle*r->Z;
+        motionInfo.Angle=r->Angle;
+        motionInfo.AxisX=r->X;
+        motionInfo.AxisY=r->Y;
+        motionInfo.AxisZ=r->Z;
         o->Interactor->InvokeEvent(vtkCommand::TDxMotionEvent,
                                    &motionInfo);
         }
@@ -324,4 +455,23 @@ VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND vtkNotUsed(hwnd),
       // Some sort of exception handling
       }
     }
+}
+
+// ----------------------------------------------------------------------------
+// The timer callback is used to poll the 3d input device for change of
+// keystates and the cap displacement values.
+VOID CALLBACK vtkTDxWinDeviceTimerProc(HWND hwnd,
+                                       UINT vtkNotUsed(uMsg),
+                                       UINT_PTR vtkNotUsed(idEvent),
+                                       DWORD vtkNotUsed(dwTime))
+{ 
+  vtkstd::map<HWND,vtkTDxWinDevice *,vtkLessThanWindowHandle>::iterator it=vtkWindowHandleToDeviceObject.find(hwnd);
+  
+  if(it==vtkWindowHandleToDeviceObject.end())
+    {
+    vtkGenericWarningMacro(<< "No matching vtkTDxWinDevice object for window hwnd=" << hwnd);
+    return;
+    }
+  vtkTDxWinDevice *device=(*it).second;
+  device->ProcessEvent(); 
 }

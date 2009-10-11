@@ -111,6 +111,15 @@ public:
   // Ideally one should use GetLinesProperty()->SetColor().
   void SetLineColor(double r, double g, double b);
   
+  // Description:
+  // A flag to indicate whether to show the Selected nodes
+  // Default is to set it to false.
+  virtual void SetShowSelectedNodes(int);
+  
+  // Description:
+  // Return the bounds of the representation
+  virtual double *GetBounds();
+  
 protected:
   vtkOrientedGlyphContourRepresentation();
   ~vtkOrientedGlyphContourRepresentation();
@@ -128,6 +137,14 @@ protected:
   vtkPoints            *FocalPoint;
   vtkPolyData          *ActiveFocalData;
   vtkPoints            *ActiveFocalPoint;
+  
+  vtkPolyData          *SelectedNodesData;
+  vtkPoints            *SelectedNodesPoints;
+  vtkActor             *SelectedNodesActor;
+  vtkPolyDataMapper    *SelectedNodesMapper;
+  vtkGlyph3D           *SelectedNodesGlypher;
+  vtkPolyData          *SelectedNodesCursorShape;
+  void CreateSelectedNodesRepresentation();
 
   vtkPolyData          *Lines;
   vtkPolyDataMapper    *LinesMapper;

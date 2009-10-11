@@ -57,7 +57,7 @@
 #include <vtkstd/string>
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkScatterPlotPainter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkScatterPlotPainter, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkScatterPlotPainter);
 
 vtkInformationKeyMacro(vtkScatterPlotPainter, THREED_MODE, Integer);
@@ -68,6 +68,7 @@ vtkInformationKeyMacro(vtkScatterPlotPainter, SCALE_MODE, Integer);
 vtkInformationKeyMacro(vtkScatterPlotPainter, SCALE_FACTOR, Double);
 vtkInformationKeyMacro(vtkScatterPlotPainter, ORIENTATION_MODE, Integer);
 vtkInformationKeyMacro(vtkScatterPlotPainter, NESTED_DISPLAY_LISTS, Integer);
+vtkInformationKeyMacro(vtkScatterPlotPainter, PARALLEL_TO_CAMERA, Integer);
 
 vtkCxxSetObjectMacro(vtkScatterPlotPainter, SourceGlyphMappers, vtkCollection);
 vtkCxxSetObjectMacro(vtkScatterPlotPainter, LookupTable, vtkScalarsToColors);
@@ -95,6 +96,7 @@ vtkScatterPlotPainter::vtkScatterPlotPainter()
 //   this->Range[1] = 1.0;
   this->OrientationMode = vtkScatterPlotMapper::DIRECTION;
   this->NestedDisplayLists = 1;
+  this->ParallelToCamera = 1;
 
   this->ScalarsToColorsPainter = vtkScalarsToColorsPainter::New();
   this->SourceGlyphMappers = vtkCollection::New();
@@ -288,6 +290,7 @@ vtkUnsignedCharArray* vtkScatterPlotPainter::GetColors()
 //-----------------------------------------------------------------------------
 void vtkScatterPlotPainter::ProcessInformation(vtkInformation* info)
 {
+  // the input arrays to process are handled automatically by the superclasses
   if (info->Has(THREED_MODE()))
     {
     this->SetThreeDMode(info->Get(THREED_MODE()));
@@ -326,6 +329,11 @@ void vtkScatterPlotPainter::ProcessInformation(vtkInformation* info)
   if (info->Has(NESTED_DISPLAY_LISTS()))
     {
     this->SetNestedDisplayLists(info->Get(NESTED_DISPLAY_LISTS()));
+    }
+
+  if (info->Has(PARALLEL_TO_CAMERA()))
+    {
+    this->SetParallelToCamera(info->Get(PARALLEL_TO_CAMERA()));
     }
 
   if (info->Has(vtkScalarsToColorsPainter::LOOKUP_TABLE()))
@@ -539,7 +547,6 @@ void vtkScatterPlotPainter::UpdateBounds(double* bounds)
   // do we have an input
   if(!this->GetInput())
     {
-    //cout << __FUNCTION__ << " no input" << endl;
     return;
     }
   
@@ -596,12 +603,12 @@ void vtkScatterPlotPainter::UpdateBounds(double* bounds)
     bounds[5] = 0.;
     }
   
-  if(!this->GlyphMode)
+  if(!(this->GlyphMode & vtkScatterPlotMapper::UseGlyph))
     {
-//     cout << __FUNCTION__ << " bounds: "
-//          << bounds[0] << " " << bounds[1] << " "
-//          << bounds[2] << " " << bounds[3] << " "
-//          << bounds[4] << " " << bounds[5] << endl;
+    // cout << __FUNCTION__ << " bounds: "
+    //        << bounds[0] << " " << bounds[1] << " "
+    //        << bounds[2] << " " << bounds[3] << " "
+    //        << bounds[4] << " " << bounds[5] << endl;
     return;
     }
   
@@ -763,7 +770,7 @@ void vtkScatterPlotPainter::UpdateBounds(double* bounds)
   // Compute indexRange.  
   double sourceRange[2] = {0.,1.};
   double sourceRangeDiff = 1.;
-  if(glyphSourceArray)
+  if(glyphSourceArray && this->GlyphMode & vtkScatterPlotMapper::UseMultiGlyph)
     {
     glyphSourceArray->GetRange(sourceRange, this->GetArrayComponent(vtkScatterPlotMapper::GLYPH_SOURCE));
     sourceRangeDiff = sourceRange[1] - sourceRange[0];
@@ -786,25 +793,26 @@ void vtkScatterPlotPainter::UpdateBounds(double* bounds)
     {
     vtkPolyData *source = this->GetGlyphSource(index);
     // Make sure we're not indexing into empty glyph
-    if(source!=0)
+    if(source == 0)
       {
-      double sourcebounds[6];
-      source->GetBounds(sourcebounds);// can be invalid/uninitialized
-      if(vtkMath::AreBoundsInitialized(sourcebounds))
-        {
-        bbox.AddBounds(sourcebounds);
-        }
+      continue;
+      }
+    double sourcebounds[6];
+    source->GetBounds(sourcebounds);// can be invalid/uninitialized
+    if(vtkMath::AreBoundsInitialized(sourcebounds))
+      {
+      bbox.AddBounds(sourcebounds);
       }
     }
    
-  if (this->GlyphMode && this->GlyphMode & vtkScatterPlotMapper::ScaledGlyph)
+  if (this->GlyphMode & vtkScatterPlotMapper::ScaledGlyph)
     {
     vtkBoundingBox bbox2(bbox);
     bbox.Scale(maxScale[0], maxScale[0], maxScale[0]);
     bbox2.Scale(maxScale[1], maxScale[1], maxScale[1]);
     bbox.AddBox(bbox2);
-    bbox.Scale(this->ScaleFactor, this->ScaleFactor, this->ScaleFactor);
     }
+  bbox.Scale(this->ScaleFactor, this->ScaleFactor, this->ScaleFactor);
 
   if(bbox.IsValid())
     {
@@ -836,6 +844,8 @@ void vtkScatterPlotPainter::UpdateBounds(double* bounds)
     }
   else
     {
+    double tmpBounds[6];
+    bbox.GetBounds(tmpBounds);
     vtkMath::UninitializeBounds(bounds);
     }
 }
@@ -942,120 +952,14 @@ void vtkScatterPlotPainter::RenderInternal(vtkRenderer *ren, vtkActor *actor,
                                    bool forceCompileOnly)
 {
   this->Timer->StartTimer();
-  
-/*
-  vtkHardwareSelector* selector = ren->GetSelector();
-  bool selecting_points = selector && (selector->GetFieldAssociation() == 
-    vtkDataObject::FIELD_ASSOCIATION_POINTS);
-
-  if (selector)
+  if(this->GlyphMode & vtkScatterPlotMapper::UseGlyph)
     {
-    selector->BeginRenderProp();
-    }
-
-  if (selector && !selecting_points)
-    {
-    // Selecting some other attribute. Not supported.
-    glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
-    }
-*/
-  //bool immediateMode = //this->ImmediateModeRendering ||
-    //vtkMapper::GetGlobalImmediateModeRendering();
-  //this->Information->Get(vtkDisplayListPainter::IMMEDIATE_MODE_RENDERING());
-    //|| selecting_points;
-/*
-  bool createDisplayList = false;
-  if (immediateMode)
-    {
-    this->ReleaseDisplayList();
+    this->RenderGlyphs(ren, actor, typeflags, forceCompileOnly);
     }
   else
     {
-    // if something has changed, regenerate display lists.
-    createDisplayList = this->DisplayListId == 0 || 
-      this->GetMTime() > this->BuildTime ||
-      ren->GetRenderWindow() != this->LastWindow.GetPointer();
+    this->RenderPoints(ren, actor, typeflags, forceCompileOnly);
     }
-  //cout << " ImmediateMode: " << immediateMode << endl;
-  //cout << " this->ImmediateMode: " << this->ImmediateModeRendering << endl;
-  //cout << " Create Display List: " << createDisplayList << endl;
-  if(immediateMode || createDisplayList)
-    {
-    //cout << __FUNCTION__ << endl;
-    //this->PrepareForRendering(ren,actor);
-    
-    if(createDisplayList)
-      {
-      this->ReleaseDisplayList();
-      this->DisplayListId = glGenLists(1);
-      glNewList(this->DisplayListId,GL_COMPILE);
-      }
-
-    bool multiplyWithAlpha = 
-      this->ScalarsToColorsPainter->GetPremultiplyColorsWithAlpha(actor)==1;
-    if (multiplyWithAlpha)
-      {
-      // We colors were premultiplied by alpha then we change the blending
-      // function to one that will compute correct blended destination alpha
-      // value, otherwise we stick with the default.
-      // save the blend function.
-      glPushAttrib(GL_COLOR_BUFFER_BIT);
-      // the following function is not correct with textures because there
-      // are not premultiplied by alpha.
-      glBlendFunc(GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
-      }
-*/
-    if(this->GlyphMode & vtkScatterPlotMapper::UseGlyph)
-      {
-      this->RenderGlyphs(ren, actor, typeflags, forceCompileOnly);
-      }
-    else
-      {
-      this->RenderPoints(ren, actor, typeflags, forceCompileOnly);
-      }
-/*
-    // from vtkOpenGLScalarsToColorsPainter::RenderInternal
-    if(multiplyWithAlpha)
-      {
-      // restore the blend function
-      glPopAttrib();
-      }
-
-    if(createDisplayList)
-      {
-      glEndList();
-      this->BuildTime.Modified();
-      this->LastWindow = ren->GetRenderWindow();
-      }
-
-    int error = glGetError();
-    if(error!=GL_NO_ERROR)
-      {
-      cout<< " ERRRRRROR3: "<< error << endl;
-      }
-    } // if(immediateMode||createDisplayList)
-    
-
-  if(!immediateMode && !forceCompileOnly)
-    {
-    this->TimeToDraw=0.0;
-    this->Timer->StartTimer();
-    glCallList(this->DisplayListId);
-    this->Timer->StopTimer();
-    this->TimeToDraw += this->Timer->GetElapsedTime();
-    }
-*/
-/*
-  if (selector && !selecting_points)
-    {
-    // Selecting some other attribute. Not supported.
-    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
-    }
-  if (selector)
-    {
-    selector->EndRenderProp();
-    }
-*/
   this->Timer->StopTimer();
   this->TimeToDraw = this->Timer->GetElapsedTime();
 }
@@ -1154,6 +1058,7 @@ void vtkScatterPlotPainter::RenderPoints(vtkRenderer *vtkNotUsed(ren),
       }
     glVertex3f(point[0], point[1], point[2]);
     }
+  //glVertex3f(0, 0, 0);
   glEnd();
  }
 
@@ -1200,36 +1105,22 @@ void vtkScatterPlotPainter::RenderGlyphs(vtkRenderer *ren, vtkActor *actor,
      (!glyphYScaleArray && this->GlyphMode & vtkScatterPlotMapper::ScaledGlyph &&
       this->GetArrayComponent(vtkScatterPlotMapper::GLYPH_X_SCALE)!=-1) ||
      (!glyphZScaleArray && this->GlyphMode & vtkScatterPlotMapper::ScaledGlyph && 
-      this->GetArrayComponent(vtkScatterPlotMapper::GLYPH_X_SCALE)!=-1) ||
-     (!glyphSourceArray && this->GlyphMode & vtkScatterPlotMapper::UseMultiGlyph) ||
-     (!glyphXOrientationArray && this->GlyphMode & vtkScatterPlotMapper::OrientedGlyph) ||
+      this->GetArrayComponent(vtkScatterPlotMapper::GLYPH_X_SCALE)!=-1))
+    {
+    vtkWarningMacro("The glyph scale array is not set.");
+    }
+
+  if(!glyphSourceArray && this->GlyphMode & vtkScatterPlotMapper::UseMultiGlyph)
+    {
+    vtkWarningMacro("The glyph source array is not set.");
+    }
+
+  if((!glyphXOrientationArray && this->GlyphMode & vtkScatterPlotMapper::OrientedGlyph) ||
      (!glyphYOrientationArray && this->GlyphMode & vtkScatterPlotMapper::OrientedGlyph) ||
      (!glyphZOrientationArray && this->GlyphMode & vtkScatterPlotMapper::OrientedGlyph))
     {
-    //vtkErrorMacro("One array is not set.");
-    vtkWarningMacro("A glyph array is not set.");
-    //return;
+    vtkWarningMacro("The glyph orientation array is not set.");
     }
-  
- 
-  // vtkBitArray *maskArray = 0;
-//     if (this->Masking)
-//       {
-//       maskArray = vtkBitArray::SafeDownCast(this->GetMaskArray(input));
-//       if (maskArray==0)
-//         {
-//         vtkDebugMacro(<<"masking is enabled but there is no mask array. Ignore masking.");
-//         }
-//       else
-//         {
-//         if (maskArray->GetNumberOfComponents()!=1)
-//           {
-//           vtkErrorMacro(" expecting a mask array with one component, getting "
-//             << maskArray->GetNumberOfComponents() << " components.");
-//           return;
-//           }
-//         }
-//       }
   /*
   vtkHardwareSelector* selector = ren->GetSelector();
   bool selecting_points = selector && (selector->GetFieldAssociation() == 
@@ -1403,6 +1294,7 @@ void vtkScatterPlotPainter::RenderGlyphs(vtkRenderer *ren, vtkActor *actor,
 //          scalez = (scalez - this->Range[0]) / den;
 //          }
       }
+
     scale[0] *= this->ScaleFactor;
     scale[1] *= this->ScaleFactor;
     scale[2] *= this->ScaleFactor;
@@ -1475,7 +1367,9 @@ void vtkScatterPlotPainter::RenderGlyphs(vtkRenderer *ren, vtkActor *actor,
     trans->Translate(point);
 
     // Get the 2D glyphs parallel to the camera
-    if(this->ThreeDMode)
+    if(this->ThreeDMode && 
+       this->GlyphMode & vtkScatterPlotMapper::UseGlyph &&
+       this->ParallelToCamera)
       {
       trans->Concatenate(camTrans);
       }
@@ -1529,9 +1423,10 @@ void vtkScatterPlotPainter::RenderGlyphs(vtkRenderer *ren, vtkActor *actor,
       }
 
     //SCALING
-    if(this->GlyphMode & vtkScatterPlotMapper::ScaledGlyph)
+    if (this->GlyphMode & vtkScatterPlotMapper::ScaledGlyph || 
+        this->ScaleFactor != 1.)
       {
-      trans->Scale(scale[0],scale[1],scale[2]);
+      trans->Scale(scale[0], scale[1], scale[2]);
       }
     
     // Get the 2D glyphs parallel to the camera (billboarding)

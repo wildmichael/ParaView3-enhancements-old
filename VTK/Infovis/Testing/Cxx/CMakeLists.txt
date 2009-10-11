@@ -19,6 +19,7 @@ IF (VTK_USE_RENDERING AND VTK_USE_DISPLAY)
     TestGroupLeafVertices
     TestKdTreeBoxSelection
     TestKMeansStatistics
+    TestMergeGraphs
     TestMultiCorrelativeStatistics
     TestOrderStatistics
     TestPassArrays
@@ -75,7 +76,7 @@ IF (VTK_USE_RENDERING AND VTK_USE_DISPLAY)
     IF (VTK_USE_PARALLEL_BGL)
       # Add tests using the Parallel BGL
       ADD_EXECUTABLE(TestPBGLAlgorithms TestPBGLAlgorithms.cxx)
-      TARGET_LINK_LIBRARIES(TestPBGLAlgorithms vtkInfovis ${Boost_LIBRARIES})
+      TARGET_LINK_LIBRARIES(TestPBGLAlgorithms vtkInfovis ${Boost_LIBRARIES} ${MPI_LIBRARIES})
 
       ADD_TEST(TestPBGLAlgorithms
         ${VTK_MPIRUN_EXE} ${VTK_MPI_PRENUMPROC_FLAGS} ${VTK_MPI_NUMPROC_FLAG} ${VTK_MPI_MAX_NUMPROCS} 
@@ -182,8 +183,8 @@ IF(VTK_USE_N_WAY_ARRAYS)
 
   CREATE_TEST_SOURCELIST(ArrayTests ArrayCxxTests.cxx
     ArrayAPIDenseCoordinates.cxx
-    ArrayCosineSimilarity.cxx
     ArrayDiagonalMatrixSource.cxx
+    ArrayDotProductSimilarity.cxx
     ArrayExtractFactoredArray.cxx
     ArrayMatricizeArray.cxx
     TestArrayNorm.cxx

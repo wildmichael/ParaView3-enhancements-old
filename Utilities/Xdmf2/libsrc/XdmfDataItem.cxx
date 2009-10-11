@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.29 2009-07-31 16:27:33 kwleiter Exp $  */
-/*  Date : $Date: 2009-07-31 16:27:33 $ */
-/*  Version : $Revision: 1.29 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.31 2009-10-07 19:56:34 kwleiter Exp $  */
+/*  Date : $Date: 2009-10-07 19:56:34 $ */
+/*  Version : $Revision: 1.31 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,7 @@
 #ifdef XDMF_USE_MYSQL
 #include "XdmfValuesMySQL.h"
 #endif
+#include "XdmfValuesBinary.h"
 
 #include <libxml/tree.h>
 
@@ -95,7 +96,7 @@ XdmfDataItem::GetArray(XdmfInt32 Create){
     return(this->Array);
 }
 
-XdmfInt32 
+XdmfInt32
 XdmfDataItem::SetArray(XdmfArray *anArray){
     if(this->Array && this->ArrayIsMine) delete this->Array;
     this->ArrayIsMine = 0;
@@ -103,7 +104,7 @@ XdmfDataItem::SetArray(XdmfArray *anArray){
     return(XDMF_SUCCESS);
 }
 
-XdmfInt32 
+XdmfInt32
 XdmfDataItem::SetDataDesc(XdmfDataDesc *aDataDesc){
     if(this->DataDesc && this->DataDescIsMine) delete this->DataDesc;
     this->DataDescIsMine = 0;
@@ -212,6 +213,8 @@ XdmfInt32 XdmfDataItem::UpdateInformationUniform(){
         this->SetFormat(XDMF_FORMAT_XML);
     } else if(XDMF_WORD_CMP(Value, "MYSQL")){
         this->SetFormat(XDMF_FORMAT_MYSQL);
+    } else if(XDMF_WORD_CMP(Value, "BINARY")){
+        this->SetFormat(XDMF_FORMAT_BINARY);
     }else if(Value){
         XdmfErrorMessage("Unsupported DataItem Format :" << Value);
         return(XDMF_FAIL);
@@ -236,7 +239,7 @@ XdmfInt32 XdmfDataItem::UpdateInformation(){
 		}
 	}
 	XdmfDebug("Major = " << this->ColumnMajor);
-	
+
     XdmfDebug("XdmfDataItem::UpdateInformation()");
     if(XdmfElement::UpdateInformation() != XDMF_SUCCESS) return(XDMF_FAIL);
     // If this is a Reference, this->Element now points to the end of the chain. Continue?
@@ -283,7 +286,7 @@ XdmfInt32 XdmfDataItem::UpdateInformation(){
             return(XDMF_FAIL);
         } while(0);
     }
-    if(this->GetIsReference() && 
+    if(this->GetIsReference() &&
         (this->ReferenceElement != this->Element) &&
         (this->GetReferenceObject(this->Element) != this)){
         XdmfDebug("Reference DataItem Copied Info from another ReferenceObject");
@@ -517,6 +520,7 @@ XdmfInt32 XdmfDataItem::Update(){
                 return(XDMF_FAIL);
             }
             this->SetHeavyDataSetName(this->Values->GetHeavyDataSetName());
+            this->Array->SetHeavyDataSetName(this->Values->GetHeavyDataSetName());
             break;
         case XDMF_FORMAT_XML :
             this->Values->SetDebug(this->GetDebug());
@@ -536,12 +540,20 @@ XdmfInt32 XdmfDataItem::Update(){
             XdmfErrorMessage("XdmfValuesMySQL not enabled in this Xdmf");
             return(XDMF_FAIL);
 #endif
+
+            break;
+        case XDMF_FORMAT_BINARY :
+            this->Values->SetDebug(this->GetDebug());
+            if(!((XdmfValuesBinary *)this->Values)->Read(this->Array)){
+                XdmfErrorMessage("Reading Values Failed");
+                return(XDMF_FAIL);
+            }
             break;
         default :
             XdmfErrorMessage("Unsupported Data Format");
             return(XDMF_FAIL);
     }
-    
+
 	// Support for Fortran matrices (2D arrays) added by Dominik Szczerba, June 2009.
 	// Can be further optimized by e.g. in situ transpose methods
 	// discussed on http://en.wikipedia.org/wiki/In-place_matrix_transposition
@@ -606,7 +618,7 @@ XdmfInt32 XdmfDataItem::Update(){
 					}
 				}
 			}
-			
+
 			std::swap(dims[0], dims[1]);
 			Array->Reform(rank,dims);
 
@@ -643,7 +655,7 @@ XdmfInt32 XdmfDataItem::Update(){
 					XdmfErrorMessage("unknown data type");
 					return(XDMF_FAIL);
 			}
-			
+
 			XdmfDebug("done transpose");
 
 		}
@@ -654,9 +666,8 @@ XdmfInt32 XdmfDataItem::Update(){
 		}
 
 
-		
 	}
-	
+
     return(XDMF_SUCCESS);
 }
 
@@ -728,7 +739,7 @@ XdmfInt32 XdmfDataItem::Build(){
             break;
 	case 2 :
 	    this->Set("Precision", "2");
-	    break;	
+	    break;
         case 1 :
             this->Set("Precision", "1");
             break;
@@ -744,6 +755,9 @@ XdmfInt32 XdmfDataItem::Build(){
             break;
         case XDMF_FORMAT_MYSQL :
             this->Set("Format", "MYSQL");
+            break;
+        case XDMF_FORMAT_BINARY :
+            this->Set("Format", "BINARY");
             break;
         default :
             XdmfErrorMessage("Unsupported Data Format");
@@ -808,6 +822,9 @@ XdmfDataItem::CheckValues(XdmfInt32 aFormat){
                 XdmfErrorMessage("MySQL not supported in this Xdmf");
                 return(XDMF_FAIL);
 #endif
+                break;
+            case XDMF_FORMAT_BINARY :
+                this->Values = (XdmfValues *)new XdmfValuesBinary();
                 break;
             default :
                 XdmfErrorMessage("Unsupported Data Format");

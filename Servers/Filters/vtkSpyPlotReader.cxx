@@ -62,7 +62,7 @@ PURPOSE.  See the above copyright notice for more information.
 #define coutVector6(x) (x)[0] << " " << (x)[1] << " " << (x)[2] << " " << (x)[3] << " " << (x)[4] << " " << (x)[5]
 #define coutVector3(x) (x)[0] << " " << (x)[1] << " " << (x)[2]
 
-vtkCxxRevisionMacro(vtkSpyPlotReader, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkSpyPlotReader, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkSpyPlotReader);
 vtkCxxSetObjectMacro(vtkSpyPlotReader,GlobalController,vtkMultiProcessController);
 
@@ -128,15 +128,20 @@ vtkSpyPlotReader::~vtkSpyPlotReader()
 //-----------------------------------------------------------------------------
 // Create either vtkHierarchicalBoxDataSet or vtkMultiBlockDataSet based on
 // whether the dataset is AMR.
-int vtkSpyPlotReader::RequestDataObject(vtkInformation *vtkNotUsed(req),
+int vtkSpyPlotReader::RequestDataObject(vtkInformation *req,
   vtkInformationVector **vtkNotUsed(inV),
   vtkInformationVector *outV)
 {
   vtkInformation *outInfo = outV->GetInformationObject(0);
   vtkCompositeDataSet* outData = NULL;
 
-  // IsAMR is first set during the RequestInformation pass. This will
-  // make the wrong decision if RequestDataObject runs first.
+  // Call UpdateFile (which sets IsAMR) because RequestInformation isn't called
+  // before RequestDataObject
+  this->UpdateFile (req, outV);
+  
+  // We only need IsAMR set from UpdateFile, reset the CurrentFile
+  this->SetCurrentFileName (0);
+
   if (this->IsAMR)
     {
     outData = vtkHierarchicalBoxDataSet::New();
@@ -180,6 +185,13 @@ int vtkSpyPlotReader::RequestInformation(vtkInformation *request,
     return 0;
     }
 
+  return this->UpdateFile (request, outputVector);
+}
+
+//-----------------------------------------------------------------------------
+int vtkSpyPlotReader::UpdateFile (vtkInformation* request,
+                                  vtkInformationVector* outputVector)
+{
   ifstream ifs(this->FileName);
   if(!ifs)
     {
@@ -213,10 +225,12 @@ int vtkSpyPlotReader::RequestInformation(vtkInformation *request,
 int vtkSpyPlotReader::UpdateSpyDataFile(vtkInformation* request, 
                                         vtkInformationVector* outputVector)
 {
+cerr << "spydatafile\n";
   // See if this is part of a series
   vtkstd::string extension = 
     vtksys::SystemTools::GetFilenameLastExtension(this->FileName);
-  int currentNum, esize, isASeries=0;
+  int currentNum, isASeries=0;
+  size_t esize;
   esize = extension.size();
   if (esize > 0 )
     {
@@ -225,7 +239,7 @@ int vtkSpyPlotReader::UpdateSpyDataFile(vtkInformation* request,
     // from the check
     const char *a = extension.c_str();
     char *ep;
-    int b = 0;
+    size_t b = 0;
     if (a[0] == '.')
       {
       b = 1;
@@ -275,8 +289,10 @@ int vtkSpyPlotReader::UpdateSpyDataFile(vtkInformation* request,
   if(this->GetCurrentFileName()!=0 &&
      strcmp(this->FileName,this->GetCurrentFileName())==0)
     {
+cerr << "Not setting much else\n";
     return 1;
     }
+cerr << "setting Current file name " << this->FileName << endl;
   this->SetCurrentFileName(this->FileName);
   this->Map->Clean(0);
   vtkstd::string fileNoExt = 
@@ -295,6 +311,7 @@ int vtkSpyPlotReader::UpdateSpyDataFile(vtkInformation* request,
   while ( 1 )
     {
     sprintf(buffer, "%s/%s.%d",filePath.c_str(), fileNoExt.c_str(), idx);
+cerr << "buffer1 == " << buffer << endl;
     if ( !vtksys::SystemTools::FileExists(buffer) )
       {
       int next = idx;
@@ -322,6 +339,7 @@ int vtkSpyPlotReader::UpdateSpyDataFile(vtkInformation* request,
   while ( 1 )
     {
     sprintf(buffer, "%s/%s.%d", filePath.c_str(), fileNoExt.c_str(), idx);
+cerr << "buffer2 == " << buffer << endl;
     if ( !vtksys::SystemTools::FileExists(buffer) )
       {
       int next = idx;
@@ -346,12 +364,14 @@ int vtkSpyPlotReader::UpdateSpyDataFile(vtkInformation* request,
   for ( idx = minimum; idx <= maximum; ++ idx )
     {
     sprintf(buffer, "%s/%s.%d", filePath.c_str(), fileNoExt.c_str(), idx);
+cerr << "buffer3 == " << buffer << endl;
     this->Map->Files[buffer]=0;
     vtkDebugMacro( << __LINE__ << " Create new uni reader: " 
                    << this->Map->Files[buffer] );
     }
   // Okay now open just the first file to get meta data
   vtkDebugMacro("Reading Meta Data in UpdateCaseFile(ExecuteInformation) from file: " << this->Map->Files.begin()->first.c_str());
+cerr << "updating meta... " << endl;
   return this->UpdateMetaData(request, outputVector);
 }
 
@@ -854,7 +874,7 @@ int vtkSpyPlotReader::RequestData(
 
       if (this->GenerateTracerArray == 1 && needTracers)
         {
-        vtkFieldData *fd = hbds->GetFieldData ();
+        vtkFieldData *fd = cds->GetFieldData ();
         vtkDataArray *array= fd->GetArray("Tracer Coordinates");
         if (array != 0)
           {
@@ -1150,7 +1170,7 @@ int vtkSpyPlotReader::MergeVectors(vtkDataSetAttributes* da,
     return 0;
     }
   const char *n1, *n2, *n3;
-  int e1, e2, e3;
+  size_t e1, e2, e3;
   n1 = a1->GetName();
   n2 = a2->GetName();
   n3 = a3->GetName();
@@ -1251,7 +1271,7 @@ int vtkSpyPlotReader::MergeVectors(vtkDataSetAttributes* da,
     return 0;
     }
   const char *n1, *n2;
-  int e1, e2;
+  size_t e1, e2;
   n1 = a1->GetName();
   n2 = a2->GetName();
   if (n1 == 0 || n2 == 0)

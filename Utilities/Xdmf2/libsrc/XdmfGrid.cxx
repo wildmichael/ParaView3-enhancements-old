@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.32 2009-08-04 20:49:16 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-04 20:49:16 $ */
-/*  Version : $Revision: 1.32 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.35 2009-09-24 14:44:04 dave.demarle Exp $  */
+/*  Date : $Date: 2009-09-24 14:44:04 $ */
+/*  Version : $Revision: 1.35 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,6 +29,7 @@
 #include "XdmfArray.h"
 #include "XdmfTopology.h"
 #include "XdmfGeometry.h"
+#include "XdmfInformation.h"
 #include "XdmfAttribute.h"
 #include "XdmfTime.h"
 #include "XdmfSet.h"
@@ -57,9 +58,11 @@ XdmfGrid::XdmfGrid() {
   this->Sets = (XdmfSet **)calloc(1, sizeof( XdmfSet * ));
   this->Attribute = (XdmfAttribute **)calloc(1, sizeof( XdmfAttribute * ));
   this->Children = (XdmfGrid **)calloc(1, sizeof( XdmfGrid * ));
+  this->Informations = (XdmfInformation **)calloc(1, sizeof( XdmfInformation * ));
   this->AssignedAttribute = NULL;
   this->NumberOfSets = 0;
   this->NumberOfAttributes = 0;
+  this->NumberOfInformations = 0;
   this->GridType = XDMF_GRID_UNSET;
   this->CollectionType = XDMF_GRID_COLLECTION_UNSET;
   this->NumberOfChildren = 0;
@@ -90,7 +93,8 @@ XdmfGrid::~XdmfGrid() {
     }
   }
   free(this->Sets);
-  }
+  free(this->Informations);
+}
 
 XdmfInt32
 XdmfGrid::Release(){
@@ -103,6 +107,7 @@ XdmfGrid::Release(){
     }
    return(XDMF_SUCCESS);
 }
+
 XdmfInt32
 XdmfGrid::InsertTopology(){
     if(!this->Topology->GetElement()){
@@ -151,6 +156,17 @@ XdmfGrid::Insert( XdmfElement *Child){
             }
             this->Sets[this->NumberOfSets - 1] = ChildSet;
             }
+        if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Information")){
+            XdmfInformation *ChildInfo = (XdmfInformation *)Child;
+            this->NumberOfInformations++;
+            this->Informations = ( XdmfInformation **)realloc( this->Informations,
+                this->NumberOfInformations * sizeof( XdmfInformation * ));
+            if(!this->Informations) {
+                XdmfErrorMessage("Realloc of Information List Failed");
+                return(XDMF_FAIL);
+            }
+            this->Informations[this->NumberOfInformations - 1] = ChildInfo;
+            }
         if((status == XDMF_SUCCESS) && XDMF_WORD_CMP(Child->GetElementName(), "Attribute")){
             XdmfAttribute *ChildAttr = (XdmfAttribute *)Child;
             this->NumberOfAttributes++;
@@ -198,6 +214,12 @@ XdmfGrid::Build(){
     }
     */
     if(this->BuildTime && this->Time){
+            if(!this->Time->GetDOM()){
+                if(this->Insert(this->Time) != XDMF_SUCCESS){
+                    XdmfErrorMessage("Grid Cannot Insert current XdmfTime");
+                    return(XDMF_FAIL);
+                }
+            }
             if(this->Time->Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     }
     return(XDMF_SUCCESS);
@@ -559,7 +581,7 @@ this->NumberOfSets = this->DOM->FindNumberOfElements("Set", this->Element );
 if( this->NumberOfSets > 0 ){
   XdmfInt32  Index;
   XdmfSet  *iSet;
-  XdmfXmlNode    SetElement;
+  XdmfXmlNode    lSetElement;
 
   for ( Index = 0; Index < OldNumberOfSets; Index ++ )
     {
@@ -572,12 +594,12 @@ if( this->NumberOfSets > 0 ){
 
     this->Sets[Index] = iSet;
     if (Index==0) {
-      SetElement = this->DOM->FindElement( "Set", Index, this->Element );
+      lSetElement = this->DOM->FindElement( "Set", Index, this->Element );
     } else {
-      SetElement = this->DOM->FindNextElement( "Set", SetElement);
+      lSetElement = this->DOM->FindNextElement( "Set", lSetElement);
     }
     iSet->SetDOM( this->DOM );    
-    iSet->SetElement( SetElement );
+    iSet->SetElement( lSetElement );
     iSet->UpdateInformation();
     }
 }
@@ -698,6 +720,16 @@ XdmfGrid::GetChild(XdmfInt32 Index){
         XdmfErrorMessage("Grid is Uniform so it has no children");
     }
 return(NULL);
+}
+
+XdmfInformation *
+XdmfGrid::GetInformation(XdmfInt32 Index){
+    if(Index < this->NumberOfInformations){
+        return(this->Informations[Index]);
+    }else{
+        XdmfErrorMessage("Grid has " << this->NumberOfInformations << " children. Index " << Index << " is out of range");
+    }
+    return(NULL);
 }
 
 XdmfInt32

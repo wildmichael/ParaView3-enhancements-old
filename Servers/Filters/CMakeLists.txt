@@ -70,6 +70,11 @@ SET(Filters_SRCS
   vtkPointHandleRepresentationSphere.cxx
   vtkPolyLineToRectilinearGridFilter.cxx
   vtkPPhastaReader.cxx
+  vtkPSciVizContingencyStats.cxx
+  vtkPSciVizDescriptiveStats.cxx
+  vtkPSciVizMultiCorrelativeStats.cxx
+  vtkPSciVizPCAStats.cxx
+  vtkPSciVizKMeans.cxx
   vtkPVAnimationScene.cxx
   vtkPVArrowSource.cxx
   vtkPVCacheKeeper.cxx
@@ -97,7 +102,6 @@ SET(Filters_SRCS
   vtkPVLinearExtrusionFilter.cxx
   vtkPVLODActor.cxx
   vtkPVLODVolume.cxx
-  vtkPVLookupTable.cxx
   vtkPVMain.cxx
   vtkPVMergeTables.cxx
   vtkPVNullSource.cxx
@@ -127,6 +131,7 @@ SET(Filters_SRCS
   vtkReductionFilter.cxx
   vtkScatterPlotMapper.cxx
   vtkScatterPlotPainter.cxx
+  vtkSciVizStatistics.cxx
   vtkSelectionStreamer.cxx
   vtkSequenceAnimationPlayer.cxx
   vtkSpyPlotBlock.cxx
@@ -136,6 +141,7 @@ SET(Filters_SRCS
   vtkSpyPlotReaderMap.cxx
   vtkSpyPlotUniReader.cxx
   vtkSquirtCompressor.cxx
+  vtkZlibImageCompressor.cxx
   vtkSurfaceVectors.cxx
   vtkTableFFT.cxx
   vtkTableStreamer.cxx
@@ -181,6 +187,7 @@ SET_SOURCE_FILES_PROPERTIES(
   vtkPVClientServerRenderManager.cxx
   vtkPVJoystickFly.cxx
   vtkPVRenderViewProxy.cxx
+  vtkSciVizStatistics.cxx
   vtkTransferFunctionEditorRepresentation1D.cxx
   vtkTransferFunctionEditorRepresentation.cxx
   vtkTransferFunctionEditorWidget1D.cxx

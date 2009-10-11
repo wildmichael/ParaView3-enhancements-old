@@ -81,7 +81,7 @@ Worry aobut this later.  Get something working...
 
 */
 
-vtkCxxRevisionMacro(vtkGridConnectivity, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkGridConnectivity, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkGridConnectivity);
 
 
@@ -588,17 +588,24 @@ void vtkGridConnectivityExecuteProcess(
           vtkIdType numPoints = faceCell->GetNumberOfPoints();
           if (numPoints == 3)
             {
-            vtkIdType ptId1 = globalPtIdPtr[faceCell->GetPointId(0)];
-            vtkIdType ptId2 = globalPtIdPtr[faceCell->GetPointId(1)];
-            vtkIdType ptId3 = globalPtIdPtr[faceCell->GetPointId(2)];
+            vtkIdType ptId1 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(0)]);
+            vtkIdType ptId2 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(1)]);
+            vtkIdType ptId3 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(2)]);
             face = faceHash->AddFace(ptId1, ptId2, ptId3);
             }
           else if (numPoints == 4)
             {
-            vtkIdType ptId1 = globalPtIdPtr[faceCell->GetPointId(0)];
-            vtkIdType ptId2 = globalPtIdPtr[faceCell->GetPointId(1)];
-            vtkIdType ptId3 = globalPtIdPtr[faceCell->GetPointId(2)];
-            vtkIdType ptId4 = globalPtIdPtr[faceCell->GetPointId(3)];
+            vtkIdType ptId1 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(0)]);
+            vtkIdType ptId2 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(1)]);
+            vtkIdType ptId3 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(2)]);
+            vtkIdType ptId4 = static_cast<vtkIdType>(
+              globalPtIdPtr[faceCell->GetPointId(3)]);
             face = faceHash->AddFace(ptId1, ptId2, ptId3, ptId4);
             }
           else
@@ -669,7 +676,7 @@ void vtkGridConnectivityExecuteProcess(
 
 //----------------------------------------------------------------------------
 template <class T>
-T vtkGridConnectivityComputeMax(T* ptr, vtkIdType num)
+vtkIdType vtkGridConnectivityComputeMax(T* ptr, vtkIdType num)
 {
   T max = 0;
   while (num-- > 0)
@@ -680,7 +687,7 @@ T vtkGridConnectivityComputeMax(T* ptr, vtkIdType num)
       }
     ++ptr;
     }
-  return max;
+  return static_cast<vtkIdType>(max);
 }
 
 
@@ -701,8 +708,8 @@ void vtkGridConnectivity::InitializeFaceHash(
     this->GlobalPointIdType = a->GetDataType();
     switch(this->GlobalPointIdType)
       {
-      vtkTemplateMacro(
-        maxId = vtkGridConnectivityComputeMax(static_cast<VTK_TT*>(ptr), numIds));
+        vtkTemplateMacro(
+          maxId = vtkGridConnectivityComputeMax(static_cast<VTK_TT*>(ptr), numIds));
       default:
         vtkErrorMacro("ThreadedRequestData: Unknown input ScalarType");
         return;
@@ -1015,7 +1022,7 @@ void vtkGridConnectivity::GenerateOutput(
   numArrays = this->CellAttributesIntegration.size();
   for (int ii = 0; ii < numArrays; ++ii)
     {
-    vtkDataArray *da = this->CellAttributesIntegration[ii];
+    da = this->CellAttributesIntegration[ii];
     output->GetFieldData()->AddArray(da);
     }
     

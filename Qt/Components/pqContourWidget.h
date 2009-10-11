@@ -68,13 +68,22 @@ public:
   virtual void deselect();
 
   /// Get the bounds of the representation
-  virtual void getBounds(double bounds[6]) const;
+  virtual bool getBounds(double bounds[6]) const;
   
   /// Set the line color
   virtual void setLineColor(const QColor& color);
-
-protected slots:
+  
+signals:
+  /// Signal emitted when the representation proxy's "ClosedLoop" property 
+  /// is modified.
+  void contourLoopClosed();
+  
+public slots:
   void removeAllNodes();
+  void checkContourLoopClosed();
+  void closeLoop(bool);
+  
+  /// Close the contour loop
 
 protected:
   /// Internal method to create the widget.

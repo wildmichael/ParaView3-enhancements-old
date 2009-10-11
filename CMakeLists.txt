@@ -1,7 +1,11 @@
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6.3 FATAL_ERROR)
 
-CMAKE_POLICY(SET CMP0011 NEW)
+FOREACH(policy CMP0012 CMP0013 CMP0014)
+  IF(POLICY ${policy})
+    CMAKE_POLICY(SET ${policy} NEW)
+  ENDIF()
+ENDFOREACH()
 
 PROJECT(ParaView)
 
@@ -90,7 +94,7 @@ IF (PARAVIEW_BUILD_QT_GUI)
   SET(DESIRED_QT_VERSION 4 CACHE STRING "Use Qt4" FORCE)
   # ParaView requires this minimum version of Qt, and let's do it here before
   # our first call to FindQt4.cmake
-  SET(QT_MIN_VERSION "4.3.0")
+  SET(QT_MIN_VERSION "4.5.0")
   SET(QT_OFFICIAL_VERSION "4.5")
   SET(QT_REQUIRED TRUE)
   FIND_PACKAGE(Qt4)
@@ -100,17 +104,22 @@ IF (PARAVIEW_BUILD_QT_GUI)
     # don't go greater than supported version
     STRING(REGEX MATCH "^4\\.5\\.[0-9]+" qt_version_45_match "${QTVERSION}")
     IF (NOT qt_version_45_match)
-      STRING(REGEX MATCH "^4\\.[0-9]+\\.[0-9]+" qt_version4_x_tmp "${QTVERSION}")
-      IF (NOT qt_version4_x_tmp)
+      STRING(REGEX MATCH "^4\\.[5-9]+\\.[0-9]+" qt_version45_x_tmp "${QTVERSION}")
+      IF (NOT qt_version45_x_tmp)
         MESSAGE(SEND_ERROR "Qt ${QTVERSION} not supported.  Please use ${QT_OFFICIAL_VERSION} (you may need to clean your dirtied cache).")
-      ELSE (NOT qt_version4_x_tmp)
+      ELSE (NOT qt_version45_x_tmp)
         MESSAGE("Warning: You are using Qt ${QTVERSION}. Officially supported version is Qt ${QT_OFFICIAL_VERSION}")
-      ENDIF (NOT qt_version4_x_tmp)
+      ENDIF (NOT qt_version45_x_tmp)
     ENDIF (NOT qt_version_45_match)
-    # enforce Carbon in VTK for Qt/Mac
+    # enforce Carbon or Cocoa in VTK for Qt/Mac
     IF(Q_WS_MAC)
-      SET(VTK_USE_CARBON ON CACHE BOOL "Build VTK with Carbon" FORCE)
-      SET(VTK_USE_COCOA OFF CACHE BOOL "Build VTK with Cocoa" FORCE)
+      IF(QT_MAC_USE_COCOA)
+        SET(VTK_USE_CARBON OFF CACHE BOOL "Build VTK with Carbon" FORCE)
+        SET(VTK_USE_COCOA ON CACHE BOOL "Build VTK with Cocoa" FORCE)
+      ELSE(QT_MAC_USE_COCOA)
+        SET(VTK_USE_CARBON ON CACHE BOOL "Build VTK with Carbon" FORCE)
+        SET(VTK_USE_COCOA OFF CACHE BOOL "Build VTK with Cocoa" FORCE)
+      ENDIF(QT_MAC_USE_COCOA)
     ENDIF(Q_WS_MAC)
   ENDIF(NOT QT4_FOUND)
 ELSE (PARAVIEW_BUILD_QT_GUI)
@@ -130,7 +139,7 @@ MARK_AS_ADVANCED(PYTHON_DEBUG_LIBRARY)
 IF (APPLE)
   MARK_AS_ADVANCED(CMAKE_OSX_ARCHITECTURES CMAKE_OSX_SYSROOT VTK_USE_CARBON VTK_USE_COCOA VTK_APPLE_RESOURCE)
 ENDIF(APPLE)
-MARK_AS_ADVANCED(VTK_USE_MPEG2_ENCODER QT_PLUGINS_DIR QT_MKSPECS_DIR VTK_USE_MFC XDMF_BUILD_UTILS)
+MARK_AS_ADVANCED(VTK_USE_MPEG2_ENCODER QT_PLUGINS_DIR QT_MKSPECS_DIR VTK_USE_MFC XDMF_BUILD_UTILS XDMF_USE_BZIP2 XDMF_USE_GZIP)
 
 #########################################################################
 # Define a PARAVIEW_USE_MPI that is not advanced
@@ -141,6 +150,11 @@ SET(VTK_USE_MPI ${PARAVIEW_USE_MPI} CACHE INTERNAL "Build VTK with MPI support" 
 # variable
 # set it to PARAVIEW_USE_MPI so that VTK_USE_MPI is slaved to it.
 SET(VTK_USE_MPI_ISSET ${PARAVIEW_USE_MPI})
+IF (PARAVIEW_USE_MPI)
+  SET(PARAVIEW_USE_MPI_SSEND OFF CACHE BOOL
+    "Use MPI synchronous-send commands for communication")
+  MARK_AS_ADVANCED(PARAVIEW_USE_MPI_SSEND)
+ENDIF (PARAVIEW_USE_MPI)
 
 #########################################################################
 # Force Infovis support on

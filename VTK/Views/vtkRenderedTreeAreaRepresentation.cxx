@@ -45,6 +45,8 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkOutEdgeIterator.h"
+#include "vtkPointSetToLabelHierarchy.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProp.h"
 #include "vtkProperty.h"
@@ -81,7 +83,7 @@ public:
   vtkstd::vector<vtkSmartPointer<vtkHierarchicalGraphPipeline> > Graphs;
 };
 
-vtkCxxRevisionMacro(vtkRenderedTreeAreaRepresentation, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkRenderedTreeAreaRepresentation, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkRenderedTreeAreaRepresentation);
 
 vtkRenderedTreeAreaRepresentation::vtkRenderedTreeAreaRepresentation()
@@ -106,6 +108,8 @@ vtkRenderedTreeAreaRepresentation::vtkRenderedTreeAreaRepresentation()
   this->HighlightData      = vtkSmartPointer<vtkPolyData>::New();
   this->HighlightMapper    = vtkSmartPointer<vtkPolyDataMapper>::New();
   this->HighlightActor     = vtkSmartPointer<vtkActor>::New();
+  this->AreaLabelHierarchy = vtkSmartPointer<vtkPointSetToLabelHierarchy>::New();
+  this->EmptyPolyData      = vtkSmartPointer<vtkPolyData>::New();
 
   this->AreaSizeArrayNameInternal = 0;
   this->AreaColorArrayNameInternal = 0;
@@ -178,8 +182,15 @@ vtkRenderedTreeAreaRepresentation::vtkRenderedTreeAreaRepresentation()
   this->AreaMapper->SelectColorArray("vtkApplyColors color");
   this->AreaActor->SetMapper(this->AreaMapper);
 
-  this->AreaLabelMapper->SetInputConnection(this->AreaLayout->GetOutputPort());
-  this->AreaLabelActor->SetMapper(this->AreaLabelMapper);
+  this->AreaLabelHierarchy->SetInput(this->EmptyPolyData);
+
+  // Set the orientation array to be the text rotation array produced by
+  // vtkStackedTreeLayoutStrategy.
+  this->AreaLabelHierarchy->SetInputArrayToProcess(4, 0, 0, vtkDataObject::VERTEX, "TextRotation");
+  this->AreaLabelHierarchy->SetInputArrayToProcess(5, 0, 0, vtkDataObject::VERTEX, "TextBoundedSize");
+
+  //this->AreaLabelMapper->SetInputConnection(this->AreaLayout->GetOutputPort());
+  //this->AreaLabelActor->SetMapper(this->AreaLabelMapper);
 }
 
 vtkRenderedTreeAreaRepresentation::~vtkRenderedTreeAreaRepresentation()
@@ -214,23 +225,22 @@ void vtkRenderedTreeAreaRepresentation::SetAreaSizeArrayName(const char* name)
 
 const char* vtkRenderedTreeAreaRepresentation::GetAreaLabelArrayName()
 {
-  return this->GetAreaLabelArrayNameInternal();
+  return this->AreaLabelHierarchy->GetLabelArrayName();
 }
 
 void vtkRenderedTreeAreaRepresentation::SetAreaLabelArrayName(const char* name)
 {
-  this->AreaLabelMapper->SetFieldDataName(name);
-  this->SetAreaLabelArrayNameInternal(name);
+  this->AreaLabelHierarchy->SetInputArrayToProcess(2, 0, 0, vtkDataObject::VERTEX, name);
 }
 
 vtkTextProperty* vtkRenderedTreeAreaRepresentation::GetAreaLabelTextProperty()
 {
-  return this->AreaLabelMapper->GetLabelTextProperty();
+  return this->AreaLabelHierarchy->GetTextProperty();
 }
 
 void vtkRenderedTreeAreaRepresentation::SetAreaLabelTextProperty(vtkTextProperty* prop)
 {
-  this->AreaLabelMapper->GetLabelTextProperty()->ShallowCopy(prop);
+  this->AreaLabelHierarchy->SetTextProperty(prop);
 }
 
 const char* vtkRenderedTreeAreaRepresentation::GetAreaColorArrayName()
@@ -276,14 +286,12 @@ void vtkRenderedTreeAreaRepresentation::SetGraphEdgeColorToSplineFraction(int id
 
 void vtkRenderedTreeAreaRepresentation::SetAreaLabelPriorityArrayName(const char* name)
 {
-  this->SetAreaLabelPriorityArrayNameInternal(name);
-  this->AreaLabelMapper->SetInputArrayToProcess(1, 0, 0,
-    vtkDataObject::FIELD_ASSOCIATION_POINTS, name);
+  this->AreaLabelHierarchy->SetInputArrayToProcess(0, 0, 0, vtkDataObject::VERTEX, name);
 }
 
 const char* vtkRenderedTreeAreaRepresentation::GetAreaLabelPriorityArrayName()
 {
-  return this->GetAreaLabelPriorityArrayNameInternal();
+  return this->AreaLabelHierarchy->GetPriorityArrayName();
 }
 
 void vtkRenderedTreeAreaRepresentation::SetGraphBundlingStrength(double strength, int idx)
@@ -311,6 +319,23 @@ void vtkRenderedTreeAreaRepresentation::SetEdgeScalarBarVisibility(bool b)
 bool vtkRenderedTreeAreaRepresentation::GetEdgeScalarBarVisibility()
 {
   return this->EdgeScalarBar->GetScalarBarActor()->GetVisibility() ? true : false;
+}
+
+void vtkRenderedTreeAreaRepresentation::SetGraphHoverArrayName(const char* name, int idx)
+{
+  if (this->ValidIndex(idx))
+    {
+    this->Implementation->Graphs[idx]->SetHoverArrayName(name);
+    }
+}
+
+const char* vtkRenderedTreeAreaRepresentation::GetGraphHoverArrayName(int idx)
+{
+  if (this->ValidIndex(idx))
+    {
+    return this->Implementation->Graphs[idx]->GetHoverArrayName();
+    }
+  return 0;
 }
 
 void vtkRenderedTreeAreaRepresentation::SetAreaLabelMapper(vtkLabeledDataMapper* mapper)
@@ -359,43 +384,38 @@ void vtkRenderedTreeAreaRepresentation::SetAreaToPolyData(vtkPolyDataAlgorithm* 
     }
 }
 
-const char* vtkRenderedTreeAreaRepresentation::GetHoverText(vtkView* view, int x, int y)
+vtkUnicodeString vtkRenderedTreeAreaRepresentation::GetHoverTextInternal(vtkSelection* sel)
 {
-  if (!this->AreaHoverArrayName)
+  vtkGraph* input = vtkGraph::SafeDownCast(this->GetInput());
+  vtkSmartPointer<vtkIdTypeArray> selectedItems = vtkSmartPointer<vtkIdTypeArray>::New();
+  vtkConvertSelection::GetSelectedVertices(sel, input, selectedItems);
+  vtkDataSetAttributes* data = input->GetVertexData();
+  const char* hoverArrName = this->GetAreaHoverArrayName();
+  if (selectedItems->GetNumberOfTuples() == 0)
     {
-    return 0;
-    }
-  // Make sure we have a context.
-  vtkRenderer* r = vtkRenderView::SafeDownCast(view)->GetRenderer();
-  vtkRenderWindow* win = r->GetRenderWindow();
-  if (!win)
-    {
-    return 0;
-    }
-  win->MakeCurrent();
-  if (!win->IsCurrent())
-    {
-    return 0;
-    }
-
-  // Use the hardware picker to find a point in world coordinates.
-  this->Picker->Pick(x, y, 0, r);
-  double pos[3];
-  this->Picker->GetPickPosition(pos);
-  float posFloat[3] = {pos[0], pos[1], pos[2]};
-  this->AreaLayout->Update();
-  vtkIdType id = this->AreaLayout->FindVertex(posFloat);
-  if (id >= 0)
-    {
-    vtkAbstractArray* arr = this->AreaLayout->GetOutput()->
-      GetVertexData()->GetAbstractArray(this->AreaHoverArrayName);
-    if (arr)
+    for (int i = 0; i < this->GetNumberOfInputConnections(i); ++i)
       {
-      this->SetAreaHoverTextInternal(arr->GetVariantValue(id).ToString());
-      return this->GetAreaHoverTextInternal();
+      vtkGraph* g = vtkGraph::SafeDownCast(this->GetInputDataObject(1, i));
+      vtkConvertSelection::GetSelectedEdges(sel, g, selectedItems);
+      if (selectedItems->GetNumberOfTuples() > 0)
+        {
+        hoverArrName = this->GetGraphHoverArrayName(i);
+        data = g->GetEdgeData();
+        break;
+        }
       }
     }
-  return 0;
+  if (selectedItems->GetNumberOfTuples() == 0 || !hoverArrName)
+    {
+    return vtkUnicodeString();
+    }
+  vtkAbstractArray* arr = data->GetAbstractArray(hoverArrName);
+  if (!arr)
+    {
+    return vtkUnicodeString();
+    }
+  vtkIdType item = selectedItems->GetValue(0);
+  return arr->GetVariantValue(item).ToUnicodeString();
 }
 
 void vtkRenderedTreeAreaRepresentation::UpdateHoverHighlight(vtkView* view, int x, int y)
@@ -580,12 +600,20 @@ void vtkRenderedTreeAreaRepresentation::SetAreaLayoutStrategy(vtkAreaLayoutStrat
 
 bool vtkRenderedTreeAreaRepresentation::GetAreaLabelVisibility()
 {
-  return this->AreaLabelActor->GetVisibility() ? true : false;
+  return this->AreaLabelHierarchy->GetInputConnection(0, 0) ==
+         this->AreaLayout->GetOutputPort();
 }
 
 void vtkRenderedTreeAreaRepresentation::SetAreaLabelVisibility(bool b)
 {
-  this->AreaLabelActor->SetVisibility(b);
+  if (b)
+    {
+    this->AreaLabelHierarchy->SetInputConnection(this->AreaLayout->GetOutputPort());
+    }
+  else
+    {
+    this->AreaLabelHierarchy->SetInput(this->EmptyPolyData);
+    }
 }
 
 bool vtkRenderedTreeAreaRepresentation::GetGraphEdgeLabelVisibility(int idx)
@@ -674,9 +702,10 @@ bool vtkRenderedTreeAreaRepresentation::AddToView(vtkView* view)
     {
     this->EdgeScalarBar->SetInteractor(rv->GetInteractor());
     rv->GetRenderer()->AddActor(this->AreaActor);
-    rv->GetRenderer()->AddActor(this->AreaLabelActor);
+    //rv->GetRenderer()->AddActor(this->AreaLabelActor);
     rv->GetRenderer()->AddActor(this->HighlightActor);
     rv->GetRenderer()->AddActor(this->EdgeScalarBar->GetScalarBarActor());
+    rv->AddLabels(this->AreaLabelHierarchy->GetOutputPort());
 
 #if 0
     // Debug code: display underlying tree
@@ -809,6 +838,10 @@ vtkSelection* vtkRenderedTreeAreaRepresentation::ConvertSelection(
           for(vtkIdType j=0; j<arr->GetNumberOfTuples(); ++j)
             {
             vtkIdType id = arr2->LookupValue(arr->GetVariantValue(j));
+            if (id == -1)
+              {
+              continue;
+              }
 
             // Before adding vertex's edges, make sure its in the same domain as selected vertex
             vtkStdString domain;
@@ -903,6 +936,7 @@ int vtkRenderedTreeAreaRepresentation::RequestData(
 
 void vtkRenderedTreeAreaRepresentation::PrepareForRendering(vtkRenderView* view)
 {
+#if 0
   // Make hover highlight up to date
   int pos[2] = {0, 0};
   if (view->GetInteractorStyle() && view->GetInteractorStyle()->GetInteractor())
@@ -917,7 +951,8 @@ void vtkRenderedTreeAreaRepresentation::PrepareForRendering(vtkRenderView* view)
     {
     mapper->SetRenderer(view->GetRenderer());
     }
-  view->GetRenderer()->AddActor(this->AreaLabelActor);
+  //view->GetRenderer()->AddActor(this->AreaLabelActor);
+#endif
 #endif
 
   this->Superclass::PrepareForRendering(view);

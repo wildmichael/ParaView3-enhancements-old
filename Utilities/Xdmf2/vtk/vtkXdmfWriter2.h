@@ -23,7 +23,7 @@
 #ifndef _vtkXdmfWriter2_h
 #define _vtkXdmfWriter2_h
 
-#include "vtkWriter.h"
+#include "vtkDataObjectAlgorithm.h"
 
 class vtkExecutive;
 
@@ -31,70 +31,117 @@ class vtkCompositeDataSet;
 class vtkDataObject;
 class vtkFieldData;
 class vtkDataArray;
+class vtkInformation;
+class vtkInformationVector;
 
 //BTX
 class XdmfDOM;
+class XdmfDomain;
 class XdmfGrid;
 class XdmfArray;
 //ETX
 
-class VTK_EXPORT vtkXdmfWriter2 : public vtkWriter
+class VTK_EXPORT vtkXdmfWriter2 : public vtkDataObjectAlgorithm
 {
 public:
   static vtkXdmfWriter2 *New();
-  vtkTypeRevisionMacro(vtkXdmfWriter2,vtkWriter);
+  vtkTypeRevisionMacro(vtkXdmfWriter2,vtkDataObjectAlgorithm);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Set or get the file name of the xdmf file.
-  vtkSetStringMacro(FileName);
-  vtkGetStringMacro(FileName);
 
   // Description:
   // Set the input data set.
   virtual void SetInput(vtkDataObject* dobj);
 
   // Description:
+  // Set or get the file name of the xdmf file.
+  vtkSetStringMacro(FileName);
+  vtkGetStringMacro(FileName);
+
+    // Description:
+  // Write data to output. Method executes subclasses WriteData() method, as 
+  // well as StartMethod() and EndMethod() methods.
+  // Returns 1 on success and 0 on failure.
+  virtual int Write();
+
+  // Description:
+  // Topology Geometry and Attribute arrays smaller than this are written in line into the XML.
+  // Default is 100.
+  vtkSetMacro(LightDataLimit, int);
+  vtkGetMacro(LightDataLimit, int);
+
+  //Description:
+  //Controls whether writer automatically writes all input time steps, or 
+  //just the timestep that is currently on the input. 
+  //Default is OFF.
+  vtkSetMacro(WriteAllTimeSteps, int);
+  vtkGetMacro(WriteAllTimeSteps, int);
+  vtkBooleanMacro(WriteAllTimeSteps, int);
+
+    // Description:
   // Called in parallel runs to identify the portion this process is responsible for
   // TODO: respect this
   vtkSetMacro(Piece, int);
   vtkSetMacro(NumberOfPieces, int);
 
+  //TODO: control choice of heavy data format (xml, hdf5, sql, raw)
+
   //TODO: These controls are available in vtkXdmfWriter, but are not used here.
-  //AllLight/AllHeavy
   //GridsOnly
   //Append to Domain
-
-  //TODO: I think there is a limit in the XDMF library about when hdf is used for heavy data and when it is in XML
-  //In any case we need to be able to choose the heavy data format (xml, hdf5, sql) somehow
 
 protected:
   vtkXdmfWriter2();
   ~vtkXdmfWriter2();
 
-  // Does the work
-  virtual void WriteData();
+  //Choose composite executive by default for time.
+  virtual vtkExecutive* CreateDefaultExecutive();
+
+  //Can take any one data object
+  virtual int FillInputPortInformation(int port, vtkInformation *info);
+
+  //Overridden to ...
+  virtual int RequestInformation(vtkInformation*, 
+                                 vtkInformationVector**, 
+                                 vtkInformationVector*);
+  //Overridden to ...
+  virtual int RequestUpdateExtent(vtkInformation*, 
+                                  vtkInformationVector**, 
+                                  vtkInformationVector*);
+  //Overridden to ...
+  virtual int RequestData(vtkInformation*, 
+                          vtkInformationVector**, 
+                          vtkInformationVector*);
+  
+  //These do the work: recursively parse down input's structure all the way to arrays, 
+  //use XDMF lib to dump everything to file.
   virtual void WriteDataSet(vtkDataObject *dobj, XdmfGrid *grid);
   virtual void WriteCompositeDataSet(vtkCompositeDataSet *dobj, XdmfGrid *grid);
   virtual void WriteAtomicDataSet(vtkDataObject *dobj, XdmfGrid *grid);
-  virtual void WriteArrays(vtkFieldData* dsa, XdmfGrid *grid, int association );
-  virtual void ConvertVToXArray(vtkDataArray *vda, XdmfArray *xda);
-
-  // Create a default executive.
-  virtual vtkExecutive* CreateDefaultExecutive();
-
-  virtual int FillInputPortInformation(int port, vtkInformation *info);
+  virtual void WriteArrays(vtkFieldData* dsa, XdmfGrid *grid, int association,
+                           vtkIdType rank, vtkIdType *dims);
+  virtual void ConvertVToXArray(vtkDataArray *vda, XdmfArray *xda, 
+                                vtkIdType rank, vtkIdType *dims,
+                                int AllocStrategy);
 
   char *FileName;
-  XdmfDOM *DOM;
+
+  int LightDataLimit;
+
+  int WriteAllTimeSteps;
+  int NumberOfTimeSteps;
+  int CurrentTimeIndex;
 
   int Piece;
   int NumberOfPieces;
+
+
+  XdmfDOM *DOM;
+  XdmfDomain *Domain;
+  XdmfGrid *TopTemporalGrid;
+
 private:
   vtkXdmfWriter2(const vtkXdmfWriter2&); // Not implemented
   void operator=(const vtkXdmfWriter2&); // Not implemented
-
-  vtkDataObject *InDataNow;
 };
 
 #endif /* _vtkXdmfWriter2_h */

@@ -1,8 +1,14 @@
 # List tests that can be built and run automatically ...
 SET(AUTO_TESTS
   TestAssignMimeType
+  TestConcatenateArray
+  TestDocumentReader
+  TestExtractSelectedSlices
   TestMimeTypes
   TestNGramExtraction
+  TestPointwiseMutualInformation
+  TestScaleDimension
+  TestSelectArraySlices
   TestTermDictionary
   TestTextExtraction
   TestTokenLengthFilter
@@ -13,8 +19,18 @@ SET(AUTO_TESTS
 
 SET(AUTO_TEST_LIBRARIES
   vtkCommon
+  vtkInfovis
   vtkTextAnalysis
   )
+
+IF(VTK_USE_QT)
+  IF( (DESIRED_QT_VERSION MATCHES 4) AND (QT_VERSION_MINOR GREATER 5 OR QT_VERSION_MINOR EQUAL 5 ) )
+    INCLUDE(${QT_USE_FILE})
+    LIST(APPEND AUTO_TESTS TestQtXMLProcessor) 
+
+    LIST (APPEND AUTO_TEST_LIBRARIES ${QT_LIBRARIES})
+  ENDIF()
+ENDIF()
 
 # Build the auto test executable ...
 FOREACH(TEST ${AUTO_TESTS})
@@ -24,9 +40,10 @@ ENDFOREACH()
 CREATE_TEST_SOURCELIST(TEST_SOURCES ${KIT}CxxTests.cxx 
   ${TEST_SOURCES} 
   EXTRA_INCLUDE vtkTestDriver.h
-)
+  )
 
-#INCLUDE_DIRECTORIES(${VTK_SOURCE_DIR}/Common)
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/TextAnalysisTestConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/TextAnalysisTestConfig.h)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 ADD_EXECUTABLE(${KIT}CxxTests ${TEST_SOURCES})
 TARGET_LINK_LIBRARIES(${KIT}CxxTests ${AUTO_TEST_LIBRARIES})
 
@@ -34,3 +51,4 @@ TARGET_LINK_LIBRARIES(${KIT}CxxTests ${AUTO_TEST_LIBRARIES})
 FOREACH(TEST ${AUTO_TESTS})
   ADD_TEST("Text-${TEST}" ${CXX_TEST_PATH}/${KIT}CxxTests ${TEST})
 ENDFOREACH()
+

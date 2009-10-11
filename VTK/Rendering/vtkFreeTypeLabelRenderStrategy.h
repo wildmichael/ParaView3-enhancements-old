@@ -39,6 +39,11 @@ class VTK_RENDERING_EXPORT vtkFreeTypeLabelRenderStrategy : public vtkLabelRende
   virtual bool SupportsRotation()
     { return false; }
 
+  // Description:
+  // The free type render strategy currently does not support bounded size labels.
+  virtual bool SupportsBoundedSize()
+    { return false; }
+
   //BTX
   // Description:
   // Compute the bounds of a label. Must be performed after the renderer is set.
@@ -49,9 +54,13 @@ class VTK_RENDERING_EXPORT vtkFreeTypeLabelRenderStrategy : public vtkLabelRende
   // Description:
   // Render a label at a location in world coordinates.
   // Must be performed between StartFrame() and EndFrame() calls.
-  virtual void RenderLabel(double x[3], vtkTextProperty* tprop, vtkStdString label)
+  virtual void RenderLabel(int x[2], vtkTextProperty* tprop, vtkStdString label)
     { this->Superclass::RenderLabel(x, tprop, label); }
-  virtual void RenderLabel(double x[3], vtkTextProperty* tprop, vtkUnicodeString label);
+  virtual void RenderLabel(int x[2], vtkTextProperty* tprop, vtkStdString label, int width)
+    { this->Superclass::RenderLabel(x, tprop, label, width); }
+  virtual void RenderLabel(int x[2], vtkTextProperty* tprop, vtkUnicodeString label);
+  virtual void RenderLabel(int x[2], vtkTextProperty* tprop, vtkUnicodeString label, int width)
+    { this->Superclass::RenderLabel(x, tprop, label, width); }
   //ETX
 
 protected:

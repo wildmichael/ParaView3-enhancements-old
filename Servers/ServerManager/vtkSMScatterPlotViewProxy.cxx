@@ -14,9 +14,11 @@
 =========================================================================*/
 #include "vtkSMScatterPlotViewProxy.h"
 
+#include "vtkEventForwarderCommand.h"
 #include "vtkObjectFactory.h"
 #include "vtkProcessModule.h"
 #include "vtkPVServerInformation.h"
+#include "vtkSmartPointer.h"
 #include "vtkSMInputProperty.h"
 #include "vtkSMIntVectorProperty.h"
 #include "vtkSMProxyManager.h"
@@ -28,40 +30,19 @@
 #include "vtkClientServerStream.h"
 
 vtkStandardNewMacro(vtkSMScatterPlotViewProxy);
-vtkCxxRevisionMacro(vtkSMScatterPlotViewProxy, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkSMScatterPlotViewProxy, "$Revision: 1.10 $");
 //----------------------------------------------------------------------------
 vtkSMScatterPlotViewProxy::vtkSMScatterPlotViewProxy()
 {
   this->RenderView = 0;
-  this->LegendScaleActor = 0;
-  //this->CubeAxesActor = 0;
+  this->ForwarderCommand = vtkEventForwarderCommand::New();
+  this->ForwarderCommand->SetTarget(this);
 }
 
 //----------------------------------------------------------------------------
 vtkSMScatterPlotViewProxy::~vtkSMScatterPlotViewProxy()
 {
-  /*
-  if(!this->CubeAxesActor)
-    {
-    return;
-    }
-  vtkClientServerStream stream;
-  stream  << vtkClientServerStream::Invoke
-          << this->CubeAxesActor->GetID()
-          << "SetCamera" << 0
-          << vtkClientServerStream::End;
-  vtkProcessModule::GetProcessModule()->SendStream(
-    this->ConnectionID, vtkProcessModule::CLIENT|vtkProcessModule::RENDER_SERVER,
-    stream);
-  */
-  if (this->RenderView && this->LegendScaleActor)
-    {
-    this->RenderView->RemovePropFromRenderer2D(this->LegendScaleActor);
-    }
-//   if (this->RenderView && this->CubeAxesActor)
-//     {
-//     this->RenderView->RemovePropFromRenderer(this->CubeAxesActor);
-//     }
+  this->ForwarderCommand->Delete();
 }
 
 //----------------------------------------------------------------------------
@@ -69,8 +50,6 @@ void vtkSMScatterPlotViewProxy::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
   os << indent << "RenderView: " << this->RenderView << endl;
-  os << indent << "LegendScaleActor: " << this->LegendScaleActor << endl;
-//  os << indent << "CubeAxesActor: " << this->CubeAxesActor << endl;
 }
 
 
@@ -188,10 +167,23 @@ vtkSMRepresentationProxy* vtkSMScatterPlotViewProxy::CreateDefaultRepresentation
     sproxy->UpdatePipeline(this->GetViewUpdateTime());
     }
 
+  // if the user gave a default representation, use it.
+  if (this->DefaultRepresentationName)
+    {
+    vtkSmartPointer<vtkSMProxy> p;
+    p.TakeReference(pxm->NewProxy("representations", this->DefaultRepresentationName));
+    vtkSMRepresentationProxy* repr = vtkSMRepresentationProxy::SafeDownCast(p);
+    if (repr)
+      {
+      repr->Register(this);
+      return repr;
+      }
+    }
+
   // Choose which type of representation proxy to create.
   vtkSMProxy* prototype = pxm->GetPrototypeProxy("representations",
                                                  "ScatterPlotRepresentation");
-                                                 //                                           "CubeAxesRepresentation");
+
   vtkSMInputProperty* pp = vtkSMInputProperty::SafeDownCast(
     prototype->GetProperty("Input"));
   pp->RemoveAllUncheckedProxies();
@@ -202,12 +194,6 @@ vtkSMRepresentationProxy* vtkSMScatterPlotViewProxy::CreateDefaultRepresentation
     {
     vtkSMRepresentationProxy* repr = vtkSMRepresentationProxy::SafeDownCast(
         pxm->NewProxy("representations", "ScatterPlotRepresentation"));
-    //pxm->NewProxy("representations", "CubeAxesRepresentation"));
-    /*
-    vtkSMIntVectorProperty* ivp = vtkSMIntVectorProperty::SafeDownCast(
-      repr->GetProperty("Representation"));
-    ivp->SetElement(0, 0);
-    */
     return repr;
     }
 
@@ -219,14 +205,6 @@ vtkSMRepresentationProxy* vtkSMScatterPlotViewProxy::CreateDefaultRepresentation
 //----------------------------------------------------------------------------
 bool vtkSMScatterPlotViewProxy::BeginCreateVTKObjects()
 {
-  /*
-  bool res = this->Superclass::BeginCreateVTKObjects();
-
-  if(!res)
-    {
-    return false;
-    }
-  */
   this->RenderView = vtkSMRenderViewProxy::SafeDownCast(
     this->GetSubProxy("RenderView"));
   if (!this->RenderView)
@@ -234,69 +212,16 @@ bool vtkSMScatterPlotViewProxy::BeginCreateVTKObjects()
     vtkErrorMacro("Missing \"RenderView\" subproxy.");
     return false;
     }
-  /*
-  this->CubeAxesActor = this->GetSubProxy("CubeAxesActor");
-  if (!this->CubeAxesActor)
-    {
-    vtkErrorMacro("Missing \"CubeAxesActor\" subproxy.");
-    return false;
-    }
-  
-  this->CubeAxesActor->SetServers(
-    vtkProcessModule::CLIENT|vtkProcessModule::RENDER_SERVER);
-  */
-  this->LegendScaleActor = this->GetSubProxy("LegendScaleActor");
-  if (!this->LegendScaleActor)
-    {
-    vtkErrorMacro("Missing \"LegendScaleActor\" subproxy.");
-    return false;
-    }
 
-  this->LegendScaleActor->SetServers(
-    vtkProcessModule::CLIENT|vtkProcessModule::RENDER_SERVER);
+  this->RenderView->AddObserver(vtkCommand::ResetCameraEvent, 
+                                this->ForwarderCommand);
 
   vtkSMIntVectorProperty* ivp = vtkSMIntVectorProperty::SafeDownCast(
     this->RenderView->GetProperty("CameraParallelProjection"));
   ivp->SetElement(0, 1);
   
-  vtkSMIntVectorProperty* lvp = vtkSMIntVectorProperty::SafeDownCast(
-    this->GetProperty("LegendScaleAxesVisibility"));
-  lvp->SetElement(0, 1);
-
-  vtkSMIntVectorProperty* rvp = vtkSMIntVectorProperty::SafeDownCast(
-    this->GetProperty("RightAxisVisibility"));
-  rvp->SetElement(0, 0);
-
-  vtkSMIntVectorProperty* tvp = vtkSMIntVectorProperty::SafeDownCast(
-    this->GetProperty("TopAxisVisibility"));
-  tvp->SetElement(0, 0);
-  
   bool res =  this->Superclass::BeginCreateVTKObjects();
-
   return res;
-}
-
-//----------------------------------------------------------------------------
-void vtkSMScatterPlotViewProxy::EndCreateVTKObjects()
-{
-  this->Superclass::EndCreateVTKObjects();
-  //this->RenderView->AddPropToRenderer(this->CubeAxesActor);
-  //this->RenderView->AddPropToRenderer2D(this->LegendScaleActor);
-
-//   vtkClientServerStream stream;
-//   stream  << vtkClientServerStream::Invoke
-//           << this->RenderView->GetRendererProxy()->GetID()
-//           << "GetActiveCamera"
-//           << vtkClientServerStream::End;
-//   stream  << vtkClientServerStream::Invoke
-//           << this->CubeAxesActor->GetID()
-//           << "SetCamera"
-//           << vtkClientServerStream::LastResult
-//           << vtkClientServerStream::End;
-//  vtkProcessModule::GetProcessModule()->SendStream(
-//     this->ConnectionID, vtkProcessModule::CLIENT|vtkProcessModule::RENDER_SERVER,
-//    stream);
-
 }
 
 
@@ -314,5 +239,4 @@ const char* vtkSMScatterPlotViewProxy::GetSuggestedViewType(vtkIdType connection
     }
 
   return this->Superclass::GetSuggestedViewType(connectionID);
-  //return "ScatterPlotView";
 }

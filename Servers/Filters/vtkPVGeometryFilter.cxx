@@ -52,13 +52,14 @@
 #include "vtkStructuredGridOutlineFilter.h"
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedIntArray.h"
+#include "vtkAlgorithmOutput.h"
 #include "vtkUnstructuredGrid.h"
 
 #include <vtkstd/map>
 #include <vtkstd/string>
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.94 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.98 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 vtkCxxSetObjectMacro(vtkPVGeometryFilter, Controller, vtkMultiProcessController);
@@ -378,7 +379,7 @@ vtkCompositeDataSet* vtkPVGeometryFilter::FillPartialArrays(
 
 //----------------------------------------------------------------------------
 int vtkPVGeometryFilter::RequestInformation(
-  vtkInformation*, vtkInformationVector**, vtkInformationVector* outputVector)
+  vtkInformation*, vtkInformationVector** vtkNotUsed(inVectors), vtkInformationVector* outputVector)
 {
   vtkInformation* outInfo = outputVector->GetInformationObject(0);
 
@@ -393,6 +394,26 @@ int vtkPVGeometryFilter::RequestInformation(
 void vtkPVGeometryFilter::ExecuteBlock(
   vtkDataObject* input, vtkPolyData* output, int doCommunicate)
 {
+  if (this->UseOutline && this->MakeOutlineOfInput)
+    {    
+    vtkAlgorithmOutput *pport = input->GetProducerPort();
+    vtkDataObject *insin = NULL;
+    if (pport)
+      {
+      vtkAlgorithm *alg = pport->GetProducer();
+      if (alg && 
+          alg->GetNumberOfInputPorts() && 
+          alg->GetNumberOfInputConnections(0))
+        {
+        insin = alg->GetInputDataObject(0,0);
+        }
+      }
+    if (insin)
+      {
+      input = insin;
+      }
+    }
+
   if (input->IsA("vtkImageData"))
     {
     this->ImageDataExecute(static_cast<vtkImageData*>(input), output, doCommunicate);
@@ -477,13 +498,8 @@ int vtkPVGeometryFilter::RequestData(vtkInformation* request,
     }
 
   this->ExecuteBlock(input, output, 1);
+  this->RemoveGhostCells(output);
 
-  vtkDataArray* ghost = output->GetCellData()->GetArray("vtkGhostLevels");
-  if (ghost)
-    {
-    output->RemoveGhostCells(1);
-    }
-  
   return 1;
 }
 
@@ -604,6 +620,7 @@ int vtkPVGeometryFilter::ExecuteCompositeDataSet(
     
     vtkPolyData* tmpOut = vtkPolyData::New();
     this->ExecuteBlock(block, tmpOut, 0);
+    this->RemoveGhostCells(tmpOut);
 
     if (hdIter)
       {
@@ -903,7 +920,8 @@ void vtkPVGeometryFilter::ImageDataExecute(vtkImageData *input,
   // Otherwise, let OutlineSource do all the work
   //
   
-  if (output->GetUpdatePiece() == 0 || !doCommunicate)
+  if (ext[1] >= ext[0] && ext[3] >= ext[2] && ext[5] >= ext[4] &&
+    (output->GetUpdatePiece() == 0 || !doCommunicate))
     {
     spacing = input->GetSpacing();
     origin = input->GetOrigin();
@@ -921,6 +939,7 @@ void vtkPVGeometryFilter::ImageDataExecute(vtkImageData *input,
 
     output->SetPoints(outline->GetOutput()->GetPoints());
     output->SetLines(outline->GetOutput()->GetLines());
+    output->SetPolys(outline->GetOutput()->GetPolys());
     outline->Delete();
     }
   else
@@ -1233,5 +1252,15 @@ void vtkPVGeometryFilter::SetUseStrips(int newvalue)
       this->StripModFirstPass = 0;
       }
     this->StripSettingMTime.Modified();
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkPVGeometryFilter::RemoveGhostCells(vtkPolyData* output)
+{
+  vtkDataArray* ghost = output->GetCellData()->GetArray("vtkGhostLevels");
+  if (ghost)
+    {
+    output->RemoveGhostCells(1);
     }
 }

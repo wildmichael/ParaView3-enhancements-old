@@ -29,7 +29,6 @@
 
 #include "vtkMutableDirectedGraph.h"
 #include "vtkSILBuilder.h"
-#include "vtkDataArraySelection.h"
 
 #include "XdmfArray.h"
 #include "XdmfAttribute.h"
@@ -45,6 +44,7 @@
 #include <vtkstd/string>
 #include <vtkstd/vector>
 #include <vtkstd/set>
+#include <vtkstd/map>
 #include <vtksys/SystemTools.hxx>
 #include <assert.h>
 #include <functional>
@@ -103,6 +103,66 @@ private:
   vtkstd::string LastReadFilename;
 };
 
+// I don't use vtkDataArraySelection since it's very slow when it comes to large
+// number of arrays. 
+class vtkXdmfArraySelection : public vtkstd::map<vtkstd::string, bool>
+{
+public:
+  void AddArray(const char* name, bool status=true)
+    {
+    (*this)[name] = status;
+    }
+  
+  bool ArrayIsEnabled(const char* name)
+    {
+    vtkXdmfArraySelection::iterator iter = this->find(name);
+    if (iter != this->end())
+      {
+      return iter->second;
+      }
+
+    // don't know anything about this array, enable it by default.
+    return true;
+    }
+
+  bool HasArray(const char* name)
+    {
+    vtkXdmfArraySelection::iterator iter = this->find(name);
+    return (iter != this->end());
+    }
+
+  int GetArraySetting(const char* name)
+    {
+    return this->ArrayIsEnabled(name)? 1 : 0;
+    }
+
+  void SetArrayStatus(const char* name, bool status)
+    {
+    this->AddArray(name, status);
+    }
+
+  const char* GetArrayName(int index)
+    {
+    int cc=0;
+    for (vtkXdmfArraySelection::iterator iter = this->begin();
+      iter != this->end(); ++iter)
+      {
+
+      if (cc==index)
+        {
+        return iter->first.c_str();
+        }
+      cc++;
+      }
+    return NULL; 
+    }
+
+  int GetNumberOfArrays()
+    {
+    return static_cast<int>(this->size());
+    }
+};
+
 //***************************************************************************
 class vtkXdmfDomain 
 {
@@ -113,12 +173,19 @@ private:
   XdmfXmlNode XMLDomain;
   XdmfDOM* XMLDOM;
 
+  unsigned int GridsOverflowCounter;
+  // these are node indices used when building the SIL.
+  vtkIdType SILBlocksRoot;
+  vtkstd::map<vtkstd::string, vtkIdType> GridCenteredAttrbuteRoots;
+  vtkstd::map<vtkIdType,
+    vtkstd::map<XdmfInt64, vtkIdType> > GridCenteredAttrbuteValues;
+
   vtkSILBuilder* SILBuilder;
   vtkMutableDirectedGraph* SIL;
-  vtkDataArraySelection* PointArrays;
-  vtkDataArraySelection* CellArrays;
-  vtkDataArraySelection* Grids;
-  vtkDataArraySelection* Sets;
+  vtkXdmfArraySelection* PointArrays;
+  vtkXdmfArraySelection* CellArrays;
+  vtkXdmfArraySelection* Grids;
+  vtkXdmfArraySelection* Sets;
   vtkstd::set<XdmfFloat64> TimeSteps; //< Only discrete timesteps are currently
                                  //  supported.
 
@@ -223,13 +290,13 @@ public:
   // Returns -1 is the xmfGrid is not a uniform i.e. is a collection or a tree.
   static int GetDataDimensionality(XdmfGrid* xmfGrid);
 
-  vtkDataArraySelection* GetPointArraySelection()
+  vtkXdmfArraySelection* GetPointArraySelection()
     { return this->PointArrays; }
-  vtkDataArraySelection* GetCellArraySelection()
+  vtkXdmfArraySelection* GetCellArraySelection()
     { return this->CellArrays; }
-  vtkDataArraySelection* GetGridSelection()
+  vtkXdmfArraySelection* GetGridSelection()
     { return this->Grids; }
-  vtkDataArraySelection* GetSetsSelection()
+  vtkXdmfArraySelection* GetSetsSelection()
     { return this->Sets; }
 
 private:
@@ -252,6 +319,12 @@ private:
 
   // Used by CollectMetaData().
   void CollectLeafMetaData(XdmfGrid* xmfGrid, vtkIdType silParent);
+
+  // Description:
+  // Use this to add an association with the grid attribute with the node for
+  // the grid in the SIL if applicable. Returns true if the attribute was added.
+  bool UpdateGridAttributeInSIL(
+    XdmfAttribute* xmfAttribute, vtkIdType gridSILId);
 };
 
 #endif
