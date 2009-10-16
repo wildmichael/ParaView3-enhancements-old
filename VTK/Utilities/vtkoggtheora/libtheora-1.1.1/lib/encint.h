@@ -17,7 +17,8 @@
 #if !defined(_encint_H)
 # define _encint_H (1)
 # if defined(HAVE_CONFIG_H)
-#  include "config.h"
+/* KITWARE_OGGTHEORA_CHANGE make sure we include the right headers */
+#  include "vtkoggtheora/include/theora/config.h"
 # endif
 /* KITWARE_OGGTHEORA_CHANGE make sure we include the right headers */
 # include "vtkoggtheora/include/theora/theoraenc.h"
