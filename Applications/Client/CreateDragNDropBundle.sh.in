@@ -90,9 +90,10 @@ function beautify_rw_image() {
 
   # position items
   echo "-- Beautifying DMG Finder appearence"
-  osascript - << EOF
+  for dummy in 1 2; do # HACK to make it stick in 10.6
+    osascript - << EOF
 tell application "Finder"
-  set f to POSIX file ("$staging_area/mnt" as string) as alias
+  set f to POSIX file "$staging_area/mnt" as alias
   tell folder f
     open
     delay 2 -- Sync
@@ -114,14 +115,18 @@ tell application "Finder"
     update without registering applications
     delay 5 -- Sync
     close
+    -- HACK to make it stick on 10.6 (WTF?!)
+    open
+    close
   end tell
   -- Sync
   delay 5
 end tell
 EOF
-if [ $? -ne 0 ]; then
-  return 1
-fi
+    if [ $? -ne 0 ]; then
+      return 1
+    fi
+  done
 
   # turn on custom volume icon
   echo "-- Setting volume icon"
