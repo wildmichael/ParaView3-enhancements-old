@@ -175,6 +175,10 @@ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/QVTKWidget.h.in
                ${CMAKE_CURRENT_BINARY_DIR}/QVTKWidget.h
                @ONLY)
 
+IF(APPLE AND VTK_USE_CARBON)
+  LIST(APPEND QT_LIBS /System/Library/Frameworks/Carbon.framework)
+ENDIF(APPLE AND VTK_USE_CARBON)
+
 ADD_LIBRARY(QVTK ${QVTKLibSrcs} ${QVTKLibMocSrcs})
 
 # Apply user-defined properties to the library target.
