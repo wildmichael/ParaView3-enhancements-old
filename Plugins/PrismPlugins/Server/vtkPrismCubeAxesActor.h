@@ -3,8 +3,8 @@
   Program:   Prism 
   Module:    $RCSfile: vtkPrismCubeAxesActor.h,v $
   Language:  C++
-  Date:      $Date: 2009-10-02 00:10:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2009-10-21 18:31:43 $
+  Version:   $Revision: 1.3 $
   Thanks:    Kathleen Bonnell, B Division, Lawrence Livermore Nat'l Laboratory 
   This class is largely based on vtkCubeAxisActor
 
@@ -62,6 +62,7 @@ All rights reserve
 
 class vtkAxisActor;
 class vtkCamera;
+class vtkDataSet;
 
 class vtkPrismCubeAxesActor : public vtkActor
 {
@@ -78,6 +79,9 @@ public:
   // Draw the axes as per the vtkProp superclass' API.
   virtual int RenderOpaqueGeometry(vtkViewport*);
   virtual int RenderTranslucentGeometry(vtkViewport *) {return 0;}
+
+
+
 
   // Description:
   // Explicitly specify the region in space around which to draw the bounds.
@@ -260,6 +264,8 @@ public:
 protected:
   vtkPrismCubeAxesActor();
   ~vtkPrismCubeAxesActor();
+
+  vtkDataSet *Input;    //Define bounds from input data, or
 
   int LabelExponent(double min, double max);
   int Digits(double min, double max);

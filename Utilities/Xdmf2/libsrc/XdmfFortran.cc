@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFortran.cc,v 1.9 2009-10-02 12:57:54 clarke Exp $  */
-/*  Date : $Date: 2009-10-02 12:57:54 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfFortran.cc,v 1.10 2009-10-20 14:33:08 kwleiter Exp $  */
+/*  Date : $Date: 2009-10-20 14:33:08 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -42,6 +42,7 @@
 #define XdmfAddCollection xdmfaddcollection_
 #define XdmfCloseCollection xdmfclosecollection_
 #define XdmfSetGridTopology xdmfsetgridtopology_
+#define XdmfSetGridTopologyFromShape xdmfsetgridtopologyfromshape_
 #define XdmfSetGridGeometry xdmfsetgridgeometry_
 #define XdmfAddGridAttribute xdmfaddgridattribute_
 #define XdmfAddGridInformation xdmfaddgridinformation_
@@ -177,21 +178,34 @@ void XdmfFortran::CloseCollection()
  */
 void XdmfFortran::SetGridTopology(char * topologyType, int * numberOfElements, XdmfInt32 * conns)
 {
+	std::stringstream shape;
+	shape << numberOfElements;
+	this->SetGridTopologyFromShape(topologyType, (char*)shape.str().c_str(), conns);
+}
+
+/**
+ *
+ * Set the topology type to be assigned to the next grid.
+ * Only XDMF_INT_32 type currently supported for Topology --> INTEGER*4
+ *
+ */
+void XdmfFortran::SetGridTopologyFromShape(char * topologyType, char * shape, XdmfInt32 * conns)
+{
 	myTopology = new XdmfTopology();
 	myTopology->SetTopologyTypeFromString(topologyType);
-	myTopology->SetNumberOfElements(*numberOfElements);
+	myTopology->GetShapeDesc()->SetShapeFromString(shape);
 
 	// Fortran is 1 based while c++ is 0 based so
 	// Either subtract 1 from all connections or specify a BaseOffset
 	//myPointer->myTopology->SetBaseOffset(1);
 
 	// If you haven't assigned an XdmfArray, GetConnectivity() will create one.
-	if (myTopology->GetTopologyType() != XDMF_POLYVERTEX)
+	if (conns != NULL && myTopology->GetTopologyType() != XDMF_POLYVERTEX)
 	{
 		XdmfArray * myConnections = myTopology->GetConnectivity();
 		myConnections->SetNumberType(XDMF_INT32_TYPE);
-		myConnections->SetNumberOfElements(*numberOfElements * myTopology->GetNodesPerElement());
-		myConnections->SetValues(0, conns, *numberOfElements * myTopology->GetNodesPerElement());
+		myConnections->SetNumberOfElements(myTopology->GetNumberOfElements() * myTopology->GetNodesPerElement());
+		myConnections->SetValues(0, conns, myTopology->GetNumberOfElements() * myTopology->GetNodesPerElement());
 	}
 }
 
@@ -910,6 +924,12 @@ extern "C" {
 	{
 		XdmfFortran * myPointer = (XdmfFortran *)*pointer;
 		myPointer->SetGridTopology(topologyType, numberOfElements, conns);
+	}
+
+	void XDMF_UTILS_DLL XdmfSetGridTopologyFromShape(long * pointer, char * topologyType, char * shape, XdmfInt32 * conns)
+	{
+		XdmfFortran * myPointer = (XdmfFortran *)*pointer;
+		myPointer->SetGridTopologyFromShape(topologyType, shape, conns);
 	}
 
 	void XDMF_UTILS_DLL XdmfSetGridGeometry(long * pointer, char * geometryType, char * numberType, int * numberOfPoints, XdmfPointer * points)

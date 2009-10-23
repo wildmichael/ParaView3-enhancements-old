@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.16 2009-05-08 18:41:46 clarke Exp $  */
-/*  Date : $Date: 2009-05-08 18:41:46 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.17 2009-10-21 11:06:27 dave.demarle Exp $  */
+/*  Date : $Date: 2009-10-21 11:06:27 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -126,11 +126,26 @@ XdmfValuesHDF::Write(XdmfArray *anArray, XdmfConstString aHeavyDataSetName){
     H5.SetWorkingDirectory(this->DOM->GetWorkingDirectory());
     if(!aHeavyDataSetName) aHeavyDataSetName = this->GetHeavyDataSetName();
     if(!aHeavyDataSetName){
-        if(anArray->GetHeavyDataSetName()){
-            aHeavyDataSetName = (XdmfConstString)anArray->GetHeavyDataSetName();
-        }else{
+        if(anArray->GetHeavyDataSetName())
+          {
+          aHeavyDataSetName = (XdmfConstString)anArray->GetHeavyDataSetName();
+          }
+        else
+          {
+          static char FName[256];
+          sprintf(FName, "%s", this->DOM->GetOutputFileName());
+          char *ext = strstr(FName, ".xmf");
+          const char *NewExt = ".h5:/Data";
+          if (ext && ext < FName+(256-strlen(NewExt)))
+            {
+            sprintf(ext, NewExt);
+            aHeavyDataSetName = this->GetUniqueName(FName);
+            }
+          else
+            {
             aHeavyDataSetName = this->GetUniqueName("Xdmf.h5:/Data");
-        }
+            }
+          }
     }
     // Possible Write to DSM. Make sure we're connected
     if(!this->DsmBuffer) this->SetDsmBuffer(anArray->GetDsmBuffer());
