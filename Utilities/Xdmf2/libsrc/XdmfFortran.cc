@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFortran.cc,v 1.10 2009-10-20 14:33:08 kwleiter Exp $  */
-/*  Date : $Date: 2009-10-20 14:33:08 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfFortran.cc,v 1.11 2009-10-23 15:53:44 kwleiter Exp $  */
+/*  Date : $Date: 2009-10-23 15:53:44 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Kenneth Leiter                                              */
@@ -200,7 +200,7 @@ void XdmfFortran::SetGridTopologyFromShape(char * topologyType, char * shape, Xd
 	//myPointer->myTopology->SetBaseOffset(1);
 
 	// If you haven't assigned an XdmfArray, GetConnectivity() will create one.
-	if (conns != NULL && myTopology->GetTopologyType() != XDMF_POLYVERTEX)
+	if (myTopology->GetClass() != XDMF_STRUCTURED && myTopology->GetTopologyType() != XDMF_POLYVERTEX)
 	{
 		XdmfArray * myConnections = myTopology->GetConnectivity();
 		myConnections->SetNumberType(XDMF_INT32_TYPE);
