@@ -238,15 +238,6 @@ IF(WIN32)
 ENDIF(WIN32)
 
 #-----------------------------------------------------------------------------
-# new vtkOpenFOAMReader
-# If the user wants the new vtkOpenFOAMReader, enable it
-IF (VTK_USE_NEW_VTKOPENFOAMREADER)
-  SET(Kit_SRCS ${Kit_SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/vtkNewOpenFOAMReader/vtkNewOpenFOAMReader.cxx)
-ELSE (VTK_USE_NEW_VTKOPENFOAMREADER)
-  SET(Kit_SRCS ${Kit_SRCS} vtkOpenFOAMReader.cxx)
-ENDIF (VTK_USE_NEW_VTKOPENFOAMREADER)
-
-#-----------------------------------------------------------------------------
 # FFMPEG
 # If the ffmpeg library is available, compile vtkFFMPEGWriter.
 IF (VTK_USE_FFMPEG_ENCODER)

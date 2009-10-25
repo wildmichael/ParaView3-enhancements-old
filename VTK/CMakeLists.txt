@@ -839,13 +839,6 @@ cvs -d :pserver:anonymous@public.kitware.com:/cvsroot/VTK checkout VTKLargeData"
   )
 
 #-----------------------------------------------------------------------------
-# new vtkOpenFOAMReader
-# If the user wants the new vtkOpenFOAMReader, enable it if we have
-# parallel support.
-OPTION (VTK_USE_NEW_VTKOPENFOAMREADER "Should VTK use the new OpenFOAM reader?" ON)
-MARK_AS_ADVANCED(VTK_USE_NEW_VTKOPENFOAMREADER)
-
-#-----------------------------------------------------------------------------
 # FFMPEG
 # If the ffmpeg library is available, use it.
 OPTION (VTK_USE_FFMPEG_ENCODER "If the FFMPEG library is available, should VTK use it for saving .avi animation files?" FALSE)
