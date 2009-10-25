@@ -58,6 +58,23 @@ IF(Q_WS_MAC)
     PROPERTIES
     MACOSX_PACKAGE_LOCATION Resources
     )
+  IF(QT_MAC_USE_COCOA)
+    GET_FILENAME_COMPONENT(qt_menu_nib
+      "@QT_QTGUI_LIBRARY_RELEASE@/Resources/qt_menu.nib"
+      REALPATH)
+    set(qt_menu_nib_sources
+      "${qt_menu_nib}/classes.nib"
+      "${qt_menu_nib}/info.nib"
+      "${qt_menu_nib}/keyedobjects.nib"
+      )
+    SET_SOURCE_FILES_PROPERTIES(
+      ${qt_menu_nib_sources}
+      PROPERTIES
+      MACOSX_PACKAGE_LOCATION Resources/qt_menu.nib
+      )
+  ELSE(QT_MAC_USE_COCOA)
+    set(qt_menu_nib_sources)
+  ENDIF(QT_MAC_USE_COCOA)
   SET(MACOSX_BUNDLE_ICON_FILE MacIcon.icns)
   SET(MAKE_BUNDLE MACOSX_BUNDLE)
 ENDIF(Q_WS_MAC)
@@ -80,6 +97,7 @@ ADD_EXECUTABLE(${PV_EXE_NAME} WIN32 ${MAKE_BUNDLE}
   ProcessModuleGUIHelper.h
   ${EXE_ICON}
   ${apple_bundle_sources}
+  ${qt_menu_nib_sources}
 )
 
 # Need an extended Info.plist to register all the file types on Mac OS X
