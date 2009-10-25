@@ -125,7 +125,7 @@ void vtkXdmfWriter2Internal::DetermineCellTypes(vtkPointSet * t, vtkXdmfWriter2I
 //==============================================================================
 
 vtkStandardNewMacro(vtkXdmfWriter2);
-vtkCxxRevisionMacro(vtkXdmfWriter2, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkXdmfWriter2, "$Revision: 1.19 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter2::vtkXdmfWriter2()
@@ -826,8 +826,7 @@ void vtkXdmfWriter2::WriteAtomicDataSet(vtkDataObject *dobj, XdmfGrid *grid)
     XdmfArray *xda = new XdmfArray;
     vtkIdType shape[2];
     shape[0] = da->GetNumberOfTuples();
-    shape[1] = 3;
-    this->ConvertVToXArray(da, xda, 2, shape, 0);
+    this->ConvertVToXArray(da, xda, 1, shape, 0);
     geo->SetPoints(xda);
     }
     break;
@@ -945,7 +944,7 @@ void vtkXdmfWriter2::ConvertVToXArray(vtkDataArray *vda,
   if (nc != 1)
     {
     lDims[rank]=nc;
-    rank++;
+    lRank+=1;
     }
 
   switch (vda->GetDataType())
