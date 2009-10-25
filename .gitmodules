@@ -1,0 +1,3 @@
+[submodule "Plugins/POpenFOAMReader"]
+	path = Plugins/POpenFOAMReader
+	url = git://github.com/themiwi/ParaView3POpenFOAMReader.git
