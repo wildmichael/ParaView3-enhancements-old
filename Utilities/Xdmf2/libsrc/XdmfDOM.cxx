@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.27 2009-08-05 20:34:44 kwleiter Exp $  */
-/*  Date : $Date: 2009-08-05 20:34:44 $ */
-/*  Version : $Revision: 1.27 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.28 2009-10-27 19:24:09 jvines Exp $  */
+/*  Date : $Date: 2009-10-27 19:24:09 $ */
+/*  Version : $Revision: 1.28 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -58,7 +58,7 @@ XdmfDOM::XdmfDOM(){
   this->Output = &cout;
   this->Input = &cin;
   this->Doc = NULL;
-
+	this->DTD = 1;
   this->OutputFileName = 0;
   XDMF_STRING_DUPLICATE(this->OutputFileName, "stdout");
   this->SetFileName("stdin");
@@ -196,8 +196,12 @@ XdmfDOM::SetInputFileName( XdmfConstString Filename ){
 
 XdmfInt32
 XdmfDOM::GenerateHead() {
-  *this->Output << "<?xml version=\"1.0\" ?>" << endl 
+	if(this->DTD){
+  	*this->Output << "<?xml version=\"1.0\" ?>" << endl 
         << "<!DOCTYPE Xdmf SYSTEM \"Xdmf.dtd\" []>" << endl ;
+	} else {
+  	*this->Output << "<?xml version=\"1.0\" ?>" << endl;
+	} 
   this->Output->flush();
   return( XDMF_SUCCESS );
 }
